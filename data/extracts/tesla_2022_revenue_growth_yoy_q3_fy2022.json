@@ -1,0 +1,5 @@
+{ "extraction_id": "tesla_2022_revenue_growth_yoy_q3_fy2022",
+  "snippet_id": "tesla_2022_revenue",
+  "label": "revenue_growth_yoy",
+  "period": { "value": "Q3 2022", "period": "Q" },
+  "quantity": { "value": 55.95, "unit": "percent", "scale": 1, "type": "rate" } }

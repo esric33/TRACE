@@ -1,0 +1,1 @@
+{ "extraction_id": "sony_2021_music_op_income_fy2021", "snippet_id": "sony_2021_revenue", "label": "operating_income_music", "period": { "value": 2021, "period": "FY" }, "quantity": { "value": 210.9, "unit": "JPY", "scale": 1000000000, "type": "money" } }

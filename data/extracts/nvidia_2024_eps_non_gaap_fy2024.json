@@ -1,0 +1,5 @@
+{ "extraction_id": "nvidia_2024_eps_non_gaap_fy2024",
+  "snippet_id": "nvidia_2024_revenue",
+  "label": "eps_non_gaap",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": { "value": 12.96, "unit": "USD", "scale": 1, "type": "per_share" } }

@@ -1,0 +1,6 @@
+
+{ "extraction_id": "tesla_2019_revenue_growth_yoy_fy2019",
+  "snippet_id": "tesla_2022_revenue",
+  "label": "revenue_growth_yoy",
+  "period": { "value": 2019, "period": "FY" },
+  "quantity": { "value": 14.52, "unit": "percent", "scale": 1, "type": "rate" } }

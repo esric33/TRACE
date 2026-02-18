@@ -1,0 +1,6 @@
+
+{ "extraction_id": "toyota_2024_income_before_tax_fy2024",
+  "snippet_id": "toyota_2024_sales",
+  "label": "income_before_tax",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": { "value": 6965.0, "unit": "JPY", "scale": 1000000000, "type": "money" } }

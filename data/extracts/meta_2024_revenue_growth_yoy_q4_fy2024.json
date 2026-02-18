@@ -1,0 +1,7 @@
+{
+  "extraction_id": "meta_2024_revenue_growth_yoy_q4_fy2024",
+  "snippet_id": "meta_2024_revenue",
+  "label": "revenue_growth_yoy",
+  "period": { "value": "Q4 2024", "period": "Q" },
+  "quantity": { "value": 21, "unit": "percent", "scale": 1, "type": "rate" }
+}

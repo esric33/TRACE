@@ -1,0 +1,1 @@
+{ "extraction_id": "totalenergies_2023_income_equity_affiliates_fy2023", "snippet_id": "total_energies_2024_revenue", "label": "income_equity_affiliates", "period": { "value": 2023, "period": "FY" }, "quantity": { "value": 1845, "unit": "USD", "scale": 1000000, "type": "money" } }

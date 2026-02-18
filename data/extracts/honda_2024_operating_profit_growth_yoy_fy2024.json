@@ -1,0 +1,12 @@
+{
+  "extraction_id": "honda_2024_operating_profit_growth_yoy_fy2024",
+  "snippet_id": "honda_2024_revenue",
+  "label": "operating_profit_growth_yoy",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": {
+    "value": 77.0,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  }
+}

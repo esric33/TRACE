@@ -1,0 +1,12 @@
+{
+  "extraction_id": "exxon_2021_net_earnings_q4_fy2021",
+  "snippet_id": "exxon_2021_earnings",
+  "label": "net_earnings",
+  "period": { "value": "Q4 2021", "period": "Q" },
+  "quantity": {
+    "value": 8.9,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  }
+}

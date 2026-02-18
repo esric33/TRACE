@@ -1,0 +1,7 @@
+
+{ "extraction_id": "siemens_2023_orders_growth_yoy_fy2023",
+  "snippet_id": "siemans_2023_revenue",
+  "label": "orders_growth_yoy",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 7.0, "unit": "percent", "scale": 1, "type": "rate" } }
+

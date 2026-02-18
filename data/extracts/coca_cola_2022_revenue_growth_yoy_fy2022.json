@@ -1,0 +1,12 @@
+{
+  "extraction_id": "coca_cola_2022_revenue_growth_yoy_fy2022",
+  "snippet_id": "coca_cola_2022_revenue",
+  "label": "revenue_net_growth_yoy",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": {
+    "value": 11,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "extraction_id": "jlr_2024_free_cash_flow_q4_fy2024",
+  "snippet_id": "jlr_2024_revenue",
+  "label": "free_cash_flow",
+  "period": { "value": "Q4 FY2024", "period": "Q" },
+  "quantity": { "value": 892, "unit": "GBP", "scale": 1000000, "type": "money" }
+}

@@ -1,0 +1,8 @@
+{
+  "extraction_id": "hyundai_2022_vehicle_sales_volume_fy2022",
+  "snippet_id": "hyundai_2022_revenue",
+  "label": "vehicle_sales_volume",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 3.94, "unit": "items", "scale": 1000000, "type": "count" }
+}
+

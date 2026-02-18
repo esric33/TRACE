@@ -1,0 +1,12 @@
+{
+  "extraction_id": "exxon_2024_cash_flow_operations_q4_fy2024",
+  "snippet_id": "exxon_2024_earnings",
+  "label": "cash_flow_operations",
+  "period": { "value": "Q4 2024", "period": "Q" },
+  "quantity": {
+    "value": 12.2,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  }
+}

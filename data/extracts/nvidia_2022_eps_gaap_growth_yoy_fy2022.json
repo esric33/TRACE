@@ -1,0 +1,6 @@
+
+{ "extraction_id": "nvidia_2022_eps_gaap_growth_yoy_fy2022",
+  "snippet_id": "nvidia_2022_revenue",
+  "label": "eps_gaap_growth_yoy",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 123.0, "unit": "percent", "scale": 1, "type": "rate" } }

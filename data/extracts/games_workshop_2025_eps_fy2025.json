@@ -1,0 +1,12 @@
+{
+  "extraction_id": "games_workshop_2025_eps_fy2025",
+  "snippet_id": "games_workshop_2025_revenue",
+  "label": "eps",
+  "period": { "value": 2025, "period": "FY" },
+  "quantity": {
+    "value": 594.9,
+    "unit": "GBP",
+    "scale": 0.01,
+    "type": "per_share"
+  }
+}

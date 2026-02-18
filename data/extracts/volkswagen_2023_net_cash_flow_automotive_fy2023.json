@@ -1,0 +1,7 @@
+
+{ "extraction_id": "volkswagen_2023_net_cash_flow_automotive_fy2023",
+  "snippet_id": "volkswagen_2024_revenue",
+  "label": "net_cash_flow_automotive_division",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 10.7, "unit": "EUR", "scale": 1000000000, "type": "money" } }
+

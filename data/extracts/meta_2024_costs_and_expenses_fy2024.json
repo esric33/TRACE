@@ -1,0 +1,7 @@
+{
+  "extraction_id": "meta_2024_costs_and_expenses_fy2024",
+  "snippet_id": "meta_2024_revenue",
+  "label": "costs_and_expenses",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": { "value": 95.12, "unit": "USD", "scale": 1000000000, "type": "money" }
+}

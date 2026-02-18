@@ -1,0 +1,2 @@
+
+{ "extraction_id": "totalenergies_2024_consolidated_net_income_fy2024", "snippet_id": "total_energies_2024_revenue", "label": "net_income_consolidated", "period": { "value": 2024, "period": "FY" }, "quantity": { "value": 16031, "unit": "USD", "scale": 1000000, "type": "money" } }

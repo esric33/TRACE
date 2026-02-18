@@ -1,0 +1,1 @@
+{ "extraction_id": "sony_2020_corp_op_income_fy2020", "snippet_id": "sony_2021_revenue", "label": "operating_income_corporate_elimination", "period": { "value": 2020, "period": "FY" }, "quantity": { "value": -86.8, "unit": "JPY", "scale": 1000000000, "type": "money" } }

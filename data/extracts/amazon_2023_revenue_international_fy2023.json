@@ -1,0 +1,12 @@
+{
+  "extraction_id": "amazon_2023_revenue_international_fy2023",
+  "snippet_id": "amazon_2023_revenue",
+  "label": "revenue_international",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": {
+    "value": 131,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  }
+}

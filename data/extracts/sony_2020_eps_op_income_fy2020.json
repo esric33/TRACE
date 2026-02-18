@@ -1,0 +1,2 @@
+
+{ "extraction_id": "sony_2020_eps_op_income_fy2020", "snippet_id": "sony_2021_revenue", "label": "operating_income_electronics_products_solutions", "period": { "value": 2020, "period": "FY" }, "quantity": { "value": 127.9, "unit": "JPY", "scale": 1000000000, "type": "money" } }

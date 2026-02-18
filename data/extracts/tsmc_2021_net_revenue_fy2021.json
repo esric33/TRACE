@@ -1,0 +1,1 @@
+{ "extraction_id": "tsmc_2021_net_revenue_fy2021", "snippet_id": "tsmc_2023_revenue", "label": "revenue", "period": { "value": 2021, "period": "FY" }, "quantity": { "value": 1587415037, "unit": "TWD", "scale": 1000, "type": "money" } }

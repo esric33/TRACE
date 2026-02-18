@@ -1,0 +1,7 @@
+{
+  "extraction_id": "jlr_2024_net_debt_fy2024",
+  "snippet_id": "jlr_2024_revenue",
+  "label": "net_debt",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": { "value": 0.7, "unit": "GBP", "scale": 1000000000, "type": "money" }
+}

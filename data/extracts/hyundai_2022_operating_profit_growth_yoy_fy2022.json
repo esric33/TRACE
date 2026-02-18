@@ -1,0 +1,7 @@
+{
+  "extraction_id": "hyundai_2022_operating_profit_growth_yoy_fy2022",
+  "snippet_id": "hyundai_2022_revenue",
+  "label": "operating_profit_growth_yoy",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 47, "unit": "percent", "scale": 1, "type": "rate" }
+}

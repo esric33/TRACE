@@ -1,0 +1,7 @@
+{
+  "extraction_id": "ibm_2024_gross_profit_margin_operating_q4_fy2024",
+  "snippet_id": "ibm_2024_revenue",
+  "label": "gross_profit_margin_operating",
+  "period": { "value": "Q4 2024", "period": "Q" },
+  "quantity": { "value": 60.6, "unit": "percent", "scale": 1, "type": "rate" }
+}

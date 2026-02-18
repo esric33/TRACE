@@ -1,0 +1,7 @@
+{
+  "extraction_id": "meta_2024_headcount_asof_2024_12_31",
+  "snippet_id": "meta_2024_revenue",
+  "label": "headcount",
+  "period": { "value": "2024-12-31", "period": "ASOF" },
+  "quantity": { "value": 74067, "unit": "people", "scale": 1, "type": "count" }
+}

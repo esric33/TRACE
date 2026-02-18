@@ -1,0 +1,6 @@
+
+{ "extraction_id": "nvidia_2024_data_center_revenue_growth_yoy_q4_fy2024",
+  "snippet_id": "nvidia_2024_revenue",
+  "label": "revenue_data_center_growth_yoy",
+  "period": { "value": "Q4 2024", "period": "Q" },
+  "quantity": { "value": 409.0, "unit": "percent", "scale": 1, "type": "rate" } }

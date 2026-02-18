@@ -1,0 +1,7 @@
+{
+  "extraction_id": "jlr_2024_profit_before_tax_q4_fy2024",
+  "snippet_id": "jlr_2024_revenue",
+  "label": "profit_before_tax",
+  "period": { "value": "Q4 FY2024", "period": "Q" },
+  "quantity": { "value": 661, "unit": "GBP", "scale": 1000000, "type": "money" }
+}

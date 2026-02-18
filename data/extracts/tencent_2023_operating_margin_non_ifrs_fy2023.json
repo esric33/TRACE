@@ -1,0 +1,6 @@
+
+{ "extraction_id": "tencent_2023_operating_margin_non_ifrs_fy2023",
+  "snippet_id": "tencent_2023_revenue",
+  "label": "operating_margin_non_ifrs",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 32.0, "unit": "percent", "scale": 1, "type": "rate" } }

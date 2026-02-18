@@ -1,0 +1,6 @@
+
+{ "extraction_id": "pfizer_2021_eps_reported_fy2021",
+  "snippet_id": "pfizer_2021_revenue",
+  "label": "eps_reported",
+  "period": { "value": 2021, "period": "FY" },
+  "quantity": { "value": 3.85, "unit": "USD", "scale": 1, "type": "per_share" } }

@@ -1,0 +1,7 @@
+{
+  "extraction_id": "hyundai_2022_operating_profit_q4_fy2022",
+  "snippet_id": "hyundai_2022_revenue",
+  "label": "operating_profit",
+  "period": { "value": "Q4 2022", "period": "Q" },
+  "quantity": { "value": 3.36, "unit": "KRW", "scale": 1000000000000, "type": "money" }
+}

@@ -1,0 +1,1 @@
+{ "extraction_id": "microsoft_2021_revenue_q4_fy2021", "snippet_id": "microsoft_2022_revenue", "label": "revenue", "period": { "value": "Q4 2021", "period": "Q" }, "quantity": { "value": 46.2, "unit": "USD", "scale": 1000000000, "type": "money" } }

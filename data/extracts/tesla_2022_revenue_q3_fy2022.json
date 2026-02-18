@@ -1,0 +1,5 @@
+{ "extraction_id": "tesla_2022_revenue_q3_fy2022",
+  "snippet_id": "tesla_2022_revenue",
+  "label": "revenue",
+  "period": { "value": "Q3 2022", "period": "Q" },
+  "quantity": { "value": 21.454, "unit": "USD", "scale": 1000000000, "type": "money" } }

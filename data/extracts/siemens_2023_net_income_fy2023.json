@@ -1,0 +1,5 @@
+{ "extraction_id": "siemens_2023_net_income_fy2023",
+  "snippet_id": "siemans_2023_revenue",
+  "label": "net_income",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 8.5, "unit": "EUR", "scale": 1000000000, "type": "money" } }

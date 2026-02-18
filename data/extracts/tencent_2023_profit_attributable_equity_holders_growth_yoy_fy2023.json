@@ -1,0 +1,6 @@
+
+{ "extraction_id": "tencent_2023_profit_attributable_equity_holders_growth_yoy_fy2023",
+  "snippet_id": "tencent_2023_revenue",
+  "label": "profit_attributable_to_equity_holders_growth_yoy",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 36.0, "unit": "percent", "scale": 1, "type": "rate" } }

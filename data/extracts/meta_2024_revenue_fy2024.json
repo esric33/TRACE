@@ -1,0 +1,7 @@
+{
+  "extraction_id": "meta_2024_revenue_fy2024",
+  "snippet_id": "meta_2024_revenue",
+  "label": "revenue",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": { "value": 164.50, "unit": "USD", "scale": 1000000000, "type": "money" }
+}

@@ -1,0 +1,1 @@
+{ "extraction_id": "tsmc_2023_income_before_tax_fy2023", "snippet_id": "tsmc_2023_revenue", "label": "income_before_tax", "period": { "value": 2023, "period": "FY" }, "quantity": { "value": 979171324, "unit": "TWD", "scale": 1000, "type": "money" } }

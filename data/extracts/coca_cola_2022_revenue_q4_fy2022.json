@@ -1,0 +1,12 @@
+{
+  "extraction_id": "coca_cola_2022_revenue_q4_fy2022",
+  "snippet_id": "coca_cola_2022_revenue",
+  "label": "revenue_net",
+  "period": { "value": "Q4 2022", "period": "Q" },
+  "quantity": {
+    "value": 10.1,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  }
+}

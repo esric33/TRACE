@@ -1,0 +1,5 @@
+{ "extraction_id": "samsung_2024_operating_profit_q4_fy2024",
+  "snippet_id": "samsung_2024_revenue",
+  "label": "operating_profit",
+  "period": { "value": "Q4 2024", "period": "Q" },
+  "quantity": { "value": 6.5, "unit": "KRW", "scale": 1000000000000, "type": "money" } }

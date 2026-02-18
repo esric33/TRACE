@@ -1,0 +1,5 @@
+{ "extraction_id": "volkswagen_2024_vehicle_sales_growth_yoy_fy2024",
+  "snippet_id": "volkswagen_2024_revenue",
+  "label": "vehicle_unit_sales_growth_yoy",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": { "value": -3.5, "unit": "percent", "scale": 1, "type": "rate" } }

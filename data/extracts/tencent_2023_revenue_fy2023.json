@@ -1,0 +1,5 @@
+{ "extraction_id": "tencent_2023_revenue_fy2023",
+  "snippet_id": "tencent_2023_revenue",
+  "label": "revenue",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 609.0, "unit": "RMB", "scale": 1000000000, "type": "money" } }

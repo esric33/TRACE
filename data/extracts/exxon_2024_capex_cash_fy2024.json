@@ -1,0 +1,12 @@
+{
+  "extraction_id": "exxon_2024_capex_cash_fy2024",
+  "snippet_id": "exxon_2024_earnings",
+  "label": "capex_cash",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": {
+    "value": 25.6,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  }
+}

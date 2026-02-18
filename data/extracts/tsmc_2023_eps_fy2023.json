@@ -1,0 +1,1 @@
+{ "extraction_id": "tsmc_2023_eps_fy2023", "snippet_id": "tsmc_2023_revenue", "label": "eps", "period": { "value": 2023, "period": "FY" }, "quantity": { "value": 32.34, "unit": "TWD", "scale": 1, "type": "per_share" } }

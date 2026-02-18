@@ -1,0 +1,7 @@
+{
+  "extraction_id": "ibm_2022_free_cash_flow_fy2022",
+  "snippet_id": "ibm_2022_revenue",
+  "label": "free_cash_flow",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 9.3, "unit": "USD", "scale": 1000000000, "type": "money" }
+}

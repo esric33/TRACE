@@ -1,0 +1,1 @@
+{ "extraction_id": "tsmc_2020_operating_income_fy2020", "snippet_id": "tsmc_2023_revenue", "label": "operating_income", "period": { "value": 2020, "period": "FY" }, "quantity": { "value": 566783698, "unit": "TWD", "scale": 1000, "type": "money" } }

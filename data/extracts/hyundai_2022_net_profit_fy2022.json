@@ -1,0 +1,7 @@
+{
+  "extraction_id": "hyundai_2022_net_profit_fy2022",
+  "snippet_id": "hyundai_2022_revenue",
+  "label": "net_profit",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 7.98, "unit": "KRW", "scale": 1000000000000, "type": "money" }
+}

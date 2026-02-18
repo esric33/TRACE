@@ -1,0 +1,5 @@
+{ "extraction_id": "samsung_2024_rnd_spend_q4_fy2024",
+  "snippet_id": "samsung_2024_revenue",
+  "label": "research_and_development_spend",
+  "period": { "value": "Q4 2024", "period": "Q" },
+  "quantity": { "value": 10.3, "unit": "KRW", "scale": 1000000000000, "type": "money" } }

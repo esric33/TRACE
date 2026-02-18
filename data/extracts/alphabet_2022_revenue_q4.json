@@ -1,0 +1,12 @@
+{
+  "extraction_id": "alphabet_2022_revenue_q4",
+  "snippet_id": "alphabet_2022_revenue",
+  "label": "revenue",
+  "period": { "value": "Q4 2022", "period": "Q" },
+  "quantity": {
+    "value": 76,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  }
+}

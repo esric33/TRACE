@@ -1,0 +1,6 @@
+
+{ "extraction_id": "siemens_2022_orders_fy2022",
+  "snippet_id": "siemans_2023_revenue",
+  "label": "orders",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 89.0, "unit": "EUR", "scale": 1000000000, "type": "money" } }

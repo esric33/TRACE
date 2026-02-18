@@ -1,0 +1,1 @@
+{ "extraction_id": "totalenergies_2024_share_net_income_fy2024", "snippet_id": "total_energies_2024_revenue", "label": "net_income_share_group", "period": { "value": 2024, "period": "FY" }, "quantity": { "value": 15758, "unit": "USD", "scale": 1000000, "type": "money" } }

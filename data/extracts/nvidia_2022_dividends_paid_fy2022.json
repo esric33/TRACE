@@ -1,0 +1,2 @@
+
+{ "extraction_id": "nvidia_2022_dividends_paid_fy2022", "snippet_id": "nvidia_2022_revenue", "label": "dividends_paid", "period": { "value": 2022, "period": "FY" }, "quantity": { "value": 399.0, "unit": "USD", "scale": 1000000, "type": "money" } }

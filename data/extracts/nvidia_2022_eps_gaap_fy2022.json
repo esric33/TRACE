@@ -1,0 +1,5 @@
+{ "extraction_id": "nvidia_2022_eps_gaap_fy2022",
+  "snippet_id": "nvidia_2022_revenue",
+  "label": "eps_gaap",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 3.85, "unit": "USD", "scale": 1, "type": "per_share" } }

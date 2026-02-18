@@ -1,0 +1,5 @@
+{ "extraction_id": "siemens_2022_dividend_per_share_fy2022",
+  "snippet_id": "siemans_2023_revenue",
+  "label": "dividend_per_share",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 4.25, "unit": "EUR", "scale": 1, "type": "per_share" } }

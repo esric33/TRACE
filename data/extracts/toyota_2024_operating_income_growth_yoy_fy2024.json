@@ -1,0 +1,7 @@
+
+{ "extraction_id": "toyota_2024_operating_income_growth_yoy_fy2024",
+  "snippet_id": "toyota_2024_sales",
+  "label": "operating_income_growth_yoy",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": { "value": 96.4, "unit": "percent", "scale": 1, "type": "rate" } }
+

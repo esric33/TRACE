@@ -1,0 +1,7 @@
+
+
+{ "extraction_id": "pepsico_2022_eps_reported_fy2022",
+  "snippet_id": "pepsi_2022_revenue",
+  "label": "eps_reported",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 6.42, "unit": "USD", "scale": 1, "type": "per_share" } }

@@ -1,0 +1,7 @@
+{
+  "extraction_id": "hyundai_2024_operating_profit_margin_q4_fy2024",
+  "snippet_id": "hyundai_2024_revenue",
+  "label": "operating_profit_margin",
+  "period": { "value": "Q4 2024", "period": "Q" },
+  "quantity": { "value": 6.1, "unit": "percent", "scale": 1, "type": "rate" }
+}

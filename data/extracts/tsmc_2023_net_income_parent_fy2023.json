@@ -1,0 +1,1 @@
+{ "extraction_id": "tsmc_2023_net_income_parent_fy2023", "snippet_id": "tsmc_2023_revenue", "label": "net_income_attributable_to_parent", "period": { "value": 2023, "period": "FY" }, "quantity": { "value": 838497664, "unit": "TWD", "scale": 1000, "type": "money" } }

@@ -1,0 +1,6 @@
+
+{ "extraction_id": "pfizer_2019_dividends_paid_fy2019",
+  "snippet_id": "pfizer_2021_revenue",
+  "label": "dividends_paid",
+  "period": { "value": 2019, "period": "FY" },
+  "quantity": { "value": 8043, "unit": "USD", "scale": 1000000, "type": "money" } }

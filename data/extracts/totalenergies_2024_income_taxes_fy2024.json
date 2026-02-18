@@ -1,0 +1,2 @@
+
+{ "extraction_id": "totalenergies_2024_income_taxes_fy2024", "snippet_id": "total_energies_2024_revenue", "label": "income_taxes", "period": { "value": 2024, "period": "FY" }, "quantity": { "value": -10775, "unit": "USD", "scale": 1000000, "type": "money" } }

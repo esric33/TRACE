@@ -1,0 +1,6 @@
+
+{ "extraction_id": "tencent_2023_net_margin_fy2023",
+  "snippet_id": "tencent_2023_revenue",
+  "label": "net_margin",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 27.0, "unit": "percent", "scale": 1, "type": "rate" } }

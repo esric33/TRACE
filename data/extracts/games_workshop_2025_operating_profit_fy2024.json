@@ -1,0 +1,12 @@
+{
+  "extraction_id": "games_workshop_2025_operating_profit_fy2024",
+  "snippet_id": "games_workshop_2025_revenue",
+  "label": "operating_profit",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": {
+    "value": 201.8,
+    "unit": "GBP",
+    "scale": 1000000,
+    "type": "money"
+  }
+}

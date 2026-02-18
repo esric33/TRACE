@@ -1,0 +1,16 @@
+outputs
+.DS_Store
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.cache
+*.tmp
+*.bak
+*.swp
+*.swo
+.idea/
+.vscode/
+.mypy_cache/
+_paper.pdf

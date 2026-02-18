@@ -1,0 +1,7 @@
+{
+  "extraction_id": "ibm_2024_gross_profit_margin_gaap_fy2024",
+  "snippet_id": "ibm_2024_revenue",
+  "label": "gross_profit_margin_gaap",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": { "value": 56.7, "unit": "percent", "scale": 1, "type": "rate" }
+}

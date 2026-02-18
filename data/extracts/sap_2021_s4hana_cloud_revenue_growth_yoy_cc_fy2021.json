@@ -1,0 +1,6 @@
+
+{ "extraction_id": "sap_2021_s4hana_cloud_revenue_growth_yoy_cc_fy2021",
+  "snippet_id": "sap_2021_revenue",
+  "label": "revenue_cloud_s4hana_growth_yoy_cc",
+  "period": { "value": 2021, "period": "FY" },
+  "quantity": { "value": 47.0, "unit": "percent", "scale": 1, "type": "rate" } }

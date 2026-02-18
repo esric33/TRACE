@@ -1,0 +1,12 @@
+{
+  "extraction_id": "exxon_2021_capex_exploration_q4_fy2021",
+  "snippet_id": "exxon_2021_earnings",
+  "label": "capex_exploration",
+  "period": { "value": "Q4 2021", "period": "Q" },
+  "quantity": {
+    "value": 5.8,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  }
+}

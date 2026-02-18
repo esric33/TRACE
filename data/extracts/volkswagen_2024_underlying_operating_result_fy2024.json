@@ -1,0 +1,8 @@
+
+
+{ "extraction_id": "volkswagen_2024_underlying_operating_result_fy2024",
+  "snippet_id": "volkswagen_2024_revenue",
+  "label": "underlying_operating_result",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": { "value": 21.7, "unit": "EUR", "scale": 1000000000, "type": "money" } }
+

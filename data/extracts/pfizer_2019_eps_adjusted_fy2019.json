@@ -1,0 +1,6 @@
+
+{ "extraction_id": "pfizer_2019_eps_adjusted_fy2019",
+  "snippet_id": "pfizer_2021_revenue",
+  "label": "eps_adjusted",
+  "period": { "value": 2019, "period": "FY" },
+  "quantity": { "value": 1.95, "unit": "USD", "scale": 1, "type": "per_share" } }

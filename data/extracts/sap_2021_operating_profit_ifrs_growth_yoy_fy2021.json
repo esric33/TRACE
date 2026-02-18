@@ -1,0 +1,6 @@
+
+{ "extraction_id": "sap_2021_operating_profit_ifrs_growth_yoy_fy2021",
+  "snippet_id": "sap_2021_revenue",
+  "label": "operating_profit_ifrs_growth_yoy",
+  "period": { "value": 2021, "period": "FY" },
+  "quantity": { "value": -30.0, "unit": "percent", "scale": 1, "type": "rate" } }

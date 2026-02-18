@@ -1,0 +1,6 @@
+
+{ "extraction_id": "volkswagen_2023_operating_result_fy2023",
+  "snippet_id": "volkswagen_2024_revenue",
+  "label": "operating_result",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 22.5, "unit": "EUR", "scale": 1000000000, "type": "money" } }

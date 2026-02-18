@@ -1,0 +1,7 @@
+{
+  "extraction_id": "jlr_2024_ebit_margin_q4_fy2024",
+  "snippet_id": "jlr_2024_revenue",
+  "label": "ebit_margin",
+  "period": { "value": "Q4 FY2024", "period": "Q" },
+  "quantity": { "value": 9.2, "unit": "percent", "scale": 1, "type": "rate" }
+}

@@ -1,0 +1,1 @@
+{ "extraction_id": "tsmc_2019_gross_profit_fy2019", "snippet_id": "tsmc_2023_revenue", "label": "gross_profit", "period": { "value": 2019, "period": "FY" }, "quantity": { "value": 492701896, "unit": "TWD", "scale": 1000, "type": "money" } }

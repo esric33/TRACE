@@ -1,0 +1,7 @@
+
+
+{ "extraction_id": "tencent_2023_operating_profit_non_ifrs_fy2023",
+  "snippet_id": "tencent_2023_revenue",
+  "label": "operating_profit_non_ifrs",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 191.9, "unit": "RMB", "scale": 1000000000, "type": "money" } }

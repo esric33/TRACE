@@ -1,0 +1,6 @@
+
+{ "extraction_id": "sony_2023_ps5_shipments_fy2023",
+  "snippet_id": "sony_2023_revenue",
+  "label": "ps5_shipments",
+  "period": { "value": 2023, "period": "FY" },
+  "quantity": { "value": 20.8, "unit": "items", "scale": 1000000, "type": "count" } }

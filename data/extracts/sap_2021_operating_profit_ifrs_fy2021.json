@@ -1,0 +1,5 @@
+{ "extraction_id": "sap_2021_operating_profit_ifrs_fy2021",
+  "snippet_id": "sap_2021_revenue",
+  "label": "operating_profit_ifrs",
+  "period": { "value": 2021, "period": "FY" },
+  "quantity": { "value": 4659, "unit": "EUR", "scale": 1000000, "type": "money" } }

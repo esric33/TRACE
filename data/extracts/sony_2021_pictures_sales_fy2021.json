@@ -1,0 +1,1 @@
+{ "extraction_id": "sony_2021_pictures_sales_fy2021", "snippet_id": "sony_2021_revenue", "label": "revenue_pictures", "period": { "value": 2021, "period": "FY" }, "quantity": { "value": 1238.9, "unit": "JPY", "scale": 1000000000, "type": "money" } }

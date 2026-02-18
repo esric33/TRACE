@@ -1,0 +1,12 @@
+{
+  "extraction_id": "honda_2024_revenue_fy2024",
+  "snippet_id": "honda_2024_revenue",
+  "label": "revenue_consolidated",
+  "period": { "value": 2024, "period": "FY" },
+  "quantity": {
+    "value": 20428.8,
+    "unit": "JPY",
+    "scale": 1000000000,
+    "type": "money"
+  }
+}

@@ -1,0 +1,5 @@
+{ "extraction_id": "walmart_2022_eps_adjusted_fy2022",
+  "snippet_id": "walmart_2022_revenue",
+  "label": "eps_adjusted",
+  "period": { "value": 2022, "period": "FY" },
+  "quantity": { "value": 6.46, "unit": "USD", "scale": 1, "type": "per_share" } }
