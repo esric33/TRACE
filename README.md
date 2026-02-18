@@ -7,6 +7,12 @@ This repository accompanies the TRACE paper manuscript introducing:
 
 The core idea is to evaluate reasoning through machine-checkable traces (not free-form chain-of-thought), so final answers, intermediate operations, and trace structure can all be audited.
 
+## Example Capsule
+
+![Example TRACE capsule](figures/capsule_example.png)
+
+*Figure: Example capsule from TRACE-UFR.*
+
 ## TRACE vs TRACE-UFR
 
 | Component | What it is | Where it lives |
@@ -137,6 +143,7 @@ data/
   snippets/                # source snippets
   tables/                  # numeric tables (fx, cpi, etc.)
 schemas/                   # model_fact schema and enums
+figures/                   # figures used in this README/paper assets
 outputs/
   corpora/                 # generated benchmark corpora
   runs/                    # execution outputs and metrics
