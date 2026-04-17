@@ -1,0 +1,8 @@
+{
+  "extraction_id": "aspirin_reduces_mi_risk_low_dose",
+  "snippet_id": "aspirin_medical_use_01",
+  "label": "reduces_risk_of",
+  "subject": { "type": "drug", "value": "Aspirin" },
+  "qualifier": { "dose_regime": "lower dose" },
+  "object": { "type": "event", "value": "myocardial infarction" }
+}

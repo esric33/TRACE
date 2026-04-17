@@ -1,0 +1,7 @@
+{
+  "extraction_id": "aspirin_interacts_warfarin",
+  "snippet_id": "aspirin_interactions_01",
+  "label": "interacts_with",
+  "subject": { "type": "drug", "value": "Aspirin" },
+  "object": { "type": "drug", "value": "warfarin" }
+}

@@ -1,0 +1,11 @@
+{
+  "extraction_id": "aspirin_low_dose_tablet_81mg",
+  "snippet_id": "aspirin_dosage_01",
+  "label": "available_low_dose_strength",
+  "subject": { "type": "drug", "value": "Aspirin" },
+  "object": {
+    "type": "dosage",
+    "value": 81,
+    "unit": "mg"
+  }
+}

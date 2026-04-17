@@ -1,0 +1,12 @@
+{
+  "extraction_id": "aspirin_tablet_size_us_325mg",
+  "snippet_id": "aspirin_dosage_01",
+  "label": "standard_tablet_size",
+  "subject": { "type": "drug", "value": "Aspirin" },
+  "object": {
+    "type": "dosage",
+    "value": 325,
+    "unit": "mg"
+  },
+  "qualifier": { "region": "United States" }
+}

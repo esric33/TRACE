@@ -1,0 +1,7 @@
+{
+  "extraction_id": "warfarin_treats_pulmonary_embolism",
+  "snippet_id": "warfarin_medical_use_01",
+  "label": "treats_condition",
+  "subject": { "type": "drug", "value": "Warfarin" },
+  "object": { "type": "condition", "value": "pulmonary embolism" }
+}

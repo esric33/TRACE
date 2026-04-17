@@ -1,0 +1,7 @@
+{
+  "extraction_id": "aspirin_treats_rheumatoid_arthritis",
+  "snippet_id": "aspirin_medical_use_01",
+  "label": "treats_condition",
+  "subject": { "type": "drug", "value": "Aspirin" },
+  "object": { "type": "condition", "value": "rheumatoid arthritis" }
+}

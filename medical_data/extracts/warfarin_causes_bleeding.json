@@ -1,0 +1,7 @@
+{
+  "extraction_id": "warfarin_causes_bleeding",
+  "snippet_id": "warfarin_side_effects_01",
+  "label": "causes_side_effect",
+  "subject": { "type": "drug", "value": "Warfarin" },
+  "object": { "type": "effect", "value": "bleeding" }
+}

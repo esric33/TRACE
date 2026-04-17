@@ -1,0 +1,9 @@
+{
+  "snippet_id": "aspirin_interactions_01",
+  "text": "Aspirin is known to interact with other drugs. For example, acetazolamide and ammonium chloride are known to enhance the intoxicating effect of salicylates, and alcohol also increases the gastrointestinal bleeding associated with these types of drugs. Aspirin is known to displace a number of drugs from protein-binding sites in the blood, including warfarin, methotrexate, phenytoin, probenecid, valproic acid, and other NSAIDs.",
+  "source": "https://en.wikipedia.org/wiki/Aspirin",
+  "meta": {
+    "drug": "Aspirin",
+    "section": "Interactions"
+  }
+}

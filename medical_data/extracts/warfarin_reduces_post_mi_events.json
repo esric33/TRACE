@@ -1,0 +1,8 @@
+{
+  "extraction_id": "warfarin_reduces_post_mi_events",
+  "snippet_id": "warfarin_medical_use_02",
+  "label": "reduces_risk_of",
+  "subject": { "type": "drug", "value": "Warfarin" },
+  "qualifier": { "context": "post myocardial infarction" },
+  "object": { "type": "event", "value": "thromboembolic events" }
+}

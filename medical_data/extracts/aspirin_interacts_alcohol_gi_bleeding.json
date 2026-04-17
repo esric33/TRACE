@@ -1,0 +1,8 @@
+{
+  "extraction_id": "aspirin_interacts_alcohol_gi_bleeding",
+  "snippet_id": "aspirin_interactions_01",
+  "label": "interaction_effect",
+  "subject": { "type": "drug", "value": "Aspirin" },
+  "object": { "type": "substance", "value": "alcohol" },
+  "qualifier": { "effect": "increased gastrointestinal bleeding risk" }
+}

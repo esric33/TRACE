@@ -1,0 +1,7 @@
+{
+  "extraction_id": "warfarin_contraindicated_active_bleeding",
+  "snippet_id": "warfarin_contraindications_01",
+  "label": "contraindicated_for",
+  "subject": { "type": "drug", "value": "Warfarin" },
+  "object": { "type": "condition", "value": "active bleeding" }
+}

@@ -1,0 +1,8 @@
+{
+  "extraction_id": "warfarin_prevents_stroke_af",
+  "snippet_id": "warfarin_medical_use_01",
+  "label": "reduces_risk_of",
+  "subject": { "type": "drug", "value": "Warfarin" },
+  "qualifier": { "population": "atrial fibrillation" },
+  "object": { "type": "event", "value": "stroke" }
+}

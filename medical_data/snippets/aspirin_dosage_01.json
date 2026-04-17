@@ -1,0 +1,9 @@
+{
+  "snippet_id": "aspirin_dosage_01",
+  "text": "Adult aspirin tablets are produced in standardised sizes, which vary slightly from country to country, for example 300 mg in Britain and 325 mg in the United States. Smaller doses are based on these standards, e.g., 75 mg and 81 mg tablets. In general, for adults, doses are taken four times a day for fever or arthritis. For the prevention of myocardial infarction (MI) in someone with documented or suspected coronary artery disease, much lower doses are taken once daily.",
+  "source": "https://en.wikipedia.org/wiki/Aspirin",
+  "meta": {
+    "drug": "Aspirin",
+    "section": "Dosages"
+  }
+}
