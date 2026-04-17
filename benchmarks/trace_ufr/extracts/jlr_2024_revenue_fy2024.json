@@ -1,0 +1,18 @@
+{
+  "extraction_id": "jlr_2024_revenue_fy2024",
+  "snippet_id": "jlr_2024_revenue",
+  "label": "revenue",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 29.0,
+    "unit": "GBP",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Jaguar Land Rover",
+  "metric_key": "revenue",
+  "metric_role": "amount"
+}

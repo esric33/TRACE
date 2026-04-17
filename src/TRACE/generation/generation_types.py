@@ -47,20 +47,30 @@ class ExtractRecord:
 
     @staticmethod
     def from_dict(d: Dict[str, Any]) -> "ExtractRecord":
-        # NOTE: assumes company may be missing; will be enriched later
-        # metric_key/metric_role will be enriched later too
+        company = str(d.get("company", "")).strip()
+        metric_key = str(d.get("metric_key", "")).strip()
+        metric_role = str(d.get("metric_role", "")).strip()
+        if not company:
+            raise ValueError(
+                f"extract missing company: {d.get('extraction_id') or '<unknown>'}"
+            )
+        if not metric_key:
+            raise ValueError(
+                f"extract missing metric_key: {d.get('extraction_id') or '<unknown>'}"
+            )
+        if not metric_role:
+            raise ValueError(
+                f"extract missing metric_role: {d.get('extraction_id') or '<unknown>'}"
+            )
         return ExtractRecord(
             extraction_id=d["extraction_id"],
             snippet_id=d["snippet_id"],
             label=d["label"],
             period=d["period"],
             quantity=d["quantity"],
-            company=d.get("company", ""),
-            metric_key=d.get("metric_key", d["label"]),
-            metric_role=d.get(
-                "metric_role",
-                "rate" if d.get("quantity", {}).get("type") == "rate" else "amount",
-            ),
+            company=company,
+            metric_key=metric_key,
+            metric_role=metric_role,
         )
 
 
@@ -71,61 +81,6 @@ def load_extracts(extracts_dir: Path) -> List[ExtractRecord]:
             continue
         d = read_json(p)
         out.append(ExtractRecord.from_dict(d))
-    return out
-
-
-def enrich_extracts_with_company(
-    extracts: List[ExtractRecord],
-    snippets_by_id: Dict[str, Dict[str, Any]],
-) -> List[ExtractRecord]:
-    out: List[ExtractRecord] = []
-    for r in extracts:
-        if r.company:
-            out.append(r)
-            continue
-        sn = snippets_by_id.get(r.snippet_id, {})
-        meta = sn.get("meta", {})
-        company = str(meta.get("company", "")).strip()
-
-        out.append(
-            ExtractRecord(
-                extraction_id=r.extraction_id,
-                snippet_id=r.snippet_id,
-                label=r.label,
-                period=r.period,
-                quantity=r.quantity,
-                company=company,
-                metric_key=r.metric_key,
-                metric_role=r.metric_role,
-            )
-        )
-    return out
-
-
-def enrich_extracts_with_metric_key(
-    extracts: List[ExtractRecord],
-) -> List[ExtractRecord]:
-    out: List[ExtractRecord] = []
-    for r in extracts:
-        metric_key = r.label
-        if "_growth" in metric_key:
-            metric_key = metric_key.split("_growth")[0]
-
-        # quantity.type drives role: "rate" => rate else amount
-        metric_role = "rate" if r.qtype == "rate" else "amount"
-
-        out.append(
-            ExtractRecord(
-                extraction_id=r.extraction_id,
-                snippet_id=r.snippet_id,
-                label=r.label,
-                period=r.period,
-                quantity=r.quantity,
-                company=r.company,
-                metric_key=metric_key,
-                metric_role=metric_role,
-            )
-        )
     return out
 
 

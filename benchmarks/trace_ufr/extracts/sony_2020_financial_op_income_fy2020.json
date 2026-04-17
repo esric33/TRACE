@@ -1,0 +1,18 @@
+{
+  "extraction_id": "sony_2020_financial_op_income_fy2020",
+  "snippet_id": "sony_2021_revenue",
+  "label": "operating_income_financial_services",
+  "period": {
+    "value": 2020,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 154.8,
+    "unit": "JPY",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Sony Corporation",
+  "metric_key": "operating_income_financial_services",
+  "metric_role": "amount"
+}

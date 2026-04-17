@@ -1,0 +1,18 @@
+{
+  "extraction_id": "meta_2024_free_cash_flow_fy2024",
+  "snippet_id": "meta_2024_revenue",
+  "label": "free_cash_flow",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 52.1,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Meta Platforms, Inc.",
+  "metric_key": "free_cash_flow",
+  "metric_role": "amount"
+}

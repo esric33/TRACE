@@ -1,0 +1,18 @@
+{
+  "extraction_id": "meta_2024_headcount_growth_yoy_asof_2024_12_31",
+  "snippet_id": "meta_2024_revenue",
+  "label": "headcount_growth_yoy",
+  "period": {
+    "value": "2024-12-31",
+    "period": "ASOF"
+  },
+  "quantity": {
+    "value": 10,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "Meta Platforms, Inc.",
+  "metric_key": "headcount",
+  "metric_role": "rate"
+}

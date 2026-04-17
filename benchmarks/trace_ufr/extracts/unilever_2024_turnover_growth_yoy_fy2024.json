@@ -1,0 +1,18 @@
+{
+  "extraction_id": "unilever_2024_turnover_growth_yoy_fy2024",
+  "snippet_id": "unilever_2024_revenue",
+  "label": "turnover_growth_yoy",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 1.9,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "Unilever",
+  "metric_key": "turnover",
+  "metric_role": "rate"
+}

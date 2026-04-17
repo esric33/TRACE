@@ -1,0 +1,18 @@
+{
+  "extraction_id": "pepsico_2021_eps_reported_fy2021",
+  "snippet_id": "pepsi_2022_revenue",
+  "label": "eps_reported",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 5.49,
+    "unit": "USD",
+    "scale": 1,
+    "type": "per_share"
+  },
+  "company": "PepsiCo, Inc.",
+  "metric_key": "eps_reported",
+  "metric_role": "amount"
+}

@@ -1,0 +1,18 @@
+{
+  "extraction_id": "exxon_2021_capex_exploration_fy2021",
+  "snippet_id": "exxon_2021_earnings",
+  "label": "capex_exploration",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 16.6,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "ExxonMobil",
+  "metric_key": "capex_exploration",
+  "metric_role": "amount"
+}

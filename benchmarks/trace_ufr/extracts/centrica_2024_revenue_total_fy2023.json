@@ -1,0 +1,18 @@
+{
+  "extraction_id": "centrica_2024_revenue_total_fy2023",
+  "snippet_id": "centrica_2024_revenue",
+  "label": "revenue_total_group",
+  "period": {
+    "value": 2023,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 26458,
+    "unit": "GBP",
+    "scale": 1000000,
+    "type": "money"
+  },
+  "company": "Centrica",
+  "metric_key": "revenue_total_group",
+  "metric_role": "amount"
+}

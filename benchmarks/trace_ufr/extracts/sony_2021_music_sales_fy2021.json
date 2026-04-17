@@ -1,0 +1,18 @@
+{
+  "extraction_id": "sony_2021_music_sales_fy2021",
+  "snippet_id": "sony_2021_revenue",
+  "label": "revenue_music",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 1116.9,
+    "unit": "JPY",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Sony Corporation",
+  "metric_key": "revenue_music",
+  "metric_role": "amount"
+}

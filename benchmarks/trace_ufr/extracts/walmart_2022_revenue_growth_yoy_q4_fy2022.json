@@ -1,0 +1,18 @@
+{
+  "extraction_id": "walmart_2022_revenue_growth_yoy_q4_fy2022",
+  "snippet_id": "walmart_2022_revenue",
+  "label": "revenue_growth_yoy",
+  "period": {
+    "value": "Q4 2022",
+    "period": "Q"
+  },
+  "quantity": {
+    "value": 0.5,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "Walmart Inc.",
+  "metric_key": "revenue",
+  "metric_role": "rate"
+}

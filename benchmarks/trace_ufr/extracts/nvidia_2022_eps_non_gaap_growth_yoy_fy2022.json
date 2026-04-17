@@ -1,0 +1,18 @@
+{
+  "extraction_id": "nvidia_2022_eps_non_gaap_growth_yoy_fy2022",
+  "snippet_id": "nvidia_2022_revenue",
+  "label": "eps_non_gaap_growth_yoy",
+  "period": {
+    "value": 2022,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 78.0,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "NVIDIA Corporation",
+  "metric_key": "eps_non_gaap",
+  "metric_role": "rate"
+}

@@ -1,0 +1,18 @@
+{
+  "extraction_id": "jlr_2024_profit_before_tax_fy2024",
+  "snippet_id": "jlr_2024_revenue",
+  "label": "profit_before_tax",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 2.2,
+    "unit": "GBP",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Jaguar Land Rover",
+  "metric_key": "profit_before_tax",
+  "metric_role": "amount"
+}

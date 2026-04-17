@@ -1,0 +1,18 @@
+{
+  "extraction_id": "meta_2024_costs_and_expenses_q4_fy2024",
+  "snippet_id": "meta_2024_revenue",
+  "label": "costs_and_expenses",
+  "period": {
+    "value": "Q4 2024",
+    "period": "Q"
+  },
+  "quantity": {
+    "value": 25.02,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Meta Platforms, Inc.",
+  "metric_key": "costs_and_expenses",
+  "metric_role": "amount"
+}

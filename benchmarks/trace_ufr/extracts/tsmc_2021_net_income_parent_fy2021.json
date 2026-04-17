@@ -1,0 +1,18 @@
+{
+  "extraction_id": "tsmc_2021_net_income_parent_fy2021",
+  "snippet_id": "tsmc_2023_revenue",
+  "label": "net_income_attributable_to_parent",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 596540013,
+    "unit": "TWD",
+    "scale": 1000,
+    "type": "money"
+  },
+  "company": "Taiwan Semiconductor Manufacturing Company",
+  "metric_key": "net_income_attributable_to_parent",
+  "metric_role": "amount"
+}

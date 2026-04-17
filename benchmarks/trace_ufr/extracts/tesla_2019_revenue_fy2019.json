@@ -1,0 +1,18 @@
+{
+  "extraction_id": "tesla_2019_revenue_fy2019",
+  "snippet_id": "tesla_2022_revenue",
+  "label": "revenue",
+  "period": {
+    "value": 2019,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 24.578,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Tesla, Inc.",
+  "metric_key": "revenue",
+  "metric_role": "amount"
+}

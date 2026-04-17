@@ -1,0 +1,18 @@
+{
+  "extraction_id": "sap_2021_eps_non_ifrs_fy2021",
+  "snippet_id": "sap_2021_revenue",
+  "label": "eps_non_ifrs",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 6.74,
+    "unit": "EUR",
+    "scale": 1,
+    "type": "per_share"
+  },
+  "company": "SAP",
+  "metric_key": "eps_non_ifrs",
+  "metric_role": "amount"
+}

@@ -1,0 +1,18 @@
+{
+  "extraction_id": "bmw_2024_net_profit_fy2024",
+  "snippet_id": "bmw_2024_revenue",
+  "label": "net_profit",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 7.678,
+    "unit": "EUR",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "BMW",
+  "metric_key": "net_profit",
+  "metric_role": "amount"
+}

@@ -1,0 +1,18 @@
+{
+  "extraction_id": "siemens_2022_net_income_fy2022",
+  "snippet_id": "siemans_2023_revenue",
+  "label": "net_income",
+  "period": {
+    "value": 2022,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 4.4,
+    "unit": "EUR",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Siemens",
+  "metric_key": "net_income",
+  "metric_role": "amount"
+}

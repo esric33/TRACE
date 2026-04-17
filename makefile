@@ -1,184 +1,241 @@
 # =============================================================================
-# TRACE Experiments
+# TRACE / TRACE-UFR Refactor Harness
 # =============================================================================
 
-.PHONY: smoke3_offline smoke3_gpt generate_smoke3 generate_TRACE-UFR run_TRACE-UFR_all_models
-
-# --- Project defaults --------------------------------------------------------
+.PHONY: \
+	smoke3_offline smoke3_gpt generate_TRACE-UFR run_TRACE-UFR_all_models \
+	legacy_smoke3_offline legacy_generate_TRACE-UFR legacy_run_TRACE-UFR_offline \
+	compare_smoke3_offline compare_TRACE-UFR_corpus compare_TRACE-UFR_offline
 
 ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 SRC_DIR := $(ROOT)/src
-DATA_DIR := $(ROOT)/data
+LEGACY_DIR := $(ROOT)/legacy
 
-OUTPUTS_DIR := $(ROOT)/outputs
-CORPORA_DIR := $(OUTPUTS_DIR)/corpora
-RUNS_DIR := $(OUTPUTS_DIR)/runs
-CACHE_DIR := $(RUNS_DIR)/cache
+ARTIFACTS_DIR := $(ROOT)/artifacts
+LEGACY_ARTIFACTS_DIR := $(ARTIFACTS_DIR)/legacy
+REFACTOR_ARTIFACTS_DIR := $(ARTIFACTS_DIR)/refactor
 
-EXTRACTS_DIR ?= $(DATA_DIR)/extracts
-SNIPPETS_DIR ?= $(DATA_DIR)/snippets
-FACT_SCHEMA  ?= $(ROOT)/schemas/model_fact.json
+BENCHMARK_ID ?= trace_ufr
+BENCHMARK_DIR := $(ROOT)/benchmarks/$(BENCHMARK_ID)
+BENCHMARK_EXTRACTS := $(BENCHMARK_DIR)/extracts
+BENCHMARK_SNIPPETS := $(BENCHMARK_DIR)/snippets
+BENCHMARK_SCHEMA := $(BENCHMARK_DIR)/schemas/model_fact.json
+
+LEGACY_EXTRACTS := $(ROOT)/data/extracts
+LEGACY_SNIPPETS := $(ROOT)/data/snippets
+LEGACY_SCHEMA := $(ROOT)/schemas/model_fact.json
 
 export PYTHONPATH := $(SRC_DIR):$(PYTHONPATH)
 
-PY             ?= python
-GEN_CORPUS_MOD ?= TRACE.generation.cli_generate_corpus
-RUN_SWEEP_MOD  ?= TRACE.execute.cli_run_sweep
+PY ?= python
+LEGACY_PYTHONPATH := $(LEGACY_DIR):$(SRC_DIR)
 
-# Shared cache base for retrieval/full runs.
-CACHE_BASE ?= $(CACHE_DIR)/lookups.json
+RUN_SWEEP_MOD ?= TRACE.cli.run_sweep
+COMPARE_MOD ?= TRACE.cli.compare_parity
 
-# --- TRACE-UFR corpus + run config ------------------------------------------
+LEGACY_GEN_MOD ?= TRACE.generation.cli_generate_corpus
+LEGACY_RUN_SWEEP_MOD ?= TRACE.execute.cli_run_sweep
 
-TRACE_UFR_CORPUS_ID   ?= TRACE-UFR
-TRACE_UFR_CORPUS_DIR  ?= $(CORPORA_DIR)/$(TRACE_UFR_CORPUS_ID)
-TRACE_UFR_N_TOTAL     ?= 500
-TRACE_UFR_SEED        ?= 0
+SMOKE3_CORPUS_ID ?= smoke3
+SMOKE3_N_TOTAL ?= 3
+SMOKE3_SEED ?= 0
+SMOKE3_D_ALL ?= 0
+SMOKE3_MAX_COMPILE ?= 100
+SMOKE3_GPT_MODEL ?= gpt-5.2
+SMOKE3_GPT_MODE ?= full
+
+TRACE_UFR_CORPUS_ID ?= TRACE-UFR
+TRACE_UFR_N_TOTAL ?= 500
+TRACE_UFR_SEED ?= 0
+TRACE_UFR_D_ALL ?= 0 1 3 5 10
 TRACE_UFR_MAX_COMPILE ?= 100
-TRACE_UFR_D_ALL       ?= 0 1 3 5 10
-
-TRACE_UFR_MODES     ?= full
-TRACE_UFR_MAX_JOBS  ?= 6
+TRACE_UFR_MODES ?= full
+TRACE_UFR_MAX_JOBS ?= 6
 TRACE_UFR_RUN_EXTRA ?= --resume
 
-OPENAI_MODELS    ?= gpt-5.2 gpt-5-mini gpt-5-nano
+OPENAI_MODELS ?= gpt-5.2 gpt-5-mini gpt-5-nano
 ANTHROPIC_MODELS ?= claude-opus-4-6 claude-sonnet-4-5 claude-haiku-4-5
-GEMINI_MODELS    ?= gemini-2.5-pro gemini-3-flash-preview gemini-2.5-flash
+GEMINI_MODELS ?= gemini-2.5-pro gemini-3-flash-preview gemini-2.5-flash
 
-TRACE_UFR_OPENAI_RUN_ID    ?= run_TRACE-UFR_openai
-TRACE_UFR_ANTHROPIC_RUN_ID ?= run_TRACE-UFR_anthropic
-TRACE_UFR_GEMINI_RUN_ID    ?= run_TRACE-UFR_gemini
+LEGACY_SMOKE3_CORPUS_DIR := $(LEGACY_ARTIFACTS_DIR)/corpora/$(SMOKE3_CORPUS_ID)
+LEGACY_SMOKE3_RUN_DIR := $(LEGACY_ARTIFACTS_DIR)/runs/run_smoke3_offline
+LEGACY_TRACE_UFR_CORPUS_DIR := $(LEGACY_ARTIFACTS_DIR)/corpora/$(TRACE_UFR_CORPUS_ID)
+LEGACY_TRACE_UFR_RUN_DIR := $(LEGACY_ARTIFACTS_DIR)/runs/run_TRACE-UFR_offline
 
-TRACE_UFR_OPENAI_RUN_DIR    ?= $(RUNS_DIR)/$(TRACE_UFR_OPENAI_RUN_ID)
-TRACE_UFR_ANTHROPIC_RUN_DIR ?= $(RUNS_DIR)/$(TRACE_UFR_ANTHROPIC_RUN_ID)
-TRACE_UFR_GEMINI_RUN_DIR    ?= $(RUNS_DIR)/$(TRACE_UFR_GEMINI_RUN_ID)
+REFACTOR_SMOKE3_CORPUS_DIR := $(REFACTOR_ARTIFACTS_DIR)/corpora/$(SMOKE3_CORPUS_ID)
+REFACTOR_SMOKE3_RUN_DIR := $(REFACTOR_ARTIFACTS_DIR)/runs/run_smoke3_offline
+REFACTOR_SMOKE3_GPT_RUN_DIR := $(REFACTOR_ARTIFACTS_DIR)/runs/run_smoke3_gpt
+REFACTOR_TRACE_UFR_CORPUS_DIR := $(REFACTOR_ARTIFACTS_DIR)/corpora/$(TRACE_UFR_CORPUS_ID)
+REFACTOR_TRACE_UFR_OPENAI_RUN_DIR := $(REFACTOR_ARTIFACTS_DIR)/runs/run_TRACE-UFR_openai
+REFACTOR_TRACE_UFR_ANTHROPIC_RUN_DIR := $(REFACTOR_ARTIFACTS_DIR)/runs/run_TRACE-UFR_anthropic
+REFACTOR_TRACE_UFR_GEMINI_RUN_DIR := $(REFACTOR_ARTIFACTS_DIR)/runs/run_TRACE-UFR_gemini
+REFACTOR_CACHE_DIR := $(REFACTOR_ARTIFACTS_DIR)/cache
+REFACTOR_CACHE_BASE := $(REFACTOR_CACHE_DIR)/lookups.json
 
-# --- Smoke config (small local sanity runs) ---------------------------------
-
-SMOKE3_CORPUS_ID      ?= smoke3
-SMOKE3_CORPUS_DIR     ?= $(CORPORA_DIR)/$(SMOKE3_CORPUS_ID)
-SMOKE3_N_TOTAL        ?= 3
-SMOKE3_SEED           ?= 0
-SMOKE3_MAX_COMPILE    ?= 100
-SMOKE3_D_ALL          ?= 0
-
-SMOKE3_OFFLINE_RUN_ID ?= run_smoke3_offline
-SMOKE3_GPT_RUN_ID     ?= run_smoke3_gpt
-SMOKE3_OFFLINE_RUN_DIR ?= $(RUNS_DIR)/$(SMOKE3_OFFLINE_RUN_ID)
-SMOKE3_GPT_RUN_DIR     ?= $(RUNS_DIR)/$(SMOKE3_GPT_RUN_ID)
-
-SMOKE3_GPT_MODEL     ?= gpt-5.2
-SMOKE3_GPT_MODE      ?= full
-SMOKE3_RUN_EXTRA     ?= --resume
-
-# --- Corpus generation -------------------------------------------------------
-
-generate_smoke3:
-	@if [ -d "$(SMOKE3_CORPUS_DIR)/d=0" ] || [ -f "$(SMOKE3_CORPUS_DIR)/meta.json" ]; then \
-		echo "Corpus already exists at $(SMOKE3_CORPUS_DIR) (skipping generation)"; \
+legacy_generate_smoke3:
+	@if [ -d "$(LEGACY_SMOKE3_CORPUS_DIR)/d=0" ] || [ -f "$(LEGACY_SMOKE3_CORPUS_DIR)/meta.json" ]; then \
+		echo "Legacy corpus already exists at $(LEGACY_SMOKE3_CORPUS_DIR) (skipping generation)"; \
 	else \
-		mkdir -p "$(SMOKE3_CORPUS_DIR)"; \
-		echo "Generating smoke corpus (N=$(SMOKE3_N_TOTAL) per d) -> $(SMOKE3_CORPUS_DIR)"; \
-		$(PY) -m $(GEN_CORPUS_MOD) \
-			--extracts "$(EXTRACTS_DIR)" \
-			--snippets "$(SNIPPETS_DIR)" \
-			--out "$(SMOKE3_CORPUS_DIR)" \
+		mkdir -p "$(LEGACY_SMOKE3_CORPUS_DIR)"; \
+		PYTHONPATH="$(LEGACY_PYTHONPATH)" $(PY) -m $(LEGACY_GEN_MOD) \
+			--extracts "$(LEGACY_EXTRACTS)" \
+			--snippets "$(LEGACY_SNIPPETS)" \
+			--out "$(LEGACY_SMOKE3_CORPUS_DIR)" \
 			--distractors $(SMOKE3_D_ALL) \
 			--n-total $(SMOKE3_N_TOTAL) \
 			--seed $(SMOKE3_SEED) \
 			--max-compile-attempts $(SMOKE3_MAX_COMPILE); \
 	fi
 
-generate_TRACE-UFR:
-	@if [ -d "$(TRACE_UFR_CORPUS_DIR)/d=0" ] || [ -f "$(TRACE_UFR_CORPUS_DIR)/meta.json" ]; then \
-		echo "Corpus already exists at $(TRACE_UFR_CORPUS_DIR) (skipping generation)"; \
+legacy_smoke3_offline: legacy_generate_smoke3
+	@rm -rf "$(LEGACY_SMOKE3_RUN_DIR)"
+	@mkdir -p "$(LEGACY_SMOKE3_RUN_DIR)"
+	PYTHONPATH="$(LEGACY_PYTHONPATH)" $(PY) -m $(LEGACY_RUN_SWEEP_MOD) \
+		--corpus-dir "$(LEGACY_SMOKE3_CORPUS_DIR)" \
+		--out-dir "$(LEGACY_SMOKE3_RUN_DIR)" \
+		--modes oracle \
+		--extracts "$(LEGACY_EXTRACTS)" \
+		--max-jobs 1
+
+legacy_generate_TRACE-UFR:
+	@if [ -d "$(LEGACY_TRACE_UFR_CORPUS_DIR)/d=0" ] || [ -f "$(LEGACY_TRACE_UFR_CORPUS_DIR)/meta.json" ]; then \
+		echo "Legacy corpus already exists at $(LEGACY_TRACE_UFR_CORPUS_DIR) (skipping generation)"; \
 	else \
-		mkdir -p "$(TRACE_UFR_CORPUS_DIR)"; \
-		echo "Generating TRACE-UFR corpus (N=$(TRACE_UFR_N_TOTAL) per d) -> $(TRACE_UFR_CORPUS_DIR)"; \
-		$(PY) -m $(GEN_CORPUS_MOD) \
-			--extracts "$(EXTRACTS_DIR)" \
-			--snippets "$(SNIPPETS_DIR)" \
-			--out "$(TRACE_UFR_CORPUS_DIR)" \
+		mkdir -p "$(LEGACY_TRACE_UFR_CORPUS_DIR)"; \
+		PYTHONPATH="$(LEGACY_PYTHONPATH)" $(PY) -m $(LEGACY_GEN_MOD) \
+			--extracts "$(LEGACY_EXTRACTS)" \
+			--snippets "$(LEGACY_SNIPPETS)" \
+			--out "$(LEGACY_TRACE_UFR_CORPUS_DIR)" \
 			--distractors $(TRACE_UFR_D_ALL) \
 			--n-total $(TRACE_UFR_N_TOTAL) \
 			--seed $(TRACE_UFR_SEED) \
 			--max-compile-attempts $(TRACE_UFR_MAX_COMPILE); \
-		echo "$(TRACE_UFR_CORPUS_ID)" > "$(CORPORA_DIR)/latest_corpus.txt"; \
 	fi
 
-# --- Smoke runs --------------------------------------------------------------
+legacy_run_TRACE-UFR_offline: legacy_generate_TRACE-UFR
+	@rm -rf "$(LEGACY_TRACE_UFR_RUN_DIR)"
+	@mkdir -p "$(LEGACY_TRACE_UFR_RUN_DIR)"
+	PYTHONPATH="$(LEGACY_PYTHONPATH)" $(PY) -m $(LEGACY_RUN_SWEEP_MOD) \
+		--corpus-dir "$(LEGACY_TRACE_UFR_CORPUS_DIR)" \
+		--out-dir "$(LEGACY_TRACE_UFR_RUN_DIR)" \
+		--modes oracle \
+		--extracts "$(LEGACY_EXTRACTS)" \
+		--max-jobs 1
+
+generate_smoke3:
+	@if [ -d "$(REFACTOR_SMOKE3_CORPUS_DIR)/d=0" ] || [ -f "$(REFACTOR_SMOKE3_CORPUS_DIR)/meta.json" ]; then \
+		echo "Refactor corpus already exists at $(REFACTOR_SMOKE3_CORPUS_DIR) (skipping generation)"; \
+	else \
+		mkdir -p "$(REFACTOR_SMOKE3_CORPUS_DIR)"; \
+		$(PY) -m TRACE.generation.cli_generate_corpus \
+			--benchmark $(BENCHMARK_ID) \
+			--out "$(REFACTOR_SMOKE3_CORPUS_DIR)" \
+			--distractors $(SMOKE3_D_ALL) \
+			--n-total $(SMOKE3_N_TOTAL) \
+			--seed $(SMOKE3_SEED) \
+			--max-compile-attempts $(SMOKE3_MAX_COMPILE); \
+	fi
 
 smoke3_offline: generate_smoke3
-	@mkdir -p "$(SMOKE3_OFFLINE_RUN_DIR)"
-	@echo "Smoke offline run -> corpus=$(SMOKE3_CORPUS_ID) run=$(SMOKE3_OFFLINE_RUN_ID)"
+	@rm -rf "$(REFACTOR_SMOKE3_RUN_DIR)"
+	@mkdir -p "$(REFACTOR_SMOKE3_RUN_DIR)"
 	$(PY) -m $(RUN_SWEEP_MOD) \
-		--corpus-dir "$(SMOKE3_CORPUS_DIR)" \
-		--out-dir "$(SMOKE3_OFFLINE_RUN_DIR)" \
+		--benchmark $(BENCHMARK_ID) \
+		--corpus-dir "$(REFACTOR_SMOKE3_CORPUS_DIR)" \
+		--out-dir "$(REFACTOR_SMOKE3_RUN_DIR)" \
 		--modes oracle \
-		--extracts "$(EXTRACTS_DIR)" \
-		--max-jobs 1 \
-		$(SMOKE3_RUN_EXTRA)
+		--max-jobs 1
 
 smoke3_gpt: generate_smoke3
-	@mkdir -p "$(SMOKE3_GPT_RUN_DIR)" "$(CACHE_DIR)"
-	@echo "Smoke GPT run -> corpus=$(SMOKE3_CORPUS_ID) run=$(SMOKE3_GPT_RUN_ID) model=$(SMOKE3_GPT_MODEL) mode=$(SMOKE3_GPT_MODE)"
+	@mkdir -p "$(REFACTOR_SMOKE3_GPT_RUN_DIR)" "$(REFACTOR_CACHE_DIR)"
 	$(PY) -m $(RUN_SWEEP_MOD) \
-		--corpus-dir "$(SMOKE3_CORPUS_DIR)" \
-		--out-dir "$(SMOKE3_GPT_RUN_DIR)" \
+		--benchmark $(BENCHMARK_ID) \
+		--corpus-dir "$(REFACTOR_SMOKE3_CORPUS_DIR)" \
+		--out-dir "$(REFACTOR_SMOKE3_GPT_RUN_DIR)" \
 		--modes $(SMOKE3_GPT_MODE) \
 		--provider openai \
 		--models $(SMOKE3_GPT_MODEL) \
-		--extracts "$(EXTRACTS_DIR)" \
-		--schema "$(FACT_SCHEMA)" \
-		--cache "$(CACHE_BASE)" \
+		--schema "$(BENCHMARK_SCHEMA)" \
+		--cache "$(REFACTOR_CACHE_BASE)" \
 		--max-jobs 1 \
-		$(SMOKE3_RUN_EXTRA)
+		--resume
 
-# --- Main TRACE-UFR run target ----------------------------------------------
+generate_TRACE-UFR:
+	@if [ -d "$(REFACTOR_TRACE_UFR_CORPUS_DIR)/d=0" ] || [ -f "$(REFACTOR_TRACE_UFR_CORPUS_DIR)/meta.json" ]; then \
+		echo "Refactor corpus already exists at $(REFACTOR_TRACE_UFR_CORPUS_DIR) (skipping generation)"; \
+	else \
+		mkdir -p "$(REFACTOR_TRACE_UFR_CORPUS_DIR)"; \
+		$(PY) -m TRACE.generation.cli_generate_corpus \
+			--benchmark $(BENCHMARK_ID) \
+			--out "$(REFACTOR_TRACE_UFR_CORPUS_DIR)" \
+			--distractors $(TRACE_UFR_D_ALL) \
+			--n-total $(TRACE_UFR_N_TOTAL) \
+			--seed $(TRACE_UFR_SEED) \
+			--max-compile-attempts $(TRACE_UFR_MAX_COMPILE); \
+	fi
 
 run_TRACE-UFR_all_models: generate_TRACE-UFR
-	@mkdir -p "$(TRACE_UFR_OPENAI_RUN_DIR)" "$(TRACE_UFR_ANTHROPIC_RUN_DIR)" "$(TRACE_UFR_GEMINI_RUN_DIR)" "$(CACHE_DIR)"
-	@echo "TRACE-UFR OpenAI run -> run=$(TRACE_UFR_OPENAI_RUN_ID) modes=$(TRACE_UFR_MODES) models=$(OPENAI_MODELS)"
+	@mkdir -p "$(REFACTOR_TRACE_UFR_OPENAI_RUN_DIR)" "$(REFACTOR_TRACE_UFR_ANTHROPIC_RUN_DIR)" "$(REFACTOR_TRACE_UFR_GEMINI_RUN_DIR)" "$(REFACTOR_CACHE_DIR)"
 	$(PY) -m $(RUN_SWEEP_MOD) \
-		--corpus-dir "$(TRACE_UFR_CORPUS_DIR)" \
-		--out-dir "$(TRACE_UFR_OPENAI_RUN_DIR)" \
+		--benchmark $(BENCHMARK_ID) \
+		--corpus-dir "$(REFACTOR_TRACE_UFR_CORPUS_DIR)" \
+		--out-dir "$(REFACTOR_TRACE_UFR_OPENAI_RUN_DIR)" \
 		--modes $(TRACE_UFR_MODES) \
 		--provider openai \
 		--models $(OPENAI_MODELS) \
-		--extracts "$(EXTRACTS_DIR)" \
-		--schema "$(FACT_SCHEMA)" \
-		--cache "$(CACHE_BASE)" \
+		--schema "$(BENCHMARK_SCHEMA)" \
+		--cache "$(REFACTOR_CACHE_BASE)" \
 		--max-jobs $(TRACE_UFR_MAX_JOBS) \
 		$(TRACE_UFR_RUN_EXTRA)
-
-	@echo "TRACE-UFR Anthropic run -> run=$(TRACE_UFR_ANTHROPIC_RUN_ID) modes=$(TRACE_UFR_MODES) models=$(ANTHROPIC_MODELS)"
 	$(PY) -m $(RUN_SWEEP_MOD) \
-		--corpus-dir "$(TRACE_UFR_CORPUS_DIR)" \
-		--out-dir "$(TRACE_UFR_ANTHROPIC_RUN_DIR)" \
+		--benchmark $(BENCHMARK_ID) \
+		--corpus-dir "$(REFACTOR_TRACE_UFR_CORPUS_DIR)" \
+		--out-dir "$(REFACTOR_TRACE_UFR_ANTHROPIC_RUN_DIR)" \
 		--modes $(TRACE_UFR_MODES) \
 		--provider anthropic \
 		--models $(ANTHROPIC_MODELS) \
-		--extracts "$(EXTRACTS_DIR)" \
-		--schema "$(FACT_SCHEMA)" \
-		--cache "$(CACHE_BASE)" \
+		--schema "$(BENCHMARK_SCHEMA)" \
+		--cache "$(REFACTOR_CACHE_BASE)" \
 		--max-jobs $(TRACE_UFR_MAX_JOBS) \
 		$(TRACE_UFR_RUN_EXTRA)
-
-	@echo "TRACE-UFR Gemini run -> run=$(TRACE_UFR_GEMINI_RUN_ID) modes=$(TRACE_UFR_MODES) models=$(GEMINI_MODELS)"
 	$(PY) -m $(RUN_SWEEP_MOD) \
-		--corpus-dir "$(TRACE_UFR_CORPUS_DIR)" \
-		--out-dir "$(TRACE_UFR_GEMINI_RUN_DIR)" \
+		--benchmark $(BENCHMARK_ID) \
+		--corpus-dir "$(REFACTOR_TRACE_UFR_CORPUS_DIR)" \
+		--out-dir "$(REFACTOR_TRACE_UFR_GEMINI_RUN_DIR)" \
 		--modes $(TRACE_UFR_MODES) \
 		--provider gemini \
 		--models $(GEMINI_MODELS) \
-		--extracts "$(EXTRACTS_DIR)" \
-		--schema "$(FACT_SCHEMA)" \
-		--cache "$(CACHE_BASE)" \
+		--schema "$(BENCHMARK_SCHEMA)" \
+		--cache "$(REFACTOR_CACHE_BASE)" \
 		--max-jobs $(TRACE_UFR_MAX_JOBS) \
 		$(TRACE_UFR_RUN_EXTRA)
 
-	@echo "Done."
-	@echo "Corpus:    $(TRACE_UFR_CORPUS_DIR)"
-	@echo "OpenAI:    $(TRACE_UFR_OPENAI_RUN_DIR)"
-	@echo "Anthropic: $(TRACE_UFR_ANTHROPIC_RUN_DIR)"
-	@echo "Gemini:    $(TRACE_UFR_GEMINI_RUN_DIR)"
+compare_smoke3_offline: legacy_smoke3_offline smoke3_offline
+	$(PY) -m $(COMPARE_MOD) \
+		--kind corpus \
+		--legacy "$(LEGACY_SMOKE3_CORPUS_DIR)" \
+		--refactor "$(REFACTOR_SMOKE3_CORPUS_DIR)"
+	$(PY) -m $(COMPARE_MOD) \
+		--kind jsonl \
+		--legacy "$(LEGACY_SMOKE3_RUN_DIR)/results_all.jsonl" \
+		--refactor "$(REFACTOR_SMOKE3_RUN_DIR)/results_all.jsonl"
+
+compare_TRACE-UFR_corpus: legacy_generate_TRACE-UFR generate_TRACE-UFR
+	$(PY) -m $(COMPARE_MOD) \
+		--kind corpus \
+		--legacy "$(LEGACY_TRACE_UFR_CORPUS_DIR)" \
+		--refactor "$(REFACTOR_TRACE_UFR_CORPUS_DIR)"
+
+compare_TRACE-UFR_offline: legacy_run_TRACE-UFR_offline generate_TRACE-UFR
+	@rm -rf "$(REFACTOR_ARTIFACTS_DIR)/runs/run_TRACE-UFR_offline"
+	@mkdir -p "$(REFACTOR_ARTIFACTS_DIR)/runs/run_TRACE-UFR_offline"
+	$(PY) -m $(RUN_SWEEP_MOD) \
+		--benchmark $(BENCHMARK_ID) \
+		--corpus-dir "$(REFACTOR_TRACE_UFR_CORPUS_DIR)" \
+		--out-dir "$(REFACTOR_ARTIFACTS_DIR)/runs/run_TRACE-UFR_offline" \
+		--modes oracle \
+		--max-jobs 1
+	$(PY) -m $(COMPARE_MOD) \
+		--kind jsonl \
+		--legacy "$(LEGACY_TRACE_UFR_RUN_DIR)/results_all.jsonl" \
+		--refactor "$(REFACTOR_ARTIFACTS_DIR)/runs/run_TRACE-UFR_offline/results_all.jsonl"

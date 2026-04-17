@@ -1,0 +1,18 @@
+{
+  "extraction_id": "tencent_2023_gross_profit_growth_yoy_fy2023",
+  "snippet_id": "tencent_2023_revenue",
+  "label": "gross_profit_growth_yoy",
+  "period": {
+    "value": 2023,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 23.0,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "Tencent",
+  "metric_key": "gross_profit",
+  "metric_role": "rate"
+}

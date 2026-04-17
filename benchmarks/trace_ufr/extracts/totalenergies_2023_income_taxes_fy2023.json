@@ -1,0 +1,18 @@
+{
+  "extraction_id": "totalenergies_2023_income_taxes_fy2023",
+  "snippet_id": "total_energies_2024_revenue",
+  "label": "income_taxes",
+  "period": {
+    "value": 2023,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": -13301,
+    "unit": "USD",
+    "scale": 1000000,
+    "type": "money"
+  },
+  "company": "TotalEnergies",
+  "metric_key": "income_taxes",
+  "metric_role": "amount"
+}

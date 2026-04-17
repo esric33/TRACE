@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import Any, Dict, List
 
-from TRACE.execute.executor import ExecError
+from TRACE.core.executor.support import ExecError
 
 
 def offline_lookup_fn(node_id, _, capsule, extracts_by_snippet):

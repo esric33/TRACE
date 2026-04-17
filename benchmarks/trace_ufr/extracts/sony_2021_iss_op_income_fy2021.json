@@ -1,0 +1,18 @@
+{
+  "extraction_id": "sony_2021_iss_op_income_fy2021",
+  "snippet_id": "sony_2021_revenue",
+  "label": "operating_income_imaging_sensing_solutions",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 155.6,
+    "unit": "JPY",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Sony Corporation",
+  "metric_key": "operating_income_imaging_sensing_solutions",
+  "metric_role": "amount"
+}

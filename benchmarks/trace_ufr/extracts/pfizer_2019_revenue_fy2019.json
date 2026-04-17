@@ -1,0 +1,18 @@
+{
+  "extraction_id": "pfizer_2019_revenue_fy2019",
+  "snippet_id": "pfizer_2021_revenue",
+  "label": "revenue",
+  "period": {
+    "value": 2019,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 40905,
+    "unit": "USD",
+    "scale": 1000000,
+    "type": "money"
+  },
+  "company": "Pfizer",
+  "metric_key": "revenue",
+  "metric_role": "amount"
+}

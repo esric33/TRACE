@@ -1,0 +1,18 @@
+{
+  "extraction_id": "hyundai_2022_revenue_fy2022",
+  "snippet_id": "hyundai_2022_revenue",
+  "label": "revenue",
+  "period": {
+    "value": 2022,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 142.5,
+    "unit": "KRW",
+    "scale": 1000000000000,
+    "type": "money"
+  },
+  "company": "Hyundai Motor Company",
+  "metric_key": "revenue",
+  "metric_role": "amount"
+}

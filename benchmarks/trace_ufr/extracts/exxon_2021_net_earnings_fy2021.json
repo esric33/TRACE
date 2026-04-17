@@ -1,0 +1,18 @@
+{
+  "extraction_id": "exxon_2021_net_earnings_fy2021",
+  "snippet_id": "exxon_2021_earnings",
+  "label": "net_earnings",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 23,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "ExxonMobil",
+  "metric_key": "net_earnings",
+  "metric_role": "amount"
+}

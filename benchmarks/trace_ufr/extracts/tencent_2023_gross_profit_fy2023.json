@@ -1,0 +1,18 @@
+{
+  "extraction_id": "tencent_2023_gross_profit_fy2023",
+  "snippet_id": "tencent_2023_revenue",
+  "label": "gross_profit",
+  "period": {
+    "value": 2023,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 293.1,
+    "unit": "RMB",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Tencent",
+  "metric_key": "gross_profit",
+  "metric_role": "amount"
+}

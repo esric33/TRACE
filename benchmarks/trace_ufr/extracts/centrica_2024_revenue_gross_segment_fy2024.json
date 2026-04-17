@@ -1,0 +1,18 @@
+{
+  "extraction_id": "centrica_2024_revenue_gross_segment_fy2024",
+  "snippet_id": "centrica_2024_revenue",
+  "label": "revenue_gross_segment",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 26206,
+    "unit": "GBP",
+    "scale": 1000000,
+    "type": "money"
+  },
+  "company": "Centrica",
+  "metric_key": "revenue_gross_segment",
+  "metric_role": "amount"
+}

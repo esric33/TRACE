@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-from TRACE.execute.executor import ExecError
+from TRACE.core.executor.support import ExecError
 from TRACE.providers.shared.prompt import build_lookup_prompt
 
 

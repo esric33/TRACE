@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from TRACE.execute.executor import ExecError
+from TRACE.core.executor.support import ExecError
 from TRACE.providers.shared.structured_json import call_json_with_retries
 from TRACE.providers.shared.prompt import build_lookup_prompt
 

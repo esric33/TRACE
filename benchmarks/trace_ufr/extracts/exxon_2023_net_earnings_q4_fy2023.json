@@ -1,0 +1,18 @@
+{
+  "extraction_id": "exxon_2023_net_earnings_q4_fy2023",
+  "snippet_id": "exxon_2023_earnings",
+  "label": "net_earnings",
+  "period": {
+    "value": "Q4 2023",
+    "period": "Q"
+  },
+  "quantity": {
+    "value": 7.6,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "ExxonMobil",
+  "metric_key": "net_earnings",
+  "metric_role": "amount"
+}

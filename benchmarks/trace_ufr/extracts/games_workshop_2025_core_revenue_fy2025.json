@@ -1,0 +1,18 @@
+{
+  "extraction_id": "games_workshop_2025_core_revenue_fy2025",
+  "snippet_id": "games_workshop_2025_revenue",
+  "label": "revenue_core",
+  "period": {
+    "value": 2025,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 565.0,
+    "unit": "GBP",
+    "scale": 1000000,
+    "type": "money"
+  },
+  "company": "Games Workshop",
+  "metric_key": "revenue_core",
+  "metric_role": "amount"
+}

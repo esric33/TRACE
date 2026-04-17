@@ -1,0 +1,18 @@
+{
+  "extraction_id": "samsung_2024_semiconductor_operating_profit_q4_fy2024",
+  "snippet_id": "samsung_2024_revenue",
+  "label": "operating_profit_semiconductor",
+  "period": {
+    "value": "Q4 2024",
+    "period": "Q"
+  },
+  "quantity": {
+    "value": 2.9,
+    "unit": "KRW",
+    "scale": 1000000000000,
+    "type": "money"
+  },
+  "company": "Samsung Electronics",
+  "metric_key": "operating_profit_semiconductor",
+  "metric_role": "amount"
+}

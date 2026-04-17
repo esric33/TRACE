@@ -3,13 +3,15 @@ from __future__ import annotations
 import json
 from typing import Any, Dict
 
-from TRACE.execute.executor import ExecError
+from TRACE.core.executor.support import ExecError
 from TRACE.providers.shared.prompt import build_planner_prompt
 from TRACE.providers.shared.dag_validator import validate_dag_obj
 
 
-def openai_plan_fn(capsule: Dict[str, Any], *, client, model: str) -> Dict[str, Any]:
-    prompt = build_planner_prompt(capsule)
+def openai_plan_fn(
+    capsule: Dict[str, Any], *, client, model: str, benchmark_def=None
+) -> Dict[str, Any]:
+    prompt = build_planner_prompt(capsule, benchmark_def=benchmark_def)
     resp = client.responses.create(
         model=model,
         input=prompt,
@@ -18,7 +20,7 @@ def openai_plan_fn(capsule: Dict[str, Any], *, client, model: str) -> Dict[str, 
     )
     try:
         planner = json.loads(resp.output_text)
-        dag = validate_dag_obj(planner)
+        dag = validate_dag_obj(planner, benchmark_def=benchmark_def)
         return dag
     except Exception as e:
         raise ExecError(

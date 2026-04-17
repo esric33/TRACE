@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List
 
+from TRACE.core.benchmarks.loader import load_benchmark
 from TRACE.shared.io import read_json  # if you have it; optional
 
 from TRACE.generation.cli_generate import (
@@ -19,8 +20,9 @@ def _ensure_dir(p: Path) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--extracts", required=True)
-    ap.add_argument("--snippets", required=True)
+    ap.add_argument("--benchmark", default="trace_ufr")
+    ap.add_argument("--extracts", default=None)
+    ap.add_argument("--snippets", default=None)
     ap.add_argument("--out", required=True)
 
     ap.add_argument("--distractors", nargs="+", type=int, default=[0, 1, 3, 5, 10])
@@ -36,6 +38,9 @@ def main() -> None:
     ap.add_argument("--force", action="store_true")
 
     args = ap.parse_args()
+    benchmark_def = load_benchmark(args.benchmark)
+    extracts_dir = Path(args.extracts) if args.extracts else benchmark_def.extracts_dir
+    snippets_dir = Path(args.snippets) if args.snippets else benchmark_def.snippets_dir
 
     out_dir = Path(args.out)
     if out_dir.exists() and any(out_dir.iterdir()) and not args.force:
@@ -47,8 +52,8 @@ def main() -> None:
 
     meta: Dict[str, Any] = {
         "corpus_id": corpus_id,
-        "extracts_dir": str(Path(args.extracts).resolve()),
-        "snippets_dir": str(Path(args.snippets).resolve()),
+        "extracts_dir": str(extracts_dir.resolve()),
+        "snippets_dir": str(snippets_dir.resolve()),
         "distractors": list(args.distractors),
         "n_total_per_distractor": int(args.n_total),
         "seed_base": int(args.seed),
@@ -80,10 +85,12 @@ def main() -> None:
             sys.executable,
             "-m",
             "TRACE.generation.cli_generate",
+            "--benchmark",
+            args.benchmark,
             "--extracts",
-            args.extracts,
+            args.extracts or "",
             "--snippets",
-            args.snippets,
+            args.snippets or "",
             "--out",
             str(sub),
             "--n",
@@ -95,6 +102,11 @@ def main() -> None:
             "--distractor-count",
             str(d),
         ]
+        if not args.extracts:
+            cmd[cmd.index("--extracts") : cmd.index("--snippets")] = []
+        if not args.snippets:
+            idx = cmd.index("--snippets")
+            del cmd[idx : idx + 2]
         if args.p_family:
             cmd += ["--p", args.p_family]
         if args.w:

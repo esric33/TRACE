@@ -1,0 +1,18 @@
+{
+  "extraction_id": "totalenergies_2023_eps_diluted_fy2023",
+  "snippet_id": "total_energies_2024_revenue",
+  "label": "eps_diluted",
+  "period": {
+    "value": 2023,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 8.67,
+    "unit": "USD",
+    "scale": 1,
+    "type": "per_share"
+  },
+  "company": "TotalEnergies",
+  "metric_key": "eps_diluted",
+  "metric_role": "amount"
+}

@@ -1,0 +1,18 @@
+{
+  "extraction_id": "toyota_2024_vehicle_sales_growth_yoy_fy2024",
+  "snippet_id": "toyota_2024_sales",
+  "label": "vehicle_unit_sales_growth_yoy",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 7.0,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "Toyota Motor Corporation",
+  "metric_key": "vehicle_unit_sales",
+  "metric_role": "rate"
+}

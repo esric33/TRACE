@@ -1,0 +1,18 @@
+{
+  "extraction_id": "hyundai_2024_vehicle_sales_volume_fy2024",
+  "snippet_id": "hyundai_2024_revenue",
+  "label": "vehicle_sales_volume",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 4.14,
+    "unit": "items",
+    "scale": 1000000,
+    "type": "count"
+  },
+  "company": "Hyundai Motor Company",
+  "metric_key": "vehicle_sales_volume",
+  "metric_role": "amount"
+}

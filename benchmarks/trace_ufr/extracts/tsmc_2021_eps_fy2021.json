@@ -1,0 +1,18 @@
+{
+  "extraction_id": "tsmc_2021_eps_fy2021",
+  "snippet_id": "tsmc_2023_revenue",
+  "label": "eps",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 23.01,
+    "unit": "TWD",
+    "scale": 1,
+    "type": "per_share"
+  },
+  "company": "Taiwan Semiconductor Manufacturing Company",
+  "metric_key": "eps",
+  "metric_role": "amount"
+}

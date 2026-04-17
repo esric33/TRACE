@@ -1,0 +1,18 @@
+{
+  "extraction_id": "meta_2024_revenue_q4_fy2024",
+  "snippet_id": "meta_2024_revenue",
+  "label": "revenue",
+  "period": {
+    "value": "Q4 2024",
+    "period": "Q"
+  },
+  "quantity": {
+    "value": 48.39,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Meta Platforms, Inc.",
+  "metric_key": "revenue",
+  "metric_role": "amount"
+}

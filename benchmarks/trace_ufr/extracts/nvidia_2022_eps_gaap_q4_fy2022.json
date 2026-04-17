@@ -1,0 +1,18 @@
+{
+  "extraction_id": "nvidia_2022_eps_gaap_q4_fy2022",
+  "snippet_id": "nvidia_2022_revenue",
+  "label": "eps_gaap",
+  "period": {
+    "value": "Q4 2022",
+    "period": "Q"
+  },
+  "quantity": {
+    "value": 1.18,
+    "unit": "USD",
+    "scale": 1,
+    "type": "per_share"
+  },
+  "company": "NVIDIA Corporation",
+  "metric_key": "eps_gaap",
+  "metric_role": "amount"
+}

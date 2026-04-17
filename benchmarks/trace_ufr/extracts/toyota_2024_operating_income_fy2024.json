@@ -1,0 +1,18 @@
+{
+  "extraction_id": "toyota_2024_operating_income_fy2024",
+  "snippet_id": "toyota_2024_sales",
+  "label": "operating_income",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 5352.9,
+    "unit": "JPY",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Toyota Motor Corporation",
+  "metric_key": "operating_income",
+  "metric_role": "amount"
+}

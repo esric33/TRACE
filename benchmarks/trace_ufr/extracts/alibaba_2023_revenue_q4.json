@@ -1,0 +1,18 @@
+{
+  "extraction_id": "alibaba_2023_revenue_q4",
+  "snippet_id": "alibaba_2023_revenue",
+  "label": "revenue",
+  "period": {
+    "value": "Q4 2023",
+    "period": "Q"
+  },
+  "quantity": {
+    "value": 208200,
+    "unit": "RMB",
+    "scale": 1000000,
+    "type": "money"
+  },
+  "company": "Alibaba Group Holding Limited",
+  "metric_key": "revenue",
+  "metric_role": "amount"
+}

@@ -1,0 +1,18 @@
+{
+  "extraction_id": "walmart_2022_shareholder_returns_fy2022",
+  "snippet_id": "walmart_2022_revenue",
+  "label": "shareholder_returns",
+  "period": {
+    "value": 2022,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 15.9,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Walmart Inc.",
+  "metric_key": "shareholder_returns",
+  "metric_role": "amount"
+}

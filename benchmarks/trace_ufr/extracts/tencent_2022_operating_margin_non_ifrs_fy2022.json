@@ -1,0 +1,18 @@
+{
+  "extraction_id": "tencent_2022_operating_margin_non_ifrs_fy2022",
+  "snippet_id": "tencent_2023_revenue",
+  "label": "operating_margin_non_ifrs",
+  "period": {
+    "value": 2022,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 26.0,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "Tencent",
+  "metric_key": "operating_margin_non_ifrs",
+  "metric_role": "rate"
+}

@@ -1,0 +1,18 @@
+{
+  "extraction_id": "walmart_2022_operating_cash_flow_fy2022",
+  "snippet_id": "walmart_2022_revenue",
+  "label": "operating_cash_flow",
+  "period": {
+    "value": 2022,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 24.2,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Walmart Inc.",
+  "metric_key": "operating_cash_flow",
+  "metric_role": "amount"
+}

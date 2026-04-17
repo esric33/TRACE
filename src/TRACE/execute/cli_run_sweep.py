@@ -11,6 +11,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+from TRACE.core.benchmarks.loader import load_benchmark
+
 
 def _ensure_dir(p: Path) -> None:
     p.mkdir(parents=True, exist_ok=True)
@@ -156,6 +158,8 @@ def _run_job(job: Job, args) -> Path:
         sys.executable,
         "-m",
         "TRACE.execute.cli_run",
+        "--benchmark",
+        args.benchmark,
         "--capsules",
         str(job.cap_dir),
         "--extracts",
@@ -199,9 +203,10 @@ def _run_job(job: Job, args) -> Path:
 def main() -> None:
     ap = argparse.ArgumentParser()
 
+    ap.add_argument("--benchmark", default="trace_ufr")
     ap.add_argument("--corpus-dir", required=True)
     ap.add_argument("--out-dir", required=True)
-    ap.add_argument("--extracts", required=True)
+    ap.add_argument("--extracts", default=None)
 
     ap.add_argument(
         "--resume",
@@ -230,7 +235,7 @@ def main() -> None:
         help="Multiple providers (e.g., openai anthropic gemini)",
     )
 
-    ap.add_argument("--schema", default="schemas/model_fact.json")
+    ap.add_argument("--schema", default=None)
     ap.add_argument("--cache", default="cache/lookups.json")
 
     ap.add_argument("--verbose", action="store_true")
@@ -245,6 +250,11 @@ def main() -> None:
     )
 
     args, unknown = ap.parse_known_args()
+    benchmark_def = load_benchmark(args.benchmark)
+    if args.extracts is None:
+        args.extracts = str(benchmark_def.extracts_dir)
+    if args.schema is None:
+        args.schema = str(benchmark_def.schemas_dir / "model_fact.json")
 
     corpus_dir = Path(args.corpus_dir)
     out_dir = Path(args.out_dir)
@@ -290,8 +300,8 @@ def main() -> None:
     (out_dir / "meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
 
     results_all = out_dir / "results_all.jsonl"
-    # leave existing results_all in place; if you want overwrite, uncomment:
-    # if results_all.exists(): results_all.unlink()
+    if results_all.exists():
+        results_all.unlink()
 
     jobs = _build_jobs(
         d_folders=d_folders,

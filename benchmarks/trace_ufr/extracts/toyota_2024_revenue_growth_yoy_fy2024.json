@@ -1,0 +1,18 @@
+{
+  "extraction_id": "toyota_2024_revenue_growth_yoy_fy2024",
+  "snippet_id": "toyota_2024_sales",
+  "label": "revenue_growth_yoy",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 21.4,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "Toyota Motor Corporation",
+  "metric_key": "revenue",
+  "metric_role": "rate"
+}

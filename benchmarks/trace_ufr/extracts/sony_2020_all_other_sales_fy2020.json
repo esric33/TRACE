@@ -1,0 +1,18 @@
+{
+  "extraction_id": "sony_2020_all_other_sales_fy2020",
+  "snippet_id": "sony_2021_revenue",
+  "label": "revenue_all_other",
+  "period": {
+    "value": 2020,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 100.7,
+    "unit": "JPY",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Sony Corporation",
+  "metric_key": "revenue_all_other",
+  "metric_role": "amount"
+}

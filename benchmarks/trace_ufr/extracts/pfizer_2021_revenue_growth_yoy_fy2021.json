@@ -1,0 +1,18 @@
+{
+  "extraction_id": "pfizer_2021_revenue_growth_yoy_fy2021",
+  "snippet_id": "pfizer_2021_revenue",
+  "label": "revenue_growth_yoy",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 95.0,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "Pfizer",
+  "metric_key": "revenue",
+  "metric_role": "rate"
+}

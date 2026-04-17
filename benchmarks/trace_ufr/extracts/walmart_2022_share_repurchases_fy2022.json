@@ -1,0 +1,18 @@
+{
+  "extraction_id": "walmart_2022_share_repurchases_fy2022",
+  "snippet_id": "walmart_2022_revenue",
+  "label": "share_repurchases",
+  "period": {
+    "value": 2022,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 9.8,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Walmart Inc.",
+  "metric_key": "share_repurchases",
+  "metric_role": "amount"
+}

@@ -1,0 +1,18 @@
+{
+  "extraction_id": "totalenergies_2024_non_controlling_interests_fy2024",
+  "snippet_id": "total_energies_2024_revenue",
+  "label": "non_controlling_interests",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 273,
+    "unit": "USD",
+    "scale": 1000000,
+    "type": "money"
+  },
+  "company": "TotalEnergies",
+  "metric_key": "non_controlling_interests",
+  "metric_role": "amount"
+}

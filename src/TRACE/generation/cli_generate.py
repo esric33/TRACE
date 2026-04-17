@@ -1,14 +1,12 @@
 from __future__ import annotations
 
 import argparse
+from importlib import import_module
 import json
 from pathlib import Path
 from typing import Dict, List, Tuple
 
-from traitlets import default
-
-from TRACE.generation import capsule
-from TRACE.generation.specs import SPECS_BY_FAMILY, FAMILIES
+from TRACE.core.benchmarks.loader import load_benchmark
 from TRACE.generation.generation_types import ExtractRecord, Spec
 from TRACE.generation.sampler import sample_k_bindings_fast
 from TRACE.generation.compiler import compile_spec
@@ -16,8 +14,6 @@ from TRACE.generation.capsule import make_capsule
 from TRACE.generation.generation_types import (
     load_extracts,
     load_snippets,
-    enrich_extracts_with_company,
-    enrich_extracts_with_metric_key,
 )
 from TRACE.generation.simplify import simplify_plan
 
@@ -98,8 +94,9 @@ def _parse_family_weight_overrides(s: str) -> Dict[str, List[float]]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--extracts", required=True)
-    ap.add_argument("--snippets", required=True)
+    ap.add_argument("--benchmark", default="trace_ufr")
+    ap.add_argument("--extracts", default=None)
+    ap.add_argument("--snippets", default=None)
     ap.add_argument("--out", required=True)
     ap.add_argument("--n", type=int, default=10)
     ap.add_argument("--seed", type=int, default=0)
@@ -132,6 +129,11 @@ def main() -> None:
     ap.add_argument("--distractor-count", type=int, default=0)
 
     args = ap.parse_args()
+
+    benchmark_def = load_benchmark(args.benchmark)
+    templates = import_module(benchmark_def.templates_module)
+    SPECS_BY_FAMILY = templates.SPECS_BY_FAMILY
+    FAMILIES = templates.FAMILIES
 
     families = list(FAMILIES)
     if not families:
@@ -182,10 +184,11 @@ def main() -> None:
     # -------------------------
     # Load data
     # -------------------------
-    extracts = load_extracts(Path(args.extracts))
-    snippets_by_id = load_snippets(Path(args.snippets))
-    extracts = enrich_extracts_with_company(extracts, snippets_by_id)
-    extracts = enrich_extracts_with_metric_key(extracts)
+    extracts_dir = Path(args.extracts) if args.extracts else benchmark_def.extracts_dir
+    snippets_dir = Path(args.snippets) if args.snippets else benchmark_def.snippets_dir
+
+    extracts = load_extracts(extracts_dir)
+    snippets_by_id = load_snippets(snippets_dir)
 
     # -------------------------
     # Plan: family -> counts
@@ -259,7 +262,12 @@ def main() -> None:
                     continue
 
                 try:
-                    compiled_raw = compile_spec(spec, bindings, seed=seed_i)
+                    compiled_raw = compile_spec(
+                        spec,
+                        bindings,
+                        benchmark_def=benchmark_def,
+                        seed=seed_i,
+                    )
                     ok = True
                     seen_sigs.add(sig)
                     break

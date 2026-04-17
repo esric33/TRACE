@@ -1,0 +1,18 @@
+{
+  "extraction_id": "pfizer_2020_eps_adjusted_fy2020",
+  "snippet_id": "pfizer_2021_revenue",
+  "label": "eps_adjusted",
+  "period": {
+    "value": 2020,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 2.26,
+    "unit": "USD",
+    "scale": 1,
+    "type": "per_share"
+  },
+  "company": "Pfizer",
+  "metric_key": "eps_adjusted",
+  "metric_role": "amount"
+}

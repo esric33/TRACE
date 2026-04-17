@@ -1,0 +1,18 @@
+{
+  "extraction_id": "siemens_2023_profit_industrial_fy2023",
+  "snippet_id": "siemans_2023_revenue",
+  "label": "profit_industrial_business",
+  "period": {
+    "value": 2023,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 11.4,
+    "unit": "EUR",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Siemens",
+  "metric_key": "profit_industrial_business",
+  "metric_role": "amount"
+}

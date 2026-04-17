@@ -1,0 +1,18 @@
+{
+  "extraction_id": "samsung_2024_revenue_fy2024",
+  "snippet_id": "samsung_2024_revenue",
+  "label": "revenue",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 300.87,
+    "unit": "KRW",
+    "scale": 1000000000000,
+    "type": "money"
+  },
+  "company": "Samsung Electronics",
+  "metric_key": "revenue",
+  "metric_role": "amount"
+}

@@ -1,0 +1,18 @@
+{
+  "extraction_id": "honda_2024_operating_profit_fy2024",
+  "snippet_id": "honda_2024_revenue",
+  "label": "operating_profit",
+  "period": {
+    "value": 2024,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 1381.9,
+    "unit": "JPY",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Honda Motor Co., Ltd.",
+  "metric_key": "operating_profit",
+  "metric_role": "amount"
+}

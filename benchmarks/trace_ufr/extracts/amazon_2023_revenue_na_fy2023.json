@@ -1,0 +1,18 @@
+{
+  "extraction_id": "amazon_2023_revenue_na_FY2023",
+  "snippet_id": "amazon_2023_revenue",
+  "label": "revenue_north_america",
+  "period": {
+    "value": 2023,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 353,
+    "unit": "USD",
+    "scale": 1000000000,
+    "type": "money"
+  },
+  "company": "Amazon",
+  "metric_key": "revenue_north_america",
+  "metric_role": "amount"
+}

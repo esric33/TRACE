@@ -7,14 +7,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterator, Optional
 
+from TRACE.core.benchmarks.loader import load_benchmark
+from TRACE.core.executor.runtime import execute_dag
+from TRACE.core.executor.support import _q_norm, load_extract_store, ExecError
 from TRACE.reporting.results import RunConfig, write_result_row
 from TRACE.shared.io import _clean_path, read_json, read_jsonl
-from TRACE.execute.executor import (
-    _q_norm,
-    execute_dag_strict,
-    load_extract_store,
-    ExecError,
-)
 
 from TRACE.providers.shared.base import load_schema_json
 
@@ -118,7 +115,7 @@ def iter_selected_capsules(args, cap_path: Path) -> Iterator[Dict[str, Any]]:
 # -----------------------------------------------------------------------------
 
 
-def make_eval_fns(args):
+def make_eval_fns(args, benchmark_def):
     plan_fn = None
     lookup_fn = None
 
@@ -170,7 +167,12 @@ def make_eval_fns(args):
                 from TRACE.providers.openai.planner_openai import openai_plan_fn
 
                 def plan(capsule):
-                    return openai_plan_fn(capsule, client=client, model=args.model)
+                    return openai_plan_fn(
+                        capsule,
+                        client=client,
+                        model=args.model,
+                        benchmark_def=benchmark_def,
+                    )
 
                 plan_fn = plan
             else:
@@ -211,7 +213,12 @@ def make_eval_fns(args):
                 )
 
                 def plan(capsule):
-                    return anthropic_plan_fn(capsule, client=client, model=args.model)
+                    return anthropic_plan_fn(
+                        capsule,
+                        client=client,
+                        model=args.model,
+                        benchmark_def=benchmark_def,
+                    )
 
                 plan_fn = plan
             else:
@@ -248,7 +255,12 @@ def make_eval_fns(args):
                 from TRACE.providers.gemini.planner_gemini import gemini_plan_fn
 
                 def plan(capsule):
-                    return gemini_plan_fn(capsule, client=client, model=args.model)
+                    return gemini_plan_fn(
+                        capsule,
+                        client=client,
+                        model=args.model,
+                        benchmark_def=benchmark_def,
+                    )
 
                 plan_fn = plan
             else:
@@ -265,7 +277,13 @@ def make_eval_fns(args):
 # -----------------------------------------------------------------------------
 
 
-def run_one(capsule, extracts_by_snippet, *, plan_fn, lookup_fn) -> RunOutcome:
+@dataclass(frozen=True)
+class ProviderContext:
+    lookup_fn: Any
+    extracts_by_snippet: Dict[str, list[dict]]
+
+
+def run_one(capsule, extracts_by_snippet, *, plan_fn, lookup_fn, benchmark_def) -> RunOutcome:
     dag = None
     gold = capsule.get("gold", {}).get("answer")
     trace = []
@@ -273,12 +291,17 @@ def run_one(capsule, extracts_by_snippet, *, plan_fn, lookup_fn) -> RunOutcome:
     try:
         dag = capsule["gold"]["dag"] if plan_fn is None else plan_fn(capsule)
 
-        res = execute_dag_strict(
+        res = execute_dag(
             dag=dag,
+            benchmark_def=benchmark_def,
+            mode="provider",
+            provider_ctx=ProviderContext(
+                lookup_fn=lookup_fn,
+                extracts_by_snippet=extracts_by_snippet,
+            ),
+            oracle_ctx=None,
             capsule=capsule,
-            extracts_by_snippet=extracts_by_snippet,
             cache={},
-            lookup_fn=lookup_fn,
         )
 
         out = res["output"]
@@ -410,11 +433,12 @@ def print_outcome(outcome: RunOutcome, *, verbose: bool, multi: bool) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--benchmark", default="trace_ufr")
     ap.add_argument(
         "--capsules", required=True, help="Directory of .json capsules OR a .jsonl file"
     )
     ap.add_argument(
-        "--extracts", required=True, help="Directory containing extract JSON files"
+        "--extracts", default=None, help="Directory containing extract JSON files"
     )
 
     ap.add_argument("--qid", default=None, help="Run a single capsule by qid")
@@ -448,7 +472,7 @@ def main() -> None:
     )
     ap.add_argument(
         "--schema",
-        default="schemas/model_fact.json",
+        default=None,
         help="Path to ModelFact json_schema",
     )
     ap.add_argument(
@@ -473,6 +497,11 @@ def main() -> None:
     )
 
     args = ap.parse_args()
+    benchmark_def = load_benchmark(args.benchmark)
+    if args.extracts is None:
+        args.extracts = str(benchmark_def.extracts_dir)
+    if args.schema is None:
+        args.schema = str(benchmark_def.schemas_dir / "model_fact.json")
 
     done_qids = set()
     if args.skip_existing and args.results_out:
@@ -490,7 +519,7 @@ def main() -> None:
 
     extracts_by_snippet = load_extract_store(extracts_path)
 
-    plan_fn, lookup_fn = make_eval_fns(args)
+    plan_fn, lookup_fn = make_eval_fns(args, benchmark_def)
 
     dump_dir = Path(args.dump_trace) if args.dump_trace else None
     is_multi = bool(args.all)
@@ -518,6 +547,7 @@ def main() -> None:
             extracts_by_snippet,
             plan_fn=plan_fn,
             lookup_fn=lookup_fn,
+            benchmark_def=benchmark_def,
         )
 
         maybe_dump_trace(

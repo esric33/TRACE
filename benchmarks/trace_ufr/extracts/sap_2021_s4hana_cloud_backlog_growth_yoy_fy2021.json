@@ -1,0 +1,18 @@
+{
+  "extraction_id": "sap_2021_s4hana_cloud_backlog_growth_yoy_fy2021",
+  "snippet_id": "sap_2021_revenue",
+  "label": "cloud_backlog_s4hana_growth_yoy",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 84.0,
+    "unit": "percent",
+    "scale": 1,
+    "type": "rate"
+  },
+  "company": "SAP",
+  "metric_key": "cloud_backlog_s4hana",
+  "metric_role": "rate"
+}

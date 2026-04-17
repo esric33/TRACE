@@ -1,0 +1,18 @@
+{
+  "extraction_id": "tsmc_2021_gross_profit_fy2021",
+  "snippet_id": "tsmc_2023_revenue",
+  "label": "gross_profit",
+  "period": {
+    "value": 2021,
+    "period": "FY"
+  },
+  "quantity": {
+    "value": 819537266,
+    "unit": "TWD",
+    "scale": 1000,
+    "type": "money"
+  },
+  "company": "Taiwan Semiconductor Manufacturing Company",
+  "metric_key": "gross_profit",
+  "metric_role": "amount"
+}
