@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Callable
+from typing import Any, Callable, Dict, List, Mapping, Optional
 
 from TRACE.shared.io import read_json
 
@@ -17,9 +17,10 @@ class ExtractRecord:
     label: str
     period: Period
     quantity: Quantity
-    company: str
-    metric_key: str
-    metric_role: str
+    company: str = ""
+    metric_key: str = ""
+    metric_role: str = ""
+    slots: Dict[str, Any] = field(default_factory=dict)
 
     @property
     def qtype(self) -> str:
@@ -45,22 +46,38 @@ class ExtractRecord:
     def period_value(self) -> Any:
         return self.period.get("value")
 
+    def with_slots(self, slots: Mapping[str, Any]) -> "ExtractRecord":
+        merged = dict(self.slots)
+        merged.update(slots)
+        return replace(self, slots=merged)
+
+    def slot(self, name: str, default: Any = None) -> Any:
+        if name in self.slots:
+            return self.slots[name]
+
+        builtin_slots = {
+            "company": self.company,
+            "metric_key": self.metric_key,
+            "metric_role": self.metric_role,
+            "label": self.label,
+            "period": (self.period_kind, self.period_value),
+            "period_kind": self.period_kind,
+            "period_value": self.period_value,
+            "unit": self.unit,
+            "scale": self.scale,
+            "qtype": self.qtype,
+            "value": self.value,
+            "snippet_id": self.snippet_id,
+            "extraction_id": self.extraction_id,
+        }
+        return builtin_slots.get(name, default)
+
     @staticmethod
     def from_dict(d: Dict[str, Any]) -> "ExtractRecord":
-        company = str(d.get("company", "")).strip()
-        metric_key = str(d.get("metric_key", "")).strip()
-        metric_role = str(d.get("metric_role", "")).strip()
-        if not company:
+        slots = d.get("slots") or {}
+        if not isinstance(slots, dict):
             raise ValueError(
-                f"extract missing company: {d.get('extraction_id') or '<unknown>'}"
-            )
-        if not metric_key:
-            raise ValueError(
-                f"extract missing metric_key: {d.get('extraction_id') or '<unknown>'}"
-            )
-        if not metric_role:
-            raise ValueError(
-                f"extract missing metric_role: {d.get('extraction_id') or '<unknown>'}"
+                f"extract slots must be an object: {d.get('extraction_id') or '<unknown>'}"
             )
         return ExtractRecord(
             extraction_id=d["extraction_id"],
@@ -68,9 +85,10 @@ class ExtractRecord:
             label=d["label"],
             period=d["period"],
             quantity=d["quantity"],
-            company=company,
-            metric_key=metric_key,
-            metric_role=metric_role,
+            company=str(d.get("company", "")).strip(),
+            metric_key=str(d.get("metric_key", "")).strip(),
+            metric_role=str(d.get("metric_role", "")).strip(),
+            slots=dict(slots),
         )
 
 
@@ -133,6 +151,28 @@ class Spec:
 
 
 # --- Constraints ---
+@dataclass(frozen=True)
+class SameSlot:
+    a: str
+    b: str
+    slot: str
+
+
+@dataclass(frozen=True)
+class DifferentSlot:
+    a: str
+    b: str
+    slot: str
+
+
+def Same(slot: str, a: str, b: str) -> SameSlot:
+    return SameSlot(a=a, b=b, slot=slot)
+
+
+def Different(slot: str, a: str, b: str) -> DifferentSlot:
+    return DifferentSlot(a=a, b=b, slot=slot)
+
+
 @dataclass(frozen=True)
 class SameCompany:
     a: str
@@ -205,7 +245,15 @@ class DifferentUnit:
     b: str
 
 
-# NEW: “target FY record must not exist”
+@dataclass(frozen=True)
+class NotExists:
+    slot_refs: Dict[str, str]
+    period_kind: str
+    period_value_from: str
+    delta_years: int = 0
+
+
+# Compatibility shim for the current TRACE-UFR templates.
 @dataclass(frozen=True)
 class NotInExtracts:
     company_from: str  # var name to read company from
@@ -216,7 +264,9 @@ class NotInExtracts:
 
 
 type Constraint = (
-    SameCompany
+    SameSlot
+    | DifferentSlot
+    | SameCompany
     | DifferentCompany
     | SamePeriod
     | DifferentPeriod
@@ -227,6 +277,7 @@ type Constraint = (
     | SameScale
     | DifferentScale
     | SameMetricKey
+    | NotExists
     | NotInExtracts
     | DifferentExtraction
 )

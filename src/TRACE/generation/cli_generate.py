@@ -12,7 +12,6 @@ from TRACE.generation.sampler import sample_k_bindings_fast
 from TRACE.generation.compiler import compile_spec
 from TRACE.generation.capsule import make_capsule
 from TRACE.generation.generation_types import (
-    load_extracts,
     load_snippets,
 )
 from TRACE.generation.simplify import simplify_plan
@@ -187,7 +186,7 @@ def main() -> None:
     extracts_dir = Path(args.extracts) if args.extracts else benchmark_def.extracts_dir
     snippets_dir = Path(args.snippets) if args.snippets else benchmark_def.snippets_dir
 
-    extracts = load_extracts(extracts_dir)
+    extracts = benchmark_def.load_extracts(extracts_dir)
     snippets_by_id = load_snippets(snippets_dir)
 
     # -------------------------
@@ -251,6 +250,7 @@ def main() -> None:
                     spec,
                     extracts,
                     k=1,
+                    benchmark_def=benchmark_def,
                     seed=seed_i,
                     replace=True,
                 )[0]

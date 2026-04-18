@@ -5,11 +5,10 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from TRACE.core.benchmarks.loader import load_benchmark
 from TRACE.core.executor.support import ExecError
 from TRACE.providers.shared.structured_json import call_json_with_retries
 from TRACE.providers.shared.prompt import build_lookup_prompt
-
-LABEL_ENUM_PATH = Path("schemas") / "label_enum.json"
 
 
 def load_schema_json(path: Path) -> Dict[str, Any]:
@@ -33,16 +32,18 @@ def anthropic_lookup_fn(
     cache: Dict[str, Any],
     cache_path: Optional[Path] = None,
     temperature: float = 0.0,
+    benchmark_def=None,
 ) -> Dict[str, Any]:
     # labels
-    allowed_labels = json.loads(LABEL_ENUM_PATH.read_text(encoding="utf-8"))
-    if not isinstance(allowed_labels, list) or not all(
-        isinstance(x, str) for x in allowed_labels
-    ):
+    if benchmark_def is None:
+        benchmark_def = load_benchmark("trace_ufr")
+    try:
+        allowed_labels = benchmark_def.load_allowed_labels(benchmark_def.schemas_dir)
+    except Exception as e:
         raise ExecError(
             "E_bad_schema",
-            "label_enum.json must be a list of strings",
-            {"path": str(LABEL_ENUM_PATH)},
+            "benchmark label loading failed",
+            {"benchmark_id": benchmark_def.benchmark_id, "err": str(e)},
         )
 
     context_snippets = capsule["context"]["snippets"]
@@ -51,7 +52,12 @@ def anthropic_lookup_fn(
         f"{s['snippet_id']}: {s['text']}" for s in context_snippets
     )
 
-    prompt = build_lookup_prompt(query, snippet_text, allowed_labels)
+    prompt = build_lookup_prompt(
+        query,
+        snippet_text,
+        allowed_labels,
+        benchmark_def=benchmark_def,
+    )
 
     key = _ck(
         {

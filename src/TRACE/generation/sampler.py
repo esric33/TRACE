@@ -2,37 +2,37 @@ from __future__ import annotations
 
 import random
 import re
-from dataclasses import dataclass
-from typing import Dict, List, Optional, Iterable, Tuple, Set, DefaultDict
 from collections import defaultdict
+from typing import DefaultDict, Dict, List, Optional, Set, Tuple
 
+from TRACE.core.benchmarks.loader import load_benchmark
+from TRACE.core.benchmarks.types import BenchmarkDef, ExistsKey
 from TRACE.generation.generation_types import (
     Bindings,
-    ExtractRecord,
-    Spec,
     Constraint,
-    VarSpec,
-    SameCompany,
-    SamePeriod,
-    SameLabel,
-    SameUnit,
-    SameScale,
-    DifferentExtraction,
     DifferentCompany,
+    DifferentExtraction,
     DifferentLabel,
-    SameMetricKey,
-    NotInExtracts,
     DifferentPeriod,
     DifferentScale,
+    DifferentSlot,
     DifferentUnit,
+    ExtractRecord,
+    NotExists,
+    NotInExtracts,
+    SameCompany,
+    SameLabel,
+    SameMetricKey,
+    SamePeriod,
+    SameScale,
+    SameSlot,
+    SameUnit,
+    Spec,
+    VarSpec,
 )
 
 _Q_RE = re.compile(r"^\s*Q([1-4])\s+(\d{4})\s*$", re.IGNORECASE)
 _DATE_RE = re.compile(r"^\s*(\d{4})-(\d{2})-(\d{2})\s*$")
-
-ExistsKey = tuple[
-    str, str, str, object
-]  # (company, metric_key, period_kind, canon_period_value)
 
 
 def _year_from_period(kind: str, value: object) -> int | None:
@@ -60,13 +60,6 @@ def _year_from_period(kind: str, value: object) -> int | None:
     return None
 
 
-def _canon_period_value(r: ExtractRecord) -> object:
-    if str(r.period_kind).upper() == "FY":
-        y = _year_from_period(r.period_kind, r.period_value)
-        return y if y is not None else r.period_value
-    return r.period_value
-
-
 def _match_varspec(r: ExtractRecord, vs: VarSpec) -> bool:
     if vs.qtype_in is not None and r.qtype not in vs.qtype_in:
         return False
@@ -78,155 +71,217 @@ def _match_varspec(r: ExtractRecord, vs: VarSpec) -> bool:
         return False
     if (
         getattr(vs, "metric_role_in", None) is not None
-        and r.metric_role not in vs.metric_role_in
+        and r.slot("metric_role") not in vs.metric_role_in
     ):
         return False
     if (
         getattr(vs, "metric_key_in", None) is not None
-        and r.metric_key not in vs.metric_key_in
+        and r.slot("metric_key") not in vs.metric_key_in
     ):
         return False
     return True
 
 
-@dataclass(frozen=True)
-class _Idx:
-    by_company: Dict[str, List[ExtractRecord]]
-    by_period: Dict[Tuple[str, object], List[ExtractRecord]]
-    by_unit: Dict[str, List[ExtractRecord]]
-    by_scale: Dict[float, List[ExtractRecord]]
-    by_label: Dict[str, List[ExtractRecord]]
-    by_metric_key: Dict[str, List[ExtractRecord]]
+def _normalize_extracts(
+    extracts: List[ExtractRecord], benchmark_def: BenchmarkDef
+) -> List[ExtractRecord]:
+    out: List[ExtractRecord] = []
+    for record in extracts:
+        derived_slots = dict(benchmark_def.derive_slots(record))
+        out.append(record.with_slots(derived_slots) if derived_slots else record)
+    return out
 
 
-def _build_indices(extracts: List[ExtractRecord]) -> _Idx:
-    by_company: DefaultDict[str, List[ExtractRecord]] = defaultdict(list)
-    by_period: DefaultDict[Tuple[str, object], List[ExtractRecord]] = defaultdict(list)
-    by_unit: DefaultDict[str, List[ExtractRecord]] = defaultdict(list)
-    by_scale: DefaultDict[float, List[ExtractRecord]] = defaultdict(list)
-    by_label: DefaultDict[str, List[ExtractRecord]] = defaultdict(list)
-    by_metric_key: DefaultDict[str, List[ExtractRecord]] = defaultdict(list)
+def _exists_index(
+    extracts: List[ExtractRecord], benchmark_def: BenchmarkDef
+) -> Set[ExistsKey]:
+    if benchmark_def.build_exists_key is None:
+        return set()
 
-    for r in extracts:
-        if r.company:
-            by_company[r.company].append(r)
-        by_period[(r.period_kind, r.period_value)].append(r)
-        if r.unit:
-            by_unit[r.unit].append(r)
-        by_scale[float(r.scale)].append(r)
-        if r.label:
-            by_label[r.label].append(r)
-        if r.metric_key:
-            by_metric_key[r.metric_key].append(r)
+    out: Set[ExistsKey] = set()
+    for record in extracts:
+        key = benchmark_def.build_exists_key(record)
+        if key is not None:
+            out.add(key)
+    return out
 
-    return _Idx(
-        by_company=dict(by_company),
-        by_period=dict(by_period),
-        by_unit=dict(by_unit),
-        by_scale=dict(by_scale),
-        by_label=dict(by_label),
-        by_metric_key=dict(by_metric_key),
+
+def _slot_name(c: Constraint) -> str | None:
+    if isinstance(c, (SameSlot, DifferentSlot)):
+        return c.slot
+    if isinstance(c, (SameCompany, DifferentCompany)):
+        return "company"
+    if isinstance(c, (SamePeriod, DifferentPeriod)):
+        return "period"
+    if isinstance(c, (SameLabel, DifferentLabel)):
+        return "label"
+    if isinstance(c, (SameUnit, DifferentUnit)):
+        return "unit"
+    if isinstance(c, (SameScale, DifferentScale)):
+        return "scale"
+    if isinstance(c, SameMetricKey):
+        return "metric_key"
+    if isinstance(c, DifferentExtraction):
+        return "extraction_id"
+    return None
+
+
+def _same_like(c: Constraint) -> bool:
+    return isinstance(
+        c,
+        (
+            SameSlot,
+            SameCompany,
+            SamePeriod,
+            SameLabel,
+            SameUnit,
+            SameScale,
+            SameMetricKey,
+        ),
     )
 
 
-def _exists_index(extracts: List[ExtractRecord]) -> Set[ExistsKey]:
-    ex: Set[ExistsKey] = set()
-    for r in extracts:
-        if r.company and r.metric_key:
-            ex.add((r.company, r.metric_key, r.period_kind, _canon_period_value(r)))
-    return ex
+def _different_like(c: Constraint) -> bool:
+    return isinstance(
+        c,
+        (
+            DifferentSlot,
+            DifferentCompany,
+            DifferentPeriod,
+            DifferentLabel,
+            DifferentUnit,
+            DifferentScale,
+            DifferentExtraction,
+        ),
+    )
 
 
-# ---- constraint helpers (pairwise pruning) ---------------------------------
+def _slot_value(record: ExtractRecord, slot: str) -> object | None:
+    value = record.slot(slot)
+    if value == "":
+        return None
+    if slot == "scale" and value is not None:
+        return float(value)
+    return value
 
 
 def _pair_ok(a: ExtractRecord, b: ExtractRecord, c: Constraint) -> bool:
-    if isinstance(c, SameCompany):
-        return bool(a.company and b.company and a.company == b.company)
-    if isinstance(c, SamePeriod):
-        return (a.period_kind == b.period_kind) and (a.period_value == b.period_value)
-    if isinstance(c, SameLabel):
-        return a.label == b.label
-    if isinstance(c, SameUnit):
-        return a.unit == b.unit
-    if isinstance(c, SameScale):
-        return float(a.scale) == float(b.scale)
-    if isinstance(c, DifferentExtraction):
-        return a.extraction_id != b.extraction_id
-    if isinstance(c, DifferentCompany):
-        return bool(a.company and b.company and a.company != b.company)
-    if isinstance(c, DifferentLabel):
-        return a.label != b.label
-    if isinstance(c, DifferentPeriod):
-        return not (
-            (a.period_kind == b.period_kind) and (a.period_value == b.period_value)
-        )
-    if isinstance(c, DifferentScale):
-        return float(a.scale) != float(b.scale)
-    if isinstance(c, DifferentUnit):
-        return a.unit != b.unit
-    if isinstance(c, SameMetricKey):
-        return a.metric_key == b.metric_key
+    slot = _slot_name(c)
+    if slot is None:
+        raise TypeError(type(c))
+
+    a_val = _slot_value(a, slot)
+    b_val = _slot_value(b, slot)
+    if a_val is None or b_val is None:
+        return False
+    if _same_like(c):
+        return a_val == b_val
+    if _different_like(c):
+        return a_val != b_val
     raise TypeError(type(c))
 
 
-def _not_in_extracts_ok(
+def _not_exists_shape(
+    c: NotExists | NotInExtracts,
+) -> tuple[Dict[str, str], str, str, int]:
+    if isinstance(c, NotExists):
+        return dict(c.slot_refs), c.period_kind, c.period_value_from, int(c.delta_years)
+    return (
+        {
+            "company": c.company_from,
+            "metric_key": c.metric_key_from,
+        },
+        c.period_kind,
+        c.period_value_from,
+        int(c.delta_years),
+    )
+
+
+def _exists_key(
+    slot_values: Dict[str, object], period_kind: str, period_value: object
+) -> ExistsKey:
+    items = sorted(slot_values.items())
+    items.extend(
+        [
+            ("period_kind", str(period_kind).upper()),
+            ("period_value", period_value),
+        ]
+    )
+    return tuple(items)
+
+
+def _not_exists_ok(
     bindings: Dict[str, ExtractRecord],
-    c: NotInExtracts,
+    c: NotExists | NotInExtracts,
     *,
     exists: Set[ExistsKey],
 ) -> bool:
-    base = bindings.get(c.period_value_from)
-    company_rec = bindings.get(c.company_from)
-    metric_rec = bindings.get(c.metric_key_from)
-    if base is None or company_rec is None or metric_rec is None:
-        # can't evaluate yet -> don't prune
+    slot_refs, period_kind, period_value_from, delta_years = _not_exists_shape(c)
+
+    base = bindings.get(period_value_from)
+    if base is None:
         return True
 
-    company = company_rec.company
-    metric_key = metric_rec.metric_key
-    if not company or not metric_key:
-        return False
+    slot_values: Dict[str, object] = {}
+    for slot_name, var_name in slot_refs.items():
+        record = bindings.get(var_name)
+        if record is None:
+            return True
+        slot_value = _slot_value(record, slot_name)
+        if slot_value is None:
+            return False
+        slot_values[slot_name] = slot_value
 
-    if str(c.period_kind).upper() != "FY":
-        raise ValueError("NotInExtracts currently supports period_kind='FY' only")
+    if str(period_kind).upper() != "FY":
+        raise ValueError("NotExists currently supports period_kind='FY' only")
 
     base_year = _year_from_period(base.period_kind, base.period_value)
     if base_year is None:
         return False
 
-    target_year = base_year + int(c.delta_years)
-    key: ExistsKey = (company, metric_key, "FY", target_year)
-    return key not in exists
+    target_year = base_year + delta_years
+    return _exists_key(slot_values, "FY", target_year) not in exists
 
 
-def _constraints_by_var(constraints: List[Constraint]) -> Dict[str, List[Constraint]]:
-    out: DefaultDict[str, List[Constraint]] = defaultdict(list)
-    for c in constraints:
-        if isinstance(c, NotInExtracts):
-            # touches up to 3 vars
-            out[c.company_from].append(c)
-            out[c.metric_key_from].append(c)
-            out[c.period_value_from].append(c)
-        else:
-            out[c.a].append(c)
-            out[c.b].append(c)
-    return dict(out)
+def _constraint_var_names(
+    c: Constraint, benchmark_def: BenchmarkDef
+) -> tuple[str, ...]:
+    if hasattr(c, "a") and hasattr(c, "b"):
+        return (c.a, c.b)
+    if isinstance(c, (NotExists, NotInExtracts)):
+        slot_refs, _period_kind, period_value_from, _delta_years = _not_exists_shape(c)
+        vars_for_constraint = list(slot_refs.values())
+        vars_for_constraint.append(period_value_from)
+        return tuple(dict.fromkeys(vars_for_constraint))
+    if benchmark_def.sampler_constraint_vars is not None:
+        vars_for_constraint = benchmark_def.sampler_constraint_vars(c)
+        if vars_for_constraint:
+            return tuple(dict.fromkeys(vars_for_constraint))
+    raise TypeError(f"Unsupported constraint type: {type(c)!r}")
 
 
-def _pair_constraints_for(
-    v: str, u: str, constraints: List[Constraint]
-) -> List[Constraint]:
-    pcs: List[Constraint] = []
-    for c in constraints:
-        if isinstance(c, NotInExtracts):
-            continue
-        if (c.a == v and c.b == u) or (c.a == u and c.b == v):
-            pcs.append(c)
-    return pcs
+def _constraint_ok(
+    bindings: Dict[str, ExtractRecord],
+    constraint: Constraint,
+    *,
+    constraint_vars: tuple[str, ...],
+    benchmark_def: BenchmarkDef,
+    exists: Set[ExistsKey],
+) -> bool:
+    if _slot_name(constraint) is not None:
+        left = bindings[constraint_vars[0]]
+        right = bindings[constraint_vars[1]]
+        return _pair_ok(left, right, constraint)
 
+    if isinstance(constraint, (NotExists, NotInExtracts)):
+        return _not_exists_ok(bindings, constraint, exists=exists)
 
-# ---- main: fast k-sampling via backtracking ---------------------------------
+    if benchmark_def.sampler_constraint_ok is not None:
+        decision = benchmark_def.sampler_constraint_ok(bindings, constraint, exists)
+        if decision is not None:
+            return decision
+
+    raise TypeError(f"Unsupported constraint type: {type(constraint)!r}")
 
 
 def sample_k_bindings_fast(
@@ -234,6 +289,7 @@ def sample_k_bindings_fast(
     extracts: List[ExtractRecord],
     k: int,
     *,
+    benchmark_def: BenchmarkDef | None = None,
     seed: int | None = None,
     replace: bool = False,
     max_tries: int = 50_000,
@@ -243,101 +299,87 @@ def sample_k_bindings_fast(
     - replace=False: tries to return up to k distinct bindings (by extraction_ids).
     - replace=True: returns k bindings (may repeat) by re-running search.
     """
+    if benchmark_def is None:
+        benchmark_def = load_benchmark("trace_ufr")
+
     rng = random.Random(seed)
     constraints = spec.constraints or []
     var_names = list(spec.vars.keys())
     if not var_names:
         return []
 
-    idx = _build_indices(extracts)
-    exists = _exists_index(extracts)
+    extracts = _normalize_extracts(extracts, benchmark_def)
+    exists = _exists_index(extracts, benchmark_def)
 
-    # unary candidate lists per var
     cands: Dict[str, List[ExtractRecord]] = {}
     for vn, vs in spec.vars.items():
         xs = [r for r in extracts if _match_varspec(r, vs)]
         if not xs:
             raise ValueError(f"No candidates for var {vn} in {spec.template_id}")
-        rng.shuffle(xs)  # randomise exploration
+        rng.shuffle(xs)
         cands[vn] = xs
 
-    by_var = _constraints_by_var(constraints)
+    constraint_vars_by_id: Dict[int, tuple[str, ...]] = {
+        id(c): _constraint_var_names(c, benchmark_def) for c in constraints
+    }
+    by_var: DefaultDict[str, List[Constraint]] = defaultdict(list)
+    for constraint in constraints:
+        for var_name in constraint_vars_by_id[id(constraint)]:
+            by_var[var_name].append(constraint)
 
-    # cache pairwise constraint sets
-    pair_cs: Dict[Tuple[str, str], List[Constraint]] = {}
-    for i, v in enumerate(var_names):
-        for u in var_names[i + 1 :]:
-            pair_cs[(v, u)] = _pair_constraints_for(v, u, constraints)
-
-    def _pair_list(v: str, u: str) -> List[Constraint]:
-        return pair_cs[(v, u)] if (v, u) in pair_cs else pair_cs[(u, v)]
-
-    # track uniqueness (optional)
     seen: Set[Tuple[str, ...]] = set()
-
     results: List[Dict[str, ExtractRecord]] = []
     tries = 0
 
     def _signature(b: Dict[str, ExtractRecord]) -> Tuple[str, ...]:
-        # stable signature for de-dupe: ordered by var_names
         return tuple(b[v].extraction_id for v in var_names)
 
     def _is_partial_ok(bindings: Dict[str, ExtractRecord], newly_bound: str) -> bool:
-        # check all pairwise constraints between newly_bound and already-bound vars
-        a = bindings[newly_bound]
-        for other, b in bindings.items():
-            if other == newly_bound:
+        checked: Set[int] = set()
+        for constraint in by_var.get(newly_bound, []):
+            cid = id(constraint)
+            if cid in checked:
                 continue
-            for c in _pair_list(newly_bound, other):
-                # normalise direction for _pair_ok: just apply directly on records
-                if not _pair_ok(a, b, c):
-                    return False
-
-        # check any NotInExtracts that might now be evaluable
-        for c in by_var.get(newly_bound, []):
-            if isinstance(c, NotInExtracts):
-                if not _not_in_extracts_ok(bindings, c, exists=exists):
-                    return False
+            vars_for_constraint = constraint_vars_by_id[cid]
+            if any(var_name not in bindings for var_name in vars_for_constraint):
+                continue
+            if not _constraint_ok(
+                bindings,
+                constraint,
+                constraint_vars=vars_for_constraint,
+                benchmark_def=benchmark_def,
+                exists=exists,
+            ):
+                return False
+            checked.add(cid)
         return True
 
     def _filtered_domain(
         v: str, bindings: Dict[str, ExtractRecord]
     ) -> List[ExtractRecord]:
-        # start from unary candidates, then aggressively filter by equalities where possible
         dom = cands[v]
 
-        # quick equality-based narrowing using indices when v has SameX constraints to some bound var
-        # (this makes a big difference for 4-var same company/period/unit/scale)
-        for other, r_other in bindings.items():
-            if other == v:
+        for constraint in by_var.get(v, []):
+            if not _same_like(constraint):
                 continue
-            for c in _pair_list(v, other):
-                if isinstance(c, SameCompany) and r_other.company:
-                    dom = [r for r in dom if r.company == r_other.company]
-                elif isinstance(c, SamePeriod):
-                    dom = [
-                        r
-                        for r in dom
-                        if (
-                            r.period_kind == r_other.period_kind
-                            and r.period_value == r_other.period_value
-                        )
-                    ]
-                elif isinstance(c, SameUnit) and r_other.unit:
-                    dom = [r for r in dom if r.unit == r_other.unit]
-                elif isinstance(c, SameScale):
-                    s = float(r_other.scale)
-                    dom = [r for r in dom if float(r.scale) == s]
-                elif isinstance(c, SameLabel) and r_other.label:
-                    dom = [r for r in dom if r.label == r_other.label]
-                elif isinstance(c, SameMetricKey) and r_other.metric_key:
-                    mk = r_other.metric_key
-                    dom = [r for r in dom if r.metric_key == mk]
+            vars_for_constraint = constraint_vars_by_id[id(constraint)]
+            if len(vars_for_constraint) != 2 or v not in vars_for_constraint:
+                continue
+            other = vars_for_constraint[0] if vars_for_constraint[1] == v else vars_for_constraint[1]
+            other_record = bindings.get(other)
+            if other_record is None:
+                continue
+            slot = _slot_name(constraint)
+            if slot is None:
+                continue
+            other_value = _slot_value(other_record, slot)
+            if other_value is None:
+                return []
+            dom = [record for record in dom if _slot_value(record, slot) == other_value]
 
         return dom
 
     def _choose_next_var(bindings: Dict[str, ExtractRecord]) -> str:
-        # MRV heuristic: choose unbound var with smallest filtered domain
         best_v = None
         best_n = None
         for v in var_names:
@@ -356,7 +398,6 @@ def sample_k_bindings_fast(
         nonlocal tries
         bindings: Dict[str, ExtractRecord] = {}
 
-        # recursion
         def rec() -> Optional[Dict[str, ExtractRecord]]:
             nonlocal tries
             if len(bindings) == len(var_names):
@@ -367,22 +408,15 @@ def sample_k_bindings_fast(
             if not dom:
                 return None
 
-            # randomise a little but keep it bounded for speed
-            # (sampling without replacement inside the domain)
-            # try up to N candidates; N small keeps it fast on hard specs
-            N = min(len(dom), 200)
-            # pick N unique indices
-            if len(dom) > N:
-                picks = rng.sample(dom, N)
-            else:
-                picks = dom
+            sample_size = min(len(dom), 200)
+            picks = rng.sample(dom, sample_size) if len(dom) > sample_size else dom
 
-            for r in picks:
+            for record in picks:
                 tries += 1
                 if tries > max_tries:
                     return None
 
-                bindings[v] = r
+                bindings[v] = record
                 if _is_partial_ok(bindings, v):
                     out = rec()
                     if out is not None:
@@ -395,24 +429,23 @@ def sample_k_bindings_fast(
 
     if replace:
         for _ in range(k):
-            b = _search_once()
-            if b is None:
+            binding = _search_once()
+            if binding is None:
                 raise ValueError(
                     f"Could not find {k} bindings for {spec.template_id} within max_tries={max_tries}"
                 )
-            results.append(b)
+            results.append(binding)
         return results
 
-    # without replacement / de-dupe
     while len(results) < k:
-        b = _search_once()
-        if b is None:
+        binding = _search_once()
+        if binding is None:
             break
-        sig = _signature(b)
+        sig = _signature(binding)
         if sig in seen:
             continue
         seen.add(sig)
-        results.append(b)
+        results.append(binding)
 
     if not results:
         raise ValueError(

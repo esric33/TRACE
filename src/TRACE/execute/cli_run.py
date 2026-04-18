@@ -159,6 +159,7 @@ def make_eval_fns(args, benchmark_def):
                     schema=schema,
                     cache=cache,
                     cache_path=cache_path,
+                    benchmark_def=benchmark_def,
                 )
 
             lookup_fn = lookup
@@ -203,6 +204,7 @@ def make_eval_fns(args, benchmark_def):
                     schema=schema,
                     cache=cache,
                     cache_path=cache_path,
+                    benchmark_def=benchmark_def,
                 )
 
             lookup_fn = lookup
@@ -247,6 +249,7 @@ def make_eval_fns(args, benchmark_def):
                     schema=schema,
                     cache=cache,
                     cache_path=cache_path,
+                    benchmark_def=benchmark_def,
                 )
 
             lookup_fn = lookup

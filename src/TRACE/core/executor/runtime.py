@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from TRACE.core.actions import ActionExecContext, build_registry_for_benchmark
+from TRACE.core.actions.builtin import build_registry_for_benchmark
+from TRACE.core.actions.types import ActionExecContext
 from TRACE.core.executor.oracle import OracleContext
 from TRACE.core.executor.support import ExecError, resolve_fact_for_tagging
 

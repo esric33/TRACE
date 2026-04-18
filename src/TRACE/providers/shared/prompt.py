@@ -2,14 +2,20 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from TRACE.core.actions import build_registry_for_benchmark
+from TRACE.core.actions.builtin import build_registry_for_benchmark
 from TRACE.core.benchmarks.loader import load_benchmark
 
 
 def build_lookup_prompt(
-    query: str, snippet_text: str, allowed_labels: list[str]
+    query: str, snippet_text: str, allowed_labels: list[str], *, benchmark_def=None
 ) -> str:
+    if benchmark_def is None:
+        benchmark_def = load_benchmark("trace_ufr")
+
     labels_block = ", ".join(allowed_labels)
+    extra_lookup_rules = "\n".join(benchmark_def.prompt_guidance.lookup_rules)
+    if extra_lookup_rules:
+        extra_lookup_rules = "\n" + extra_lookup_rules
     return f"""
 Return ONLY one JSON object. No markdown. No code fences.
 
@@ -54,7 +60,7 @@ QUANTITY RULES (critical):
 
 TASK:
 Extract ONE directly stated fact from TEXT that answers QUERY.
-If the exact answer is not stated, return the closest directly stated fact.
+If the exact answer is not stated, return the closest directly stated fact.{extra_lookup_rules}
 
 ALLOWED LABELS:
 [{labels_block}]
@@ -131,6 +137,7 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
         "- ADD / GT / LT / EQ require both inputs to match type, unit, and scale.",
         "- If scales differ, use CONVERT_SCALE before ADD/GT/LT/EQ.",
     ]
+    compatibility_lines.extend(benchmark_def.prompt_guidance.planner_compatibility_rules)
     if include_fx:
         compatibility_lines.append(
             "- If currencies differ, convert using FX_LOOKUP + MUL."
@@ -167,6 +174,20 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
             "4) If inflation adjustment is needed, CPI_LOOKUP(from_year,to_year) then MUL(money, cpi_rate)"
         )
     default_ordering.append("5) Combine/compare: ADD or GT/LT/EQ")
+    default_ordering.extend(benchmark_def.prompt_guidance.planner_default_ordering)
+
+    grounding_lines = [
+        "- All required facts MUST come from CONTEXT via TEXT_LOOKUP, then GET_QUANTITY.",
+        "- Do NOT invent values.",
+        "- Do NOT compute values inside TEXT_LOOKUP queries.",
+    ]
+    grounding_lines.extend(benchmark_def.prompt_guidance.planner_grounding_rules)
+
+    minimality_lines = [
+        "- Do not add unused nodes.",
+        "- Do not do conversions unless required by the question or operator compatibility.",
+    ]
+    minimality_lines.extend(benchmark_def.prompt_guidance.planner_minimality_rules)
 
     return (
         "Return ONLY a JSON object. No markdown. No extra keys.\n"
@@ -178,10 +199,8 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
         '- References to prior nodes MUST be strings like "ref:n7".\n'
         "- dag.output MUST be a ref to the final node.\n\n"
         "GROUNDING (non-negotiable):\n"
-        "- All required facts MUST come from CONTEXT via TEXT_LOOKUP, then GET_QUANTITY.\n"
-        "- Do NOT invent values.\n"
-        "- Do NOT compute values inside TEXT_LOOKUP queries.\n"
-        "- TEXT_LOOKUP.query should specify what to extract (label/metric + company + period).\n\n"
+        + "\n".join(grounding_lines)
+        + "\n\n"
         "COMPATIBILITY RULES:\n"
         + "\n".join(compatibility_lines)
         + "\n\n"
@@ -194,8 +213,8 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
         + allowed_ops_block
         + "\n\n"
         + "MINIMALITY:\n"
-        + "- Do not add unused nodes.\n"
-        + "- Do not do conversions unless required by the question or operator compatibility.\n\n"
+        + "\n".join(minimality_lines)
+        + "\n\n"
         + f"QUESTION:\n{capsule['question']}\n\n"
         + f"CONTEXT:\n{ctx}\n"
     )

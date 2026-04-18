@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Iterable, Set
 
-from TRACE.core.actions import build_registry_for_benchmark
+from TRACE.core.actions.builtin import build_registry_for_benchmark
 from TRACE.core.benchmarks.loader import load_benchmark
 
 
@@ -134,5 +134,8 @@ def validate_dag_obj(
                     f"{node_id}.{field} references node {ref_node} that appears later (or same node). Refs must point to earlier nodes."
                 )
         seen.add(node_id)
+
+    if benchmark_def.validate_planner_dag is not None:
+        benchmark_def.validate_planner_dag(dag)
 
     return dag
