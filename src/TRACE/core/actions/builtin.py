@@ -7,8 +7,8 @@ from typing import Any
 from TRACE.core.actions.registry import ActionRegistry
 from TRACE.core.actions.types import ActionDef, ActionExecContext, ArgSpec
 from TRACE.core.executor.support import (
-    ExecError,
     ExecErrorCode,
+    ExecPhase,
     _attach_period,
     _get_q_period,
     _is_rate,
@@ -16,7 +16,7 @@ from TRACE.core.executor.support import (
     _rate_from,
     _rate_to,
     convert_scale,
-    exec_error_data,
+    exec_error,
 )
 
 
@@ -35,54 +35,72 @@ def _cache_key_for_lookup(ctx: ActionExecContext, node_id: str, query: str) -> s
 
 def _require_quantity(value: Any, *, op: str, arg: str) -> dict[str, Any]:
     if not isinstance(value, dict) or "value" not in value:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.TYPE_MISMATCH,
             f"{op} expected Quantity for {arg}",
-            exec_error_data(
-                phase="action", op=op, arg=arg, expected="Quantity", got=value
-            ),
+            phase=ExecPhase.ACTION,
+            op=op,
+            arg=arg,
+            expected="Quantity",
+            got=value,
         )
     return value
 
 
 def _require_bool(value: Any, *, op: str, arg: str) -> dict[str, Any]:
     if not (isinstance(value, dict) and value.get("type") == "bool"):
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.TYPE_MISMATCH,
             f"{op} expected bool for {arg}",
-            exec_error_data(phase="action", op=op, arg=arg, expected="bool", got=value),
+            phase=ExecPhase.ACTION,
+            op=op,
+            arg=arg,
+            expected="bool",
+            got=value,
         )
     return value
 
 
 def _require_matching_quantities(a: dict[str, Any], b: dict[str, Any], *, op: str) -> None:
     if a.get("type") != b.get("type"):
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.TYPE_MISMATCH,
             f"{op} quantity.type mismatch",
-            exec_error_data(phase="action", op=op, a=a, b=b),
+            phase=ExecPhase.ACTION,
+            op=op,
+            a=a,
+            b=b,
         )
     if a.get("unit") != b.get("unit"):
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.UNIT_MISMATCH,
             f"{op} unit mismatch",
-            exec_error_data(phase="action", op=op, a=a, b=b),
+            phase=ExecPhase.ACTION,
+            op=op,
+            a=a,
+            b=b,
         )
     if a.get("scale") != b.get("scale"):
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.SCALE_MISMATCH,
             f"{op} scale mismatch",
-            exec_error_data(phase="action", op=op, a=a, b=b),
+            phase=ExecPhase.ACTION,
+            op=op,
+            a=a,
+            b=b,
         )
 
 
 def _exec_text_lookup(ctx: ActionExecContext, node_id: str, args: dict[str, Any]) -> dict[str, Any]:
     query = args["query"]
     if not isinstance(query, str) or not query.strip():
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.BAD_ARGS,
             "TEXT_LOOKUP requires query string",
-            exec_error_data(phase="action", op="TEXT_LOOKUP", arg="query", got=query),
+            phase=ExecPhase.ACTION,
+            op="TEXT_LOOKUP",
+            arg="query",
+            got=query,
         )
 
     key = _cache_key_for_lookup(ctx, node_id, query)
@@ -96,21 +114,25 @@ def _exec_text_lookup(ctx: ActionExecContext, node_id: str, args: dict[str, Any]
 def _exec_get_quantity(_: ActionExecContext, __: str, args: dict[str, Any]) -> dict[str, Any]:
     fact = args["fact"]
     if not isinstance(fact, dict) or "quantity" not in fact:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.LOOKUP_FAILED,
             "GET_QUANTITY expected ModelFact with quantity",
-            exec_error_data(
-                phase="action", op="GET_QUANTITY", arg="fact", expected="ModelFact", got=fact
-            ),
+            phase=ExecPhase.ACTION,
+            op="GET_QUANTITY",
+            arg="fact",
+            expected="ModelFact",
+            got=fact,
         )
     quantity = fact["quantity"]
     if not isinstance(quantity, dict):
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.TYPE_MISMATCH,
             "GET_QUANTITY quantity must be dict",
-            exec_error_data(
-                phase="action", op="GET_QUANTITY", arg="quantity", expected="dict", got=quantity
-            ),
+            phase=ExecPhase.ACTION,
+            op="GET_QUANTITY",
+            arg="quantity",
+            expected="dict",
+            got=quantity,
         )
     return _attach_period(quantity, fact.get("period", {}))
 
@@ -123,10 +145,13 @@ def _exec_convert_scale(_: ActionExecContext, __: str, args: dict[str, Any]) -> 
 def _exec_const(_: ActionExecContext, __: str, args: dict[str, Any]) -> dict[str, Any]:
     value = args["value"]
     if not isinstance(value, (int, float)):
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.BAD_ARGS,
             "CONST requires numeric value",
-            exec_error_data(phase="action", op="CONST", arg="value", got=value),
+            phase=ExecPhase.ACTION,
+            op="CONST",
+            arg="value",
+            got=value,
         )
     return {"value": float(value), "unit": "", "scale": 1, "type": "scalar"}
 
@@ -193,22 +218,22 @@ def _exec_mul(_: ActionExecContext, __: str, args: dict[str, Any]) -> dict[str, 
         frm = _rate_from(b).get("currency")
         to = _rate_to(b).get("currency")
         if not isinstance(frm, str) or not isinstance(to, str):
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.BAD_RATE,
                 "fx_rate missing from/to.currency",
-                exec_error_data(phase="action", op="MUL", rate=b),
+                phase=ExecPhase.ACTION,
+                op="MUL",
+                rate=b,
             )
         if a.get("unit") != frm:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.UNIT_MISMATCH,
                 "FX rate from.currency must match money unit",
-                exec_error_data(
-                    phase="action",
-                    op="MUL",
-                    money_unit=a.get("unit"),
-                    rate_from=frm,
-                    rate=b,
-                ),
+                phase=ExecPhase.ACTION,
+                op="MUL",
+                money_unit=a.get("unit"),
+                rate_from=frm,
+                rate=b,
             )
         return {**a, "value": float(a["value"]) * float(b["value"]), "unit": to}
 
@@ -216,44 +241,53 @@ def _exec_mul(_: ActionExecContext, __: str, args: dict[str, Any]) -> dict[str, 
         fy = _rate_from(b).get("year")
         ty = _rate_to(b).get("year")
         if not isinstance(fy, int) or not isinstance(ty, int):
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.BAD_RATE,
                 "cpi_rate missing from/to.year ints",
-                exec_error_data(phase="action", op="MUL", rate=b),
+                phase=ExecPhase.ACTION,
+                op="MUL",
+                rate=b,
             )
 
         period = _get_q_period(a)
         if period is None:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.MISSING_PERIOD,
                 "CPI adjustment requires money to carry FY provenance (_period_kind/_period_value)",
-                exec_error_data(phase="action", op="MUL", money=a, rate=b),
+                phase=ExecPhase.ACTION,
+                op="MUL",
+                money=a,
+                rate=b,
             )
         period_kind, period_value = period
         if period_kind != "FY" or not isinstance(period_value, int):
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.PERIOD_MISMATCH,
                 "CPI adjustment requires FY int provenance on money",
-                exec_error_data(phase="action", op="MUL", money_period=period, rate=b),
+                phase=ExecPhase.ACTION,
+                op="MUL",
+                money_period=period,
+                rate=b,
             )
         if period_value != fy:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.PERIOD_MISMATCH,
                 "CPI rate from_year must match money FY year",
-                exec_error_data(
-                    phase="action",
-                    op="MUL",
-                    money_year=period_value,
-                    rate_from_year=fy,
-                    rate=b,
-                ),
+                phase=ExecPhase.ACTION,
+                op="MUL",
+                money_year=period_value,
+                rate_from_year=fy,
+                rate=b,
             )
         return {**a, "value": float(a["value"]) * float(b["value"])}
 
-    raise ExecError(
+    raise exec_error(
         ExecErrorCode.TYPE_MISMATCH,
         "MUL supports scalar*scalar, money*scalar, scalar*money, money*fx_rate, money*cpi_rate",
-        exec_error_data(phase="action", op="MUL", a=a, b=b),
+        phase=ExecPhase.ACTION,
+        op="MUL",
+        a=a,
+        b=b,
     )
 
 
@@ -264,49 +298,64 @@ def _exec_div(_: ActionExecContext, __: str, args: dict[str, Any]) -> dict[str, 
     if a.get("type") == "rate" and a.get("unit") == "percent" and a.get("scale") == 1 and _is_scalar(b):
         denom = float(b["value"])
         if denom == 0.0:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.DIV_ZERO,
                 "DIV by zero",
-                exec_error_data(phase="action", op="DIV", b=b),
+                phase=ExecPhase.ACTION,
+                op="DIV",
+                b=b,
             )
         return {"value": float(a["value"]) / denom, "unit": "", "scale": 1, "type": "scalar"}
 
     if _is_scalar(a) and _is_scalar(b):
         denom = float(b["value"])
         if denom == 0.0:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.DIV_ZERO,
                 "DIV by zero",
-                exec_error_data(phase="action", op="DIV", b=b),
+                phase=ExecPhase.ACTION,
+                op="DIV",
+                b=b,
             )
         return {"value": float(a["value"]) / denom, "unit": "", "scale": 1, "type": "scalar"}
 
     if a.get("type") == "money" and b.get("type") == "money":
         if a.get("unit") != b.get("unit"):
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.UNIT_MISMATCH,
                 "DIV money currency mismatch",
-                exec_error_data(phase="action", op="DIV", a=a, b=b),
+                phase=ExecPhase.ACTION,
+                op="DIV",
+                a=a,
+                b=b,
             )
         if a.get("scale") != b.get("scale"):
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.SCALE_MISMATCH,
                 "DIV money scale mismatch",
-                exec_error_data(phase="action", op="DIV", a=a, b=b),
+                phase=ExecPhase.ACTION,
+                op="DIV",
+                a=a,
+                b=b,
             )
         denom = float(b["value"])
         if denom == 0.0:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.DIV_ZERO,
                 "DIV by zero",
-                exec_error_data(phase="action", op="DIV", b=b),
+                phase=ExecPhase.ACTION,
+                op="DIV",
+                b=b,
             )
         return {"value": float(a["value"]) / denom, "unit": "", "scale": 1, "type": "scalar"}
 
-    raise ExecError(
+    raise exec_error(
         ExecErrorCode.TYPE_MISMATCH,
         "DIV supports (percent/scalar)->scalar or (scalar/scalar)->scalar or (money/money)->scalar",
-        exec_error_data(phase="action", op="DIV", a=a, b=b),
+        phase=ExecPhase.ACTION,
+        op="DIV",
+        a=a,
+        b=b,
     )
 
 

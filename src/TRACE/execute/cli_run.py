@@ -9,7 +9,12 @@ from typing import Any, Dict, Iterator, Optional
 
 from TRACE.core.benchmarks.loader import load_benchmark
 from TRACE.core.executor.runtime import execute_dag
-from TRACE.core.executor.support import _q_norm, load_extract_store, ExecError
+from TRACE.core.executor.support import (
+    _q_norm,
+    ExecError,
+    exec_error_to_dict,
+    load_extract_store,
+)
 from TRACE.reporting.results import RunConfig, write_result_row
 from TRACE.shared.io import _clean_path, read_json, read_jsonl
 
@@ -332,7 +337,7 @@ def run_one(capsule, extracts_by_snippet, *, plan_fn, lookup_fn, benchmark_def) 
             dag=dag,  # <-- keep the planned dag if we got it
             trace=trace or [],
             trace_nodes=len(trace) if trace else 0,
-            exec_error={"code": e.code, "message": e.message, "data": e.data},
+            exec_error=exec_error_to_dict(e),
         )
 
 

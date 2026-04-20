@@ -8,6 +8,7 @@ from TRACE.core.benchmarks.loader import load_benchmark
 from TRACE.core.executor.runtime import execute_dag as execute_dag_runtime
 from TRACE.core.executor.support import (
     ExecError,
+    ExecErrorCode,
     LookupFn,
     ModelFact,
     Period,
@@ -21,6 +22,7 @@ from TRACE.core.executor.support import (
     _rate_to,
     canonical_period,
     convert_scale,
+    exec_error,
     load_extract_store,
     period_equal,
     quantity_equal,
@@ -69,8 +71,8 @@ def execute_dag_strict(
         cache = {}
 
     if lookup_fn is None:
-        raise ExecError(
-            "E_bad_args",
+        raise exec_error(
+            ExecErrorCode.BAD_ARGS,
             "execute_dag_strict requires lookup_fn for TEXT_LOOKUP (offline mode)",
         )
 

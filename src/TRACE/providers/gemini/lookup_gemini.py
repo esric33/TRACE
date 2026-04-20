@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from TRACE.core.benchmarks.loader import load_benchmark
-from TRACE.core.executor.support import ExecError, ExecErrorCode, exec_error_data
+from TRACE.core.executor.support import ExecErrorCode, ExecPhase, exec_error
 from TRACE.providers.shared.structured_json import call_json_with_retries
 from TRACE.providers.shared.prompt import build_lookup_prompt
 
@@ -39,15 +39,13 @@ def gemini_lookup_fn(
     try:
         allowed_labels = benchmark_def.load_allowed_labels(benchmark_def.schemas_dir)
     except Exception as e:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.BAD_SCHEMA,
             "benchmark label loading failed",
-            exec_error_data(
-                phase="lookup",
-                provider="gemini",
-                benchmark_id=benchmark_def.benchmark_id,
-                error=str(e),
-            ),
+            phase=ExecPhase.LOOKUP,
+            provider="gemini",
+            benchmark_id=benchmark_def.benchmark_id,
+            error=str(e),
         )
 
     context_snippets = capsule["context"]["snippets"]
@@ -87,16 +85,14 @@ def gemini_lookup_fn(
             call_text=_call, prompt=prompt, json_schema=schema, max_retries=2
         )
     except Exception as e:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.LOOKUP_FAILED,
             "Gemini lookup returned invalid JSON/schema",
-            exec_error_data(
-                phase="lookup",
-                provider="gemini",
-                model=model,
-                node_id=node_id,
-                error=str(e),
-            ),
+            phase=ExecPhase.LOOKUP,
+            provider="gemini",
+            model=model,
+            node_id=node_id,
+            error=str(e),
         )
 
     cache[key] = mf

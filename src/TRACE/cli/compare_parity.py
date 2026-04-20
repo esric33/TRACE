@@ -47,6 +47,8 @@ def _compare_corpus_dirs(legacy: Path, refactor: Path) -> tuple[bool, str]:
     for key in ("extracts_dir", "snippets_dir"):
         legacy_meta.pop(key, None)
         refactor_meta.pop(key, None)
+    legacy_meta.pop("benchmark_profile", None)
+    refactor_meta.pop("benchmark_profile", None)
     if _normalize(legacy_meta) != _normalize(refactor_meta):
         return False, "meta.json mismatch"
 
@@ -60,12 +62,12 @@ def _compare_corpus_dirs(legacy: Path, refactor: Path) -> tuple[bool, str]:
     legacy_capsules = {
         p.name: read_json(p)
         for p in sorted(legacy.rglob("*.json"))
-        if p.name != "meta.json"
+        if p.name not in {"meta.json", "benchmark_profile.json"}
     }
     refactor_capsules = {
         p.name: read_json(p)
         for p in sorted(refactor.rglob("*.json"))
-        if p.name != "meta.json"
+        if p.name not in {"meta.json", "benchmark_profile.json"}
     }
     if set(legacy_capsules) != set(refactor_capsules):
         return False, "capsule file sets differ"

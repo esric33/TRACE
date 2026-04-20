@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from TRACE.core.executor.support import ExecError, ExecErrorCode, exec_error_data
+from TRACE.core.executor.support import ExecErrorCode, ExecPhase, exec_error
 from TRACE.providers.shared.prompt import build_planner_prompt
 from TRACE.providers.shared.dag_validator import validate_dag_obj
 from TRACE.providers.shared.structured_json import call_json_with_retries
@@ -28,10 +28,11 @@ def anthropic_plan_fn(
         )
         return dag
     except Exception as e:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.PLANNER_INVALID,
             "Anthropic planner output invalid",
-            exec_error_data(
-                phase="planner", provider="anthropic", model=model, error=str(e)
-            ),
+            phase=ExecPhase.PLANNER,
+            provider="anthropic",
+            model=model,
+            error=str(e),
         )

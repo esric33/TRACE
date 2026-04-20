@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from TRACE.core.benchmarks.loader import load_benchmark
-from TRACE.core.executor.support import ExecError, ExecErrorCode, exec_error_data
+from TRACE.core.executor.support import ExecErrorCode, ExecPhase, exec_error
 from TRACE.providers.shared.structured_json import call_json_with_retries
 from TRACE.providers.shared.prompt import build_lookup_prompt
 
@@ -40,15 +40,13 @@ def anthropic_lookup_fn(
     try:
         allowed_labels = benchmark_def.load_allowed_labels(benchmark_def.schemas_dir)
     except Exception as e:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.BAD_SCHEMA,
             "benchmark label loading failed",
-            exec_error_data(
-                phase="lookup",
-                provider="anthropic",
-                benchmark_id=benchmark_def.benchmark_id,
-                error=str(e),
-            ),
+            phase=ExecPhase.LOOKUP,
+            provider="anthropic",
+            benchmark_id=benchmark_def.benchmark_id,
+            error=str(e),
         )
 
     context_snippets = capsule["context"]["snippets"]
@@ -90,16 +88,14 @@ def anthropic_lookup_fn(
         )
 
     except Exception as e:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.LOOKUP_FAILED,
             "Anthropic lookup returned invalid JSON/schema",
-            exec_error_data(
-                phase="lookup",
-                provider="anthropic",
-                model=model,
-                node_id=node_id,
-                error=str(e),
-            ),
+            phase=ExecPhase.LOOKUP,
+            provider="anthropic",
+            model=model,
+            node_id=node_id,
+            error=str(e),
         )
 
     cache[key] = mf

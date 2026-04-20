@@ -4,7 +4,13 @@ import unittest
 
 from TRACE.core.benchmarks.loader import load_benchmark
 from TRACE.core.executor.runtime import execute_dag
-from TRACE.core.executor.support import ExecError
+from TRACE.core.executor.support import (
+    ExecError,
+    ExecErrorCode,
+    ExecPhase,
+    exec_error,
+    exec_error_to_dict,
+)
 from TRACE.providers.shared.dag_validator import validate_dag_obj
 
 
@@ -96,6 +102,42 @@ class RuntimeAndValidationTests(unittest.TestCase):
             )
 
         self.assertEqual(cm.exception.code, "E_bad_args")
+
+    def test_exec_error_helper_normalizes_standard_payload_fields(self) -> None:
+        error = exec_error(
+            ExecErrorCode.BAD_ARGS,
+            "bad args",
+            phase=ExecPhase.ACTION,
+            op="CONST",
+            arg="value",
+            got="x",
+            benchmark_id="trace_ufr",
+        )
+
+        self.assertEqual(
+            error.data,
+            {
+                "phase": "action",
+                "op": "CONST",
+                "arg": "value",
+                "got": "x",
+                "benchmark_id": "trace_ufr",
+            },
+        )
+        self.assertEqual(
+            exec_error_to_dict(error),
+            {
+                "code": "E_bad_args",
+                "message": "bad args",
+                "data": {
+                    "phase": "action",
+                    "op": "CONST",
+                    "arg": "value",
+                    "got": "x",
+                    "benchmark_id": "trace_ufr",
+                },
+            },
+        )
 
     def test_validate_dag_obj_accepts_valid_graph(self) -> None:
         planner = {

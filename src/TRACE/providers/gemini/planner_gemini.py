@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from TRACE.core.executor.support import ExecError, ExecErrorCode, exec_error_data
+from TRACE.core.executor.support import ExecErrorCode, ExecPhase, exec_error
 from TRACE.providers.shared.prompt import build_planner_prompt
 from TRACE.providers.shared.dag_validator import validate_dag_obj
 from TRACE.providers.shared.structured_json import call_json_with_retries
@@ -27,10 +27,11 @@ def gemini_plan_fn(
         )
         return dag
     except Exception as e:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.PLANNER_INVALID,
             "Gemini planner output invalid",
-            exec_error_data(
-                phase="planner", provider="gemini", model=model, error=str(e)
-            ),
+            phase=ExecPhase.PLANNER,
+            provider="gemini",
+            model=model,
+            error=str(e),
         )

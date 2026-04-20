@@ -7,7 +7,8 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 from TRACE.core.benchmarks.loader import load_benchmark
-from TRACE.shared.io import read_json  # if you have it; optional
+from TRACE.generation.profile import write_benchmark_profile_artifacts
+from TRACE.shared.io import append_jsonl
 
 from TRACE.generation.cli_generate import (
     main as generate_main,
@@ -65,6 +66,7 @@ def main() -> None:
     }
 
     capsules_index_path = out_dir / "capsules.jsonl"
+    generated_capsules: list[dict[str, Any]] = []
     if capsules_index_path.exists():
         capsules_index_path.unlink()
 
@@ -118,6 +120,7 @@ def main() -> None:
         # Build capsules.jsonl index (non-recursive join source for reporting)
         for p in sorted(sub.glob("*.json")):
             cap = json.loads(p.read_text(encoding="utf-8"))
+            generated_capsules.append(cap)
             rec = {
                 "qid": cap.get("qid"),
                 "distractor": d,
@@ -128,17 +131,22 @@ def main() -> None:
                 "seed": (cap.get("meta") or {}).get("seed"),
                 "question": cap.get("question"),
             }
-            capsules_index_path.write_text(
-                (
-                    capsules_index_path.read_text(encoding="utf-8")
-                    if capsules_index_path.exists()
-                    else ""
-                )
-                + json.dumps(rec, ensure_ascii=False)
-                + "\n",
-                encoding="utf-8",
+            append_jsonl(
+                capsules_index_path,
+                rec,
             )
 
+    profile = write_benchmark_profile_artifacts(
+        out_dir,
+        capsules=generated_capsules,
+        benchmark_id=args.benchmark,
+        corpus_id=corpus_id,
+    )
+    meta["benchmark_profile"] = {
+        "json": "benchmark_profile.json",
+        "md": "benchmark_profile.md",
+        "total_queries": profile["total_queries"],
+    }
     (out_dir / "meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
     print(f"Wrote corpus to {out_dir}")
 

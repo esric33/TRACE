@@ -36,8 +36,47 @@ class ExecErrorCode(StrEnum):
     MISSING_TABLE_KEY = "E_missing_table_key"
 
 
-def exec_error_data(**kwargs: Any) -> Dict[str, Any]:
-    return {k: v for k, v in kwargs.items() if v is not None}
+class ExecPhase(StrEnum):
+    ACTION = "action"
+    LOOKUP = "lookup"
+    PLANNER = "planner"
+    RUNTIME = "runtime"
+    SUPPORT = "support"
+
+
+def exec_error_data(
+    *,
+    phase: str | ExecPhase | None = None,
+    op: str | None = None,
+    node_id: str | None = None,
+    arg: str | None = None,
+    expected: Any = None,
+    got: Any = None,
+    provider: str | None = None,
+    ref: str | None = None,
+    **extra: Any,
+) -> Dict[str, Any]:
+    data: Dict[str, Any] = {}
+    if phase is not None:
+        data["phase"] = str(phase)
+    if op is not None:
+        data["op"] = op
+    if node_id is not None:
+        data["node_id"] = node_id
+    if arg is not None:
+        data["arg"] = arg
+    if expected is not None:
+        data["expected"] = expected
+    if got is not None:
+        data["got"] = got
+    if provider is not None:
+        data["provider"] = provider
+    if ref is not None:
+        data["ref"] = ref
+    for key, value in extra.items():
+        if value is not None:
+            data[key] = value
+    return data
 
 
 def canonical_period(period: dict) -> tuple[str, object]:
@@ -82,9 +121,45 @@ class ExecError(Exception):
 
     def __post_init__(self) -> None:
         self.code = str(self.code)
-        if self.data is None:
-            self.data = {}
+        self.data = exec_error_data(**(self.data or {}))
         self.args = (self.code, self.message, self.data)
+
+
+def exec_error(
+    code: str | ExecErrorCode,
+    message: str,
+    *,
+    phase: str | ExecPhase | None = None,
+    op: str | None = None,
+    node_id: str | None = None,
+    arg: str | None = None,
+    expected: Any = None,
+    got: Any = None,
+    provider: str | None = None,
+    ref: str | None = None,
+    **extra: Any,
+) -> ExecError:
+    return ExecError(
+        code,
+        message,
+        exec_error_data(
+            phase=phase,
+            op=op,
+            node_id=node_id,
+            arg=arg,
+            expected=expected,
+            got=got,
+            provider=provider,
+            ref=ref,
+            **extra,
+        ),
+    )
+
+
+def exec_error_to_dict(error: ExecError | None) -> Dict[str, Any] | None:
+    if error is None:
+        return None
+    return {"code": error.code, "message": error.message, "data": dict(error.data or {})}
 
 
 def load_extract_store(extracts_dir: Path) -> Dict[str, List[Dict[str, Any]]]:
@@ -171,10 +246,12 @@ def convert_scale(quantity: Quantity, target_scale: int | float) -> Quantity:
     if quantity.get("scale") == target_scale:
         return quantity
     if target_scale == 0:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.BAD_ARGS,
             "target_scale cannot be zero",
-            exec_error_data(phase="support", arg="target_scale", got=target_scale),
+            phase=ExecPhase.SUPPORT,
+            arg="target_scale",
+            got=target_scale,
         )
     value = quantity["value"]
     source_scale = quantity["scale"]
@@ -197,6 +274,7 @@ def _q_norm(quantity: Quantity) -> Quantity:
 __all__ = [
     "ExecError",
     "ExecErrorCode",
+    "ExecPhase",
     "LookupFn",
     "ModelFact",
     "Period",
@@ -210,7 +288,9 @@ __all__ = [
     "_rate_to",
     "canonical_period",
     "convert_scale",
+    "exec_error",
     "exec_error_data",
+    "exec_error_to_dict",
     "load_extract_store",
     "period_equal",
     "quantity_equal",

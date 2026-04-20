@@ -6,9 +6,9 @@ from TRACE.core.actions import build_registry_for_benchmark
 from TRACE.core.actions.types import ActionExecContext
 from TRACE.core.executor.oracle import OracleContext
 from TRACE.core.executor.support import (
-    ExecError,
     ExecErrorCode,
-    exec_error_data,
+    ExecPhase,
+    exec_error,
     resolve_fact_for_tagging,
 )
 
@@ -29,10 +29,10 @@ def execute_dag(
     nodes = dag.get("nodes", [])
     out_ref = dag.get("output")
     if not isinstance(nodes, list) or not out_ref:
-        raise ExecError(
+        raise exec_error(
             ExecErrorCode.BAD_DAG,
             "dag must have nodes[] and output",
-            exec_error_data(phase="runtime"),
+            phase=ExecPhase.RUNTIME,
         )
 
     extracts_by_snippet: dict[str, list[dict[str, Any]]] = {}
@@ -73,10 +73,12 @@ def execute_dag(
         if isinstance(value, str) and value.startswith("ref:"):
             node_id = value.split("ref:", 1)[1]
             if node_id not in env:
-                raise ExecError(
+                raise exec_error(
                     ExecErrorCode.BAD_REF,
                     f"Unknown ref {value}",
-                    exec_error_data(phase="runtime", ref=value, node_id=node_id),
+                    phase=ExecPhase.RUNTIME,
+                    ref=value,
+                    node_id=node_id,
                 )
             return env[node_id]
         return value
@@ -87,50 +89,57 @@ def execute_dag(
         raw_args = node.get("args", {})
 
         if not node_id:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.BAD_NODE,
                 "Node missing id",
-                exec_error_data(phase="runtime", op=op),
+                phase=ExecPhase.RUNTIME,
+                op=op,
             )
         if not isinstance(raw_args, dict):
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.BAD_NODE,
                 f"Node args must be object for {node_id}",
-                exec_error_data(phase="runtime", node_id=node_id, op=op),
+                phase=ExecPhase.RUNTIME,
+                node_id=node_id,
+                op=op,
             )
         if op not in benchmark_def.allowed_actions:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.BAD_OP,
                 f"Op not allowed for benchmark: {op}",
-                exec_error_data(phase="runtime", node_id=node_id, op=op),
+                phase=ExecPhase.RUNTIME,
+                node_id=node_id,
+                op=op,
             )
 
         try:
             action = registry.require(op)
         except KeyError as exc:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.BAD_OP,
                 f"Op not registered: {op}",
-                exec_error_data(phase="runtime", node_id=node_id, op=op),
+                phase=ExecPhase.RUNTIME,
+                node_id=node_id,
+                op=op,
             ) from exc
 
         if set(raw_args) != set(action.arg_keys):
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.BAD_ARGS,
                 f"{op} args must be exactly {set(action.arg_keys)}",
-                exec_error_data(
-                    phase="runtime",
-                    node_id=node_id,
-                    op=op,
-                    expected=sorted(action.arg_keys),
-                    got=sorted(raw_args.keys()),
-                ),
+                phase=ExecPhase.RUNTIME,
+                node_id=node_id,
+                op=op,
+                expected=sorted(action.arg_keys),
+                got=sorted(raw_args.keys()),
             )
         if action.executor is None:
-            raise ExecError(
+            raise exec_error(
                 ExecErrorCode.BAD_OP,
                 f"Op has no executor: {op}",
-                exec_error_data(phase="runtime", node_id=node_id, op=op),
+                phase=ExecPhase.RUNTIME,
+                node_id=node_id,
+                op=op,
             )
 
         resolved_args = {key: resolve_ref(value) for key, value in raw_args.items()}
