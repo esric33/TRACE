@@ -10,6 +10,7 @@ from TRACE.generation.expr import (
     LookupQty,
     Mul,
     ConvertScale,
+    ConvertScaleTo,
     CpiLookup,
     FxLookupTo,
     FxLookupAt,
@@ -155,12 +156,8 @@ B0_SCALE_CONSTRAINTS: List[Constraint] = [
 B0_GT__SCALE__BOTH_TO_TARGET_THEN_CMP = b0_cmp_spec(
     template_id=f"{B0_GT}__{B0_CMP_SCALE}__BOTH_TO_TARGET_THEN_CMP",
     ast=Gt(
-        ConvertScale(
-            expr=LookupQty("A"), target_scale_in=tuple(float(x) for x in DEFAULT_SCALES)
-        ),
-        ConvertScale(
-            expr=LookupQty("B"), target_scale_in=tuple(float(x) for x in DEFAULT_SCALES)
-        ),
+        ConvertScaleTo(expr=LookupQty("A"), to_var="B"),
+        LookupQty("B"),
     ),
     render_question=lambda b, c: _render_cmp_scale(b, c, op_word="greater than"),
     constraints=B0_SCALE_CONSTRAINTS,
@@ -169,12 +166,8 @@ B0_GT__SCALE__BOTH_TO_TARGET_THEN_CMP = b0_cmp_spec(
 B0_LT__SCALE__BOTH_TO_TARGET_THEN_CMP = b0_cmp_spec(
     template_id=f"{B0_LT}__{B0_CMP_SCALE}__BOTH_TO_TARGET_THEN_CMP",
     ast=Lt(
-        ConvertScale(
-            expr=LookupQty("A"), target_scale_in=tuple(float(x) for x in DEFAULT_SCALES)
-        ),
-        ConvertScale(
-            expr=LookupQty("B"), target_scale_in=tuple(float(x) for x in DEFAULT_SCALES)
-        ),
+        ConvertScaleTo(expr=LookupQty("A"), to_var="B"),
+        LookupQty("B"),
     ),
     render_question=lambda b, c: _render_cmp_scale(b, c, op_word="less than"),
     constraints=B0_SCALE_CONSTRAINTS,
@@ -183,12 +176,8 @@ B0_LT__SCALE__BOTH_TO_TARGET_THEN_CMP = b0_cmp_spec(
 B0_EQ__SCALE__BOTH_TO_TARGET_THEN_CMP = b0_cmp_spec(
     template_id=f"{B0_EQ}__{B0_CMP_SCALE}__BOTH_TO_TARGET_THEN_CMP",
     ast=Eq(
-        ConvertScale(
-            expr=LookupQty("A"), target_scale_in=tuple(float(x) for x in DEFAULT_SCALES)
-        ),
-        ConvertScale(
-            expr=LookupQty("B"), target_scale_in=tuple(float(x) for x in DEFAULT_SCALES)
-        ),
+        ConvertScaleTo(expr=LookupQty("A"), to_var="B"),
+        LookupQty("B"),
     ),
     render_question=lambda b, c: _render_cmp_scale(b, c, op_word="equal to"),
     constraints=B0_SCALE_CONSTRAINTS,

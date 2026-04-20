@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from TRACE.core.actions.builtin import build_registry_for_benchmark
+from TRACE.core.actions import build_registry_for_benchmark
 from TRACE.core.benchmarks.loader import load_benchmark
 
 
@@ -91,33 +91,13 @@ def _planner_operator_block(benchmark_def) -> str:
         "AND",
         "OR",
     )
-    docs = {
-        "TEXT_LOOKUP": '- TEXT_LOOKUP:  {"query": string}',
-        "GET_QUANTITY": '- GET_QUANTITY: {"fact": "ref:<id>"}',
-        "CONVERT_SCALE": '- CONVERT_SCALE: {"q": "ref:<id>", "target_scale": number}',
-        "FX_LOOKUP": '- FX_LOOKUP: {"series_id": "FX_<BASE>_<QUOTE>", "year": number}',
-        "CPI_LOOKUP": '- CPI_LOOKUP: {"series_id": "CPI_US_CPIU", "from_year": number, "to_year": number}',
-        "CONST": '- CONST: {"value": number}',
-        "ADD": '- ADD: {"a": "ref:<id>", "b": "ref:<id>"}',
-        "MUL": '- MUL: {"a": "ref:<id>", "b": "ref:<id>"}',
-        "DIV": '- DIV: {"a": "ref:<id>", "b": "ref:<id>"}',
-        "GT": '- GT: {"a": "ref:<id>", "b": "ref:<id>"}',
-        "LT": '- LT: {"a": "ref:<id>", "b": "ref:<id>"}',
-        "EQ": '- EQ: {"a": "ref:<id>", "b": "ref:<id>"}',
-        "AND": '- AND: {"a": "ref:<id>", "b": "ref:<id>"}',
-        "OR": '- OR: {"a": "ref:<id>", "b": "ref:<id>"}',
-    }
 
     lines = []
     for op in ordered_ops:
         if op not in benchmark_def.allowed_actions:
             continue
-        if op in docs:
-            lines.append(docs[op])
-            continue
         action = registry.require(op)
-        fields = ", ".join(action.arg_keys)
-        lines.append(f"- {op}: {{{fields}}}")
+        lines.append(action.prompt_doc())
     return "\n".join(lines)
 
 

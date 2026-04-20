@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from typing import Any, Dict, List, Optional
-from TRACE.core.executor.support import ExecError
+from TRACE.core.executor.support import ExecError, ExecErrorCode, exec_error_data
 from TRACE.core.benchmarks.loader import load_benchmark
 from TRACE.providers.shared.prompt import build_lookup_prompt
 
@@ -38,9 +38,14 @@ def openai_lookup_fn(
         allowed_labels = benchmark_def.load_allowed_labels(benchmark_def.schemas_dir)
     except Exception as e:
         raise ExecError(
-            "E_bad_schema",
+            ExecErrorCode.BAD_SCHEMA,
             "benchmark label loading failed",
-            {"benchmark_id": benchmark_def.benchmark_id, "err": str(e)},
+            exec_error_data(
+                phase="lookup",
+                provider="openai",
+                benchmark_id=benchmark_def.benchmark_id,
+                error=str(e),
+            ),
         )
 
     context_snippets = capsule["context"]["snippets"]
@@ -88,9 +93,16 @@ def openai_lookup_fn(
         mf = json.loads(resp.output_text)
     except Exception as e:
         raise ExecError(
-            "E_lookup_failed",
+            ExecErrorCode.LOOKUP_FAILED,
             "OpenAI returned non-JSON output_text",
-            {"err": str(e), "output_text": resp.output_text},
+            exec_error_data(
+                phase="lookup",
+                provider="openai",
+                model=model,
+                node_id=node_id,
+                error=str(e),
+                output_text=resp.output_text,
+            ),
         )
 
     cache[key] = mf

@@ -38,6 +38,14 @@ PROMPT_GUIDANCE = PromptGuidance(
 )
 
 
+def FORMAT_LOOKUP_QUERY(record: ExtractRecord) -> str:
+    return (
+        f"Extract the fact for: company={record.company} label={record.label}; "
+        f"period={record.period_kind} {record.period_value}. "
+        "Return a ModelFact with snippet_id, label, period, quantity."
+    )
+
+
 def _year_from_period(kind: str, value: object) -> int | None:
     kind = str(kind).upper()
     if kind == "FY":
@@ -109,7 +117,11 @@ def VALIDATE_PLANNER_DAG(dag: dict[str, object]) -> None:
 
 
 def LIST_MAINTENANCE_TOOLS() -> dict[str, str]:
-    return {}
+    return {
+        "prepare_extracts": "benchmarks.trace_ufr.tools.prepare_extracts",
+        "generate_rates": "benchmarks.trace_ufr.tools.generate_rates",
+        "list_currencies": "benchmarks.trace_ufr.tools.list_currencies",
+    }
 
 
 def REGISTER_ACTIONS(registry) -> None:

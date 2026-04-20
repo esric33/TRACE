@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from enum import StrEnum
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
@@ -12,6 +13,31 @@ ModelFact = Dict[str, Any]
 LookupFn = Callable[
     [str, str, Dict[str, Any], Dict[str, List[Dict[str, Any]]]], Dict[str, Any]
 ]
+
+
+class ExecErrorCode(StrEnum):
+    BAD_ARGS = "E_bad_args"
+    BAD_SCHEMA = "E_bad_schema"
+    BAD_DAG = "E_bad_dag"
+    BAD_REF = "E_bad_ref"
+    BAD_NODE = "E_bad_node"
+    BAD_OP = "E_bad_op"
+    LOOKUP_FAILED = "E_lookup_failed"
+    PLANNER_INVALID = "E_planner_invalid"
+    TYPE_MISMATCH = "E_type_mismatch"
+    UNIT_MISMATCH = "E_unit_mismatch"
+    SCALE_MISMATCH = "E_scale_mismatch"
+    BAD_RATE = "E_bad_rate"
+    MISSING_PERIOD = "E_missing_period"
+    PERIOD_MISMATCH = "E_period_mismatch"
+    DIV_ZERO = "E_div_zero"
+    MISSING_TABLE = "E_missing_table"
+    BAD_TABLE = "E_bad_table"
+    MISSING_TABLE_KEY = "E_missing_table_key"
+
+
+def exec_error_data(**kwargs: Any) -> Dict[str, Any]:
+    return {k: v for k, v in kwargs.items() if v is not None}
 
 
 def canonical_period(period: dict) -> tuple[str, object]:
@@ -50,9 +76,15 @@ def quantity_equal(a: Quantity, b: Quantity) -> bool:
 
 @dataclass
 class ExecError(Exception):
-    code: str
+    code: str | ExecErrorCode
     message: str
     data: Optional[Dict[str, Any]] = None
+
+    def __post_init__(self) -> None:
+        self.code = str(self.code)
+        if self.data is None:
+            self.data = {}
+        self.args = (self.code, self.message, self.data)
 
 
 def load_extract_store(extracts_dir: Path) -> Dict[str, List[Dict[str, Any]]]:
@@ -140,7 +172,9 @@ def convert_scale(quantity: Quantity, target_scale: int | float) -> Quantity:
         return quantity
     if target_scale == 0:
         raise ExecError(
-            "E_bad_args", "target_scale cannot be zero", {"got": target_scale}
+            ExecErrorCode.BAD_ARGS,
+            "target_scale cannot be zero",
+            exec_error_data(phase="support", arg="target_scale", got=target_scale),
         )
     value = quantity["value"]
     source_scale = quantity["scale"]
@@ -162,6 +196,7 @@ def _q_norm(quantity: Quantity) -> Quantity:
 
 __all__ = [
     "ExecError",
+    "ExecErrorCode",
     "LookupFn",
     "ModelFact",
     "Period",
@@ -175,6 +210,7 @@ __all__ = [
     "_rate_to",
     "canonical_period",
     "convert_scale",
+    "exec_error_data",
     "load_extract_store",
     "period_equal",
     "quantity_equal",

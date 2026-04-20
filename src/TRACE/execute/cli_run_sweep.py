@@ -157,7 +157,7 @@ def _run_job(job: Job, args) -> Path:
     cmd = [
         sys.executable,
         "-m",
-        "TRACE.execute.cli_run",
+        "TRACE.cli.run",
         "--benchmark",
         args.benchmark,
         "--capsules",

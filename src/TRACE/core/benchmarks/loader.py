@@ -16,6 +16,14 @@ def _default_derive_slots(record: ExtractRecord) -> dict[str, object]:
     return dict(record.slots)
 
 
+def _default_format_lookup_query(record: ExtractRecord) -> str:
+    return (
+        f"Extract the fact for: company={record.company} label={record.label}; "
+        f"period={record.period_kind} {record.period_value}. "
+        "Return a ModelFact with snippet_id, label, period, quantity."
+    )
+
+
 def _default_load_allowed_labels(schemas_dir: Path) -> list[str]:
     path = schemas_dir / "label_enum.json"
     labels = json.loads(path.read_text(encoding="utf-8"))
@@ -55,6 +63,7 @@ def load_benchmark(ref: str) -> BenchmarkDef:
         register_actions=mod.REGISTER_ACTIONS,
         load_extracts=getattr(mod, "LOAD_EXTRACTS", _default_load_extracts),
         load_allowed_labels=getattr(mod, "LOAD_ALLOWED_LABELS", _default_load_allowed_labels),
+        format_lookup_query=getattr(mod, "FORMAT_LOOKUP_QUERY", _default_format_lookup_query),
         derive_slots=getattr(mod, "DERIVE_SLOTS", _default_derive_slots),
         build_exists_key=getattr(mod, "BUILD_EXISTS_KEY", None),
         sampler_constraint_vars=getattr(mod, "SAMPLER_CONSTRAINT_VARS", None),

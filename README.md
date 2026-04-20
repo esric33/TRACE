@@ -25,11 +25,13 @@ The core idea is to evaluate reasoning through machine-checkable traces (not fre
 ## What Is Included
 
 - Generation pipeline:
-  - `TRACE.generation.cli_generate`
-  - `TRACE.generation.cli_generate_corpus`
+  - `TRACE.cli generate`
 - Execution/evaluation pipeline:
-  - `TRACE.execute.cli_run`
-  - `TRACE.execute.cli_run_sweep`
+  - `TRACE.cli run`
+  - `TRACE.cli run_sweep`
+- Comparison / maintenance:
+  - `TRACE.cli compare`
+  - `TRACE.cli benchmark_tools`
 - Make targets for reproducible runs:
   - `make smoke3_offline`
   - `make smoke3_gpt`
@@ -40,13 +42,20 @@ The core idea is to evaluate reasoning through machine-checkable traces (not fre
 
 ## Environment Setup
 
-Install with the pinned dependency file:
+Install with the package metadata so `src/TRACE` is importable in a standard way:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+If you prefer a non-editable dependency bootstrap first, this still works:
+
+```bash
 python -m pip install -r requirements.txt
+python -m pip install -e .
 ```
 
 Set API keys only if you run model-based modes:
@@ -57,11 +66,20 @@ export ANTHROPIC_API_KEY=...
 export GOOGLE_API_KEY=...
 ```
 
-`make` targets set `PYTHONPATH=src` automatically.
-If you run modules manually, set it yourself:
+`make` targets still set `PYTHONPATH=src` automatically for compatibility.
+After the editable install above, local imports work without manually exporting `PYTHONPATH`.
+If you run modules manually without installing the package, set it yourself:
 
 ```bash
 export PYTHONPATH=$PWD/src
+```
+
+## Running Tests
+
+From the repo root after `python -m pip install -e .`:
+
+```bash
+python -m unittest discover -s tests -v
 ```
 
 ## Quick Start
@@ -94,6 +112,12 @@ make compare_smoke3_offline
 make generate_TRACE-UFR
 ```
 
+Equivalent public CLI:
+
+```bash
+python -m TRACE.cli generate --benchmark trace_ufr --out artifacts/refactor/corpora/TRACE-UFR
+```
+
 Default generation settings in `makefile`:
 
 - distractor levels: `d = 0, 1, 3, 5, 10`
@@ -104,6 +128,12 @@ Default generation settings in `makefile`:
 
 ```bash
 make run_TRACE-UFR_all_models
+```
+
+Equivalent public CLI pattern:
+
+```bash
+python -m TRACE.cli run_sweep --benchmark trace_ufr --corpus-dir <corpus_dir> --out-dir <run_dir> --modes full --provider openai --models gpt-5.2
 ```
 
 Outputs are written to:
@@ -130,6 +160,15 @@ Provider model lists are configurable via:
 - `OPENAI_MODELS`
 - `ANTHROPIC_MODELS`
 - `GEMINI_MODELS`
+
+## Benchmark Tools
+
+Benchmark-owned maintenance tools can be discovered and run via:
+
+```bash
+python -m TRACE.cli benchmark_tools list --benchmark trace_ufr
+python -m TRACE.cli benchmark_tools run --benchmark trace_ufr prepare_extracts
+```
 
 ## Dataset Notes (TRACE-UFR)
 

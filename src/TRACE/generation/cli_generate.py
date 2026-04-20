@@ -9,7 +9,7 @@ from typing import Dict, List, Tuple
 from TRACE.core.benchmarks.loader import load_benchmark
 from TRACE.generation.generation_types import ExtractRecord, Spec
 from TRACE.generation.sampler import sample_k_bindings_fast
-from TRACE.generation.compiler import compile_spec
+from TRACE.generation.compiler import evaluate_compiled_plan_oracle, lower_spec
 from TRACE.generation.capsule import make_capsule
 from TRACE.generation.generation_types import (
     load_snippets,
@@ -262,11 +262,16 @@ def main() -> None:
                     continue
 
                 try:
-                    compiled_raw = compile_spec(
+                    compiled_raw = lower_spec(
                         spec,
                         bindings,
                         benchmark_def=benchmark_def,
                         seed=seed_i,
+                    )
+                    compiled_raw.answer = evaluate_compiled_plan_oracle(
+                        compiled_raw,
+                        bindings,
+                        benchmark_def=benchmark_def,
                     )
                     ok = True
                     seen_sigs.add(sig)

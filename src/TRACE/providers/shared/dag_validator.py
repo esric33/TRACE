@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Iterable, Set
 
-from TRACE.core.actions.builtin import build_registry_for_benchmark
+from TRACE.core.actions import build_registry_for_benchmark
 from TRACE.core.benchmarks.loader import load_benchmark
 
 
@@ -69,49 +69,7 @@ def validate_dag_obj(
             raise ValueError(f"node.args must be object for {node_id}")
 
         action = registry.require(op)
-        expected_keys = set(action.arg_keys)
-        if set(args.keys()) != expected_keys:
-            raise ValueError(f"{op} args must be exactly {expected_keys} in {node_id}")
-
-        if op == "TEXT_LOOKUP":
-            if not isinstance(args["query"], str) or not args["query"].strip():
-                raise ValueError(
-                    f"TEXT_LOOKUP args must be exactly {{query}} (non-empty) in {node_id}"
-                )
-        elif op == "GET_QUANTITY":
-            if not _is_ref(args["fact"]):
-                raise ValueError(
-                    f"GET_QUANTITY args must be exactly {{fact}} with ref: in {node_id}"
-                )
-        elif op == "CONVERT_SCALE":
-            if not _is_ref(args["q"]):
-                raise ValueError(f"CONVERT_SCALE.q must be ref:<id> in {node_id}")
-            if not isinstance(args["target_scale"], (int, float)):
-                raise ValueError(f"CONVERT_SCALE.target_scale must be number in {node_id}")
-        elif op == "FX_LOOKUP":
-            if not isinstance(args["series_id"], str) or not args["series_id"].strip():
-                raise ValueError(
-                    f"FX_LOOKUP.series_id must be non-empty string in {node_id}"
-                )
-            if not isinstance(args["year"], (int, float)):
-                raise ValueError(f"FX_LOOKUP.year must be a number in {node_id}")
-        elif op == "CPI_LOOKUP":
-            if not isinstance(args["series_id"], str) or not args["series_id"].strip():
-                raise ValueError(
-                    f"CPI_LOOKUP.series_id must be non-empty string in {node_id}"
-                )
-            if not isinstance(args["from_year"], (int, float)):
-                raise ValueError(f"CPI_LOOKUP.from_year must be a number in {node_id}")
-            if not isinstance(args["to_year"], (int, float)):
-                raise ValueError(f"CPI_LOOKUP.to_year must be a number in {node_id}")
-        elif op == "CONST":
-            if not isinstance(args["value"], (int, float)):
-                raise ValueError(
-                    f"CONST args must be exactly {{value}} (number) in {node_id}"
-                )
-        elif op in {"ADD", "MUL", "DIV", "GT", "LT", "EQ", "AND", "OR"}:
-            if not _is_ref(args["a"]) or not _is_ref(args["b"]):
-                raise ValueError(f"{op}.a and {op}.b must be ref:<id> in {node_id}")
+        action.validate_args(args, node_id=node_id)
 
     if not _is_ref(dag["output"]):
         raise ValueError("dag.output must be a ref:<id> string")
@@ -123,8 +81,12 @@ def validate_dag_obj(
     for node in nodes:
         node_id = node["id"]
         args = node["args"]
+        action = registry.require(node["op"])
         for field, value in args.items():
-            if not _is_ref(value):
+            if field not in action.arg_keys:
+                continue
+            spec = next(spec for spec in action.arg_specs if spec.name == field)
+            if spec.kind != "ref":
                 continue
             ref_node = _ref_id(value)
             if ref_node not in ids:

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import Any, Dict, List
 
-from TRACE.core.executor.support import ExecError
+from TRACE.core.executor.support import ExecError, ExecErrorCode, exec_error_data
 
 
 def offline_lookup_fn(node_id, _, capsule, extracts_by_snippet):
@@ -19,7 +19,9 @@ def offline_lookup_fn(node_id, _, capsule, extracts_by_snippet):
                 }
 
     raise ExecError(
-        "E_lookup_failed",
+        ExecErrorCode.LOOKUP_FAILED,
         "gold extraction not found",
-        {"node": node_id, "extraction_id": ex_id},
+        exec_error_data(
+            phase="lookup", provider="offline", node_id=node_id, extraction_id=ex_id
+        ),
     )

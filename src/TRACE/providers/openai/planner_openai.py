@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from typing import Any, Dict
 
-from TRACE.core.executor.support import ExecError
+from TRACE.core.executor.support import ExecError, ExecErrorCode, exec_error_data
 from TRACE.providers.shared.prompt import build_planner_prompt
 from TRACE.providers.shared.dag_validator import validate_dag_obj
 
@@ -24,7 +24,13 @@ def openai_plan_fn(
         return dag
     except Exception as e:
         raise ExecError(
-            "E_planner_invalid",
+            ExecErrorCode.PLANNER_INVALID,
             "Planner output invalid",
-            {"error": str(e), "output_text": resp.output_text},
+            exec_error_data(
+                phase="planner",
+                provider="openai",
+                model=model,
+                error=str(e),
+                output_text=resp.output_text,
+            ),
         )

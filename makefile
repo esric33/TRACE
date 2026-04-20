@@ -31,7 +31,8 @@ PY ?= python
 LEGACY_PYTHONPATH := $(LEGACY_DIR):$(SRC_DIR)
 
 RUN_SWEEP_MOD ?= TRACE.cli.run_sweep
-COMPARE_MOD ?= TRACE.cli.compare_parity
+COMPARE_MOD ?= TRACE.cli.compare
+GENERATE_MOD ?= TRACE.cli.generate
 
 LEGACY_GEN_MOD ?= TRACE.generation.cli_generate_corpus
 LEGACY_RUN_SWEEP_MOD ?= TRACE.execute.cli_run_sweep
@@ -127,7 +128,7 @@ generate_smoke3:
 		echo "Refactor corpus already exists at $(REFACTOR_SMOKE3_CORPUS_DIR) (skipping generation)"; \
 	else \
 		mkdir -p "$(REFACTOR_SMOKE3_CORPUS_DIR)"; \
-		$(PY) -m TRACE.generation.cli_generate_corpus \
+		$(PY) -m $(GENERATE_MOD) \
 			--benchmark $(BENCHMARK_ID) \
 			--out "$(REFACTOR_SMOKE3_CORPUS_DIR)" \
 			--distractors $(SMOKE3_D_ALL) \
@@ -165,7 +166,7 @@ generate_TRACE-UFR:
 		echo "Refactor corpus already exists at $(REFACTOR_TRACE_UFR_CORPUS_DIR) (skipping generation)"; \
 	else \
 		mkdir -p "$(REFACTOR_TRACE_UFR_CORPUS_DIR)"; \
-		$(PY) -m TRACE.generation.cli_generate_corpus \
+		$(PY) -m $(GENERATE_MOD) \
 			--benchmark $(BENCHMARK_ID) \
 			--out "$(REFACTOR_TRACE_UFR_CORPUS_DIR)" \
 			--distractors $(TRACE_UFR_D_ALL) \

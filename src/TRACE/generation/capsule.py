@@ -49,6 +49,9 @@ def make_capsule(
     generator_version: str = "gen_v1",
     distractor_count: int = 0,
 ) -> Dict[str, Any]:
+    if compiled.answer is None:
+        raise ValueError("compiled.answer is required to build a capsule")
+
     # qid: spec + bound extraction ids + seed + distractor_count
     qid_payload = {
         "template_id": spec.template_id,

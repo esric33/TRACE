@@ -9,6 +9,7 @@ from TRACE.generation.generation_types import ExtractRecord
 type ExistsKey = tuple[tuple[str, object], ...]
 type RecordLoader = Callable[[Path], list[ExtractRecord]]
 type LabelLoader = Callable[[Path], list[str]]
+type LookupQueryFormatter = Callable[[ExtractRecord], str]
 type SlotDeriver = Callable[[ExtractRecord], Mapping[str, Any]]
 type ExistsKeyBuilder = Callable[[ExtractRecord], ExistsKey | None]
 type SamplerConstraintVars = Callable[[object], tuple[str, ...] | None]
@@ -42,6 +43,7 @@ class BenchmarkDef:
     register_actions: Callable[[object], None]
     load_extracts: RecordLoader
     load_allowed_labels: LabelLoader
+    format_lookup_query: LookupQueryFormatter
     derive_slots: SlotDeriver
     build_exists_key: ExistsKeyBuilder | None
     sampler_constraint_vars: SamplerConstraintVars | None

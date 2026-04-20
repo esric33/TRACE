@@ -26,16 +26,6 @@ from TRACE.generation.expr import (
 )
 from TRACE.generation.generation_types import Bindings, CompiledPlan, Spec, load_snippets
 
-
-def _lookup_query_for(record) -> str:
-    pk = record.period_kind
-    pv = record.period_value
-    return (
-        f"Extract the fact for: company={record.company} label={record.label}; period={pk} {pv}. "
-        f"Return a ModelFact with snippet_id, label, period, quantity."
-    )
-
-
 def _canon_year(x: Any) -> int:
     if isinstance(x, int):
         return x
@@ -79,7 +69,7 @@ def _fx_quotes_for_base(base: str, *, benchmark_def) -> list[str]:
     return sorted(quotes)
 
 
-def compile_spec(
+def lower_spec(
     spec: Spec,
     bindings: Bindings,
     benchmark_def=None,
@@ -158,7 +148,7 @@ def compile_spec(
                 {
                     "id": n_lookup,
                     "op": "TEXT_LOOKUP",
-                    "args": {"query": _lookup_query_for(rec)},
+                    "args": {"query": benchmark_def.format_lookup_query(rec)},
                 }
             )
             n_getq = new_id()
@@ -277,11 +267,28 @@ def compile_spec(
 
     output_ref = compile_expr(spec.ast)
     dag = {"nodes": nodes, "output": output_ref}
+    operators = [n["op"] for n in nodes]
+
+    return CompiledPlan(
+        dag=dag,
+        lookup_map=lookup_map,
+        snippet_ids=snippet_ids,
+        operators=operators,
+        meta={"benchmark_id": benchmark_def.benchmark_id},
+    )
+
+
+def hydrate_compiled_context(
+    compiled: CompiledPlan,
+    benchmark_def=None,
+) -> list[dict[str, Any]]:
+    if benchmark_def is None:
+        benchmark_def = load_benchmark("trace_ufr")
 
     snippets_by_id = load_snippets(Path(benchmark_def.snippets_dir))
-    capsule_context = []
-    seen = set()
-    for sid in snippet_ids:
+    capsule_context: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for sid in compiled.snippet_ids:
         if sid in seen:
             continue
         seen.add(sid)
@@ -293,14 +300,24 @@ def compile_spec(
                 **({"source": snippet["source"]} if "source" in snippet else {}),
             }
         )
+    return capsule_context
 
-    oracle_ctx = make_oracle_context(bindings, lookup_map)
+
+def evaluate_compiled_plan_oracle(
+    compiled: CompiledPlan,
+    bindings: Bindings,
+    benchmark_def=None,
+) -> dict[str, Any]:
+    if benchmark_def is None:
+        benchmark_def = load_benchmark("trace_ufr")
+
+    oracle_ctx = make_oracle_context(bindings, compiled.lookup_map)
     capsule = {
-        "qid": f"{spec.template_id}|compile",
-        "context": {"snippets": capsule_context},
+        "qid": "compile|oracle",
+        "context": {"snippets": hydrate_compiled_context(compiled, benchmark_def)},
     }
     result = execute_dag(
-        dag,
+        compiled.dag,
         benchmark_def,
         "oracle",
         provider_ctx=None,
@@ -308,14 +325,18 @@ def compile_spec(
         capsule=capsule,
         cache={},
     )
-    answer = result["output"]
-    operators = [n["op"] for n in nodes]
+    return result["output"]
 
-    return CompiledPlan(
-        dag=dag,
-        lookup_map=lookup_map,
-        answer=answer,
-        snippet_ids=snippet_ids,
-        operators=operators,
-        meta={"benchmark_id": benchmark_def.benchmark_id},
+
+def compile_spec(
+    spec: Spec,
+    bindings: Bindings,
+    benchmark_def=None,
+    *,
+    seed: Optional[int] = None,
+) -> CompiledPlan:
+    compiled = lower_spec(spec, bindings, benchmark_def=benchmark_def, seed=seed)
+    compiled.answer = evaluate_compiled_plan_oracle(
+        compiled, bindings, benchmark_def=benchmark_def
     )
+    return compiled

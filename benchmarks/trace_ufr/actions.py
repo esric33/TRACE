@@ -3,8 +3,9 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from TRACE.core.actions.types import ActionDef, ActionExecContext
+from TRACE.core.actions.types import ActionDef, ActionExecContext, ArgSpec
 from TRACE.execute.executor import ExecError
+from TRACE.core.executor.support import ExecErrorCode, exec_error_data
 from TRACE.shared.io import read_json
 
 
@@ -28,7 +29,11 @@ def _canon_year(x: Any) -> int:
     s = str(x).strip()
     if s.isdigit():
         return int(s)
-    raise ExecError("E_bad_args", "Expected year int (or numeric string)", {"got": x})
+    raise ExecError(
+        ExecErrorCode.BAD_ARGS,
+        "Expected year int (or numeric string)",
+        exec_error_data(phase="action", got=x),
+    )
 
 
 def _load_fx_table(series_id: str, *, cache: dict[str, Any]) -> dict[str, Any]:
@@ -39,11 +44,17 @@ def _load_fx_table(series_id: str, *, cache: dict[str, Any]) -> dict[str, Any]:
             table = read_json(path)
         except FileNotFoundError as exc:
             raise ExecError(
-                "E_missing_table", "FX table not found", {"series_id": series_id}
+                ExecErrorCode.MISSING_TABLE,
+                "FX table not found",
+                exec_error_data(phase="action", op="FX_LOOKUP", series_id=series_id),
             ) from exc
         if table.get("series_id") != series_id:
             raise ExecError(
-                "E_bad_table", "FX table series_id mismatch", {"path": str(path)}
+                ExecErrorCode.BAD_TABLE,
+                "FX table series_id mismatch",
+                exec_error_data(
+                    phase="action", op="FX_LOOKUP", series_id=series_id, path=str(path)
+                ),
             )
         cache[key] = table
     return cache[key]
@@ -56,12 +67,18 @@ def _load_cpi_table(series_id: str, *, cache: dict[str, Any]) -> dict[str, Any]:
             path = _cpi_path(series_id)
         except FileNotFoundError as exc:
             raise ExecError(
-                "E_bad_args", f"Unknown CPI series_id: {series_id}"
+                ExecErrorCode.BAD_ARGS,
+                f"Unknown CPI series_id: {series_id}",
+                exec_error_data(phase="action", op="CPI_LOOKUP", series_id=series_id),
             ) from exc
         table = read_json(path)
         if table.get("series_id") != series_id:
             raise ExecError(
-                "E_bad_table", "CPI table series_id mismatch", {"path": str(path)}
+                ExecErrorCode.BAD_TABLE,
+                "CPI table series_id mismatch",
+                exec_error_data(
+                    phase="action", op="CPI_LOOKUP", series_id=series_id, path=str(path)
+                ),
             )
         cache[key] = table
     return cache[key]
@@ -71,24 +88,30 @@ def _exec_fx_lookup(ctx: ActionExecContext, _: str, args: dict[str, Any]) -> dic
     series_id = args["series_id"]
     year = _canon_year(args["year"])
     if not isinstance(series_id, str) or not series_id.strip():
-        raise ExecError("E_bad_args", "FX_LOOKUP requires series_id string")
+        raise ExecError(
+            ExecErrorCode.BAD_ARGS,
+            "FX_LOOKUP requires series_id string",
+            exec_error_data(
+                phase="action", op="FX_LOOKUP", arg="series_id", got=series_id
+            ),
+        )
 
     table = _load_fx_table(series_id, cache=ctx.cache)
     rate = table.get("rate_by_year", {}).get(str(year))
     if rate is None:
         raise ExecError(
-            "E_missing_table_key",
+            ExecErrorCode.MISSING_TABLE_KEY,
             "FX year not found",
-            {"series_id": series_id, "year": year},
+            exec_error_data(phase="action", op="FX_LOOKUP", series_id=series_id, year=year),
         )
 
     frm = table.get("from")
     to = table.get("to")
     if not isinstance(frm, str) or not isinstance(to, str):
         raise ExecError(
-            "E_bad_table",
+            ExecErrorCode.BAD_TABLE,
             "FX table must include 'from' and 'to' currency strings",
-            {"series_id": series_id},
+            exec_error_data(phase="action", op="FX_LOOKUP", series_id=series_id),
         )
 
     return {
@@ -108,7 +131,13 @@ def _exec_cpi_lookup(ctx: ActionExecContext, _: str, args: dict[str, Any]) -> di
     from_year = _canon_year(args["from_year"])
     to_year = _canon_year(args["to_year"])
     if not isinstance(series_id, str) or not series_id.strip():
-        raise ExecError("E_bad_args", "CPI_LOOKUP requires series_id string")
+        raise ExecError(
+            ExecErrorCode.BAD_ARGS,
+            "CPI_LOOKUP requires series_id string",
+            exec_error_data(
+                phase="action", op="CPI_LOOKUP", arg="series_id", got=series_id
+            ),
+        )
 
     table = _load_cpi_table(series_id, cache=ctx.cache)
     index_by_year = table.get("index_by_year", {})
@@ -116,19 +145,27 @@ def _exec_cpi_lookup(ctx: ActionExecContext, _: str, args: dict[str, Any]) -> di
     from_value = index_by_year.get(str(from_year))
     if to_value is None:
         raise ExecError(
-            "E_missing_table_key",
+            ExecErrorCode.MISSING_TABLE_KEY,
             "CPI year not found",
-            {"series_id": series_id, "year": to_year},
+            exec_error_data(
+                phase="action", op="CPI_LOOKUP", series_id=series_id, year=to_year
+            ),
         )
     if from_value is None:
         raise ExecError(
-            "E_missing_table_key",
+            ExecErrorCode.MISSING_TABLE_KEY,
             "CPI year not found",
-            {"series_id": series_id, "year": from_year},
+            exec_error_data(
+                phase="action", op="CPI_LOOKUP", series_id=series_id, year=from_year
+            ),
         )
     denom = float(from_value)
     if denom == 0.0:
-        raise ExecError("E_div_zero", "CPI rate denom is zero", {"from_year": from_year})
+        raise ExecError(
+            ExecErrorCode.DIV_ZERO,
+            "CPI rate denom is zero",
+            exec_error_data(phase="action", op="CPI_LOOKUP", from_year=from_year),
+        )
 
     return {
         "value": float(to_value) / denom,
@@ -145,14 +182,21 @@ def register_actions(registry) -> None:
     registry.register(
         ActionDef(
             name="FX_LOOKUP",
-            arg_keys=("series_id", "year"),
+            arg_specs=(
+                ArgSpec("series_id", "string", non_empty=True),
+                ArgSpec("year", "number"),
+            ),
             executor=_exec_fx_lookup,
         )
     )
     registry.register(
         ActionDef(
             name="CPI_LOOKUP",
-            arg_keys=("series_id", "from_year", "to_year"),
+            arg_specs=(
+                ArgSpec("series_id", "string", non_empty=True),
+                ArgSpec("from_year", "number"),
+                ArgSpec("to_year", "number"),
+            ),
             executor=_exec_cpi_lookup,
         )
     )

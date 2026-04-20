@@ -133,10 +133,10 @@ class VarSpec:
 class CompiledPlan:
     dag: Dict[str, Any]
     lookup_map: Dict[str, str]
-    answer: Dict[str, Any]
     snippet_ids: List[str]
     operators: List[str]
     meta: Dict[str, Any]
+    answer: Optional[Dict[str, Any]] = None
 
 
 @dataclass(frozen=True)
