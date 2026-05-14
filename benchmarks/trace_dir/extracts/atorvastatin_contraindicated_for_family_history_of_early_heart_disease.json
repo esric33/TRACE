@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_contraindicated_for_family_history_of_early_heart_disease",
+  "snippet_id": "atorvastatin_cardiovascular_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "family history of early heart disease"
+  }
+}

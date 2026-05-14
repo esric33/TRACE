@@ -7,8 +7,18 @@ from typing import Optional, Sequence, Tuple
 @dataclass(frozen=True)
 class LookupQty:
     """
-    AST leaf: “lookup the fact bound to var_name and return its quantity”.
-    This expands to TEXT_LOOKUP + GET_QUANTITY in the executor language.
+    AST leaf: extract/assert the fact bound to var_name and return its quantity.
+    This expands to MODEL_FACT in the executor language.
+    """
+
+    var_name: str
+
+
+@dataclass(frozen=True)
+class RelationSetFor:
+    """
+    Build the complete relation set in the anchor snippet matching a bound
+    relation's subject, label, and object type.
     """
 
     var_name: str
@@ -18,6 +28,7 @@ class LookupQty:
 class ConvertScale:
     expr: object
     target_scale_in: Tuple[float, ...]
+    target_key: Optional[str] = None
 
 
 @dataclass(frozen=True)
@@ -129,3 +140,37 @@ class Lt:
 class Eq:
     left: object
     right: object
+
+
+@dataclass(frozen=True)
+class MakeSet:
+    items: Tuple[object, ...]
+
+
+@dataclass(frozen=True)
+class SetUnion:
+    left: object
+    right: object
+
+
+@dataclass(frozen=True)
+class SetIntersect:
+    left: object
+    right: object
+
+
+@dataclass(frozen=True)
+class SetDiff:
+    left: object
+    right: object
+
+
+@dataclass(frozen=True)
+class SetSize:
+    set_expr: object
+
+
+@dataclass(frozen=True)
+class SetContains:
+    set_expr: object
+    item: object

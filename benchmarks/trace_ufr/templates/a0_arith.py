@@ -58,6 +58,7 @@ A0_ADD_CPI = "A0_ADD_CPI_ADJUSTED"
 
 A0_FX_CONVERT = "A0_FX_CONVERT"
 A0_ADD_FX = "A0_ADD_FX"
+A0_ADD_FX_SCALE = "A0_ADD_FX_SCALE"
 A0_ADD_FX_CPI = "A0_ADD_FX_CPI"
 A0_ADD_FX_TO_THIRD = "A0_ADD_FX_TO_THIRD"
 
@@ -388,6 +389,57 @@ A0_ADD_FX__A_TO_B_THEN_ADD = Spec(
     compile_opts={},
 )
 
+
+def _render_add_fx_to_b_in_target_scale(
+    bindings: Bindings, compiled: CompiledPlan
+) -> str:
+    a, b = bindings["A"], bindings["B"]
+    ts = dag_arg_single(compiled, op="CONVERT_SCALE", arg="target_scale")
+    ts_txt = scale_renderer(ts)
+
+    scale_mid = f"{ts_txt} " if ts_txt else ""
+
+    return with_instr(
+        f"For {period_renderer(a)}, what is the sum of {label_renderer(a.label)} for "
+        f"{a.company}, after converting it from {a.unit} to {b.unit} using the FY "
+        f"exchange rate, and {label_renderer(b.label)} for {b.company}, reported in "
+        f"{scale_mid}{b.unit}?"
+    )
+
+
+A0_ADD_FX_SCALE__A_TO_B_THEN_ADD_IN_TARGET_SCALE = Spec(
+    template_id=f"{A0_ADD_FX_SCALE}__A_TO_B_THEN_ADD_IN_TARGET_SCALE",
+    vars={
+        "A": _money_vs(period_kind_in=["FY"]),
+        "B": _money_vs(period_kind_in=["FY"]),
+    },
+    ast=Add(
+        ConvertScale(
+            Mul(
+                LookupQty("A"),
+                FxLookupTo(from_var="A", to_var="B"),
+            ),
+            target_scale_in=DEFAULT_SCALES,
+            target_key="sum_target",
+        ),
+        ConvertScale(
+            LookupQty("B"),
+            target_scale_in=DEFAULT_SCALES,
+            target_key="sum_target",
+        ),
+    ),
+    render_question=_render_add_fx_to_b_in_target_scale,
+    constraints=[
+        DifferentCompany("A", "B"),
+        SamePeriod("A", "B"),
+        SameLabel("A", "B"),
+        DifferentUnit("A", "B"),
+        DifferentScale("A", "B"),
+        DifferentExtraction("A", "B"),
+    ],
+    compile_opts={},
+)
+
 # ---- FX + CPI: convert A -> USD (via B), CPI adjust to B year, then add B (USD-only B) ----
 #
 # NOTE: economically coherent only because B is forced USD and CPI series is CPI_US_CPIU.
@@ -545,8 +597,8 @@ def _render_add4_same_label(bindings: Bindings, _: CompiledPlan) -> str:
     )
 
 
-A0_ADD4__SAME_COMPANY_SAME_LABEL_4X = a0_add4_spec(
-    template_id=f"{A0_ADD4}__SAME_COMPANY_SAME_LABEL_4X",
+A0_ADD4__DIFFERENT_COMPANY_SAME_LABEL_4X = a0_add4_spec(
+    template_id=f"{A0_ADD4}__DIFFERENT_COMPANY_SAME_LABEL_4X",
     constraints=[
         DifferentCompany("A", "B"),
         DifferentCompany("A", "C"),
@@ -648,10 +700,11 @@ SPECS: list[Spec] = [
     A0_FX_CONVERT__QUOTE_IN,
     A0_FX_CONVERT__TO_B_CURRENCY,
     A0_ADD_FX__A_TO_B_THEN_ADD,
+    A0_ADD_FX_SCALE__A_TO_B_THEN_ADD_IN_TARGET_SCALE,
     A0_ADD_FX_CPI__A_TO_USD_THEN_CPI_THEN_ADD,
     A0_ADD_FX_TO_THIRD__A_AND_B_TO_TARGET_THEN_ADD,
     # ADD 4
     A0_ADD4__SAME_COMPANY_DIFF_LABELS,
-    A0_ADD4__SAME_COMPANY_SAME_LABEL_4X,
+    A0_ADD4__DIFFERENT_COMPANY_SAME_LABEL_4X,
     A0_ADD4__NORM_TO_A_THEN_ADD,
 ]

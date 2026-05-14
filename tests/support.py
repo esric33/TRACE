@@ -45,7 +45,6 @@ def make_action_ctx(*, cache: dict | None = None) -> ActionExecContext:
         capsule={"qid": "test-qid", "context": {"snippets": []}},
         extracts_by_snippet={},
         cache={} if cache is None else cache,
-        lookup_fn=lambda *_args, **_kwargs: {},
     )
 
 
@@ -68,4 +67,3 @@ def make_capsule_from_snippet_ids(
             }
         )
     return {"qid": qid, "question": question, "context": {"snippets": snippets}}
-

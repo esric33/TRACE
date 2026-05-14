@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_contraindicated_for_respiratory_depression_without_appropriate_equipment",
+  "snippet_id": "morphine_contraindications_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "condition",
+    "value": "respiratory depression without appropriate equipment"
+  }
+}

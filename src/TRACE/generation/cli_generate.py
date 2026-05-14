@@ -120,6 +120,14 @@ def main() -> None:
             "Order matches SPECS_BY_FAMILY[family]."
         ),
     )
+    ap.add_argument(
+        "--balance-templates",
+        action="store_true",
+        help=(
+            "Allocate examples as evenly as possible across all templates. "
+            "Overrides --p and --w."
+        ),
+    )
 
     ap.add_argument(
         "--qid-prefix", default="", help="Optional prefix for all qids (default: empty)"
@@ -138,47 +146,54 @@ def main() -> None:
     if not families:
         raise RuntimeError("No families registered (FAMILIES is empty)")
 
-    # -------------------------
-    # Parse family proportions
-    # -------------------------
-    p_map = _parse_kv_floats(args.p)
+    template_mix: dict[str, float | bool] = {
+        "template_balanced": bool(args.balance_templates)
+    }
+    p_map: Dict[str, float] = {}
+    weight_overrides: Dict[str, List[float]] = {}
 
-    # Validate families in p_map
-    unknown = sorted(set(p_map.keys()) - set(families))
-    if unknown:
-        raise ValueError(f"Unknown families in --p: {unknown}. Known: {families}")
+    if not args.balance_templates:
+        # -------------------------
+        # Parse family proportions
+        # -------------------------
+        p_map = _parse_kv_floats(args.p)
 
-    # Default: uniform if --p omitted
-    if not p_map:
-        p_map = {fam: 1.0 for fam in families}
+        # Validate families in p_map
+        unknown = sorted(set(p_map.keys()) - set(families))
+        if unknown:
+            raise ValueError(f"Unknown families in --p: {unknown}. Known: {families}")
 
-    # If user provided some families but not all, fill missing with 0.0
-    for fam in families:
-        p_map.setdefault(fam, 0.0)
+        # Default: uniform if --p omitted
+        if not p_map:
+            p_map = {fam: 1.0 for fam in families}
 
-    if all(float(p_map[f]) <= 0.0 for f in families):
-        raise ValueError(f"--p has no positive proportions. Got: {p_map}")
+        # If user provided some families but not all, fill missing with 0.0
+        for fam in families:
+            p_map.setdefault(fam, 0.0)
 
-    template_mix: dict[str, float] = {f"p_{fam}": float(p_map[fam]) for fam in families}
+        if all(float(p_map[f]) <= 0.0 for f in families):
+            raise ValueError(f"--p has no positive proportions. Got: {p_map}")
 
-    # -------------------------
-    # Parse variant weight overrides
-    # -------------------------
-    weight_overrides = _parse_family_weight_overrides(args.w)
+        template_mix.update({f"p_{fam}": float(p_map[fam]) for fam in families})
 
-    unknown_w = sorted(set(weight_overrides.keys()) - set(families))
-    if unknown_w:
-        raise ValueError(f"Unknown families in --w: {unknown_w}. Known: {families}")
+        # -------------------------
+        # Parse variant weight overrides
+        # -------------------------
+        weight_overrides = _parse_family_weight_overrides(args.w)
 
-    # Validate weight lengths
-    for fam, ws in weight_overrides.items():
-        expected = len(SPECS_BY_FAMILY.get(fam, []))
-        if expected <= 0:
-            raise ValueError(f"Family {fam} has no variants in registry")
-        if len(ws) != expected:
-            raise ValueError(
-                f"--w for {fam} expected {expected} weights, got {len(ws)}: {ws}"
-            )
+        unknown_w = sorted(set(weight_overrides.keys()) - set(families))
+        if unknown_w:
+            raise ValueError(f"Unknown families in --w: {unknown_w}. Known: {families}")
+
+        # Validate weight lengths
+        for fam, ws in weight_overrides.items():
+            expected = len(SPECS_BY_FAMILY.get(fam, []))
+            if expected <= 0:
+                raise ValueError(f"Family {fam} has no variants in registry")
+            if len(ws) != expected:
+                raise ValueError(
+                    f"--w for {fam} expected {expected} weights, got {len(ws)}: {ws}"
+                )
 
     # -------------------------
     # Load data
@@ -189,27 +204,52 @@ def main() -> None:
     extracts = benchmark_def.load_extracts(extracts_dir)
     snippets_by_id = load_snippets(snippets_dir)
 
-    # -------------------------
-    # Plan: family -> counts
-    # -------------------------
-    fam_pairs = [(fam, float(p_map[fam])) for fam in families]
-    family_plan = _counts_from_props(args.n, fam_pairs)
-
-    # Expand to a concrete variant plan: (family, spec, count)
     variant_plan: List[Tuple[str, Spec, int]] = []
-    for fam, fam_count in family_plan:
-        variants = SPECS_BY_FAMILY.get(fam, [])
-        if not variants or fam_count <= 0:
-            continue
+    if args.balance_templates:
+        all_specs = list(getattr(templates, "ALL_SPECS", []))
+        if not all_specs:
+            raise RuntimeError("No templates registered (ALL_SPECS is empty)")
+        spec_counts = _counts_from_props(
+            args.n,
+            [(spec.template_id, 1.0) for spec in all_specs],
+        )
+        counts_by_template_id = {template_id: count for template_id, count in spec_counts}
+        family_by_template_id = {
+            spec.template_id: fam
+            for fam, specs in SPECS_BY_FAMILY.items()
+            for spec in specs
+        }
+        for spec in all_specs:
+            count = counts_by_template_id.get(spec.template_id, 0)
+            if count > 0:
+                variant_plan.append(
+                    (
+                        family_by_template_id.get(spec.template_id, ""),
+                        spec,
+                        count,
+                    )
+                )
+    else:
+        # -------------------------
+        # Plan: family -> counts
+        # -------------------------
+        fam_pairs = [(fam, float(p_map[fam])) for fam in families]
+        family_plan = _counts_from_props(args.n, fam_pairs)
 
-        ws = weight_overrides.get(fam, [1.0] * len(variants))
-        pairs = [(v.template_id, w) for v, w in zip(variants, ws)]
-        v_counts = _counts_from_props(fam_count, pairs)
-        id_to_spec = {v.template_id: v for v in variants}
+        # Expand to a concrete variant plan: (family, spec, count)
+        for fam, fam_count in family_plan:
+            variants = SPECS_BY_FAMILY.get(fam, [])
+            if not variants or fam_count <= 0:
+                continue
 
-        for tid, c in v_counts:
-            if c > 0:
-                variant_plan.append((fam, id_to_spec[tid], c))
+            ws = weight_overrides.get(fam, [1.0] * len(variants))
+            pairs = [(v.template_id, w) for v, w in zip(variants, ws)]
+            v_counts = _counts_from_props(fam_count, pairs)
+            id_to_spec = {v.template_id: v for v in variants}
+
+            for tid, c in v_counts:
+                if c > 0:
+                    variant_plan.append((fam, id_to_spec[tid], c))
 
     # -------------------------
     # Build valid pools once

@@ -1,0 +1,9 @@
+{
+  "snippet_id": "aspirin_gastrointestinal_01",
+  "text": "Aspirin increases the risk of upper gastrointestinal bleeding. Enteric coating on aspirin may be used in manufacturing to prevent release of aspirin into the stomach to reduce gastric harm, but enteric coating does not reduce gastrointestinal bleeding risk.",
+  "source": "https://en.wikipedia.org/wiki/Aspirin",
+  "meta": {
+    "drug": "Aspirin",
+    "section": "Adverse effects / Gastrointestinal"
+  }
+}

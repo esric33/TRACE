@@ -1,5 +1,8 @@
-outputs
-artifacts
+outputs/
+artifacts/
+experiments/
+experiments1/
+docs/_build/
 .DS_Store
 __pycache__
 *.pyc

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "hydrocortisone_causes_side_effect_osteoporosis",
+  "snippet_id": "hydrocortisone_lead_adverse_warning_01",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Hydrocortisone"
+  },
+  "object": {
+    "type": "effect",
+    "value": "osteoporosis"
+  }
+}

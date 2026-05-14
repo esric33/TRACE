@@ -1,0 +1,504 @@
+{
+"snippets": [
+{
+"snippet_id": "ibuprofen_lead_class_use_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Lead",
+"text": "Ibuprofen is a nonsteroidal anti-inflammatory drug (NSAID) that is used to relieve pain, fever, and inflammation. This includes painful menstrual periods, migraines, and rheumatoid arthritis."
+},
+{
+"snippet_id": "ibuprofen_lead_adverse_warning_mechanism_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Lead",
+"text": "Common side effects include heartburn, nausea, indigestion, and abdominal pain. Potential side effects include gastrointestinal bleeding. Long-term use has been associated with kidney failure, and rarely liver failure, and it can exacerbate the condition of people with heart failure."
+},
+{
+"snippet_id": "ibuprofen_lead_pregnancy_mechanism_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Lead",
+"text": "Ibuprofen can also worsen asthma. While its safety in early pregnancy is unclear, it appears to be harmful in later pregnancy, so it is not recommended during that period. It works by inhibiting the production of prostaglandins by decreasing the activity of the enzyme cyclooxygenase (COX)."
+},
+{
+"snippet_id": "ibuprofen_medical_uses_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Medical uses",
+"text": "Ibuprofen is used primarily to treat fever (including post-vaccination fever), mild to moderate pain (including pain relief after surgery), painful menstruation, osteoarthritis, dental pain, headaches, and pain from kidney stones."
+},
+{
+"snippet_id": "ibuprofen_medical_uses_02",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Medical uses",
+"text": "It is used for inflammatory diseases such as juvenile idiopathic arthritis and rheumatoid arthritis. It is also used for pericarditis and to close a patent ductus arteriosus in a premature baby."
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Adverse effects",
+"text": "Adverse effects include nausea, heartburn, indigestion, diarrhea, constipation, gastrointestinal ulceration, headache, dizziness, rash, salt and fluid retention, and high blood pressure."
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_02",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Adverse effects",
+"text": "Infrequent adverse effects include esophageal ulceration, heart failure, high blood levels of potassium, kidney impairment, confusion, and bronchospasm. Ibuprofen can exacerbate asthma, sometimes fatally."
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_03",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Adverse effects",
+"text": "Allergic reactions, including anaphylaxis, may occur."
+},
+{
+"snippet_id": "ibuprofen_cardiovascular_risk_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Adverse effects / Cardiovascular risk",
+"text": "Along with several other NSAIDs, chronic ibuprofen use is correlated with the risk of progression to hypertension in women, though less than for paracetamol (acetaminophen), and myocardial infarction (heart attack), particularly among those chronically using higher doses."
+},
+{
+"snippet_id": "ibuprofen_cardiovascular_risk_02",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Adverse effects / Cardiovascular risk",
+"text": "The FDA toughened warnings of increased heart attack and stroke risk associated with ibuprofen and related NSAIDs; the NSAID aspirin is not included in this warning."
+},
+{
+"snippet_id": "ibuprofen_skin_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Adverse effects / Skin",
+"text": "Along with other NSAIDs, ibuprofen has been associated with the onset of bullous pemphigoid or pemphigoid-like blistering. As with other NSAIDs, ibuprofen has been reported to be a photosensitizing agent, but it is considered a weak photosensitizing agent compared to other members of the 2-arylpropionic acid class."
+},
+{
+"snippet_id": "ibuprofen_skin_02",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Adverse effects / Skin",
+"text": "Like other NSAIDs, ibuprofen is an extremely rare cause of the autoimmune diseases Stevens–Johnson syndrome (SJS) and toxic epidermal necrolysis."
+},
+{
+"snippet_id": "ibuprofen_interactions_alcohol_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Adverse effects / Interactions / Alcohol",
+"text": "Drinking alcohol when taking ibuprofen may increase the risk of stomach bleeding."
+},
+{
+"snippet_id": "ibuprofen_interactions_aspirin_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Adverse effects / Interactions / Aspirin",
+"text": "According to the FDA, "ibuprofen can interfere with the antiplatelet effect of low-dose aspirin, potentially rendering aspirin less effective when used for cardioprotection and stroke prevention"."
+},
+{
+"snippet_id": "ibuprofen_pharmacology_01",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Pharmacology",
+"text": "Ibuprofen works by inhibiting cyclooxygenase (COX) enzymes, which convert arachidonic acid to prostaglandin H2 (PGH2). PGH2, in turn, is converted by other enzymes into various prostaglandins (which mediate pain, inflammation, and fever) and thromboxane A2 (which stimulates platelet aggregation and promotes blood clot formation)."
+},
+{
+"snippet_id": "ibuprofen_pharmacology_02",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Pharmacology",
+"text": "Like aspirin and indomethacin, ibuprofen is a nonselective COX inhibitor, in that it inhibits two isoforms of cyclooxygenase, COX-1 and COX-2. The analgesic, antipyretic, and anti-inflammatory activity of NSAIDs appears to operate mainly through inhibition of COX-2, which decreases the synthesis of prostaglandins involved in mediating inflammation, pain, fever, and swelling."
+},
+{
+"snippet_id": "ibuprofen_pharmacology_03",
+"source": "https://en.wikipedia.org/wiki/Ibuprofen",
+"section": "Pharmacology",
+"text": "Unlike most other NSAIDs, ibuprofen also acts as an inhibitor of Rho kinase and may be useful in recovery from spinal cord injury. Another unusual activity is inhibition of the sweet taste receptor."
+}
+],
+"extractions": [
+{
+"snippet_id": "ibuprofen_lead_class_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "nonsteroidal anti-inflammatory drug"
+},
+{
+"snippet_id": "ibuprofen_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "pain"
+},
+{
+"snippet_id": "ibuprofen_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "fever"
+},
+{
+"snippet_id": "ibuprofen_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "inflammation"
+},
+{
+"snippet_id": "ibuprofen_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "painful menstrual period"
+},
+{
+"snippet_id": "ibuprofen_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "migraine"
+},
+{
+"snippet_id": "ibuprofen_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "rheumatoid arthritis"
+},
+{
+"snippet_id": "ibuprofen_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "heartburn"
+},
+{
+"snippet_id": "ibuprofen_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nausea"
+},
+{
+"snippet_id": "ibuprofen_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "indigestion"
+},
+{
+"snippet_id": "ibuprofen_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "abdominal pain"
+},
+{
+"snippet_id": "ibuprofen_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "gastrointestinal bleeding"
+},
+{
+"snippet_id": "ibuprofen_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "kidney failure"
+},
+{
+"snippet_id": "ibuprofen_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "liver failure"
+},
+{
+"snippet_id": "ibuprofen_lead_adverse_warning_mechanism_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "heart failure"
+},
+{
+"snippet_id": "ibuprofen_lead_pregnancy_mechanism_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "asthma"
+},
+{
+"snippet_id": "ibuprofen_lead_pregnancy_mechanism_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "later pregnancy"
+},
+{
+"snippet_id": "ibuprofen_lead_pregnancy_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits prostaglandin production"
+},
+{
+"snippet_id": "ibuprofen_lead_pregnancy_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "decreases cyclooxygenase activity"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "post-vaccination fever"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "mild to moderate pain"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "pain relief after surgery"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "painful menstruation"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "osteoarthritis"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "dental pain"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "headache"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "kidney stone pain"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "inflammatory disease"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "juvenile idiopathic arthritis"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "pericarditis"
+},
+{
+"snippet_id": "ibuprofen_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "patent ductus arteriosus closure in premature baby"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "diarrhea"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "constipation"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "gastrointestinal ulceration"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "dizziness"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "rash"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "salt and fluid retention"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "high blood pressure"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "esophageal ulceration"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "high blood potassium"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "kidney impairment"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "confusion"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "bronchospasm"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "allergic reaction"
+},
+{
+"snippet_id": "ibuprofen_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "anaphylaxis"
+},
+{
+"snippet_id": "ibuprofen_cardiovascular_risk_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypertension"
+},
+{
+"snippet_id": "ibuprofen_cardiovascular_risk_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "myocardial infarction"
+},
+{
+"snippet_id": "ibuprofen_cardiovascular_risk_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "heart attack"
+},
+{
+"snippet_id": "ibuprofen_cardiovascular_risk_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "stroke"
+},
+{
+"snippet_id": "ibuprofen_skin_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "bullous pemphigoid"
+},
+{
+"snippet_id": "ibuprofen_skin_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "pemphigoid-like blistering"
+},
+{
+"snippet_id": "ibuprofen_skin_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "photosensitivity"
+},
+{
+"snippet_id": "ibuprofen_skin_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "Stevens-Johnson syndrome"
+},
+{
+"snippet_id": "ibuprofen_skin_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "toxic epidermal necrolysis"
+},
+{
+"snippet_id": "ibuprofen_interactions_alcohol_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "alcohol use"
+},
+{
+"snippet_id": "ibuprofen_interactions_alcohol_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "stomach bleeding"
+},
+{
+"snippet_id": "ibuprofen_interactions_aspirin_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "low-dose aspirin use"
+},
+{
+"snippet_id": "ibuprofen_interactions_aspirin_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "interferes with aspirin antiplatelet effect"
+},
+{
+"snippet_id": "ibuprofen_pharmacology_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits cyclooxygenase enzymes"
+},
+{
+"snippet_id": "ibuprofen_pharmacology_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces prostaglandin synthesis"
+},
+{
+"snippet_id": "ibuprofen_pharmacology_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces thromboxane synthesis"
+},
+{
+"snippet_id": "ibuprofen_pharmacology_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "nonselective COX inhibition"
+},
+{
+"snippet_id": "ibuprofen_pharmacology_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits COX-1"
+},
+{
+"snippet_id": "ibuprofen_pharmacology_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits COX-2"
+},
+{
+"snippet_id": "ibuprofen_pharmacology_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits Rho kinase"
+},
+{
+"snippet_id": "ibuprofen_pharmacology_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits sweet taste receptor"
+}
+]
+}

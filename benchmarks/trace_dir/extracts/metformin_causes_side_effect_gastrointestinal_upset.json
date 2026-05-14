@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_causes_side_effect_gastrointestinal_upset",
+  "snippet_id": "metformin_gastrointestinal_01",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "effect",
+    "value": "gastrointestinal upset"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_treats_condition_reduced_insulin_requirement_in_type_1_diabetes",
+  "snippet_id": "metformin_insulin_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "reduced insulin requirement in type 1 diabetes"
+  }
+}

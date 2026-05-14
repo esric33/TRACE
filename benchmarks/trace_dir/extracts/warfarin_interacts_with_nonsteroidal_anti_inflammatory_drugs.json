@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_interacts_with_nonsteroidal_anti_inflammatory_drugs",
+  "snippet_id": "warfarin_interactions_01",
+  "label": "interacts_with",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "drug",
+    "value": "nonsteroidal anti-inflammatory drugs"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "insulin_contraindicated_for_incorrect_insulin_timing",
+  "snippet_id": "insulin_medication_potential_complications_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Insulin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "incorrect insulin timing"
+  }
+}

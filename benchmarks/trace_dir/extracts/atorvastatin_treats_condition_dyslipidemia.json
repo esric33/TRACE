@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_treats_condition_dyslipidemia",
+  "snippet_id": "atorvastatin_medical_uses_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "dyslipidemia"
+  }
+}

@@ -33,6 +33,14 @@ def main() -> None:
 
     ap.add_argument("--p-family", default="")
     ap.add_argument("--w", default="")
+    ap.add_argument(
+        "--balance-templates",
+        action="store_true",
+        help=(
+            "Allocate examples as evenly as possible across all templates for each "
+            "distractor setting. Overrides --p-family and --w."
+        ),
+    )
     # future: qtype mix
     ap.add_argument("--p-qtype", default="")
 
@@ -62,6 +70,7 @@ def main() -> None:
         "p_family_raw": args.p_family,
         "p_qtype_raw": args.p_qtype,
         "w_raw": args.w,
+        "template_balanced": bool(args.balance_templates),
         "per_distractor": {},
     }
 
@@ -113,6 +122,8 @@ def main() -> None:
             cmd += ["--p", args.p_family]
         if args.w:
             cmd += ["--w", args.w]
+        if args.balance_templates:
+            cmd += ["--balance-templates"]
         # p-qtype ignored for now (you’ll add it later)
 
         subprocess.check_call(cmd)

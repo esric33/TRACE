@@ -1,0 +1,13 @@
+{
+  "extraction_id": "hydrocortisone_contraindicated_for_pregnancy",
+  "snippet_id": "hydrocortisone_lead_adverse_warning_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Hydrocortisone"
+  },
+  "object": {
+    "type": "condition",
+    "value": "pregnancy"
+  }
+}

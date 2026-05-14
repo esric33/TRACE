@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_contraindicated_for_severe_kidney_problem",
+  "snippet_id": "metformin_lead_adverse_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "severe kidney problem"
+  }
+}

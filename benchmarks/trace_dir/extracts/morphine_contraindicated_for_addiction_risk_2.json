@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_contraindicated_for_addiction_risk_2",
+  "snippet_id": "morphine_addiction_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "condition",
+    "value": "addiction risk"
+  }
+}

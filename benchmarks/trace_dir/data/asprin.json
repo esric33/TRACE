@@ -1,0 +1,342 @@
+{
+"snippets": [
+{
+"snippet_id": "aspirin_lead_class_use_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Lead",
+"text": "Aspirin (/ˈæsp(ə)rɪn/) is the genericized trademark for acetylsalicylic acid (ASA), a nonsteroidal anti-inflammatory drug (NSAID) used to reduce pain, fever, and inflammation, and as an antithrombotic. Aspirin is used to treat inflammatory conditions including Kawasaki disease, pericarditis, and rheumatic fever."
+},
+{
+"snippet_id": "aspirin_lead_prevention_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Lead",
+"text": "Aspirin is also used long-term to help prevent further heart attacks, ischaemic strokes, and blood clots in people at high risk. For pain or fever, effects typically begin within 30 minutes. Aspirin works similarly to other NSAIDs but also suppresses the normal functioning of platelets."
+},
+{
+"snippet_id": "aspirin_lead_adverse_warning_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Lead",
+"text": "One common adverse effect is an upset stomach. More significant side effects include stomach ulcers, stomach bleeding, and worsening asthma. Bleeding risk is greater among those who are older, drink alcohol, take other NSAIDs, or are on other blood thinners. Aspirin is not recommended in the last part of pregnancy. It is not generally recommended in children with viral infections because of the risk of Reye syndrome. High doses may result in ringing in the ears."
+},
+{
+"snippet_id": "aspirin_mechanism_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Mechanism of action",
+"text": "Aspirin's ability to suppress the production of prostaglandins and thromboxanes is due to its irreversible inactivation of the cyclooxygenase (COX; officially known as prostaglandin-endoperoxide synthase, PTGS) enzyme required for prostaglandin and thromboxane synthesis."
+},
+{
+"snippet_id": "aspirin_medical_use_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Medical use",
+"text": "Aspirin is used in the treatment of a number of conditions, including fever, pain, rheumatic fever, and inflammatory conditions, such as rheumatoid arthritis, pericarditis, and Kawasaki disease."
+},
+{
+"snippet_id": "aspirin_pain_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Medical use / Pain",
+"text": "Aspirin is an effective analgesic for acute pain, although it is generally considered inferior to ibuprofen because aspirin is more likely to cause gastrointestinal bleeding."
+},
+{
+"snippet_id": "aspirin_inflammation_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Medical use / Inflammation",
+"text": "Aspirin is used as an anti-inflammatory agent for both acute and long-term inflammation, as well as for the treatment of inflammatory diseases, such as rheumatoid arthritis."
+},
+{
+"snippet_id": "aspirin_contraindications_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Adverse effects / Contraindications",
+"text": "Aspirin should not be taken by people who are allergic to ibuprofen or naproxen, or who have salicylate intolerance or a more generalized drug intolerance to NSAIDs, and caution should be exercised in those with asthma or NSAID-precipitated bronchospasm."
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Adverse effects / Contraindications",
+"text": "Owing to its effect on the stomach lining, manufacturers recommend people with peptic ulcers, mild diabetes, or gastritis seek medical advice before using aspirin. Even if none of these conditions is present, the risk of stomach bleeding is still increased when aspirin is taken with alcohol or warfarin. People with hemophilia or other bleeding tendencies should not take aspirin or other salicylates. Aspirin is known to cause hemolytic anemia in people who have the genetic disease glucose-6-phosphate dehydrogenase deficiency, particularly in large doses and depending on the severity of the disease. Use of aspirin during dengue fever is not recommended owing to increased bleeding tendency."
+},
+{
+"snippet_id": "aspirin_gastrointestinal_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Adverse effects / Gastrointestinal",
+"text": "Aspirin increases the risk of upper gastrointestinal bleeding. Enteric coating on aspirin may be used in manufacturing to prevent release of aspirin into the stomach to reduce gastric harm, but enteric coating does not reduce gastrointestinal bleeding risk."
+},
+{
+"snippet_id": "aspirin_skin_01",
+"source": "https://en.wikipedia.org/wiki/Aspirin",
+"section": "Adverse effects / Skin",
+"text": "For a small number of people, taking aspirin can result in symptoms including hives, swelling, and headache."
+}
+],
+"extractions": [
+{
+"snippet_id": "aspirin_lead_class_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "nonsteroidal anti-inflammatory drug"
+},
+{
+"snippet_id": "aspirin_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "pain"
+},
+{
+"snippet_id": "aspirin_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "fever"
+},
+{
+"snippet_id": "aspirin_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "inflammation"
+},
+{
+"snippet_id": "aspirin_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "antithrombotic use"
+},
+{
+"snippet_id": "aspirin_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "Kawasaki disease"
+},
+{
+"snippet_id": "aspirin_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "pericarditis"
+},
+{
+"snippet_id": "aspirin_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "rheumatic fever"
+},
+{
+"snippet_id": "aspirin_lead_prevention_01",
+"label": "medical_use",
+"type": "indication",
+"text": "heart attack prevention"
+},
+{
+"snippet_id": "aspirin_lead_prevention_01",
+"label": "medical_use",
+"type": "indication",
+"text": "ischaemic stroke prevention"
+},
+{
+"snippet_id": "aspirin_lead_prevention_01",
+"label": "medical_use",
+"type": "indication",
+"text": "blood clot prevention"
+},
+{
+"snippet_id": "aspirin_lead_prevention_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "suppresses platelet function"
+},
+{
+"snippet_id": "aspirin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "upset stomach"
+},
+{
+"snippet_id": "aspirin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "stomach ulcer"
+},
+{
+"snippet_id": "aspirin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "stomach bleeding"
+},
+{
+"snippet_id": "aspirin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "worsening asthma"
+},
+{
+"snippet_id": "aspirin_lead_adverse_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "last part of pregnancy"
+},
+{
+"snippet_id": "aspirin_lead_adverse_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "children with viral infection"
+},
+{
+"snippet_id": "aspirin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "suppresses prostaglandin production"
+},
+{
+"snippet_id": "aspirin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "suppresses thromboxane production"
+},
+{
+"snippet_id": "aspirin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "irreversibly inactivates cyclooxygenase"
+},
+{
+"snippet_id": "aspirin_medical_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "rheumatoid arthritis"
+},
+{
+"snippet_id": "aspirin_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "acute pain"
+},
+{
+"snippet_id": "aspirin_pain_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "gastrointestinal bleeding"
+},
+{
+"snippet_id": "aspirin_inflammation_01",
+"label": "medical_use",
+"type": "indication",
+"text": "inflammatory disease"
+},
+{
+"snippet_id": "aspirin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "ibuprofen allergy"
+},
+{
+"snippet_id": "aspirin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "naproxen allergy"
+},
+{
+"snippet_id": "aspirin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "salicylate intolerance"
+},
+{
+"snippet_id": "aspirin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "NSAID intolerance"
+},
+{
+"snippet_id": "aspirin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "asthma"
+},
+{
+"snippet_id": "aspirin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "NSAID-precipitated bronchospasm"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "peptic ulcer"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "mild diabetes"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "gastritis"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "alcohol use"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "warfarin use"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "hemophilia"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "bleeding tendency"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hemolytic anemia"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "glucose-6-phosphate dehydrogenase deficiency"
+},
+{
+"snippet_id": "aspirin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "dengue fever"
+},
+{
+"snippet_id": "aspirin_gastrointestinal_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "upper gastrointestinal bleeding"
+},
+{
+"snippet_id": "aspirin_skin_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hives"
+},
+{
+"snippet_id": "aspirin_skin_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "swelling"
+},
+{
+"snippet_id": "aspirin_skin_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "headache"
+}
+]
+}

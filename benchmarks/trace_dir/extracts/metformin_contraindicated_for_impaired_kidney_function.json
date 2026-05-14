@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_contraindicated_for_impaired_kidney_function",
+  "snippet_id": "metformin_adverse_effects_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "impaired kidney function"
+  }
+}

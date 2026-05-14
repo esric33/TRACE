@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_contraindicated_for_pregnancy",
+  "snippet_id": "morphine_lead_pregnancy_warning_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "condition",
+    "value": "pregnancy"
+  }
+}

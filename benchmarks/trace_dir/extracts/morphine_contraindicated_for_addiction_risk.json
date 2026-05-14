@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_contraindicated_for_addiction_risk",
+  "snippet_id": "morphine_lead_adverse_warning_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "condition",
+    "value": "addiction risk"
+  }
+}

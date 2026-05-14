@@ -1,0 +1,13 @@
+{
+  "extraction_id": "insulin_treats_condition_hyperkalemia",
+  "snippet_id": "insulin_medication_lead_use_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Insulin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "hyperkalemia"
+  }
+}

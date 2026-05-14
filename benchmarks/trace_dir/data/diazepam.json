@@ -1,0 +1,1122 @@
+{
+"snippets": [
+{
+"snippet_id": "diazepam_lead_class_use_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Lead",
+"text": "Diazepam, sold under the brand name Valium among others, is a medication of the benzodiazepine family that acts as an anxiolytic. It is used to treat a range of conditions, including anxiety, seizures, alcohol withdrawal syndrome, muscle spasms, insomnia, and restless legs syndrome."
+},
+{
+"snippet_id": "diazepam_lead_use_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Lead",
+"text": "It may also be used to cause memory loss during certain medical procedures."
+},
+{
+"snippet_id": "diazepam_lead_adverse_warning_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Lead",
+"text": "Common side effects include sleepiness and trouble with coordination. Serious side effects are rare. They include increased risk of suicide, decreased breathing, and a paradoxical increased risk of seizures if used too frequently in those with epilepsy. Occasionally, excitement or agitation may occur."
+},
+{
+"snippet_id": "diazepam_lead_dependence_pregnancy_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Lead",
+"text": "Long-term use can result in tolerance, dependence, and withdrawal symptoms on dose reduction. Abrupt stopping after long-term use can be potentially dangerous. After stopping, cognitive problems may persist for six months or longer. It is not recommended during pregnancy or breastfeeding. Its mechanism of action works by increasing the effect of the neurotransmitter gamma-aminobutyric acid (GABA)."
+},
+{
+"snippet_id": "diazepam_medical_uses_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses",
+"text": "Diazepam is mainly used to treat anxiety, insomnia, panic attacks, and symptoms of acute alcohol withdrawal."
+},
+{
+"snippet_id": "diazepam_medical_uses_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses",
+"text": "It is also used as a premedication for inducing sedation, anxiolysis, or amnesia before certain medical procedures."
+},
+{
+"snippet_id": "diazepam_medical_uses_list_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses",
+"text": "Diazepam has several uses, including: Treatment of anxiety, panic attacks, and states of agitation; Treatment of neurovegetative symptoms associated with vertigo; Treatment of the symptoms of alcohol, opiate, and benzodiazepine withdrawal; Short-term treatment of insomnia; Treatment of muscle spasms"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses",
+"text": "Treatment of tetanus, together with other measures of intensive treatment; Adjunctive treatment of spastic muscular paresis (paraplegia/tetraplegia) caused by cerebral or spinal cord conditions such as stroke, multiple sclerosis, or spinal cord injury; Palliative treatment of stiff person syndrome"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_03",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses",
+"text": "Pre- or postoperative sedation, anxiolysis or amnesia (e.g., before endoscopic or surgical procedures); Treatment of complications with stimulant overdoses and psychosis, such as cocaine or methamphetamine; Used in the treatment of organophosphate poisoning and reduces the risk of seizure-induced brain and cardiac damage."
+},
+{
+"snippet_id": "diazepam_seizures_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses / Seizures",
+"text": "Intravenous diazepam and lorazepam are first-line treatments for status epilepticus."
+},
+{
+"snippet_id": "diazepam_seizures_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses / Seizures",
+"text": "The anticonvulsant effects of diazepam can help in the treatment of seizures due to a drug overdose or chemical toxicity as a result of exposure to sarin, VX, or soman (or other organophosphate poisons), lindane, chloroquine, physostigmine, or pyrethroids."
+},
+{
+"snippet_id": "diazepam_alcohol_withdrawal_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses / Alcohol withdrawal",
+"text": "Because of its relatively long duration of action and evidence of safety and efficacy, diazepam is preferred over other benzodiazepines for the treatment of persons experiencing moderate to severe alcohol withdrawal."
+},
+{
+"snippet_id": "diazepam_other_uses_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses / Other",
+"text": "Diazepam is used for the emergency treatment of eclampsia when IV magnesium sulfate and blood-pressure control measures have failed."
+},
+{
+"snippet_id": "diazepam_other_uses_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Medical uses / Other",
+"text": "Benzodiazepines such as diazepam can be used for their muscle-relaxant properties to alleviate pain caused by muscle spasms and various dystonias, including blepharospasm."
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Contraindications",
+"text": "Use of diazepam is avoided, when possible, in individuals with: Ataxia; Severe hypoventilation; Acute narrow-angle glaucoma; Severe hepatic deficiencies; Severe renal deficiencies; Liver disorders; Severe sleep apnea; Severe depression, particularly when accompanied by suicidal tendencies; Psychosis; Pregnancy or breastfeeding"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Contraindications",
+"text": "Use of diazepam is avoided, when possible, in individuals with: Coma or shock; Abrupt discontinuation of therapy; Acute intoxication with alcohol, narcotics, or other psychoactive substances; History of alcohol or drug dependence; Myasthenia gravis; Hypersensitivity or allergy to any drug in the benzodiazepine class"
+},
+{
+"snippet_id": "diazepam_special_populations_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Contraindications / Abuse and special populations",
+"text": "Benzodiazepine abuse and misuse are guarded against when prescribed to those with alcohol or drug dependencies or who have psychiatric disorders."
+},
+{
+"snippet_id": "diazepam_special_populations_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Contraindications / Abuse and special populations",
+"text": "Elderly and very ill patients can experience apnea or cardiac arrest. Concomitant use of other central nervous system depressants increases this risk."
+},
+{
+"snippet_id": "diazepam_pregnancy_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Contraindications / Abuse and special populations",
+"text": "Use of benzodiazepines, including diazepam in late pregnancy, especially high doses, can result in floppy infant syndrome. Diazepam when taken late in pregnancy, during the third trimester, causes a definite risk of a severe benzodiazepine withdrawal syndrome in the neonate with symptoms including hypotonia, and reluctance to suck, to apnoeic spells, cyanosis, and impaired metabolic responses to cold stress."
+},
+{
+"snippet_id": "diazepam_adverse_effects_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects",
+"text": "Benzodiazepines, such as diazepam, can cause anterograde amnesia, confusion, and sedation. The elderly are more prone to diazepam's confusion, amnesia, ataxia, hangover symptoms, and falls. Long-term use of benzodiazepines, such as diazepam, induces tolerance, dependency, and withdrawal syndrome."
+},
+{
+"snippet_id": "diazepam_adverse_effects_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects",
+"text": "Benzodiazepines may also cause or worsen depression. Infusions or repeated intravenous injections of diazepam when managing seizures, for example, may lead to drug toxicity, including respiratory depression, sedation, and hypotension."
+},
+{
+"snippet_id": "diazepam_adverse_effects_03",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects",
+"text": "Diazepam has a range of side effects common to most benzodiazepines, including: Suppression of REM sleep and slow wave sleep; Impaired motor function; Impaired coordination; Impaired balance; Dizziness; Reflex tachycardia"
+},
+{
+"snippet_id": "diazepam_adverse_effects_04",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects",
+"text": "Less commonly, paradoxical reactions can occur, including nervousness, irritability, excitement, worsening of seizures, insomnia, muscle cramps, changes in libido, and in some cases, rage and violence."
+},
+{
+"snippet_id": "diazepam_adverse_effects_05",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects",
+"text": "In some people, diazepam may increase the propensity toward self-harming behavior and, in extreme cases, may provoke suicidal tendencies or acts. Very rarely dystonia can occur."
+},
+{
+"snippet_id": "diazepam_adverse_effects_06",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects",
+"text": "Patients with severe attacks of apnea during sleep may experience respiratory depression (hypoventilation), leading to respiratory arrest and death."
+},
+{
+"snippet_id": "diazepam_withdrawal_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects / Tolerance and withdrawal",
+"text": "Diazepam, as with other benzodiazepine drugs, can cause tolerance, physical dependence, substance use disorder, and benzodiazepine withdrawal syndrome."
+},
+{
+"snippet_id": "diazepam_withdrawal_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects / Tolerance and withdrawal",
+"text": "Withdrawal symptoms can occur from standard dosages and also after short-term use, and can range from insomnia and anxiety to more serious symptoms, including seizures and psychosis."
+},
+{
+"snippet_id": "diazepam_dependence_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects / Dependence",
+"text": "Improper or excessive use of diazepam can lead to dependence. At a particularly high risk for diazepam misuse, substance use disorder, or dependence are: People with a history of a substance use disorder or substance dependence."
+},
+{
+"snippet_id": "diazepam_dependence_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Adverse effects / Dependence",
+"text": "At a particularly high risk for diazepam misuse, substance use disorder, or dependence are: People with severe personality disorders, such as borderline personality disorder."
+},
+{
+"snippet_id": "diazepam_overdose_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Overdose",
+"text": "An individual who has consumed too much diazepam typically displays one or more of these symptoms in approximately four hours immediately following a suspected overdose: Drowsiness; Mental confusion; Hypotension; Impaired motor function; Impaired reflexes; Impaired coordination; Impaired balance; Dizziness; Coma"
+},
+{
+"snippet_id": "diazepam_interactions_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Interactions",
+"text": "Particular care is taken with drugs that potentiate the effects of diazepam, such as barbiturates, phenothiazines, opioids, and antidepressants."
+},
+{
+"snippet_id": "diazepam_interactions_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Interactions",
+"text": "Diazepam increases the central depressive effects of alcohol, other hypnotics/sedatives (e.g., barbiturates), other muscle relaxants, certain antidepressants, sedative antihistamines, opioids, and antipsychotics, as well as anticonvulsants such as phenobarbital, phenytoin, and carbamazepine."
+},
+{
+"snippet_id": "diazepam_pharmacology_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Pharmacology",
+"text": "Diazepam is a long-acting "classical" benzodiazepine. Other classical benzodiazepines include chlordiazepoxide, clonazepam, lorazepam, oxazepam, nitrazepam, temazepam, flurazepam, bromazepam, and clorazepate. Diazepam has anticonvulsant properties."
+},
+{
+"snippet_id": "diazepam_pharmacology_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Pharmacology",
+"text": "Diazepam inhibits acetylcholine release in mouse hippocampal synaptosomes. This may play a role in explaining diazepam's anticonvulsant properties."
+},
+{
+"snippet_id": "diazepam_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Pharmacology / Mechanism of action",
+"text": "Benzodiazepines are positive allosteric modulators of the GABA type A receptors. The GABA A receptors are ligand-gated chloride-selective ion channels that are activated by GABA, the major inhibitory neurotransmitter in the brain."
+},
+{
+"snippet_id": "diazepam_mechanism_02",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Pharmacology / Mechanism of action",
+"text": "The binding of benzodiazepines to this receptor complex promotes the binding of GABA, which in turn increases the total conduction of chloride ions across the neuronal cell membrane."
+},
+{
+"snippet_id": "diazepam_mechanism_03",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Pharmacology / Mechanism of action",
+"text": "This increased chloride ion influx hyperpolarizes the neuron's membrane potential."
+},
+{
+"snippet_id": "diazepam_mechanism_04",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Pharmacology / Mechanism of action",
+"text": "Diazepam appears to act on areas of the limbic system, thalamus, and hypothalamus, inducing anxiolytic effects. Benzodiazepine drugs, including diazepam, increase the inhibitory processes in the cerebral cortex."
+},
+{
+"snippet_id": "diazepam_mechanism_05",
+"source": "[https://en.wikipedia.org/wiki/Diazepam](https://en.wikipedia.org/wiki/Diazepam)",
+"section": "Pharmacology / Mechanism of action",
+"text": "The muscle relaxant properties of diazepam are produced via inhibition of polysynaptic pathways in the spinal cord."
+}
+],
+"extractions": [
+{
+"snippet_id": "diazepam_lead_class_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "benzodiazepine"
+},
+{
+"snippet_id": "diazepam_lead_class_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "anxiolytic"
+},
+{
+"snippet_id": "diazepam_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "anxiety"
+},
+{
+"snippet_id": "diazepam_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "seizure"
+},
+{
+"snippet_id": "diazepam_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "alcohol withdrawal syndrome"
+},
+{
+"snippet_id": "diazepam_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "muscle spasm"
+},
+{
+"snippet_id": "diazepam_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "insomnia"
+},
+{
+"snippet_id": "diazepam_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "restless legs syndrome"
+},
+{
+"snippet_id": "diazepam_lead_use_02",
+"label": "medical_use",
+"type": "indication",
+"text": "procedure-related memory loss"
+},
+{
+"snippet_id": "diazepam_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "sleepiness"
+},
+{
+"snippet_id": "diazepam_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "coordination trouble"
+},
+{
+"snippet_id": "diazepam_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "increased suicide risk"
+},
+{
+"snippet_id": "diazepam_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "decreased breathing"
+},
+{
+"snippet_id": "diazepam_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "paradoxical increased seizure risk"
+},
+{
+"snippet_id": "diazepam_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "excitement"
+},
+{
+"snippet_id": "diazepam_lead_adverse_warning_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "agitation"
+},
+{
+"snippet_id": "diazepam_lead_dependence_pregnancy_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "tolerance"
+},
+{
+"snippet_id": "diazepam_lead_dependence_pregnancy_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "dependence"
+},
+{
+"snippet_id": "diazepam_lead_dependence_pregnancy_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "withdrawal symptom"
+},
+{
+"snippet_id": "diazepam_lead_dependence_pregnancy_mechanism_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "cognitive problem"
+},
+{
+"snippet_id": "diazepam_lead_dependence_pregnancy_mechanism_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "abrupt stopping after long-term use"
+},
+{
+"snippet_id": "diazepam_lead_dependence_pregnancy_mechanism_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "pregnancy"
+},
+{
+"snippet_id": "diazepam_lead_dependence_pregnancy_mechanism_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "breastfeeding"
+},
+{
+"snippet_id": "diazepam_lead_dependence_pregnancy_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases GABA effect"
+},
+{
+"snippet_id": "diazepam_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "panic attack"
+},
+{
+"snippet_id": "diazepam_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "acute alcohol withdrawal symptom"
+},
+{
+"snippet_id": "diazepam_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "procedure-related sedation"
+},
+{
+"snippet_id": "diazepam_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "procedure-related anxiolysis"
+},
+{
+"snippet_id": "diazepam_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "procedure-related amnesia"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_01",
+"label": "medical_use",
+"type": "indication",
+"text": "agitation"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_01",
+"label": "medical_use",
+"type": "indication",
+"text": "vertigo-associated neurovegetative symptom"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_01",
+"label": "medical_use",
+"type": "indication",
+"text": "opiate withdrawal symptom"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_01",
+"label": "medical_use",
+"type": "indication",
+"text": "benzodiazepine withdrawal symptom"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_02",
+"label": "medical_use",
+"type": "indication",
+"text": "tetanus"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_02",
+"label": "medical_use",
+"type": "indication",
+"text": "spastic muscular paresis"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_02",
+"label": "medical_use",
+"type": "indication",
+"text": "stiff person syndrome"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_03",
+"label": "medical_use",
+"type": "indication",
+"text": "stimulant overdose complication"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_03",
+"label": "medical_use",
+"type": "indication",
+"text": "psychosis"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_03",
+"label": "medical_use",
+"type": "indication",
+"text": "organophosphate poisoning"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_03",
+"label": "medical_use",
+"type": "indication",
+"text": "seizure-induced brain damage risk reduction"
+},
+{
+"snippet_id": "diazepam_medical_uses_list_03",
+"label": "medical_use",
+"type": "indication",
+"text": "seizure-induced cardiac damage risk reduction"
+},
+{
+"snippet_id": "diazepam_seizures_01",
+"label": "medical_use",
+"type": "indication",
+"text": "status epilepticus"
+},
+{
+"snippet_id": "diazepam_seizures_02",
+"label": "medical_use",
+"type": "indication",
+"text": "drug overdose seizure"
+},
+{
+"snippet_id": "diazepam_seizures_02",
+"label": "medical_use",
+"type": "indication",
+"text": "chemical toxicity seizure"
+},
+{
+"snippet_id": "diazepam_other_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "eclampsia"
+},
+{
+"snippet_id": "diazepam_other_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "muscle spasm pain"
+},
+{
+"snippet_id": "diazepam_other_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "dystonia pain"
+},
+{
+"snippet_id": "diazepam_other_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "blepharospasm"
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "ataxia"
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severe hypoventilation"
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "acute narrow-angle glaucoma"
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severe hepatic deficiency"
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severe renal deficiency"
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "liver disorder"
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severe sleep apnea"
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severe depression with suicidal tendency"
+},
+{
+"snippet_id": "diazepam_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "psychosis"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "coma"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "shock"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "acute alcohol intoxication"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "acute narcotic intoxication"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "acute psychoactive substance intoxication"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "history of alcohol dependence"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "history of drug dependence"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "myasthenia gravis"
+},
+{
+"snippet_id": "diazepam_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "benzodiazepine allergy"
+},
+{
+"snippet_id": "diazepam_special_populations_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "alcohol dependency"
+},
+{
+"snippet_id": "diazepam_special_populations_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "drug dependency"
+},
+{
+"snippet_id": "diazepam_special_populations_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "psychiatric disorder"
+},
+{
+"snippet_id": "diazepam_special_populations_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "apnea"
+},
+{
+"snippet_id": "diazepam_special_populations_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "cardiac arrest"
+},
+{
+"snippet_id": "diazepam_special_populations_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "central nervous system depressant use"
+},
+{
+"snippet_id": "diazepam_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "floppy infant syndrome"
+},
+{
+"snippet_id": "diazepam_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "neonatal benzodiazepine withdrawal syndrome"
+},
+{
+"snippet_id": "diazepam_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypotonia"
+},
+{
+"snippet_id": "diazepam_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "reluctance to suck"
+},
+{
+"snippet_id": "diazepam_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "apnoeic spell"
+},
+{
+"snippet_id": "diazepam_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "cyanosis"
+},
+{
+"snippet_id": "diazepam_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired metabolic response to cold stress"
+},
+{
+"snippet_id": "diazepam_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "anterograde amnesia"
+},
+{
+"snippet_id": "diazepam_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "confusion"
+},
+{
+"snippet_id": "diazepam_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "sedation"
+},
+{
+"snippet_id": "diazepam_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "amnesia"
+},
+{
+"snippet_id": "diazepam_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hangover symptom"
+},
+{
+"snippet_id": "diazepam_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "fall"
+},
+{
+"snippet_id": "diazepam_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "worsened depression"
+},
+{
+"snippet_id": "diazepam_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "drug toxicity"
+},
+{
+"snippet_id": "diazepam_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "respiratory depression"
+},
+{
+"snippet_id": "diazepam_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypotension"
+},
+{
+"snippet_id": "diazepam_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "suppressed REM sleep"
+},
+{
+"snippet_id": "diazepam_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "suppressed slow wave sleep"
+},
+{
+"snippet_id": "diazepam_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired motor function"
+},
+{
+"snippet_id": "diazepam_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired coordination"
+},
+{
+"snippet_id": "diazepam_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired balance"
+},
+{
+"snippet_id": "diazepam_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "dizziness"
+},
+{
+"snippet_id": "diazepam_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "reflex tachycardia"
+},
+{
+"snippet_id": "diazepam_adverse_effects_04",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nervousness"
+},
+{
+"snippet_id": "diazepam_adverse_effects_04",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "irritability"
+},
+{
+"snippet_id": "diazepam_adverse_effects_04",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "worsening seizure"
+},
+{
+"snippet_id": "diazepam_adverse_effects_04",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "muscle cramp"
+},
+{
+"snippet_id": "diazepam_adverse_effects_04",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "libido change"
+},
+{
+"snippet_id": "diazepam_adverse_effects_04",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "rage"
+},
+{
+"snippet_id": "diazepam_adverse_effects_04",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "violence"
+},
+{
+"snippet_id": "diazepam_adverse_effects_05",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "self-harming behavior"
+},
+{
+"snippet_id": "diazepam_adverse_effects_05",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "suicidal tendency"
+},
+{
+"snippet_id": "diazepam_adverse_effects_05",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "suicidal act"
+},
+{
+"snippet_id": "diazepam_adverse_effects_05",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "dystonia"
+},
+{
+"snippet_id": "diazepam_adverse_effects_06",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "respiratory arrest"
+},
+{
+"snippet_id": "diazepam_adverse_effects_06",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "death"
+},
+{
+"snippet_id": "diazepam_withdrawal_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "physical dependence"
+},
+{
+"snippet_id": "diazepam_withdrawal_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "substance use disorder"
+},
+{
+"snippet_id": "diazepam_withdrawal_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "benzodiazepine withdrawal syndrome"
+},
+{
+"snippet_id": "diazepam_withdrawal_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "withdrawal insomnia"
+},
+{
+"snippet_id": "diazepam_withdrawal_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "withdrawal anxiety"
+},
+{
+"snippet_id": "diazepam_withdrawal_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "withdrawal seizure"
+},
+{
+"snippet_id": "diazepam_withdrawal_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "withdrawal psychosis"
+},
+{
+"snippet_id": "diazepam_dependence_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "history of substance use disorder"
+},
+{
+"snippet_id": "diazepam_dependence_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "history of substance dependence"
+},
+{
+"snippet_id": "diazepam_dependence_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severe personality disorder"
+},
+{
+"snippet_id": "diazepam_dependence_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "borderline personality disorder"
+},
+{
+"snippet_id": "diazepam_overdose_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "mental confusion"
+},
+{
+"snippet_id": "diazepam_overdose_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired reflex"
+},
+{
+"snippet_id": "diazepam_overdose_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "coma"
+},
+{
+"snippet_id": "diazepam_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "barbiturate use"
+},
+{
+"snippet_id": "diazepam_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "phenothiazine use"
+},
+{
+"snippet_id": "diazepam_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "opioid use"
+},
+{
+"snippet_id": "diazepam_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "antidepressant use"
+},
+{
+"snippet_id": "diazepam_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "alcohol use"
+},
+{
+"snippet_id": "diazepam_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "hypnotic use"
+},
+{
+"snippet_id": "diazepam_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "sedative use"
+},
+{
+"snippet_id": "diazepam_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "muscle relaxant use"
+},
+{
+"snippet_id": "diazepam_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "sedative antihistamine use"
+},
+{
+"snippet_id": "diazepam_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "antipsychotic use"
+},
+{
+"snippet_id": "diazepam_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "anticonvulsant use"
+},
+{
+"snippet_id": "diazepam_interactions_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases central depressive effects"
+},
+{
+"snippet_id": "diazepam_pharmacology_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "long-acting classical benzodiazepine"
+},
+{
+"snippet_id": "diazepam_pharmacology_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "anticonvulsant"
+},
+{
+"snippet_id": "diazepam_pharmacology_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits acetylcholine release"
+},
+{
+"snippet_id": "diazepam_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "positive allosteric modulation of GABA-A receptor"
+},
+{
+"snippet_id": "diazepam_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "promotes GABA binding"
+},
+{
+"snippet_id": "diazepam_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases chloride ion conduction"
+},
+{
+"snippet_id": "diazepam_mechanism_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "hyperpolarizes neuronal membrane potential"
+},
+{
+"snippet_id": "diazepam_mechanism_04",
+"label": "mechanism",
+"type": "mechanism",
+"text": "acts on limbic system"
+},
+{
+"snippet_id": "diazepam_mechanism_04",
+"label": "mechanism",
+"type": "mechanism",
+"text": "acts on thalamus"
+},
+{
+"snippet_id": "diazepam_mechanism_04",
+"label": "mechanism",
+"type": "mechanism",
+"text": "acts on hypothalamus"
+},
+{
+"snippet_id": "diazepam_mechanism_04",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases cerebral cortex inhibitory process"
+},
+{
+"snippet_id": "diazepam_mechanism_05",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits spinal cord polysynaptic pathway"
+}
+]
+}

@@ -1,0 +1,9 @@
+{
+  "snippet_id": "insulin_medication_side_effects_01",
+  "text": "Some side effects are hypoglycemia (low blood sugar), hypokalemia (low blood potassium), and allergic reactions. Allergy to insulin affected about 2% of people, of which most reactions are not due to the insulin itself but to preservatives added to insulin such as zinc, protamine, and meta-cresol. Most reactions are Type I hypersensitivity reactions and rarely cause anaphylaxis.",
+  "source": "https://en.wikipedia.org/wiki/Insulin_%28medication%29",
+  "meta": {
+    "drug": "Insulin",
+    "section": "Side effects"
+  }
+}

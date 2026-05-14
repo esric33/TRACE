@@ -4,21 +4,19 @@ from typing import Any, Dict
 
 from TRACE.core.actions import build_registry_for_benchmark
 from TRACE.core.actions.types import ActionExecContext
-from TRACE.core.executor.oracle import OracleContext
 from TRACE.core.executor.support import (
     ExecErrorCode,
     ExecPhase,
     exec_error,
-    resolve_fact_for_tagging,
 )
 
 
 def execute_dag(
     dag: Dict[str, Any],
     benchmark_def,
-    mode: str,
-    provider_ctx,
-    oracle_ctx: OracleContext | None = None,
+    mode: str | None = None,
+    provider_ctx: Any | None = None,
+    oracle_ctx: Any | None = None,
     *,
     capsule: Dict[str, Any],
     cache: Dict[str, Any] | None = None,
@@ -35,38 +33,15 @@ def execute_dag(
             phase=ExecPhase.RUNTIME,
         )
 
-    extracts_by_snippet: dict[str, list[dict[str, Any]]] = {}
-    if mode == "oracle":
-        if oracle_ctx is None:
-            raise ValueError("oracle_ctx is required for mode=oracle")
-
-        extracts_by_snippet = oracle_ctx.extracts_by_snippet
-
-        def lookup_fn(node_id, query, _capsule, _extracts_by_snippet):
-            try:
-                return oracle_ctx.lookup_records[node_id]
-            except KeyError as exc:
-                raise KeyError(
-                    f"missing oracle lookup record for node {node_id}"
-                ) from exc
-
-    else:
-        if provider_ctx is None or provider_ctx.lookup_fn is None:
-            raise ValueError("provider_ctx.lookup_fn is required for non-oracle execution")
-        lookup_fn = provider_ctx.lookup_fn
-        extracts_by_snippet = provider_ctx.extracts_by_snippet
-
     registry = build_registry_for_benchmark(benchmark_def)
     env: Dict[str, Any] = {}
     trace: list[dict[str, Any]] = []
-    context_ids = [s["snippet_id"] for s in capsule["context"]["snippets"]]
 
     ctx = ActionExecContext(
         benchmark_def=benchmark_def,
         capsule=capsule,
-        extracts_by_snippet=extracts_by_snippet,
+        extracts_by_snippet={},
         cache=cache,
-        lookup_fn=lookup_fn,
     )
 
     def resolve_ref(value: Any) -> Any:
@@ -81,6 +56,10 @@ def execute_dag(
                     node_id=node_id,
                 )
             return env[node_id]
+        if isinstance(value, list):
+            return [resolve_ref(item) for item in value]
+        if isinstance(value, dict):
+            return {key: resolve_ref(item) for key, item in value.items()}
         return value
 
     for node in nodes:
@@ -144,29 +123,28 @@ def execute_dag(
 
         resolved_args = {key: resolve_ref(value) for key, value in raw_args.items()}
         result = action.executor(ctx, node_id, resolved_args)
+        try:
+            action.validate_output(result, args=resolved_args, node_id=node_id)
+        except ValueError as exc:
+            raise exec_error(
+                ExecErrorCode.BAD_OUTPUT,
+                str(exc),
+                phase=ExecPhase.RUNTIME,
+                node_id=node_id,
+                op=op,
+                expected=action.output_spec.prompt_repr(),
+                got=result,
+            ) from exc
         env[node_id] = result
 
-        if op == "TEXT_LOOKUP":
-            trace.append(
-                {
-                    "node": node_id,
-                    "op": op,
-                    "query": raw_args["query"],
-                    "model_fact": result,
-                    "resolve_tag": resolve_fact_for_tagging(
-                        result, context_ids, extracts_by_snippet
-                    ),
-                }
-            )
-        else:
-            trace.append(
-                {
-                    "node": node_id,
-                    "op": op,
-                    "args": raw_args,
-                    "result": result,
-                }
-            )
+        trace.append(
+            {
+                "node": node_id,
+                "op": op,
+                "args": raw_args,
+                "result": result,
+            }
+        )
 
     output = resolve_ref(out_ref)
     return {"output": output, "trace": trace}

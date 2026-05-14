@@ -13,7 +13,7 @@ design decisions do not get lost while implementation is in flight.
 - `artifacts/` should be the canonical output root for corpora, runs, caches,
   and parity outputs.
 - The template/spec DSL should stay shared across benchmarks.
-- Record semantics, benchmark constraints, retrieval guidance, and
+- Record semantics, benchmark constraints, fact-extraction guidance, and
   benchmark-specific tooling should be benchmark-owned.
 
 ## Immediate Priority
@@ -55,11 +55,11 @@ Why now:
 
 Goal:
 - Keep the shared DAG/JSON scaffold in core, but move benchmark-specific
-  retrieval and operator guidance into benchmark-owned prompt logic.
+  fact-extraction and operator guidance into benchmark-owned prompt logic.
 
 Scope:
 - Keep output format rules and shared operator schema in core.
-- Move lookup query instructions and benchmark-specific examples into benchmark
+- Move fact extraction instructions and benchmark-specific examples into benchmark
   hooks.
 - Avoid hard-coding TRACE-UFR assumptions into shared prompt builders.
 
@@ -76,7 +76,6 @@ Scope:
   - `TRACE.cli generate`
   - `TRACE.cli run`
   - `TRACE.cli run_sweep`
-  - `TRACE.cli compare`
 - Keep compatibility shims temporarily if needed.
 
 Why now:
@@ -117,8 +116,8 @@ Why now:
 ### 7. Clean up the repo root once the refactor stabilizes
 
 Scope:
-- Move or remove legacy top-level paths such as `data/`, `schemas/`, and
-  `outputs/`.
+- Move or remove transitional top-level paths such as `data/`, `schemas`, and
+  `outputs/` once benchmark-owned assets are fully canonical.
 - Keep the README aligned with the eventually canonical structure, not the
   transitional state.
 
@@ -126,17 +125,7 @@ Reason for deferral:
 - The architecture is still moving. Cleaning this up now creates churn without
   much design value.
 
-### 8. Remove the legacy shadow after parity confidence is high
-
-Scope:
-- Drop `legacy/TRACE/` after smoke and targeted parity checks are consistently
-  passing and the refactor is stable enough for public use.
-
-Reason for deferral:
-- The legacy shadow is still useful as a safety net while the architecture is
-  changing.
-
-### 9. Revisit stronger abstractions once a second benchmark is implemented
+### 8. Revisit stronger abstractions once a second benchmark is implemented
 
 Scope:
 - Reassess what defaults belong in core vs benchmark packages after the next

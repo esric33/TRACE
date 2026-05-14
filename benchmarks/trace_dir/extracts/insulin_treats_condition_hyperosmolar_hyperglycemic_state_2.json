@@ -1,0 +1,13 @@
+{
+  "extraction_id": "insulin_treats_condition_hyperosmolar_hyperglycemic_state_2",
+  "snippet_id": "insulin_medication_medical_uses_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Insulin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "hyperosmolar hyperglycemic state"
+  }
+}

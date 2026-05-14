@@ -1,0 +1,13 @@
+{
+  "extraction_id": "paracetamol_causes_side_effect_sweating",
+  "snippet_id": "paracetamol_overdose_01",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Paracetamol"
+  },
+  "object": {
+    "type": "effect",
+    "value": "sweating"
+  }
+}

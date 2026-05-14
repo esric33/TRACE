@@ -15,8 +15,7 @@ SCHEMAS_DIR = ASSET_ROOT / "schemas"
 TABLES_DIR = ASSET_ROOT / "tables"
 TEMPLATES_MODULE = "benchmarks.trace_ufr.templates.registry"
 ALLOWED_ACTIONS = {
-    "TEXT_LOOKUP",
-    "GET_QUANTITY",
+    "MODEL_FACT",
     "CONVERT_SCALE",
     "CONST",
     "ADD",
@@ -29,21 +28,11 @@ ALLOWED_ACTIONS = {
     "CPI_LOOKUP",
 }
 PROMPT_GUIDANCE = PromptGuidance(
-    lookup_rules=(
-        "- Focus QUERY on the requested label/metric together with company and period.",
-    ),
     planner_grounding_rules=(
-        "- TEXT_LOOKUP.query should specify what to extract (label/metric + company + period).",
+        "- For TRACE-UFR, one MODEL_FACT corresponds to one quantity for one label and one period.",
+        "- MODEL_FACT nodes should extract the most specific applicable label/metric and period from a provided snippet.",
     ),
 )
-
-
-def FORMAT_LOOKUP_QUERY(record: ExtractRecord) -> str:
-    return (
-        f"Extract the fact for: company={record.company} label={record.label}; "
-        f"period={record.period_kind} {record.period_value}. "
-        "Return a ModelFact with snippet_id, label, period, quantity."
-    )
 
 
 def _year_from_period(kind: str, value: object) -> int | None:
@@ -112,8 +101,8 @@ def VALIDATE_PLANNER_DAG(dag: dict[str, object]) -> None:
     nodes = dag.get("nodes")
     if not isinstance(nodes, list):
         raise ValueError("trace_ufr dag.nodes must be a list")
-    if not any(isinstance(node, dict) and node.get("op") == "TEXT_LOOKUP" for node in nodes):
-        raise ValueError("trace_ufr plans must include at least one TEXT_LOOKUP node")
+    if not any(isinstance(node, dict) and node.get("op") == "MODEL_FACT" for node in nodes):
+        raise ValueError("trace_ufr plans must include at least one MODEL_FACT node")
 
 
 def LIST_MAINTENANCE_TOOLS() -> dict[str, str]:

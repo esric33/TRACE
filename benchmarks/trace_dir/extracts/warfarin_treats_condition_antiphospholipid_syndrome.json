@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_treats_condition_antiphospholipid_syndrome",
+  "snippet_id": "warfarin_medical_uses_03",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "antiphospholipid syndrome"
+  }
+}

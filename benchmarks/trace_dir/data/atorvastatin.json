@@ -1,0 +1,750 @@
+{
+"snippets": [
+{
+"snippet_id": "atorvastatin_lead_use_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Lead",
+"text": "Atorvastatin, sold under the brand name Lipitor among others, is a statin medication used to prevent cardiovascular disease in those at high risk and to treat abnormal lipid levels."
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Lead",
+"text": "Common side effects may include diarrhea, heartburn, nausea, muscle pain (typically mild and dose-dependent) and, less frequently, joint pain. Muscle symptoms often occur during the first year and are commonly influenced by pre-existing health issues and the nocebo effect. Most patients can continue therapy with dose adjustment or statin switching. Rare (<0.1%) but serious side effects may include rhabdomyolysis (severe muscle disorder), liver problems and diabetes. Use during pregnancy may harm the fetus."
+},
+{
+"snippet_id": "atorvastatin_lead_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Lead",
+"text": "Like all statins, atorvastatin works by inhibiting HMG-CoA reductase, an enzyme found in the liver that plays a role in producing cholesterol."
+},
+{
+"snippet_id": "atorvastatin_medical_uses_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Medical uses",
+"text": "The primary uses of atorvastatin are for the treatment of dyslipidemia and for the prevention of cardiovascular disease."
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Medical uses / Dyslipidemia",
+"text": "Hypercholesterolemia (heterozygous familial and nonfamilial) and mixed dyslipidemia (Fredrickson types IIa and IIb) to reduce total cholesterol, LDL-C, apo-B, triglycerides levels, and CRP as well as increase HDL levels"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_02",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Medical uses / Dyslipidemia",
+"text": "Heterozygous familial hypercholesterolemia in children"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_03",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Medical uses / Dyslipidemia",
+"text": "Homozygous familial hypercholesterolemia"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_04",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Medical uses / Dyslipidemia",
+"text": "Hypertriglyceridemia (Fredrickson Type IV)"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_05",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Medical uses / Dyslipidemia",
+"text": "Primary dysbetalipoproteinemia (Fredrickson Type III)"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_06",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Medical uses / Dyslipidemia",
+"text": "Combined hyperlipidemia"
+},
+{
+"snippet_id": "atorvastatin_cardiovascular_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Medical uses / Cardiovascular disease",
+"text": "Primary prevention of heart attack, stroke, and need for revascularization procedures in people who have risk factors such as age, smoking, high blood pressure, low HDL-C, and a family history of early heart disease, but have not yet developed evidence of coronary artery disease."
+},
+{
+"snippet_id": "atorvastatin_contraindications_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Contraindications",
+"text": "Active liver disease: cholestasis, hepatic encephalopathy, hepatitis, and jaundice"
+},
+{
+"snippet_id": "atorvastatin_contraindications_pregnancy_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Contraindications",
+"text": "Pregnancy: Atorvastatin is classified as a pregnancy category X medication by the U.S. Food and Drug Administration (FDA), indicating that it is contraindicated during pregnancy due to evidence of potential harm to the fetus and a lack of demonstrated benefit in this population."
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "muscle pain, tenderness, or weakness"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_02",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "lack of energy or extreme tiredness and weakness"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_03",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "fever"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_04",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "chest pain"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_05",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "unusual bleeding or bruising"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_06",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "loss of appetite"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_07",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "pain in the upper right part of the stomach"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_08",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "flu-like symptoms"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_09",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "dark colored urine"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_10",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "yellowing of the skin or eyes"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_11",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "rash"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_12",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "hives"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_13",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "itching"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_14",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "difficulty breathing or swallowing"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "swelling of the face, throat, tongue, lips, eyes, hands, feet, ankles, or lower legs"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_16",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Other",
+"text": "hoarseness"
+},
+{
+"snippet_id": "atorvastatin_side_effects_glucose_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Increased fasting blood glucose",
+"text": "Atorvastatin has been associated with a small increase in fasting blood glucose levels over a 2-year period, particularly in patients with type 2 Diabetes, however evidence is conflicting and clinical significance of this increase has not been determined."
+},
+{
+"snippet_id": "atorvastatin_side_effects_cognitive_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Cognitive",
+"text": "While rare cases of reversible memory loss and confusion have been reported with statin use, including atorvastatin, multiple systematic review and meta-analyses have found no consistent evidence of a causal relationship."
+},
+{
+"snippet_id": "atorvastatin_interactions_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Interactions",
+"text": "Co-administration of atorvastatin with one of CYP3A4 inhibitors such as itraconazole, telithromycin, and voriconazole, may increase serum concentrations of atorvastatin, which may lead to adverse reactions."
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Side effects / Interactions",
+"text": "This is less likely to happen with other CYP3A4 inhibitors such as diltiazem, erythromycin, fluconazole, ketoconazole, clarithromycin, cyclosporine, protease inhibitors, or verapamil, and only rarely with other CYP3A4 inhibitors, such as amiodarone and aprepitant."
+},
+{
+"snippet_id": "atorvastatin_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Mechanism of action",
+"text": "As with other statins, atorvastatin is a competitive inhibitor of HMG-CoA reductase. Unlike most others, however, it is a completely synthetic compound."
+},
+{
+"snippet_id": "atorvastatin_mechanism_02",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Mechanism of action",
+"text": "Inhibition of the enzyme decreases de novo cholesterol synthesis, increasing expression of low-density lipoprotein receptors (LDL receptors) on hepatocytes. This increases LDL uptake by the hepatocytes, decreasing the amount of LDL-cholesterol in the blood."
+},
+{
+"snippet_id": "atorvastatin_mechanism_03",
+"source": "[https://en.wikipedia.org/wiki/Atorvastatin](https://en.wikipedia.org/wiki/Atorvastatin)",
+"section": "Mechanism of action",
+"text": "Like other statins, atorvastatin also reduces blood levels of triglycerides and slightly increases levels of HDL-cholesterol."
+}
+],
+"extractions": [
+{
+"snippet_id": "atorvastatin_lead_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "statin medication"
+},
+{
+"snippet_id": "atorvastatin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "cardiovascular disease prevention"
+},
+{
+"snippet_id": "atorvastatin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "abnormal lipid level"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "diarrhea"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "heartburn"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nausea"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "muscle pain"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "joint pain"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "muscle symptom"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "rhabdomyolysis"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "liver problem"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "diabetes"
+},
+{
+"snippet_id": "atorvastatin_lead_adverse_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "pregnancy"
+},
+{
+"snippet_id": "atorvastatin_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits HMG-CoA reductase"
+},
+{
+"snippet_id": "atorvastatin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "dyslipidemia"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_01",
+"label": "medical_use",
+"type": "indication",
+"text": "hypercholesterolemia"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_01",
+"label": "medical_use",
+"type": "indication",
+"text": "mixed dyslipidemia"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_02",
+"label": "medical_use",
+"type": "indication",
+"text": "heterozygous familial hypercholesterolemia in children"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_03",
+"label": "medical_use",
+"type": "indication",
+"text": "homozygous familial hypercholesterolemia"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_04",
+"label": "medical_use",
+"type": "indication",
+"text": "hypertriglyceridemia"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_05",
+"label": "medical_use",
+"type": "indication",
+"text": "primary dysbetalipoproteinemia"
+},
+{
+"snippet_id": "atorvastatin_dyslipidemia_06",
+"label": "medical_use",
+"type": "indication",
+"text": "combined hyperlipidemia"
+},
+{
+"snippet_id": "atorvastatin_cardiovascular_01",
+"label": "medical_use",
+"type": "indication",
+"text": "heart attack prevention"
+},
+{
+"snippet_id": "atorvastatin_cardiovascular_01",
+"label": "medical_use",
+"type": "indication",
+"text": "stroke prevention"
+},
+{
+"snippet_id": "atorvastatin_cardiovascular_01",
+"label": "medical_use",
+"type": "indication",
+"text": "revascularization procedure prevention"
+},
+{
+"snippet_id": "atorvastatin_cardiovascular_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "smoking"
+},
+{
+"snippet_id": "atorvastatin_cardiovascular_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "high blood pressure"
+},
+{
+"snippet_id": "atorvastatin_cardiovascular_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "low HDL-C"
+},
+{
+"snippet_id": "atorvastatin_cardiovascular_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "family history of early heart disease"
+},
+{
+"snippet_id": "atorvastatin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "active liver disease"
+},
+{
+"snippet_id": "atorvastatin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "cholestasis"
+},
+{
+"snippet_id": "atorvastatin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "hepatic encephalopathy"
+},
+{
+"snippet_id": "atorvastatin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "hepatitis"
+},
+{
+"snippet_id": "atorvastatin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "jaundice"
+},
+{
+"snippet_id": "atorvastatin_contraindications_pregnancy_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "pregnancy"
+},
+{
+"snippet_id": "atorvastatin_contraindications_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "fetal harm"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "lack of energy"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "extreme tiredness"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "fever"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_04",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "chest pain"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_05",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "unusual bleeding"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_05",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "unusual bruising"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_06",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "loss of appetite"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_07",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "upper right stomach pain"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_08",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "flu-like symptom"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_09",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "dark colored urine"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_10",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "yellowing skin"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_10",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "yellowing eyes"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_11",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "rash"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_12",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hives"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_13",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "itching"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_14",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "difficulty breathing"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_14",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "difficulty swallowing"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "face swelling"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "throat swelling"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "tongue swelling"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "lip swelling"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "eye swelling"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hand swelling"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "foot swelling"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "ankle swelling"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_15",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "lower leg swelling"
+},
+{
+"snippet_id": "atorvastatin_side_effects_other_16",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hoarseness"
+},
+{
+"snippet_id": "atorvastatin_side_effects_glucose_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "increased fasting blood glucose"
+},
+{
+"snippet_id": "atorvastatin_side_effects_glucose_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "type 2 diabetes"
+},
+{
+"snippet_id": "atorvastatin_side_effects_cognitive_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "memory loss"
+},
+{
+"snippet_id": "atorvastatin_side_effects_cognitive_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "confusion"
+},
+{
+"snippet_id": "atorvastatin_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "CYP3A4 inhibitor use"
+},
+{
+"snippet_id": "atorvastatin_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "itraconazole use"
+},
+{
+"snippet_id": "atorvastatin_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "telithromycin use"
+},
+{
+"snippet_id": "atorvastatin_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "voriconazole use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "diltiazem use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "erythromycin use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "fluconazole use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "ketoconazole use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "clarithromycin use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "cyclosporine use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "protease inhibitor use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "verapamil use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "amiodarone use"
+},
+{
+"snippet_id": "atorvastatin_interactions_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "aprepitant use"
+},
+{
+"snippet_id": "atorvastatin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "competitive HMG-CoA reductase inhibition"
+},
+{
+"snippet_id": "atorvastatin_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "decreases de novo cholesterol synthesis"
+},
+{
+"snippet_id": "atorvastatin_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases LDL receptor expression on hepatocytes"
+},
+{
+"snippet_id": "atorvastatin_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases LDL uptake by hepatocytes"
+},
+{
+"snippet_id": "atorvastatin_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "decreases blood LDL-cholesterol"
+},
+{
+"snippet_id": "atorvastatin_mechanism_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces blood triglycerides"
+},
+{
+"snippet_id": "atorvastatin_mechanism_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases HDL-cholesterol"
+}
+]
+}

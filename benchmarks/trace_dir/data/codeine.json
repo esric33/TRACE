@@ -1,0 +1,324 @@
+{
+"snippets": [
+{
+"snippet_id": "codeine_lead_class_use_01",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Lead",
+"text": "Codeine is an opiate and prodrug of morphine mainly used to treat pain, coughing, and diarrhea."
+},
+{
+"snippet_id": "codeine_lead_pain_01",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Lead",
+"text": "It is typically used to treat mild to moderate degrees of pain."
+},
+{
+"snippet_id": "codeine_lead_warning_01",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Lead",
+"text": "Evidence does not support its use for acute cough suppression in children. In Europe, it is not recommended as a cough medicine for those under 12 years of age."
+},
+{
+"snippet_id": "codeine_lead_warning_02",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Lead",
+"text": "Codeine exhibits abuse potential similar to other opioid medications, including a risk of addiction and overdose."
+},
+{
+"snippet_id": "codeine_medical_uses_pain_01",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Medical uses / Pain",
+"text": "Codeine is used to treat mild to moderate pain. It is commonly used to treat post-surgical dental pain."
+},
+{
+"snippet_id": "codeine_medical_uses_pain_02",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Medical uses / Pain",
+"text": "Weak evidence indicates that it is useful in cancer pain, but it may have increased adverse effects, especially constipation, compared to other opioids."
+},
+{
+"snippet_id": "codeine_medical_uses_children_01",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Medical uses / Pain",
+"text": "The American Academy of Pediatrics does not recommend its use in children due to side effects."
+},
+{
+"snippet_id": "codeine_adverse_effects_01",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Adverse effects",
+"text": "Common adverse effects associated with the use of codeine include drowsiness and constipation."
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Adverse effects",
+"text": "Less common adverse effects include euphoria, itching, nausea, vomiting, dry mouth, miosis, orthostatic hypotension, urinary retention, depression, and coughing."
+},
+{
+"snippet_id": "codeine_adverse_effects_03",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Adverse effects",
+"text": "Rare adverse effects include anaphylaxis, seizure, acute pancreatitis, and respiratory depression."
+},
+{
+"snippet_id": "codeine_withdrawal_01",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Adverse effects / Withdrawal and dependence",
+"text": "As with other opiate-based pain killers, chronic use of codeine can cause physical dependence."
+},
+{
+"snippet_id": "codeine_pharmacodynamics_01",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Pharmacology / Pharmacodynamics",
+"text": "Codeine is a nonsynthetic opioid. It is a selective agonist of the μ-opioid receptor (MOR)."
+},
+{
+"snippet_id": "codeine_pharmacodynamics_02",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "Pharmacology / Pharmacodynamics",
+"text": "Codeine itself has relatively weak affinity for the MOR. Instead of acting directly on the MOR, codeine functions as a prodrug of its major active metabolites morphine and codeine-6-glucuronide, which are far more potent MOR agonists in comparison."
+},
+{
+"snippet_id": "codeine_history_use_01",
+"source": "[https://en.wikipedia.org/wiki/Codeine](https://en.wikipedia.org/wiki/Codeine)",
+"section": "History",
+"text": "Opium poppy has been cultivated and utilized throughout human history for a variety of medicinal (analgesic, anti-tussive and anti-diarrheal) and hypnotic properties linked to the diversity of its active components, which include morphine, codeine and papaverine."
+}
+],
+"extractions": [
+{
+"snippet_id": "codeine_lead_class_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "opiate"
+},
+{
+"snippet_id": "codeine_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "pain"
+},
+{
+"snippet_id": "codeine_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "coughing"
+},
+{
+"snippet_id": "codeine_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "diarrhea"
+},
+{
+"snippet_id": "codeine_lead_class_use_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "prodrug of morphine"
+},
+{
+"snippet_id": "codeine_lead_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "mild to moderate pain"
+},
+{
+"snippet_id": "codeine_lead_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "acute cough suppression in children"
+},
+{
+"snippet_id": "codeine_lead_warning_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "abuse risk"
+},
+{
+"snippet_id": "codeine_lead_warning_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "addiction risk"
+},
+{
+"snippet_id": "codeine_lead_warning_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "overdose risk"
+},
+{
+"snippet_id": "codeine_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "post-surgical dental pain"
+},
+{
+"snippet_id": "codeine_medical_uses_pain_02",
+"label": "medical_use",
+"type": "indication",
+"text": "cancer pain"
+},
+{
+"snippet_id": "codeine_medical_uses_pain_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "constipation"
+},
+{
+"snippet_id": "codeine_medical_uses_children_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "children"
+},
+{
+"snippet_id": "codeine_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "drowsiness"
+},
+{
+"snippet_id": "codeine_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "constipation"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "euphoria"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "itching"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nausea"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "vomiting"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "dry mouth"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "miosis"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "orthostatic hypotension"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "urinary retention"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "depression"
+},
+{
+"snippet_id": "codeine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "coughing"
+},
+{
+"snippet_id": "codeine_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "anaphylaxis"
+},
+{
+"snippet_id": "codeine_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "seizure"
+},
+{
+"snippet_id": "codeine_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "acute pancreatitis"
+},
+{
+"snippet_id": "codeine_adverse_effects_03",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "respiratory depression"
+},
+{
+"snippet_id": "codeine_withdrawal_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "physical dependence"
+},
+{
+"snippet_id": "codeine_pharmacodynamics_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "nonsynthetic opioid"
+},
+{
+"snippet_id": "codeine_pharmacodynamics_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "selective μ-opioid receptor agonism"
+},
+{
+"snippet_id": "codeine_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "weak μ-opioid receptor affinity"
+},
+{
+"snippet_id": "codeine_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "prodrug of morphine"
+},
+{
+"snippet_id": "codeine_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "prodrug of codeine-6-glucuronide"
+},
+{
+"snippet_id": "codeine_history_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "analgesic use"
+},
+{
+"snippet_id": "codeine_history_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "anti-tussive use"
+},
+{
+"snippet_id": "codeine_history_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "anti-diarrheal use"
+}
+]
+}

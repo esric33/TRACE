@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_contraindicated_for_pregnancy_2",
+  "snippet_id": "warfarin_pregnancy_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "pregnancy"
+  }
+}

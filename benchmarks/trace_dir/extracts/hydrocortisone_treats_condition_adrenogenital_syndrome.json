@@ -1,0 +1,13 @@
+{
+  "extraction_id": "hydrocortisone_treats_condition_adrenogenital_syndrome",
+  "snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Hydrocortisone"
+  },
+  "object": {
+    "type": "condition",
+    "value": "adrenogenital syndrome"
+  }
+}

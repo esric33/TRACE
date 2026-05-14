@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_interacts_with_anticholinergic_medications",
+  "snippet_id": "metformin_interactions_01",
+  "label": "interacts_with",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "drug",
+    "value": "anticholinergic medications"
+  }
+}

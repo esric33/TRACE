@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_contraindicated_for_protein_s_deficiency",
+  "snippet_id": "warfarin_contraindications_02",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "protein s deficiency"
+  }
+}

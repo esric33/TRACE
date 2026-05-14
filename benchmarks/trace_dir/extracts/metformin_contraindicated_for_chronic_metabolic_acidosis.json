@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_contraindicated_for_chronic_metabolic_acidosis",
+  "snippet_id": "metformin_contraindications_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "chronic metabolic acidosis"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_interacts_with_protease_inhibitors",
+  "snippet_id": "atorvastatin_interactions_02",
+  "label": "interacts_with",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "drug",
+    "value": "protease inhibitors"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_treats_condition_abnormal_lipid_level",
+  "snippet_id": "atorvastatin_lead_use_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "abnormal lipid level"
+  }
+}

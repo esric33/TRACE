@@ -1,0 +1,9 @@
+{
+  "snippet_id": "insulin_medication_medical_uses_01",
+  "text": "Insulin is used to treat a number of diseases including diabetes and its acute complications such as diabetic ketoacidosis and hyperosmolar hyperglycemic states. It is also used along with glucose to treat high blood potassium levels. Use during pregnancy is relatively safe for the baby.",
+  "source": "https://en.wikipedia.org/wiki/Insulin_%28medication%29",
+  "meta": {
+    "drug": "Insulin",
+    "section": "Medical uses"
+  }
+}

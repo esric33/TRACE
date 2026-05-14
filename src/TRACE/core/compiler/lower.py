@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 from TRACE.core.benchmarks.loader import load_benchmark
-from TRACE.core.executor.oracle import make_oracle_context
 from TRACE.core.executor.runtime import execute_dag
 from TRACE.shared.io import read_json
 from TRACE.generation.expr import (
@@ -22,7 +21,14 @@ from TRACE.generation.expr import (
     Gt,
     LookupQty,
     Lt,
+    MakeSet,
     Mul,
+    RelationSetFor,
+    SetContains,
+    SetDiff,
+    SetIntersect,
+    SetSize,
+    SetUnion,
 )
 from TRACE.generation.generation_types import Bindings, CompiledPlan, Spec, load_snippets
 
@@ -82,12 +88,14 @@ def lower_spec(
     rng = random.Random(seed)
 
     nodes: list[dict[str, Any]] = []
-    lookup_map: dict[str, str] = {}
+    fact_map: dict[str, str] = {}
     snippet_ids: list[str] = []
     id_counter = 1
 
     chosen_target_scale: dict[int, float] = {}
+    chosen_target_scale_by_key: dict[str, float] = {}
     chosen_fx_pair: dict[int, tuple[str, str]] = {}
+    relation_extract_cache = None
 
     def new_id() -> str:
         nonlocal id_counter
@@ -99,6 +107,46 @@ def lower_spec(
         nid = new_id()
         nodes.append({"id": nid, "op": op, "args": args})
         return f"ref:{nid}"
+
+    def _model_fact_args(rec) -> dict[str, Any]:
+        if rec.quantity:
+            return {
+                "snippet_id": rec.snippet_id,
+                "label": rec.label,
+                "period": rec.period,
+                "quantity": rec.quantity,
+            }
+        return {
+            "snippet_id": rec.snippet_id,
+            "label": rec.label,
+            "subject": rec.subject,
+            "object": rec.object,
+        }
+
+    def _emit_model_fact(rec) -> str:
+        n_fact = new_id()
+        nodes.append({"id": n_fact, "op": "MODEL_FACT", "args": _model_fact_args(rec)})
+        fact_map[n_fact] = rec.extraction_id
+        snippet_ids.append(rec.snippet_id)
+        return f"ref:{n_fact}"
+
+    def _relation_extracts_like(anchor) -> list:
+        nonlocal relation_extract_cache
+        if relation_extract_cache is None:
+            relation_extract_cache = benchmark_def.load_extracts(benchmark_def.extracts_dir)
+        subject_value = anchor.slot("subject_value")
+        object_type = anchor.slot("object_type")
+        records = [
+            record
+            for record in relation_extract_cache
+            if record.qtype == "relation"
+            and record.snippet_id == anchor.snippet_id
+            and record.label == anchor.label
+            and record.slot("subject_value") == subject_value
+            and record.slot("object_type") == object_type
+        ]
+        records.sort(key=lambda record: record.extraction_id)
+        return records
 
     def _require_fy_int(rec, *, who: str) -> int:
         if rec.period_kind != "FY" or not isinstance(rec.period_value, int):
@@ -142,27 +190,14 @@ def lower_spec(
     def compile_expr(expr) -> str:
         if isinstance(expr, LookupQty):
             rec = bindings[expr.var_name]
+            return _emit_model_fact(rec)
 
-            n_lookup = new_id()
-            nodes.append(
-                {
-                    "id": n_lookup,
-                    "op": "TEXT_LOOKUP",
-                    "args": {"query": benchmark_def.format_lookup_query(rec)},
-                }
-            )
-            n_getq = new_id()
-            nodes.append(
-                {
-                    "id": n_getq,
-                    "op": "GET_QUANTITY",
-                    "args": {"fact": f"ref:{n_lookup}"},
-                }
-            )
-
-            lookup_map[n_lookup] = rec.extraction_id
-            snippet_ids.append(rec.snippet_id)
-            return f"ref:{n_getq}"
+        if isinstance(expr, RelationSetFor):
+            rec = bindings[expr.var_name]
+            refs = [_emit_model_fact(record) for record in _relation_extracts_like(rec)]
+            if not refs:
+                raise ValueError(f"No relation extracts found for {expr.var_name!r}")
+            return emit("MAKE_SET", items=refs)
 
         if isinstance(expr, ConvertScale):
             inner_ref = compile_expr(expr.expr)
@@ -182,7 +217,17 @@ def lower_spec(
                         f"No non-noop target scale available (src_scale={src_scale})"
                     )
 
-            target_scale = float(rng.choice(target_scales))
+            if expr.target_key is not None and expr.target_key in chosen_target_scale_by_key:
+                target_scale = chosen_target_scale_by_key[expr.target_key]
+                if target_scale not in target_scales:
+                    raise ValueError(
+                        f"Shared target scale {target_scale} for key {expr.target_key!r} "
+                        f"is not allowed by {target_scales}"
+                    )
+            else:
+                target_scale = float(rng.choice(target_scales))
+                if expr.target_key is not None:
+                    chosen_target_scale_by_key[expr.target_key] = target_scale
             chosen_target_scale[id(expr)] = target_scale
             return _emit_convert_scale(inner_ref, target_scale)
 
@@ -263,6 +308,28 @@ def lower_spec(
         if isinstance(expr, Eq):
             return emit("EQ", a=compile_expr(expr.left), b=compile_expr(expr.right))
 
+        if isinstance(expr, MakeSet):
+            return emit("MAKE_SET", items=[compile_expr(item) for item in expr.items])
+
+        if isinstance(expr, SetUnion):
+            return emit("SET_UNION", a=compile_expr(expr.left), b=compile_expr(expr.right))
+
+        if isinstance(expr, SetIntersect):
+            return emit("SET_INTERSECT", a=compile_expr(expr.left), b=compile_expr(expr.right))
+
+        if isinstance(expr, SetDiff):
+            return emit("SET_DIFF", a=compile_expr(expr.left), b=compile_expr(expr.right))
+
+        if isinstance(expr, SetSize):
+            return emit("SET_SIZE", set=compile_expr(expr.set_expr))
+
+        if isinstance(expr, SetContains):
+            return emit(
+                "SET_CONTAINS",
+                set=compile_expr(expr.set_expr),
+                item=compile_expr(expr.item),
+            )
+
         raise TypeError(f"Unknown expr type: {type(expr)}")
 
     output_ref = compile_expr(spec.ast)
@@ -271,7 +338,7 @@ def lower_spec(
 
     return CompiledPlan(
         dag=dag,
-        lookup_map=lookup_map,
+        fact_map=fact_map,
         snippet_ids=snippet_ids,
         operators=operators,
         meta={"benchmark_id": benchmark_def.benchmark_id},
@@ -311,7 +378,6 @@ def evaluate_compiled_plan_oracle(
     if benchmark_def is None:
         benchmark_def = load_benchmark("trace_ufr")
 
-    oracle_ctx = make_oracle_context(bindings, compiled.lookup_map)
     capsule = {
         "qid": "compile|oracle",
         "context": {"snippets": hydrate_compiled_context(compiled, benchmark_def)},
@@ -319,9 +385,6 @@ def evaluate_compiled_plan_oracle(
     result = execute_dag(
         compiled.dag,
         benchmark_def,
-        "oracle",
-        provider_ctx=None,
-        oracle_ctx=oracle_ctx,
         capsule=capsule,
         cache={},
     )

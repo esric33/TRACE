@@ -1,0 +1,9 @@
+{
+  "snippet_id": "insulin_medication_lead_use_01",
+  "text": "As a medication, insulin is any pharmaceutical preparation of the protein hormone insulin that is used to treat high blood glucose. Such conditions include type 1 diabetes, type 2 diabetes, gestational diabetes, and complications of diabetes such as diabetic ketoacidosis and hyperosmolar hyperglycemic states. Insulin is also used along with glucose to treat hyperkalemia (high blood potassium levels).",
+  "source": "https://en.wikipedia.org/wiki/Insulin_%28medication%29",
+  "meta": {
+    "drug": "Insulin",
+    "section": "Lead"
+  }
+}

@@ -1,0 +1,384 @@
+{
+"snippets": [
+{
+"snippet_id": "paracetamol_lead_class_use_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Lead",
+"text": "Paracetamol, or acetaminophen, is an analgesic and antipyretic agent used to treat fever and mild to moderate pain."
+},
+{
+"snippet_id": "paracetamol_lead_pain_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Lead",
+"text": "Paracetamol relieves pain in both acute mild migraine and episodic tension headache."
+},
+{
+"snippet_id": "paracetamol_lead_adverse_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Lead",
+"text": "Chronic consumption of paracetamol may result in a drop in hemoglobin level, indicating possible gastrointestinal bleeding, and abnormal liver function tests."
+},
+{
+"snippet_id": "paracetamol_lead_toxicity_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Lead",
+"text": "Higher doses may lead to toxicity, including liver failure."
+},
+{
+"snippet_id": "paracetamol_medical_uses_fever_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Medical uses / Fever",
+"text": "Paracetamol is used for reducing fever."
+},
+{
+"snippet_id": "paracetamol_medical_uses_pain_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Medical uses / Pain",
+"text": "Paracetamol is used for the relief of mild to moderate pain such as headache, muscle aches, minor arthritis pain, and toothache, as well as pain caused by cold, flu, sprains, and dysmenorrhea."
+},
+{
+"snippet_id": "paracetamol_medical_uses_pda_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Medical uses / Patent ductus arteriosus",
+"text": "Paracetamol helps ductal closure in patent ductus arteriosus."
+},
+{
+"snippet_id": "paracetamol_pregnancy_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Use in pregnancy and breastfeeding / Pregnancy",
+"text": "Paracetamol has long been established as a safe medication to treat short-term fever and significant pain in pregnant patients."
+},
+{
+"snippet_id": "paracetamol_breastfeeding_warning_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Use in pregnancy and breastfeeding / Breastfeeding",
+"text": "Use during breastfeeding is considered compatible at recommended doses, with extra caution for preterm infants or infants with liver disease."
+},
+{
+"snippet_id": "paracetamol_adverse_effects_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Adverse effects",
+"text": "Gastrointestinal adverse effects such as nausea and abdominal pain are extremely uncommon, and their frequency is substantially lower than with ibuprofen use. Increase in risk-taking behavior is possible."
+},
+{
+"snippet_id": "paracetamol_adverse_effects_skin_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Adverse effects",
+"text": "According to the U.S. Food and Drug Administration (FDA), the drug may cause rare and possibly fatal skin reactions such as Stevens–Johnson syndrome and toxic epidermal necrolysis."
+},
+{
+"snippet_id": "paracetamol_adverse_effects_long_term_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Adverse effects",
+"text": "Prolonged daily use may cause kidney or liver damage. Paracetamol is metabolized by the liver and is hepatotoxic; side effects may be more likely in chronic alcoholics or patients with liver damage."
+},
+{
+"snippet_id": "paracetamol_overdose_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Overdose",
+"text": "The first symptoms of overdose usually begin several hours after ingestion, with nausea, vomiting, sweating, and pain as acute liver failure starts."
+},
+{
+"snippet_id": "paracetamol_overdose_02",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Overdose",
+"text": "Toxicity of paracetamol is due to its quinone metabolite NAPQI and NAC also helps in neutralizing it. Kidney failure is also a possible side effect."
+},
+{
+"snippet_id": "paracetamol_interactions_warfarin_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Interactions",
+"text": "Paracetamol increases INR during warfarin therapy and should be limited to no more than 2 g per week."
+},
+{
+"snippet_id": "paracetamol_pharmacodynamics_01",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Pharmacology / Pharmacodynamics",
+"text": "Paracetamol appears to exert its effects through two mechanisms: the inhibition of cyclooxygenase (COX) and actions of its metabolite N-arachidonoylphenolamine (AM404)."
+},
+{
+"snippet_id": "paracetamol_pharmacodynamics_02",
+"source": "[https://en.wikipedia.org/wiki/Paracetamol](https://en.wikipedia.org/wiki/Paracetamol)",
+"section": "Pharmacology / Pharmacodynamics",
+"text": "Paracetamol inhibits prostaglandin synthesis by reducing the active form of COX-1 and COX-2 enzymes."
+}
+],
+"extractions": [
+{
+"snippet_id": "paracetamol_lead_class_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "analgesic"
+},
+{
+"snippet_id": "paracetamol_lead_class_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "antipyretic"
+},
+{
+"snippet_id": "paracetamol_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "fever"
+},
+{
+"snippet_id": "paracetamol_lead_class_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "mild to moderate pain"
+},
+{
+"snippet_id": "paracetamol_lead_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "acute mild migraine"
+},
+{
+"snippet_id": "paracetamol_lead_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "episodic tension headache"
+},
+{
+"snippet_id": "paracetamol_lead_adverse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "gastrointestinal bleeding"
+},
+{
+"snippet_id": "paracetamol_lead_adverse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "abnormal liver function test"
+},
+{
+"snippet_id": "paracetamol_lead_toxicity_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "liver failure"
+},
+{
+"snippet_id": "paracetamol_medical_uses_fever_01",
+"label": "medical_use",
+"type": "indication",
+"text": "fever reduction"
+},
+{
+"snippet_id": "paracetamol_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "headache"
+},
+{
+"snippet_id": "paracetamol_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "muscle ache"
+},
+{
+"snippet_id": "paracetamol_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "minor arthritis pain"
+},
+{
+"snippet_id": "paracetamol_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "toothache"
+},
+{
+"snippet_id": "paracetamol_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "cold pain"
+},
+{
+"snippet_id": "paracetamol_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "flu pain"
+},
+{
+"snippet_id": "paracetamol_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "sprain pain"
+},
+{
+"snippet_id": "paracetamol_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "dysmenorrhea"
+},
+{
+"snippet_id": "paracetamol_medical_uses_pda_01",
+"label": "medical_use",
+"type": "indication",
+"text": "patent ductus arteriosus closure"
+},
+{
+"snippet_id": "paracetamol_pregnancy_01",
+"label": "medical_use",
+"type": "indication",
+"text": "short-term fever in pregnancy"
+},
+{
+"snippet_id": "paracetamol_pregnancy_01",
+"label": "medical_use",
+"type": "indication",
+"text": "significant pain in pregnancy"
+},
+{
+"snippet_id": "paracetamol_breastfeeding_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "preterm infant"
+},
+{
+"snippet_id": "paracetamol_breastfeeding_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "infant liver disease"
+},
+{
+"snippet_id": "paracetamol_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nausea"
+},
+{
+"snippet_id": "paracetamol_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "abdominal pain"
+},
+{
+"snippet_id": "paracetamol_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "increased risk-taking behavior"
+},
+{
+"snippet_id": "paracetamol_adverse_effects_skin_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "Stevens-Johnson syndrome"
+},
+{
+"snippet_id": "paracetamol_adverse_effects_skin_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "toxic epidermal necrolysis"
+},
+{
+"snippet_id": "paracetamol_adverse_effects_long_term_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "kidney damage"
+},
+{
+"snippet_id": "paracetamol_adverse_effects_long_term_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "liver damage"
+},
+{
+"snippet_id": "paracetamol_adverse_effects_long_term_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "chronic alcoholism"
+},
+{
+"snippet_id": "paracetamol_adverse_effects_long_term_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "liver damage"
+},
+{
+"snippet_id": "paracetamol_overdose_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nausea"
+},
+{
+"snippet_id": "paracetamol_overdose_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "vomiting"
+},
+{
+"snippet_id": "paracetamol_overdose_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "sweating"
+},
+{
+"snippet_id": "paracetamol_overdose_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "pain"
+},
+{
+"snippet_id": "paracetamol_overdose_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "acute liver failure"
+},
+{
+"snippet_id": "paracetamol_overdose_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "toxicity due to NAPQI"
+},
+{
+"snippet_id": "paracetamol_overdose_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "kidney failure"
+},
+{
+"snippet_id": "paracetamol_interactions_warfarin_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "warfarin therapy"
+},
+{
+"snippet_id": "paracetamol_interactions_warfarin_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases INR during warfarin therapy"
+},
+{
+"snippet_id": "paracetamol_pharmacodynamics_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits cyclooxygenase"
+},
+{
+"snippet_id": "paracetamol_pharmacodynamics_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "acts through AM404 metabolite"
+},
+{
+"snippet_id": "paracetamol_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits prostaglandin synthesis"
+},
+{
+"snippet_id": "paracetamol_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces active COX-1"
+},
+{
+"snippet_id": "paracetamol_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces active COX-2"
+}
+]
+}

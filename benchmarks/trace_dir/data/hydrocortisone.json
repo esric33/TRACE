@@ -1,0 +1,378 @@
+{
+"snippets": [
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Hydrocortisone](https://en.wikipedia.org/wiki/Hydrocortisone)",
+"section": "Lead",
+"text": "Hydrocortisone is the name for the hormone cortisol when supplied as a medication. It is a corticosteroid and works as an anti-inflammatory and by immune suppression. Uses include conditions such as adrenocortical insufficiency, adrenogenital syndrome, high blood calcium, thyroiditis, rheumatoid arthritis, dermatitis, asthma, and COPD."
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"source": "[https://en.wikipedia.org/wiki/Hydrocortisone](https://en.wikipedia.org/wiki/Hydrocortisone)",
+"section": "Lead",
+"text": "Common side effects may include mood changes, increased appetite, hyperglycemia, hypertension, and edema (swelling). With long-term use, common side effects include osteoporosis, adrenal insufficiency, upset stomach, physical weakness, easy bruising, and candidiasis (yeast infections). It is unclear if it is safe for use during pregnancy."
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_01",
+"source": "[https://en.wikipedia.org/wiki/Hydrocortisone](https://en.wikipedia.org/wiki/Hydrocortisone)",
+"section": "Medical uses",
+"text": "It is used as an immunosuppressive drug, given by injection in the treatment of severe allergic reactions such as anaphylaxis and angioedema, in place of prednisolone in patients needing steroid treatment but unable to take oral medication, and perioperatively in patients on long-term steroid treatment to prevent an adrenal crisis."
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_skin_01",
+"source": "[https://en.wikipedia.org/wiki/Hydrocortisone](https://en.wikipedia.org/wiki/Hydrocortisone)",
+"section": "Medical uses",
+"text": "It may be used topically for allergic rashes, eczema, psoriasis, itching, and other inflammatory skin conditions."
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_rectal_01",
+"source": "[https://en.wikipedia.org/wiki/Hydrocortisone](https://en.wikipedia.org/wiki/Hydrocortisone)",
+"section": "Medical uses",
+"text": "It may also be used rectally in suppositories to relieve the swelling, itch, and irritation in hemorrhoids."
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"source": "[https://en.wikipedia.org/wiki/Hydrocortisone](https://en.wikipedia.org/wiki/Hydrocortisone)",
+"section": "Side effects",
+"text": "Side effects of hydrocortisone include hypertension, salt and water retention, hypokalemia, adrenal suppression, immunosuppression, increased risk of infections and infectious reactivation, Cushingoid symptoms, and neuropsychiatric symptoms such as depression, among many others."
+},
+{
+"snippet_id": "hydrocortisone_sleep_01",
+"source": "[https://en.wikipedia.org/wiki/Hydrocortisone](https://en.wikipedia.org/wiki/Hydrocortisone)",
+"section": "Side effects",
+"text": "Hydrocortisone has been found to suppress rapid eye movement sleep (REM sleep) and to enhance slow wave sleep (SWS). In addition, it has been found to increase nighttime awakenings and time spent awake."
+},
+{
+"snippet_id": "hydrocortisone_pharmacodynamics_01",
+"source": "[https://en.wikipedia.org/wiki/Hydrocortisone](https://en.wikipedia.org/wiki/Hydrocortisone)",
+"section": "Pharmacology / Pharmacodynamics",
+"text": "Hydrocortisone is a corticosteroid, acting specifically as both a glucocorticoid and as a mineralocorticoid. That is, it is an agonist of the glucocorticoid and mineralocorticoid receptors."
+}
+],
+"extractions": [
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "corticosteroid"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "cortisol medication"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "medical_use",
+"type": "indication",
+"text": "adrenocortical insufficiency"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "medical_use",
+"type": "indication",
+"text": "adrenogenital syndrome"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "medical_use",
+"type": "indication",
+"text": "high blood calcium"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "medical_use",
+"type": "indication",
+"text": "thyroiditis"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "medical_use",
+"type": "indication",
+"text": "rheumatoid arthritis"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "medical_use",
+"type": "indication",
+"text": "dermatitis"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "medical_use",
+"type": "indication",
+"text": "asthma"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "medical_use",
+"type": "indication",
+"text": "COPD"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "anti-inflammatory effect"
+},
+{
+"snippet_id": "hydrocortisone_lead_class_use_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "immune suppression"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "mood change"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "increased appetite"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hyperglycemia"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypertension"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "edema"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "osteoporosis"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "adrenal insufficiency"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "upset stomach"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "physical weakness"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "easy bruising"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "candidiasis"
+},
+{
+"snippet_id": "hydrocortisone_lead_adverse_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "pregnancy"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "immunosuppressive drug"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "severe allergic reaction"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "anaphylaxis"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "angioedema"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "adrenal crisis prevention"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_skin_01",
+"label": "medical_use",
+"type": "indication",
+"text": "allergic rash"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_skin_01",
+"label": "medical_use",
+"type": "indication",
+"text": "eczema"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_skin_01",
+"label": "medical_use",
+"type": "indication",
+"text": "psoriasis"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_skin_01",
+"label": "medical_use",
+"type": "indication",
+"text": "itching"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_skin_01",
+"label": "medical_use",
+"type": "indication",
+"text": "inflammatory skin condition"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_rectal_01",
+"label": "medical_use",
+"type": "indication",
+"text": "hemorrhoid swelling"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_rectal_01",
+"label": "medical_use",
+"type": "indication",
+"text": "hemorrhoid itch"
+},
+{
+"snippet_id": "hydrocortisone_medical_uses_rectal_01",
+"label": "medical_use",
+"type": "indication",
+"text": "hemorrhoid irritation"
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "salt and water retention"
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypokalemia"
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "adrenal suppression"
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "immunosuppression"
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "increased infection risk"
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "infectious reactivation"
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "Cushingoid symptom"
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "neuropsychiatric symptom"
+},
+{
+"snippet_id": "hydrocortisone_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "depression"
+},
+{
+"snippet_id": "hydrocortisone_sleep_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "suppressed REM sleep"
+},
+{
+"snippet_id": "hydrocortisone_sleep_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "enhanced slow wave sleep"
+},
+{
+"snippet_id": "hydrocortisone_sleep_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "increased nighttime awakening"
+},
+{
+"snippet_id": "hydrocortisone_sleep_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "increased time awake"
+},
+{
+"snippet_id": "hydrocortisone_pharmacodynamics_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "glucocorticoid"
+},
+{
+"snippet_id": "hydrocortisone_pharmacodynamics_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "mineralocorticoid"
+},
+{
+"snippet_id": "hydrocortisone_pharmacodynamics_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "glucocorticoid receptor agonism"
+},
+{
+"snippet_id": "hydrocortisone_pharmacodynamics_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "mineralocorticoid receptor agonism"
+}
+]
+}

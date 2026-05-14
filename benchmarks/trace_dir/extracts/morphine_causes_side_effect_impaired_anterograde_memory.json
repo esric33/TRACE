@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_causes_side_effect_impaired_anterograde_memory",
+  "snippet_id": "morphine_performance_02",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "effect",
+    "value": "impaired anterograde memory"
+  }
+}

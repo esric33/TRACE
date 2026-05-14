@@ -1,0 +1,402 @@
+{
+"snippets": [
+{
+"snippet_id": "insulin_medication_lead_use_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Lead",
+"text": "As a medication, insulin is any pharmaceutical preparation of the protein hormone insulin that is used to treat high blood glucose. Such conditions include type 1 diabetes, type 2 diabetes, gestational diabetes, and complications of diabetes such as diabetic ketoacidosis and hyperosmolar hyperglycemic states. Insulin is also used along with glucose to treat hyperkalemia (high blood potassium levels)."
+},
+{
+"snippet_id": "insulin_medication_lead_class_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Lead",
+"text": "The types are often all called insulin in the broad sense, although in a more precise sense, insulin is identical to the naturally occurring molecule whereas insulin analogues have slightly different molecules that allow for modified time of action."
+},
+{
+"snippet_id": "insulin_medication_medical_uses_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Medical uses",
+"text": "Insulin is used to treat a number of diseases including diabetes and its acute complications such as diabetic ketoacidosis and hyperosmolar hyperglycemic states. It is also used along with glucose to treat high blood potassium levels. Use during pregnancy is relatively safe for the baby."
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Side effects",
+"text": "Some side effects are hypoglycemia (low blood sugar), hypokalemia (low blood potassium), and allergic reactions. Allergy to insulin affected about 2% of people, of which most reactions are not due to the insulin itself but to preservatives added to insulin such as zinc, protamine, and meta-cresol. Most reactions are Type I hypersensitivity reactions and rarely cause anaphylaxis."
+},
+{
+"snippet_id": "insulin_medication_side_effects_allergy_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Side effects",
+"text": "A suspected allergy to insulin can be confirmed by skin prick testing, patch testing and occasionally skin biopsy. First line therapy against insulin hypersensitivity reactions include symptomatic therapy with antihistamines."
+},
+{
+"snippet_id": "insulin_medication_challenges_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Challenges in treatment",
+"text": "It is dangerous in case of mistake (such as 'too much' insulin)."
+},
+{
+"snippet_id": "insulin_medication_potential_complications_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Potential complications",
+"text": "The central problem for those requiring external insulin is picking the right dose of insulin and the right timing."
+},
+{
+"snippet_id": "insulin_medication_potential_complications_02",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Potential complications",
+"text": "A disadvantage of bedtime NPH is that if not taken late enough (near midnight) to place its peak shortly before dawn, it has the potential of causing hypoglycemia."
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Abuse",
+"text": "The abuse of exogenous insulin carries with it an attendant risk of hypoglycemic coma and death when the amount used is in excess of that required to handle ingested carbohydrate. Acute risks include brain damage, paralysis, and death. Symptoms may include dizziness, weakness, trembling, palpitations, seizures, confusion, headache, drowsiness, coma, diaphoresis and nausea."
+},
+{
+"snippet_id": "insulin_medication_abuse_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin_(medication)](https://en.wikipedia.org/wiki/Insulin_%28medication%29)",
+"section": "Abuse in sports",
+"text": "Insulin is thought to enhance performance by increasing protein synthesis, reducing protein catabolism, and facilitating the transfer of certain amino acids in human skeletal muscle."
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Insulin](https://en.wikipedia.org/wiki/Insulin)",
+"section": "Lead",
+"text": "It regulates the metabolism of carbohydrates, fats, and protein by promoting the absorption of glucose from the blood into cells of the liver, fat, and skeletal muscles."
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_02",
+"source": "[https://en.wikipedia.org/wiki/Insulin](https://en.wikipedia.org/wiki/Insulin)",
+"section": "Lead",
+"text": "Glucose production and secretion by the liver are strongly inhibited by high concentrations of insulin in the blood. Circulating insulin also affects the synthesis of proteins in a wide variety of tissues."
+}
+],
+"extractions": [
+{
+"snippet_id": "insulin_medication_lead_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "protein hormone pharmaceutical preparation"
+},
+{
+"snippet_id": "insulin_medication_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "high blood glucose"
+},
+{
+"snippet_id": "insulin_medication_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "type 1 diabetes"
+},
+{
+"snippet_id": "insulin_medication_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "type 2 diabetes"
+},
+{
+"snippet_id": "insulin_medication_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "gestational diabetes"
+},
+{
+"snippet_id": "insulin_medication_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "diabetic ketoacidosis"
+},
+{
+"snippet_id": "insulin_medication_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "hyperosmolar hyperglycemic state"
+},
+{
+"snippet_id": "insulin_medication_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "hyperkalemia"
+},
+{
+"snippet_id": "insulin_medication_lead_class_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "insulin analogue"
+},
+{
+"snippet_id": "insulin_medication_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "diabetes"
+},
+{
+"snippet_id": "insulin_medication_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "diabetic ketoacidosis"
+},
+{
+"snippet_id": "insulin_medication_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "hyperosmolar hyperglycemic state"
+},
+{
+"snippet_id": "insulin_medication_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "high blood potassium"
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypoglycemia"
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypokalemia"
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "allergic reaction"
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "insulin allergy"
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "zinc preservative allergy"
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "protamine preservative allergy"
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "meta-cresol preservative allergy"
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "type I hypersensitivity reaction"
+},
+{
+"snippet_id": "insulin_medication_side_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "anaphylaxis"
+},
+{
+"snippet_id": "insulin_medication_side_effects_allergy_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "insulin hypersensitivity reaction"
+},
+{
+"snippet_id": "insulin_medication_challenges_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "excess insulin"
+},
+{
+"snippet_id": "insulin_medication_potential_complications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "incorrect insulin timing"
+},
+{
+"snippet_id": "insulin_medication_potential_complications_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypoglycemia"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "exogenous insulin abuse"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypoglycemic coma"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "death"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "brain damage"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "paralysis"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "dizziness"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "weakness"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "trembling"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "palpitation"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "seizure"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "confusion"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "headache"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "drowsiness"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "coma"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "diaphoresis"
+},
+{
+"snippet_id": "insulin_medication_abuse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nausea"
+},
+{
+"snippet_id": "insulin_medication_abuse_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases protein synthesis"
+},
+{
+"snippet_id": "insulin_medication_abuse_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces protein catabolism"
+},
+{
+"snippet_id": "insulin_medication_abuse_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "facilitates amino acid transfer into skeletal muscle"
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "regulates carbohydrate metabolism"
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "regulates fat metabolism"
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "regulates protein metabolism"
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "promotes glucose absorption into liver cells"
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "promotes glucose absorption into fat cells"
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "promotes glucose absorption into skeletal muscle cells"
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits liver glucose production"
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits liver glucose secretion"
+},
+{
+"snippet_id": "insulin_hormone_lead_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "affects protein synthesis"
+}
+]
+}

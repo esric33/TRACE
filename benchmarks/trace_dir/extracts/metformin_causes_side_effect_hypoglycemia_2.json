@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_causes_side_effect_hypoglycemia_2",
+  "snippet_id": "metformin_insulin_01",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "effect",
+    "value": "hypoglycemia"
+  }
+}

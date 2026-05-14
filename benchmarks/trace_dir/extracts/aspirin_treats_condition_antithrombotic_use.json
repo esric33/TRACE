@@ -1,0 +1,13 @@
+{
+  "extraction_id": "aspirin_treats_condition_antithrombotic_use",
+  "snippet_id": "aspirin_lead_class_use_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Aspirin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "antithrombotic use"
+  }
+}

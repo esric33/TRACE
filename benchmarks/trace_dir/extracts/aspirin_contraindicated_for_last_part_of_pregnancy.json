@@ -1,0 +1,13 @@
+{
+  "extraction_id": "aspirin_contraindicated_for_last_part_of_pregnancy",
+  "snippet_id": "aspirin_lead_adverse_warning_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Aspirin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "last part of pregnancy"
+  }
+}

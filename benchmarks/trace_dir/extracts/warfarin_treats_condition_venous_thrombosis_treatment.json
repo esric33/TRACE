@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_treats_condition_venous_thrombosis_treatment",
+  "snippet_id": "warfarin_medical_uses_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "venous thrombosis treatment"
+  }
+}

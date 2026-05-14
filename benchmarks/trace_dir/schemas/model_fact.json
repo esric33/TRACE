@@ -1,0 +1,12 @@
+{
+  "snippet_id": "<one of the snippet ids in CONTEXT>",
+  "label": "treats_condition | contraindicated_for | interacts_with | causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "<canonical drug name copied from context>"
+  },
+  "object": {
+    "type": "condition | drug | effect",
+    "value": "<relation object copied or normalized from context>"
+  }
+}

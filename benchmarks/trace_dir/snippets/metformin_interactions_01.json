@@ -1,0 +1,9 @@
+{
+  "snippet_id": "metformin_interactions_01",
+  "text": "Metformin also interacts with anticholinergic medications, due to their effect on gastric motility. Anticholinergic drugs reduce gastric motility, prolonging the time drugs spend in the gastrointestinal tract. This impairment may lead to more metformin being absorbed than without the presence of an anticholinergic drug, thereby increasing the concentration of metformin in the plasma and increasing the risk for adverse effects.",
+  "source": "https://en.wikipedia.org/wiki/Metformin",
+  "meta": {
+    "drug": "Metformin",
+    "section": "Adverse effects / Interactions"
+  }
+}

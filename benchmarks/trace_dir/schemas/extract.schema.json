@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["extraction_id", "snippet_id", "label", "subject", "object"],
+  "properties": {
+    "extraction_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "snippet_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "label": {
+      "enum": [
+        "treats_condition",
+        "contraindicated_for",
+        "interacts_with",
+        "causes_side_effect"
+      ]
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "value"],
+      "properties": {
+        "type": {
+          "const": "drug"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "value"],
+      "properties": {
+        "type": {
+          "enum": ["condition", "drug", "effect"]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

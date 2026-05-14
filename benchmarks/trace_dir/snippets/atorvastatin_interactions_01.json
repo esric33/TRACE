@@ -1,0 +1,9 @@
+{
+  "snippet_id": "atorvastatin_interactions_01",
+  "text": "Co-administration of atorvastatin with one of CYP3A4 inhibitors such as itraconazole, telithromycin, and voriconazole, may increase serum concentrations of atorvastatin, which may lead to adverse reactions.",
+  "source": "https://en.wikipedia.org/wiki/Atorvastatin",
+  "meta": {
+    "drug": "Atorvastatin",
+    "section": "Side effects / Interactions"
+  }
+}

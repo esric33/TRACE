@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_causes_side_effect_fetal_harm",
+  "snippet_id": "atorvastatin_contraindications_pregnancy_01",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "effect",
+    "value": "fetal harm"
+  }
+}

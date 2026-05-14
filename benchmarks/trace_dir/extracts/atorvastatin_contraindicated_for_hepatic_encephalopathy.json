@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_contraindicated_for_hepatic_encephalopathy",
+  "snippet_id": "atorvastatin_contraindications_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "hepatic encephalopathy"
+  }
+}

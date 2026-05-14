@@ -1,0 +1,9 @@
+{
+  "snippet_id": "paracetamol_interactions_warfarin_01",
+  "text": "Paracetamol increases INR during warfarin therapy and should be limited to no more than 2 g per week.",
+  "source": "https://en.wikipedia.org/wiki/Paracetamol",
+  "meta": {
+    "drug": "Paracetamol",
+    "section": "Interactions"
+  }
+}

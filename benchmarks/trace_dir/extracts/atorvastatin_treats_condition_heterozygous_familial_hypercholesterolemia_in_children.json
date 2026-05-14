@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_treats_condition_heterozygous_familial_hypercholesterolemia_in_children",
+  "snippet_id": "atorvastatin_dyslipidemia_02",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "heterozygous familial hypercholesterolemia in children"
+  }
+}

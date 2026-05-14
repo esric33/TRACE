@@ -9,8 +9,8 @@ from TRACE.core.actions.types import ActionDef
 class ActionRegistry:
     actions: dict[str, ActionDef] = field(default_factory=dict)
 
-    def register(self, action: ActionDef) -> None:
-        if action.name in self.actions:
+    def register(self, action: ActionDef, *, allow_override: bool = False) -> None:
+        if action.name in self.actions and not allow_override:
             raise ValueError(f"action already registered: {action.name}")
         self.actions[action.name] = action
 

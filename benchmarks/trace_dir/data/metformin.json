@@ -1,0 +1,498 @@
+{
+"snippets": [
+{
+"snippet_id": "metformin_lead_use_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Lead",
+"text": "Metformin, sold under the brand name Glucophage, among others, is the main first-line medication for the treatment of type 2 diabetes, particularly in people who are overweight. It is also used in the treatment of polycystic ovary syndrome, and is sometimes used as an off-label adjunct to lessen the risk of metabolic syndrome in people who take antipsychotic medication."
+},
+{
+"snippet_id": "metformin_lead_adverse_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Lead",
+"text": "Metformin is generally well tolerated. Common adverse effects include diarrhea, nausea, and abdominal pain. It has a small risk of causing low blood sugar. High blood lactic acid level (acidosis) is a concern if the medication is used in overly large doses or prescribed to people with severe kidney problems."
+},
+{
+"snippet_id": "metformin_lead_class_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Lead",
+"text": "Metformin is a biguanide anti-hyperglycemic agent. It works by decreasing glucose production in the liver, increasing the insulin sensitivity of body tissues, and increasing GDF15 secretion, which reduces appetite and caloric intake."
+},
+{
+"snippet_id": "metformin_medical_uses_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Medical uses",
+"text": "Metformin is used to lower blood glucose in those with type 2 diabetes. It has also been used to help with metabolic abnormalities in polycystic ovary syndrome, and as a second-line agent for infertility in those with polycystic ovary syndrome."
+},
+{
+"snippet_id": "metformin_type_2_diabetes_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Medical uses / Type 2 diabetes",
+"text": "The American Diabetes Association and the American College of Physicians both recommend metformin as a first-line agent to treat type 2 diabetes. It is as effective as repaglinide and more effective than all other oral drugs for type 2 diabetes."
+},
+{
+"snippet_id": "metformin_efficacy_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Medical uses / Type 2 diabetes / Efficacy",
+"text": "Some evidence shows that metformin is associated with weight loss in obesity in the absence of diabetes. Metformin has a lower risk of hypoglycemia than the sulfonylureas, although hypoglycemia has uncommonly occurred during intense exercise, calorie deficit, or when used with other agents to lower blood glucose."
+},
+{
+"snippet_id": "metformin_weight_change_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Medical uses / Weight change",
+"text": "Metformin use is typically associated with weight loss. It appears to be safe and effective in counteracting the weight gain caused by the antipsychotic medications olanzapine and clozapine."
+},
+{
+"snippet_id": "metformin_insulin_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Medical uses / Use with insulin",
+"text": "Metformin may reduce the insulin requirement in type 1 diabetes, albeit with an increased risk of hypoglycemia."
+},
+{
+"snippet_id": "metformin_contraindications_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Contraindications",
+"text": "Metformin is contraindicated in people with: Severe renal impairment (estimated glomerular filtration rate (eGFR) below 30 mL/min/1.73 m2); Known hypersensitivity to metformin; Acute or chronic metabolic acidosis, including diabetic ketoacidosis (from uncontrolled diabetes), with or without coma."
+},
+{
+"snippet_id": "metformin_adverse_effects_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Adverse effects",
+"text": "The most common adverse effect of metformin is gastrointestinal irritation, including diarrhea, cramps, nausea, vomiting, and increased flatulence. Metformin is more commonly associated with gastrointestinal adverse effects than most other antidiabetic medications. The most serious potential adverse effect of metformin is lactic acidosis; this complication is rare, and seems to be related to impaired liver or kidney function."
+},
+{
+"snippet_id": "metformin_gastrointestinal_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Adverse effects / Gastrointestinal",
+"text": "Gastrointestinal upset can cause severe discomfort; it is most common when metformin is first administered, or when the dose is increased."
+},
+{
+"snippet_id": "metformin_vitamin_b12_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Adverse effects / Gastrointestinal / Vitamin B12",
+"text": "Metformin treatment has been associated with reductions in vitamin B12 in certain people. Left untreated, vitamin B12 deficiencies can lead to serious health problems including neurological problems and anemia."
+},
+{
+"snippet_id": "metformin_lactic_acidosis_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Adverse effects / Lactic acidosis",
+"text": "Given severely impaired kidney function, clearance of metformin and lactate is reduced, increasing levels of both, and possibly causing lactic acid buildup. Because metformin decreases liver uptake of lactate, any condition that may precipitate lactic acidosis is a contraindication."
+},
+{
+"snippet_id": "metformin_lactic_acidosis_02",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Adverse effects / Lactic acidosis",
+"text": "Common causes include alcoholism (due to depletion of NAD+ stores), heart failure, and respiratory disease (due to inadequate tissue oxygenation); the most common cause is kidney disease."
+},
+{
+"snippet_id": "metformin_interactions_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Adverse effects / Interactions",
+"text": "Metformin also interacts with anticholinergic medications, due to their effect on gastric motility. Anticholinergic drugs reduce gastric motility, prolonging the time drugs spend in the gastrointestinal tract. This impairment may lead to more metformin being absorbed than without the presence of an anticholinergic drug, thereby increasing the concentration of metformin in the plasma and increasing the risk for adverse effects."
+},
+{
+"snippet_id": "metformin_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Pharmacology / Mechanism of action",
+"text": "Multiple potential mechanisms of action have been proposed: inhibition of the mitochondrial respiratory chain (complex I), activation of AMP-activated protein kinase (AMPK), inhibition of glucagon-induced elevation of cyclic adenosine monophosphate (cAMP) with reduced activation of protein kinase A (PKA), complex IV-mediated inhibition of the GPD2 variant of mitochondrial glycerol-3-phosphate dehydrogenase (thereby reducing the contribution of glycerol to hepatic gluconeogenesis), and an effect on gut microbiota."
+},
+{
+"snippet_id": "metformin_mechanism_02",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Pharmacology / Mechanism of action",
+"text": "Metformin exerts an anorexiant effect in most people, decreasing caloric intake. Metformin decreases gluconeogenesis (glucose production) in the liver."
+},
+{
+"snippet_id": "metformin_mechanism_03",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Pharmacology / Mechanism of action",
+"text": "Metformin inhibits cyclic AMP production, blocking the action of glucagon, and thereby reducing fasting glucose levels."
+},
+{
+"snippet_id": "metformin_mechanism_04",
+"source": "[https://en.wikipedia.org/wiki/Metformin](https://en.wikipedia.org/wiki/Metformin)",
+"section": "Pharmacology / Mechanism of action",
+"text": "Metformin has indirect antiandrogenic effects in women with insulin resistance, such as those with PCOS, due to its beneficial effects on insulin sensitivity."
+}
+],
+"extractions": [
+{
+"snippet_id": "metformin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "type 2 diabetes"
+},
+{
+"snippet_id": "metformin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "polycystic ovary syndrome"
+},
+{
+"snippet_id": "metformin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "metabolic syndrome risk reduction with antipsychotic medication"
+},
+{
+"snippet_id": "metformin_lead_adverse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "diarrhea"
+},
+{
+"snippet_id": "metformin_lead_adverse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nausea"
+},
+{
+"snippet_id": "metformin_lead_adverse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "abdominal pain"
+},
+{
+"snippet_id": "metformin_lead_adverse_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "low blood sugar"
+},
+{
+"snippet_id": "metformin_lead_adverse_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severe kidney problem"
+},
+{
+"snippet_id": "metformin_lead_class_mechanism_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "biguanide anti-hyperglycemic agent"
+},
+{
+"snippet_id": "metformin_lead_class_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "decreases liver glucose production"
+},
+{
+"snippet_id": "metformin_lead_class_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases insulin sensitivity"
+},
+{
+"snippet_id": "metformin_lead_class_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases GDF15 secretion"
+},
+{
+"snippet_id": "metformin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "blood glucose lowering in type 2 diabetes"
+},
+{
+"snippet_id": "metformin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "metabolic abnormality in polycystic ovary syndrome"
+},
+{
+"snippet_id": "metformin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "infertility in polycystic ovary syndrome"
+},
+{
+"snippet_id": "metformin_type_2_diabetes_01",
+"label": "medical_use",
+"type": "indication",
+"text": "type 2 diabetes"
+},
+{
+"snippet_id": "metformin_efficacy_01",
+"label": "medical_use",
+"type": "indication",
+"text": "weight loss in obesity"
+},
+{
+"snippet_id": "metformin_efficacy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypoglycemia"
+},
+{
+"snippet_id": "metformin_weight_change_01",
+"label": "medical_use",
+"type": "indication",
+"text": "weight loss"
+},
+{
+"snippet_id": "metformin_weight_change_01",
+"label": "medical_use",
+"type": "indication",
+"text": "antipsychotic-associated weight gain"
+},
+{
+"snippet_id": "metformin_insulin_01",
+"label": "medical_use",
+"type": "indication",
+"text": "reduced insulin requirement in type 1 diabetes"
+},
+{
+"snippet_id": "metformin_insulin_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypoglycemia"
+},
+{
+"snippet_id": "metformin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severe renal impairment"
+},
+{
+"snippet_id": "metformin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "metformin hypersensitivity"
+},
+{
+"snippet_id": "metformin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "acute metabolic acidosis"
+},
+{
+"snippet_id": "metformin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "chronic metabolic acidosis"
+},
+{
+"snippet_id": "metformin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "diabetic ketoacidosis"
+},
+{
+"snippet_id": "metformin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "coma"
+},
+{
+"snippet_id": "metformin_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "gastrointestinal irritation"
+},
+{
+"snippet_id": "metformin_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "cramp"
+},
+{
+"snippet_id": "metformin_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "vomiting"
+},
+{
+"snippet_id": "metformin_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "flatulence"
+},
+{
+"snippet_id": "metformin_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "lactic acidosis"
+},
+{
+"snippet_id": "metformin_adverse_effects_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "impaired liver function"
+},
+{
+"snippet_id": "metformin_adverse_effects_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "impaired kidney function"
+},
+{
+"snippet_id": "metformin_gastrointestinal_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "gastrointestinal upset"
+},
+{
+"snippet_id": "metformin_vitamin_b12_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "reduced vitamin B12"
+},
+{
+"snippet_id": "metformin_vitamin_b12_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "vitamin B12 deficiency"
+},
+{
+"snippet_id": "metformin_vitamin_b12_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "neurological problem"
+},
+{
+"snippet_id": "metformin_vitamin_b12_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "anemia"
+},
+{
+"snippet_id": "metformin_lactic_acidosis_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severely impaired kidney function"
+},
+{
+"snippet_id": "metformin_lactic_acidosis_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "condition precipitating lactic acidosis"
+},
+{
+"snippet_id": "metformin_lactic_acidosis_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "decreases liver uptake of lactate"
+},
+{
+"snippet_id": "metformin_lactic_acidosis_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "alcoholism"
+},
+{
+"snippet_id": "metformin_lactic_acidosis_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "heart failure"
+},
+{
+"snippet_id": "metformin_lactic_acidosis_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "respiratory disease"
+},
+{
+"snippet_id": "metformin_lactic_acidosis_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "kidney disease"
+},
+{
+"snippet_id": "metformin_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "anticholinergic medication use"
+},
+{
+"snippet_id": "metformin_interactions_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "anticholinergic drugs reduce gastric motility"
+},
+{
+"snippet_id": "metformin_interactions_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "increases metformin absorption"
+},
+{
+"snippet_id": "metformin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits mitochondrial respiratory chain complex I"
+},
+{
+"snippet_id": "metformin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "activates AMP-activated protein kinase"
+},
+{
+"snippet_id": "metformin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits glucagon-induced cyclic AMP elevation"
+},
+{
+"snippet_id": "metformin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces protein kinase A activation"
+},
+{
+"snippet_id": "metformin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits mitochondrial glycerol-3-phosphate dehydrogenase"
+},
+{
+"snippet_id": "metformin_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "affects gut microbiota"
+},
+{
+"snippet_id": "metformin_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "decreases caloric intake"
+},
+{
+"snippet_id": "metformin_mechanism_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "decreases liver gluconeogenesis"
+},
+{
+"snippet_id": "metformin_mechanism_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits cyclic AMP production"
+},
+{
+"snippet_id": "metformin_mechanism_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "blocks glucagon action"
+},
+{
+"snippet_id": "metformin_mechanism_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces fasting glucose"
+},
+{
+"snippet_id": "metformin_mechanism_04",
+"label": "mechanism",
+"type": "mechanism",
+"text": "indirect antiandrogenic effect"
+},
+{
+"snippet_id": "metformin_mechanism_04",
+"label": "mechanism",
+"type": "mechanism",
+"text": "improves insulin sensitivity"
+}
+]
+}

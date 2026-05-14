@@ -1,0 +1,13 @@
+{
+  "extraction_id": "paracetamol_contraindicated_for_infant_liver_disease",
+  "snippet_id": "paracetamol_breastfeeding_warning_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Paracetamol"
+  },
+  "object": {
+    "type": "condition",
+    "value": "infant liver disease"
+  }
+}

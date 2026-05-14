@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_treats_condition_shortness_of_breath",
+  "snippet_id": "morphine_medical_uses_breathlessness_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "condition",
+    "value": "shortness of breath"
+  }
+}

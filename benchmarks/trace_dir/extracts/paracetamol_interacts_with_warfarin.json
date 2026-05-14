@@ -1,0 +1,13 @@
+{
+  "extraction_id": "paracetamol_interacts_with_warfarin",
+  "snippet_id": "paracetamol_interactions_warfarin_01",
+  "label": "interacts_with",
+  "subject": {
+    "type": "drug",
+    "value": "Paracetamol"
+  },
+  "object": {
+    "type": "drug",
+    "value": "Warfarin"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "paracetamol_treats_condition_fever_reduction",
+  "snippet_id": "paracetamol_medical_uses_fever_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Paracetamol"
+  },
+  "object": {
+    "type": "condition",
+    "value": "fever reduction"
+  }
+}

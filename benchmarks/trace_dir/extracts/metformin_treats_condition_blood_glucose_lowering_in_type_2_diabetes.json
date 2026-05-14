@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_treats_condition_blood_glucose_lowering_in_type_2_diabetes",
+  "snippet_id": "metformin_medical_uses_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "blood glucose lowering in type 2 diabetes"
+  }
+}

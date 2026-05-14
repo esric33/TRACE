@@ -1,0 +1,9 @@
+{
+  "snippet_id": "warfarin_pregnancy_01",
+  "text": "Warfarin is contraindicated in pregnancy, as it passes through the placental barrier and may cause bleeding in the fetus; warfarin use during pregnancy is commonly associated with spontaneous abortion, stillbirth, neonatal death, and preterm birth.",
+  "source": "https://en.wikipedia.org/wiki/Warfarin",
+  "meta": {
+    "drug": "Warfarin",
+    "section": "Contraindications / Pregnancy"
+  }
+}

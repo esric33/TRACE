@@ -1,0 +1,13 @@
+{
+  "extraction_id": "aspirin_treats_condition_acute_pain",
+  "snippet_id": "aspirin_pain_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Aspirin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "acute pain"
+  }
+}

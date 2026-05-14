@@ -3,16 +3,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import StrEnum
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 from TRACE.shared.io import read_json
 
 Quantity = Dict[str, Any]
 Period = Dict[str, Any]
 ModelFact = Dict[str, Any]
-LookupFn = Callable[
-    [str, str, Dict[str, Any], Dict[str, List[Dict[str, Any]]]], Dict[str, Any]
-]
 
 
 class ExecErrorCode(StrEnum):
@@ -22,7 +19,7 @@ class ExecErrorCode(StrEnum):
     BAD_REF = "E_bad_ref"
     BAD_NODE = "E_bad_node"
     BAD_OP = "E_bad_op"
-    LOOKUP_FAILED = "E_lookup_failed"
+    BAD_OUTPUT = "E_bad_output"
     PLANNER_INVALID = "E_planner_invalid"
     TYPE_MISMATCH = "E_type_mismatch"
     UNIT_MISMATCH = "E_unit_mismatch"
@@ -38,7 +35,6 @@ class ExecErrorCode(StrEnum):
 
 class ExecPhase(StrEnum):
     ACTION = "action"
-    LOOKUP = "lookup"
     PLANNER = "planner"
     RUNTIME = "runtime"
     SUPPORT = "support"
@@ -159,7 +155,11 @@ def exec_error(
 def exec_error_to_dict(error: ExecError | None) -> Dict[str, Any] | None:
     if error is None:
         return None
-    return {"code": error.code, "message": error.message, "data": dict(error.data or {})}
+    return {
+        "code": error.code,
+        "message": error.message,
+        "data": dict(error.data or {}),
+    }
 
 
 def load_extract_store(extracts_dir: Path) -> Dict[str, List[Dict[str, Any]]]:
@@ -253,6 +253,25 @@ def convert_scale(quantity: Quantity, target_scale: int | float) -> Quantity:
             arg="target_scale",
             got=target_scale,
         )
+
+    if not isinstance(quantity.get("value"), (int, float)):
+        raise exec_error(
+            ExecErrorCode.BAD_ARGS,
+            "quantity value must be a number for scale conversion",
+            phase=ExecPhase.SUPPORT,
+            arg="quantity.value",
+            got=quantity.get("value"),
+        )
+
+    if not isinstance(quantity.get("scale"), (int, float)):
+        raise exec_error(
+            ExecErrorCode.BAD_ARGS,
+            "quantity scale must be a number for scale conversion",
+            phase=ExecPhase.SUPPORT,
+            arg="quantity.scale",
+            got=quantity.get("scale"),
+        )
+
     value = quantity["value"]
     source_scale = quantity["scale"]
     new_value = (value * source_scale) / target_scale
@@ -275,7 +294,6 @@ __all__ = [
     "ExecError",
     "ExecErrorCode",
     "ExecPhase",
-    "LookupFn",
     "ModelFact",
     "Period",
     "Quantity",

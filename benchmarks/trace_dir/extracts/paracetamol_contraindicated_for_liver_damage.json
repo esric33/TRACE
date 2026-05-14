@@ -1,0 +1,13 @@
+{
+  "extraction_id": "paracetamol_contraindicated_for_liver_damage",
+  "snippet_id": "paracetamol_adverse_effects_long_term_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Paracetamol"
+  },
+  "object": {
+    "type": "condition",
+    "value": "liver damage"
+  }
+}

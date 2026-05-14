@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_treats_condition_thromboembolic_complication_prevention_after_cardiac_valve_replacement",
+  "snippet_id": "warfarin_medical_uses_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "thromboembolic complication prevention after cardiac valve replacement"
+  }
+}

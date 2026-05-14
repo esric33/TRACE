@@ -6,6 +6,7 @@ import unittest
 from dataclasses import dataclass
 from pathlib import Path
 
+from TRACE.core.actions import build_registry_for_benchmark
 from TRACE.core.benchmarks.loader import load_benchmark
 from TRACE.core.benchmarks.types import BenchmarkDef, ExistsKey, PromptGuidance
 from TRACE.generation.generation_types import (
@@ -20,7 +21,7 @@ from TRACE.generation.generation_types import (
     VarSpec,
 )
 from TRACE.providers.shared.dag_validator import validate_dag_obj
-from TRACE.providers.shared.prompt import build_lookup_prompt, build_planner_prompt
+from TRACE.providers.shared.prompt import build_planner_prompt
 from TRACE.generation.sampler import sample_k_bindings_fast
 from TRACE.core.compiler.lower import lower_spec
 from TRACE.generation.expr import LookupQty
@@ -69,7 +70,6 @@ def _benchmark(
     *,
     allowed_actions=None,
     load_allowed_labels=None,
-    format_lookup_query=None,
     derive_slots=None,
     build_exists_key=None,
     sampler_constraint_vars=None,
@@ -90,15 +90,8 @@ def _benchmark(
         register_actions=lambda _registry: None,
         load_extracts=lambda _path: [],
         load_allowed_labels=load_allowed_labels or (lambda _path: ["revenue"]),
-        format_lookup_query=format_lookup_query
-        or (
-            lambda record: (
-                f"Extract the fact for: company={record.company} label={record.label}; "
-                f"period={record.period_kind} {record.period_value}. "
-                "Return a ModelFact with snippet_id, label, period, quantity."
-            )
-        ),
         derive_slots=derive_slots or (lambda record: dict(record.slots)),
+        build_planner_prompt=None,
         build_exists_key=build_exists_key,
         sampler_constraint_vars=sampler_constraint_vars,
         sampler_constraint_ok=sampler_constraint_ok,
@@ -285,7 +278,7 @@ class SamplerSlotTests(unittest.TestCase):
             ),
         )
         self.assertIn(
-            "label/metric + company + period",
+            "MODEL_FACT nodes",
             "\n".join(benchmark_def.prompt_guidance.planner_grounding_rules),
         )
         self.assertEqual(
@@ -300,18 +293,11 @@ class SamplerSlotTests(unittest.TestCase):
     def test_prompt_guidance_hooks_are_inserted(self) -> None:
         benchmark_def = _benchmark(
             prompt_guidance=PromptGuidance(
-                lookup_rules=("- Benchmark lookup hint.",),
                 planner_grounding_rules=("- Benchmark grounding hint.",),
                 planner_minimality_rules=("- Benchmark minimality hint.",),
             )
         )
 
-        lookup_prompt = build_lookup_prompt(
-            "find revenue",
-            "snippet_1: Revenue was 10",
-            ["revenue"],
-            benchmark_def=benchmark_def,
-        )
         planner_prompt = build_planner_prompt(
             {
                 "question": "What was revenue?",
@@ -320,30 +306,28 @@ class SamplerSlotTests(unittest.TestCase):
             benchmark_def=benchmark_def,
         )
 
-        self.assertIn("Benchmark lookup hint.", lookup_prompt)
         self.assertIn("Benchmark grounding hint.", planner_prompt)
         self.assertIn("Benchmark minimality hint.", planner_prompt)
 
     def test_planner_prompt_uses_operator_specs(self) -> None:
+        benchmark_def = load_benchmark("trace_ufr")
+        registry = build_registry_for_benchmark(benchmark_def)
         planner_prompt = build_planner_prompt(
             {
                 "question": "What was revenue?",
                 "context": {"snippets": [{"snippet_id": "snippet_1", "text": "Revenue was 10"}]},
             },
-            benchmark_def=load_benchmark("trace_ufr"),
+            benchmark_def=benchmark_def,
         )
 
-        self.assertIn('- TEXT_LOOKUP: {"query": string}', planner_prompt)
-        self.assertIn('- GET_QUANTITY: {"fact": "ref:<id>"}', planner_prompt)
-        self.assertIn('- FX_LOOKUP: {"series_id": string, "year": number}', planner_prompt)
+        self.assertIn(registry.require("MODEL_FACT").prompt_doc(), planner_prompt)
+        self.assertIn(registry.require("FX_LOOKUP").prompt_doc(), planner_prompt)
 
-    def test_lookup_query_formatter_hook_is_used_during_lowering(self) -> None:
-        benchmark_def = _benchmark(
-            format_lookup_query=lambda record: f"CUSTOM QUERY FOR {record.extraction_id}",
-        )
+    def test_model_fact_node_contains_bound_record_content(self) -> None:
+        benchmark_def = _benchmark(allowed_actions={"MODEL_FACT"})
         record = _record("a1", company="Acme")
         spec = Spec(
-            template_id="lookup_formatter",
+            template_id="fact_formatter",
             vars={"A": VarSpec(qtype_in=["money"])},
             ast=LookupQty("A"),
             render_question=lambda _bindings, _compiled: "",
@@ -351,9 +335,12 @@ class SamplerSlotTests(unittest.TestCase):
         )
 
         compiled = lower_spec(spec, {"A": record}, benchmark_def=benchmark_def, seed=0)
-        [lookup_node] = [node for node in compiled.dag["nodes"] if node["op"] == "TEXT_LOOKUP"]
+        [fact_node] = [node for node in compiled.dag["nodes"] if node["op"] == "MODEL_FACT"]
 
-        self.assertEqual(lookup_node["args"]["query"], "CUSTOM QUERY FOR a1")
+        self.assertEqual(fact_node["args"]["snippet_id"], record.snippet_id)
+        self.assertEqual(fact_node["args"]["label"], record.label)
+        self.assertEqual(fact_node["args"]["period"], record.period)
+        self.assertEqual(fact_node["args"]["quantity"], record.quantity)
 
     def test_validator_hook_runs_after_core_validation(self) -> None:
         seen: list[dict[str, object]] = []

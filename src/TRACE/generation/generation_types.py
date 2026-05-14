@@ -15,15 +15,19 @@ class ExtractRecord:
     extraction_id: str
     snippet_id: str
     label: str
-    period: Period
-    quantity: Quantity
+    period: Period = field(default_factory=dict)
+    quantity: Quantity = field(default_factory=dict)
     company: str = ""
     metric_key: str = ""
     metric_role: str = ""
+    subject: Dict[str, Any] = field(default_factory=dict)
+    object: Dict[str, Any] = field(default_factory=dict)
     slots: Dict[str, Any] = field(default_factory=dict)
 
     @property
     def qtype(self) -> str:
+        if not self.quantity:
+            return "relation"
         return str(self.quantity.get("type"))
 
     @property
@@ -60,6 +64,10 @@ class ExtractRecord:
             "metric_key": self.metric_key,
             "metric_role": self.metric_role,
             "label": self.label,
+            "subject_type": self.subject.get("type"),
+            "subject_value": self.subject.get("value"),
+            "object_type": self.object.get("type"),
+            "object_value": self.object.get("value"),
             "period": (self.period_kind, self.period_value),
             "period_kind": self.period_kind,
             "period_value": self.period_value,
@@ -79,15 +87,20 @@ class ExtractRecord:
             raise ValueError(
                 f"extract slots must be an object: {d.get('extraction_id') or '<unknown>'}"
             )
+        if not d.get("extraction_id") or not isinstance(d["extraction_id"], str):
+            raise ValueError(f"extract missing extraction_id: {d}")
+
         return ExtractRecord(
             extraction_id=d["extraction_id"],
             snippet_id=d["snippet_id"],
             label=d["label"],
-            period=d["period"],
-            quantity=d["quantity"],
+            period=d.get("period") or {},
+            quantity=d.get("quantity") or {},
             company=str(d.get("company", "")).strip(),
             metric_key=str(d.get("metric_key", "")).strip(),
             metric_role=str(d.get("metric_role", "")).strip(),
+            subject=dict(d.get("subject") or {}),
+            object=dict(d.get("object") or {}),
             slots=dict(slots),
         )
 
@@ -127,12 +140,15 @@ class VarSpec:
     # NEW:
     metric_role_in: Optional[List[str]] = None  # ["amount"] or ["rate"]
     metric_key_in: Optional[List[str]] = None  # optional, usually None
+    subject_value_in: Optional[List[str]] = None
+    object_type_in: Optional[List[str]] = None
+    object_value_in: Optional[List[str]] = None
 
 
 @dataclass  # (frozen=True)
 class CompiledPlan:
     dag: Dict[str, Any]
-    lookup_map: Dict[str, str]
+    fact_map: Dict[str, str]
     snippet_ids: List[str]
     operators: List[str]
     meta: Dict[str, Any]

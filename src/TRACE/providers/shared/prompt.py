@@ -1,83 +1,22 @@
 from __future__ import annotations
 
+import json
 from typing import Any, Dict
 
 from TRACE.core.actions import build_registry_for_benchmark
 from TRACE.core.benchmarks.loader import load_benchmark
 
 
-def build_lookup_prompt(
-    query: str, snippet_text: str, allowed_labels: list[str], *, benchmark_def=None
-) -> str:
-    if benchmark_def is None:
-        benchmark_def = load_benchmark("trace_ufr")
-
-    labels_block = ", ".join(allowed_labels)
-    extra_lookup_rules = "\n".join(benchmark_def.prompt_guidance.lookup_rules)
-    if extra_lookup_rules:
-        extra_lookup_rules = "\n" + extra_lookup_rules
-    return f"""
-Return ONLY one JSON object. No markdown. No code fences.
-
-REQUIRED JSON SHAPE:
-{{
-  "snippet_id": "<one of the snippet ids in TEXT>",
-  "label": "<one of ALLOWED LABELS>",
-  "period": {{
-    "period": "FY" | "Q" | "ASOF",
-    "value": <see PERIOD NORMALIZATION>
-  }},
-  "quantity": {{
-    "value": <number>,
-    "unit": "USD" | "EUR" | "JPY" | "TWD" | "GBP" | "KRW" | "RMB" | "CHF" | "percent" | "items" | "people",
-    "scale": <number like 1, 1000, 1000000, 1000000000>,
-    "type": "money" | "rate" | "per_share" | "count"
-  }}
-}}
-
-CORE RULES:
-- Output must be valid JSON and match the shape above exactly (no extra keys).
-- snippet_id MUST be copied exactly from one of the snippet blocks in TEXT.
-- The extracted value MUST appear verbatim in that same snippet block.
-
-LABEL RULES:
-- label MUST be exactly one of ALLOWED LABELS below.
-- Do NOT paraphrase or invent labels.
-- Choose the MOST SPECIFIC applicable label.
-
-PERIOD NORMALIZATION (critical):
-- period MUST be one of: FY | Q | ASOF
-- FY -> integer year (e.g. FY24 -> 2024)
-- Q  -> "Qn YYYY" (e.g. "Q4 2024")
-- ASOF -> "YYYY-MM-DD"
-
-QUANTITY RULES (critical):
-- Use unit codes only (no symbols, no words).
-- Percentages MUST use unit="percent".
-- Put thousands/millions/billions into quantity.scale.
-- quantity.value must be the stated numeric value (no extra math, no rounding).
-- quantity.type must be consistent with the fact (money / rate / per_share / count).
-
-TASK:
-Extract ONE directly stated fact from TEXT that answers QUERY.
-If the exact answer is not stated, return the closest directly stated fact.{extra_lookup_rules}
-
-ALLOWED LABELS:
-[{labels_block}]
-
-QUERY:
-{query}
-
-TEXT:
-{snippet_text}
-""".strip()
-
-
 def _planner_operator_block(benchmark_def) -> str:
     registry = build_registry_for_benchmark(benchmark_def)
     ordered_ops = (
-        "TEXT_LOOKUP",
-        "GET_QUANTITY",
+        "MODEL_FACT",
+        "MAKE_SET",
+        "SET_UNION",
+        "SET_INTERSECT",
+        "SET_DIFF",
+        "SET_SIZE",
+        "SET_CONTAINS",
         "CONVERT_SCALE",
         "FX_LOOKUP",
         "CPI_LOOKUP",
@@ -105,19 +44,32 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
     if benchmark_def is None:
         benchmark_def = load_benchmark("trace_ufr")
 
+    if benchmark_def.build_planner_prompt is not None:
+        return benchmark_def.build_planner_prompt(capsule, benchmark_def)
+
     ctx = "\n\n".join(
         [f"[{s['snippet_id']}]\n{s['text']}" for s in capsule["context"]["snippets"]]
     )
 
     allowed_ops_block = _planner_operator_block(benchmark_def)
+    allowed_labels = benchmark_def.load_allowed_labels(benchmark_def.schemas_dir)
     include_fx = "FX_LOOKUP" in benchmark_def.allowed_actions
     include_cpi = "CPI_LOOKUP" in benchmark_def.allowed_actions
+    include_scale = "CONVERT_SCALE" in benchmark_def.allowed_actions
+    include_add = "ADD" in benchmark_def.allowed_actions
 
-    compatibility_lines = [
-        "- ADD / GT / LT / EQ require both inputs to match type, unit, and scale.",
-        "- If scales differ, use CONVERT_SCALE before ADD/GT/LT/EQ.",
-    ]
-    compatibility_lines.extend(benchmark_def.prompt_guidance.planner_compatibility_rules)
+    compatibility_lines = []
+    if include_add:
+        compatibility_lines.append(
+            "- ADD / GT / LT / EQ require both inputs to match type, unit, and scale."
+        )
+    if include_scale:
+        compatibility_lines.append(
+            "- If scales differ, use CONVERT_SCALE before ADD/GT/LT/EQ."
+        )
+    compatibility_lines.extend(
+        benchmark_def.prompt_guidance.planner_compatibility_rules
+    )
     if include_fx:
         compatibility_lines.append(
             "- If currencies differ, convert using FX_LOOKUP + MUL."
@@ -137,14 +89,16 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
             [
                 "- CPI: inflation adjustment of money between years (real terms / price-level adjustment).",
                 "- Only use CPI when explicitly requested.",
-                "- Money must be in USD for CPI adjustment.",
+                "- Money must be in USD for CPI adjustment."
+                "- use CPI_US_CPIU series id for CPI_LOOKUP",
             ]
         )
 
-    default_ordering = [
-        "1) Retrieve facts: TEXT_LOOKUP -> GET_QUANTITY",
-        "2) If a specific output scale is requested, CONVERT_SCALE to that target scale",
-    ]
+    default_ordering = ["1) Extract required facts with MODEL_FACT nodes"]
+    if include_scale:
+        default_ordering.append(
+            "2) If a specific output scale is requested, CONVERT_SCALE to that target scale"
+        )
     if include_fx:
         default_ordering.append(
             "3) If currency conversion is needed, FX_LOOKUP(year) then MUL(money, fx_rate)"
@@ -153,13 +107,17 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
         default_ordering.append(
             "4) If inflation adjustment is needed, CPI_LOOKUP(from_year,to_year) then MUL(money, cpi_rate)"
         )
-    default_ordering.append("5) Combine/compare: ADD or GT/LT/EQ")
+    if include_add:
+        default_ordering.append("5) Combine/compare: ADD or GT/LT/EQ")
     default_ordering.extend(benchmark_def.prompt_guidance.planner_default_ordering)
 
     grounding_lines = [
-        "- All required facts MUST come from CONTEXT via TEXT_LOOKUP, then GET_QUANTITY.",
+        "- All required facts MUST come from CONTEXT via MODEL_FACT nodes.",
+        "- Each MODEL_FACT node must assert exactly one atomic extracted fact.",
+        "- Each MODEL_FACT must copy one directly stated fact from the referenced snippet.",
         "- Do NOT invent values.",
-        "- Do NOT compute values inside TEXT_LOOKUP queries.",
+        "- Do NOT compute values inside MODEL_FACT nodes.",
+        "- If a question needs multiple facts, use multiple MODEL_FACT nodes and combine them with the appropriate operator.",
     ]
     grounding_lines.extend(benchmark_def.prompt_guidance.planner_grounding_rules)
 
@@ -168,6 +126,21 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
         "- Do not do conversions unless required by the question or operator compatibility.",
     ]
     minimality_lines.extend(benchmark_def.prompt_guidance.planner_minimality_rules)
+
+    model_fact_schema_path = benchmark_def.schemas_dir / "model_fact.json"
+    if model_fact_schema_path.exists():
+        model_fact_schema = json.loads(model_fact_schema_path.read_text(encoding="utf-8"))
+    else:
+        model_fact_schema = {
+            "snippet_id": "<one of the snippet ids in CONTEXT>",
+            "label": "<one of ALLOWED LABELS>",
+        }
+    prompt_supplement = ""
+    if benchmark_def.build_planner_prompt_supplement is not None:
+        prompt_supplement = benchmark_def.build_planner_prompt_supplement(
+            capsule,
+            benchmark_def,
+        ).strip()
 
     return (
         "Return ONLY a JSON object. No markdown. No extra keys.\n"
@@ -178,9 +151,7 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
         "- Node ids must be unique and look like n1, n2, n3, ...\n"
         '- References to prior nodes MUST be strings like "ref:n7".\n'
         "- dag.output MUST be a ref to the final node.\n\n"
-        "GROUNDING (non-negotiable):\n"
-        + "\n".join(grounding_lines)
-        + "\n\n"
+        "GROUNDING (non-negotiable):\n" + "\n".join(grounding_lines) + "\n\n"
         "COMPATIBILITY RULES:\n"
         + "\n".join(compatibility_lines)
         + "\n\n"
@@ -192,6 +163,13 @@ def build_planner_prompt(capsule: Dict[str, Any], *, benchmark_def=None) -> str:
         + "ALLOWED OPERATORS (args schema):\n"
         + allowed_ops_block
         + "\n\n"
+        + "MODEL_FACT SCHEMA:\n"
+        + json.dumps(model_fact_schema, indent=2, ensure_ascii=False)
+        + "\n\n"
+        + "ALLOWED LABELS:\n"
+        + json.dumps(allowed_labels, ensure_ascii=False)
+        + "\n\n"
+        + ((prompt_supplement + "\n\n") if prompt_supplement else "")
         + "MINIMALITY:\n"
         + "\n".join(minimality_lines)
         + "\n\n"

@@ -1,0 +1,9 @@
+{
+  "snippet_id": "warfarin_contraindications_01",
+  "text": "All anticoagulants are generally contraindicated in situations in which the reduction in clotting that they cause might lead to serious and potentially life-threatening bleeds. This includes people with active bleeding conditions (such as gastrointestinal ulcers), or disease states with increased risk of bleeding (e.g., low platelets, severe liver disease, uncontrolled hypertension). For patients undergoing surgery, treatment with anticoagulants is generally suspended.",
+  "source": "https://en.wikipedia.org/wiki/Warfarin",
+  "meta": {
+    "drug": "Warfarin",
+    "section": "Contraindications"
+  }
+}

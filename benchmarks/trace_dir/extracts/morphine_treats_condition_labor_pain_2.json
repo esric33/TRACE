@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_treats_condition_labor_pain_2",
+  "snippet_id": "morphine_medical_uses_pain_02",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "condition",
+    "value": "labor pain"
+  }
+}

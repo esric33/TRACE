@@ -1,0 +1,13 @@
+{
+  "extraction_id": "insulin_contraindicated_for_excess_insulin",
+  "snippet_id": "insulin_medication_challenges_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Insulin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "excess insulin"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "paracetamol_treats_condition_episodic_tension_headache",
+  "snippet_id": "paracetamol_lead_pain_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Paracetamol"
+  },
+  "object": {
+    "type": "condition",
+    "value": "episodic tension headache"
+  }
+}

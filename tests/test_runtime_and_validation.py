@@ -36,7 +36,7 @@ class RuntimeAndValidationTests(unittest.TestCase):
             provider_ctx=type(
                 "ProviderCtx",
                 (),
-                {"lookup_fn": lambda *_args, **_kwargs: {}, "extracts_by_snippet": {}},
+                {"fact_fn": lambda *_args, **_kwargs: {}, "extracts_by_snippet": {}},
             )(),
             oracle_ctx=None,
             capsule=self.capsule,
@@ -64,7 +64,7 @@ class RuntimeAndValidationTests(unittest.TestCase):
                     "ProviderCtx",
                     (),
                     {
-                        "lookup_fn": lambda *_args, **_kwargs: {},
+                        "fact_fn": lambda *_args, **_kwargs: {},
                         "extracts_by_snippet": {},
                     },
                 )(),
@@ -92,7 +92,7 @@ class RuntimeAndValidationTests(unittest.TestCase):
                     "ProviderCtx",
                     (),
                     {
-                        "lookup_fn": lambda *_args, **_kwargs: {},
+                        "fact_fn": lambda *_args, **_kwargs: {},
                         "extracts_by_snippet": {},
                     },
                 )(),
@@ -145,18 +145,27 @@ class RuntimeAndValidationTests(unittest.TestCase):
                 "nodes": [
                     {
                         "id": "n1",
-                        "op": "TEXT_LOOKUP",
-                        "args": {"query": "company=Alphabet label=revenue period=FY 2022"},
+                        "op": "MODEL_FACT",
+                        "args": {
+                            "snippet_id": "alphabet_2022_revenue",
+                            "label": "revenue",
+                            "period": {"period": "FY", "value": 2022},
+                            "quantity": {
+                                "value": 282.8,
+                                "unit": "USD",
+                                "scale": 1000000000,
+                                "type": "money",
+                            },
+                        },
                     },
-                    {"id": "n2", "op": "GET_QUANTITY", "args": {"fact": "ref:n1"}},
                 ],
-                "output": "ref:n2",
+                "output": "ref:n1",
             }
         }
 
         dag = validate_dag_obj(planner, benchmark_def=self.benchmark_def)
 
-        self.assertEqual(dag["output"], "ref:n2")
+        self.assertEqual(dag["output"], "ref:n1")
 
     def test_validate_dag_obj_rejects_forward_reference(self) -> None:
         planner = {

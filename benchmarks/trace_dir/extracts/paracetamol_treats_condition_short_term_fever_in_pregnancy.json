@@ -1,0 +1,13 @@
+{
+  "extraction_id": "paracetamol_treats_condition_short_term_fever_in_pregnancy",
+  "snippet_id": "paracetamol_pregnancy_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Paracetamol"
+  },
+  "object": {
+    "type": "condition",
+    "value": "short-term fever in pregnancy"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_causes_side_effect_yellowing_skin",
+  "snippet_id": "atorvastatin_side_effects_other_10",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "effect",
+    "value": "yellowing skin"
+  }
+}

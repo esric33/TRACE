@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_treats_condition_stroke_prevention_in_valvular_heart_disease",
+  "snippet_id": "warfarin_lead_use_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "stroke prevention in valvular heart disease"
+  }
+}

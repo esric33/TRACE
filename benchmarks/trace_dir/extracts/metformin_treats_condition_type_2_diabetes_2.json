@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_treats_condition_type_2_diabetes_2",
+  "snippet_id": "metformin_type_2_diabetes_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "type 2 diabetes"
+  }
+}

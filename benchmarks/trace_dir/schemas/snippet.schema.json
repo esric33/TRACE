@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["snippet_id", "text", "source", "meta"],
+  "properties": {
+    "snippet_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["drug", "section"],
+      "properties": {
+        "drug": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

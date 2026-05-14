@@ -9,7 +9,8 @@ from TRACE.generation.generation_types import ExtractRecord
 type ExistsKey = tuple[tuple[str, object], ...]
 type RecordLoader = Callable[[Path], list[ExtractRecord]]
 type LabelLoader = Callable[[Path], list[str]]
-type LookupQueryFormatter = Callable[[ExtractRecord], str]
+type PlannerPromptBuilder = Callable[[dict[str, Any], Any], str]
+type PlannerPromptSupplementBuilder = Callable[[dict[str, Any], Any], str]
 type SlotDeriver = Callable[[ExtractRecord], Mapping[str, Any]]
 type ExistsKeyBuilder = Callable[[ExtractRecord], ExistsKey | None]
 type SamplerConstraintVars = Callable[[object], tuple[str, ...] | None]
@@ -23,7 +24,7 @@ type MaintenanceToolLister = Callable[[], Mapping[str, str]]
 
 @dataclass(frozen=True)
 class PromptGuidance:
-    lookup_rules: tuple[str, ...] = ()
+    fact_rules: tuple[str, ...] = ()
     planner_grounding_rules: tuple[str, ...] = ()
     planner_compatibility_rules: tuple[str, ...] = ()
     planner_default_ordering: tuple[str, ...] = ()
@@ -43,11 +44,12 @@ class BenchmarkDef:
     register_actions: Callable[[object], None]
     load_extracts: RecordLoader
     load_allowed_labels: LabelLoader
-    format_lookup_query: LookupQueryFormatter
     derive_slots: SlotDeriver
+    build_planner_prompt: PlannerPromptBuilder | None
     build_exists_key: ExistsKeyBuilder | None
     sampler_constraint_vars: SamplerConstraintVars | None
     sampler_constraint_ok: SamplerConstraintEvaluator | None
+    build_planner_prompt_supplement: PlannerPromptSupplementBuilder | None = None
     prompt_guidance: PromptGuidance = field(default_factory=PromptGuidance)
     validate_planner_dag: DagValidator | None = None
     list_maintenance_tools: MaintenanceToolLister | None = None

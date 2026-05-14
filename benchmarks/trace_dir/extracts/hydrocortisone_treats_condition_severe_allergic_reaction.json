@@ -1,0 +1,13 @@
+{
+  "extraction_id": "hydrocortisone_treats_condition_severe_allergic_reaction",
+  "snippet_id": "hydrocortisone_medical_uses_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Hydrocortisone"
+  },
+  "object": {
+    "type": "condition",
+    "value": "severe allergic reaction"
+  }
+}

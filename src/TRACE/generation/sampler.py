@@ -79,6 +79,21 @@ def _match_varspec(r: ExtractRecord, vs: VarSpec) -> bool:
         and r.slot("metric_key") not in vs.metric_key_in
     ):
         return False
+    if (
+        getattr(vs, "subject_value_in", None) is not None
+        and r.slot("subject_value") not in vs.subject_value_in
+    ):
+        return False
+    if (
+        getattr(vs, "object_type_in", None) is not None
+        and r.slot("object_type") not in vs.object_type_in
+    ):
+        return False
+    if (
+        getattr(vs, "object_value_in", None) is not None
+        and r.slot("object_value") not in vs.object_value_in
+    ):
+        return False
     return True
 
 

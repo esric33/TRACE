@@ -1,0 +1,9 @@
+{
+  "snippet_id": "paracetamol_overdose_02",
+  "text": "Toxicity of paracetamol is due to its quinone metabolite NAPQI and NAC also helps in neutralizing it. Kidney failure is also a possible side effect.",
+  "source": "https://en.wikipedia.org/wiki/Paracetamol",
+  "meta": {
+    "drug": "Paracetamol",
+    "section": "Overdose"
+  }
+}

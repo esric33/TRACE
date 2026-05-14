@@ -1,0 +1,660 @@
+{
+"snippets": [
+{
+"snippet_id": "morphine_lead_class_use_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Lead",
+"text": "Morphine, formerly known as morphium, is an opiate found naturally in opium, a dark brown resin produced by drying the latex of opium poppies (Papaver somniferum). It is mainly used as an analgesic (pain medication)."
+},
+{
+"snippet_id": "morphine_lead_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Lead",
+"text": "It acts directly on the central nervous system (CNS) to induce analgesia and alter perception and emotional response to pain."
+},
+{
+"snippet_id": "morphine_lead_use_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Lead",
+"text": "It can be taken for both acute pain and chronic pain and is frequently used for pain from myocardial infarction, kidney stones, and during labor."
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Lead",
+"text": "Common side effects of morphine include drowsiness, euphoria, nausea, dizziness, sweating, and constipation. Potentially serious side effects of morphine include decreased respiratory effort, vomiting, and low blood pressure. Morphine is highly addictive and prone to abuse."
+},
+{
+"snippet_id": "morphine_lead_pregnancy_warning_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Lead",
+"text": "Caution is advised for the use of morphine during pregnancy or breastfeeding, as it may affect the health of the baby."
+},
+{
+"snippet_id": "morphine_medical_uses_pain_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Medical uses / Pain",
+"text": "Morphine is used primarily to treat both acute and chronic severe pain."
+},
+{
+"snippet_id": "morphine_medical_uses_pain_02",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Medical uses / Pain",
+"text": "It is used for pain due to myocardial infarction and for labor pains."
+},
+{
+"snippet_id": "morphine_medical_uses_pain_03",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Medical uses / Pain",
+"text": "Morphine has also traditionally been used in the treatment of acute pulmonary edema."
+},
+{
+"snippet_id": "morphine_medical_uses_pain_04",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Medical uses / Pain",
+"text": "A 2016 Cochrane review concluded that morphine is effective in relieving cancer pain."
+},
+{
+"snippet_id": "morphine_medical_uses_breathlessness_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Medical uses / Shortness of breath",
+"text": "Morphine is beneficial in reducing the symptom of shortness of breath due to both cancer and non-cancer causes."
+},
+{
+"snippet_id": "morphine_medical_uses_opioid_use_disorder_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Medical uses / Opioid use disorder",
+"text": "Morphine is used in a slow-release formulation for opiate substitution therapy (OST) in Austria, Germany, Bulgaria, Slovenia, and Canada for persons with opioid addiction who cannot tolerate either methadone or buprenorphine."
+},
+{
+"snippet_id": "morphine_contraindications_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Contraindications",
+"text": "Relative contraindications to morphine include: Respiratory depression when appropriate equipment is not available."
+},
+{
+"snippet_id": "morphine_adverse_effects_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Adverse effects",
+"text": "Common and short term: Itchiness; Nausea; Vomiting; Constipation; Drowsiness; Dry mouth; Respiratory depression."
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Adverse effects",
+"text": "Other: Opioid dependence; Dizziness; Decreased sex drive; Loss of appetite; Impaired sexual function; Decreased testosterone levels; Depression; Immunodeficiency; Opioid-induced abnormal pain sensitivity; Irregular menstruation; Increased risk of falls; Slowed breathing; Hallucinations."
+},
+{
+"snippet_id": "morphine_constipation_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Adverse effects / Constipation",
+"text": "Like loperamide and other opioids, morphine acts on the myenteric plexus in the intestinal tract, reducing gut motility, and causing constipation."
+},
+{
+"snippet_id": "morphine_constipation_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Adverse effects / Constipation",
+"text": "The gastrointestinal effects of morphine are mediated primarily by μ-opioid receptors in the bowel. By inhibiting gastric emptying and reducing propulsive peristalsis of the intestine, morphine decreases the rate of intestinal transit."
+},
+{
+"snippet_id": "morphine_hormone_imbalance_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Adverse effects / Hormone imbalance",
+"text": "Clinical studies consistently conclude that morphine, like other opioids, often causes hypogonadism and hormone imbalances in chronic users of both sexes. Morphine can interfere with menstruation by suppressing levels of luteinizing hormone."
+},
+{
+"snippet_id": "morphine_hormone_imbalance_02",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Adverse effects / Hormone imbalance",
+"text": "This effect may cause the increased likelihood of osteoporosis and bone fracture observed in chronic morphine users."
+},
+{
+"snippet_id": "morphine_performance_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Adverse effects / Effects on human performance",
+"text": "Morphine has resulted in impaired functioning on critical flicker frequency and impaired performance on the Maddox wing test."
+},
+{
+"snippet_id": "morphine_performance_02",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Adverse effects / Effects on human performance",
+"text": "In terms of cognitive abilities, one study has shown that morphine may negatively impact anterograde and retrograde memory."
+},
+{
+"snippet_id": "morphine_addiction_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Adverse effects / Reinforcement disorders / Addiction",
+"text": "Morphine is a highly addictive substance."
+},
+{
+"snippet_id": "morphine_toxicity_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Toxicity",
+"text": "A large overdose can cause asphyxia and death by respiratory depression if the person does not receive medical attention immediately."
+},
+{
+"snippet_id": "morphine_pharmacodynamics_01",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Pharmacology / Pharmacodynamics",
+"text": "Morphine is a phenanthrene opioid receptor agonist – its main effect is binding to and activating the μ-opioid receptor (MOR) in the central nervous system."
+},
+{
+"snippet_id": "morphine_pharmacodynamics_02",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Pharmacology / Pharmacodynamics",
+"text": "In clinical settings, morphine exerts its principal pharmacological effect on the central nervous system and gastrointestinal tract. Its primary actions of therapeutic value are analgesia and sedation."
+},
+{
+"snippet_id": "morphine_pharmacodynamics_03",
+"source": "[https://en.wikipedia.org/wiki/Morphine](https://en.wikipedia.org/wiki/Morphine)",
+"section": "Pharmacology / Pharmacodynamics",
+"text": "Activation of the MOR is associated with analgesia, sedation, euphoria, physical dependence, and respiratory depression. Morphine is also a κ-opioid receptor (KOR) and δ-opioid receptor (DOR) agonist."
+}
+],
+"extractions": [
+{
+"snippet_id": "morphine_lead_class_use_mechanism_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "opiate"
+},
+{
+"snippet_id": "morphine_lead_class_use_mechanism_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "analgesic"
+},
+{
+"snippet_id": "morphine_lead_class_use_mechanism_01",
+"label": "medical_use",
+"type": "indication",
+"text": "pain"
+},
+{
+"snippet_id": "morphine_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "acts directly on central nervous system"
+},
+{
+"snippet_id": "morphine_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "induces analgesia"
+},
+{
+"snippet_id": "morphine_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "alters pain perception"
+},
+{
+"snippet_id": "morphine_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "alters emotional response to pain"
+},
+{
+"snippet_id": "morphine_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "acute pain"
+},
+{
+"snippet_id": "morphine_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "chronic pain"
+},
+{
+"snippet_id": "morphine_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "myocardial infarction pain"
+},
+{
+"snippet_id": "morphine_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "kidney stone pain"
+},
+{
+"snippet_id": "morphine_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "labor pain"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "drowsiness"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "euphoria"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nausea"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "dizziness"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "sweating"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "constipation"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "decreased respiratory effort"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "vomiting"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "low blood pressure"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "addiction risk"
+},
+{
+"snippet_id": "morphine_lead_adverse_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "abuse risk"
+},
+{
+"snippet_id": "morphine_lead_pregnancy_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "pregnancy"
+},
+{
+"snippet_id": "morphine_lead_pregnancy_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "breastfeeding"
+},
+{
+"snippet_id": "morphine_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "severe acute pain"
+},
+{
+"snippet_id": "morphine_medical_uses_pain_01",
+"label": "medical_use",
+"type": "indication",
+"text": "severe chronic pain"
+},
+{
+"snippet_id": "morphine_medical_uses_pain_02",
+"label": "medical_use",
+"type": "indication",
+"text": "myocardial infarction pain"
+},
+{
+"snippet_id": "morphine_medical_uses_pain_02",
+"label": "medical_use",
+"type": "indication",
+"text": "labor pain"
+},
+{
+"snippet_id": "morphine_medical_uses_pain_03",
+"label": "medical_use",
+"type": "indication",
+"text": "acute pulmonary edema"
+},
+{
+"snippet_id": "morphine_medical_uses_pain_04",
+"label": "medical_use",
+"type": "indication",
+"text": "cancer pain"
+},
+{
+"snippet_id": "morphine_medical_uses_breathlessness_01",
+"label": "medical_use",
+"type": "indication",
+"text": "shortness of breath"
+},
+{
+"snippet_id": "morphine_medical_uses_opioid_use_disorder_01",
+"label": "medical_use",
+"type": "indication",
+"text": "opiate substitution therapy"
+},
+{
+"snippet_id": "morphine_medical_uses_opioid_use_disorder_01",
+"label": "medical_use",
+"type": "indication",
+"text": "opioid addiction"
+},
+{
+"snippet_id": "morphine_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "respiratory depression without appropriate equipment"
+},
+{
+"snippet_id": "morphine_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "itchiness"
+},
+{
+"snippet_id": "morphine_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "nausea"
+},
+{
+"snippet_id": "morphine_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "vomiting"
+},
+{
+"snippet_id": "morphine_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "constipation"
+},
+{
+"snippet_id": "morphine_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "drowsiness"
+},
+{
+"snippet_id": "morphine_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "dry mouth"
+},
+{
+"snippet_id": "morphine_adverse_effects_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "respiratory depression"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "opioid dependence"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "decreased sex drive"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "loss of appetite"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired sexual function"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "decreased testosterone"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "depression"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "immunodeficiency"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "opioid-induced abnormal pain sensitivity"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "irregular menstruation"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "increased fall risk"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "slowed breathing"
+},
+{
+"snippet_id": "morphine_adverse_effects_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hallucination"
+},
+{
+"snippet_id": "morphine_constipation_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "acts on myenteric plexus"
+},
+{
+"snippet_id": "morphine_constipation_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces gut motility"
+},
+{
+"snippet_id": "morphine_constipation_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "constipation"
+},
+{
+"snippet_id": "morphine_constipation_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "gastrointestinal effects mediated by bowel μ-opioid receptors"
+},
+{
+"snippet_id": "morphine_constipation_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "inhibits gastric emptying"
+},
+{
+"snippet_id": "morphine_constipation_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces intestinal peristalsis"
+},
+{
+"snippet_id": "morphine_constipation_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "decreases intestinal transit"
+},
+{
+"snippet_id": "morphine_hormone_imbalance_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hypogonadism"
+},
+{
+"snippet_id": "morphine_hormone_imbalance_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "hormone imbalance"
+},
+{
+"snippet_id": "morphine_hormone_imbalance_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "menstruation interference"
+},
+{
+"snippet_id": "morphine_hormone_imbalance_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "suppresses luteinizing hormone"
+},
+{
+"snippet_id": "morphine_hormone_imbalance_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "osteoporosis"
+},
+{
+"snippet_id": "morphine_hormone_imbalance_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "bone fracture"
+},
+{
+"snippet_id": "morphine_performance_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired critical flicker frequency performance"
+},
+{
+"snippet_id": "morphine_performance_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired Maddox wing test performance"
+},
+{
+"snippet_id": "morphine_performance_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired anterograde memory"
+},
+{
+"snippet_id": "morphine_performance_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "impaired retrograde memory"
+},
+{
+"snippet_id": "morphine_addiction_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "addiction risk"
+},
+{
+"snippet_id": "morphine_toxicity_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "asphyxia"
+},
+{
+"snippet_id": "morphine_toxicity_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "death by respiratory depression"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "phenanthrene opioid receptor agonist"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "binds μ-opioid receptor"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "activates μ-opioid receptor"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "acts on central nervous system"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "acts on gastrointestinal tract"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "produces analgesia"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_02",
+"label": "mechanism",
+"type": "mechanism",
+"text": "produces sedation"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "μ-opioid receptor activation"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "κ-opioid receptor agonism"
+},
+{
+"snippet_id": "morphine_pharmacodynamics_03",
+"label": "mechanism",
+"type": "mechanism",
+"text": "δ-opioid receptor agonism"
+}
+]
+}

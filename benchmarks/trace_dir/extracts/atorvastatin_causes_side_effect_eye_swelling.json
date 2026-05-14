@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_causes_side_effect_eye_swelling",
+  "snippet_id": "atorvastatin_side_effects_other_15",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "effect",
+    "value": "eye swelling"
+  }
+}

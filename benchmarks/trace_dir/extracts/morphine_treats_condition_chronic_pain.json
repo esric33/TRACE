@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_treats_condition_chronic_pain",
+  "snippet_id": "morphine_lead_use_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "condition",
+    "value": "chronic pain"
+  }
+}

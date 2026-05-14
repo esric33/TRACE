@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_contraindicated_for_type_2_diabetes",
+  "snippet_id": "atorvastatin_side_effects_glucose_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "type 2 diabetes"
+  }
+}

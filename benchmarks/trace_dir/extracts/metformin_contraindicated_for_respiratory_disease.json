@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_contraindicated_for_respiratory_disease",
+  "snippet_id": "metformin_lactic_acidosis_02",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "respiratory disease"
+  }
+}

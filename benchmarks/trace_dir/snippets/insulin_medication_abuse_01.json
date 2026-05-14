@@ -1,0 +1,9 @@
+{
+  "snippet_id": "insulin_medication_abuse_01",
+  "text": "The abuse of exogenous insulin carries with it an attendant risk of hypoglycemic coma and death when the amount used is in excess of that required to handle ingested carbohydrate. Acute risks include brain damage, paralysis, and death. Symptoms may include dizziness, weakness, trembling, palpitations, seizures, confusion, headache, drowsiness, coma, diaphoresis and nausea.",
+  "source": "https://en.wikipedia.org/wiki/Insulin_%28medication%29",
+  "meta": {
+    "drug": "Insulin",
+    "section": "Abuse"
+  }
+}

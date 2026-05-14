@@ -88,12 +88,20 @@ def make_capsule(
         )
         snip_ids_in_capsule.add(sid)
 
+    snippet_order_seed = (int(seed) if seed is not None else 0) ^ int(
+        _stable_hash({"qid_payload": qid_payload, "purpose": "snippet_order"}),
+        16,
+    )
+    snippet_order_rng = random.Random(snippet_order_seed)
+    snippet_order_rng.shuffle(snips)
+
     capsule: Dict[str, Any] = {
+        "trace_ir_version": 2,
         "qid": qid,
         "question": spec.render_question(bindings, compiled),
         "context": {"snippets": snips},
         "gold": {
-            "lookup_map": compiled.lookup_map,
+            "fact_map": compiled.fact_map,
             "answer": compiled.answer,
             "dag": compiled.dag,
         },
@@ -106,6 +114,8 @@ def make_capsule(
             "generator_version": generator_version,
             "operators": compiled.operators,
             "snippet_ids": compiled.snippet_ids,
+            "context_snippet_ids": [s["snippet_id"] for s in snips],
+            "context_snippet_order": "deterministic_shuffle_v1",
             "extraction_ids": [v.extraction_id for v in bindings.values()],
             "labels": [v.label for v in bindings.values()],
             "periods": [v.period for v in bindings.values()],

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "aspirin_treats_condition_ischaemic_stroke_prevention",
+  "snippet_id": "aspirin_lead_prevention_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Aspirin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "ischaemic stroke prevention"
+  }
+}

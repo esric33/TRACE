@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_treats_condition_weight_loss_in_obesity",
+  "snippet_id": "metformin_efficacy_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "weight loss in obesity"
+  }
+}

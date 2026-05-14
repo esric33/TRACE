@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_treats_condition_recurrent_myocardial_infarction_risk_reduction",
+  "snippet_id": "warfarin_medical_uses_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "recurrent myocardial infarction risk reduction"
+  }
+}

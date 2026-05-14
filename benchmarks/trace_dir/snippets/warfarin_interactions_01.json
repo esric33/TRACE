@@ -1,0 +1,9 @@
+{
+  "snippet_id": "warfarin_interactions_01",
+  "text": "When taken with nonsteroidal anti-inflammatory drugs (NSAIDs), warfarin increases the risk for gastrointestinal bleeding. This increased risk is due to the antiplatelet effect of NSAIDs and possible damage to the gastrointestinal mucosa.",
+  "source": "https://en.wikipedia.org/wiki/Warfarin",
+  "meta": {
+    "drug": "Warfarin",
+    "section": "Interactions"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_treats_condition_metabolic_abnormality_in_polycystic_ovary_syndrome",
+  "snippet_id": "metformin_medical_uses_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "metabolic abnormality in polycystic ovary syndrome"
+  }
+}

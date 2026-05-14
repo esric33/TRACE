@@ -1,0 +1,9 @@
+{
+  "snippet_id": "metformin_contraindications_01",
+  "text": "Metformin is contraindicated in people with: Severe renal impairment (estimated glomerular filtration rate (eGFR) below 30 mL/min/1.73 m2); Known hypersensitivity to metformin; Acute or chronic metabolic acidosis, including diabetic ketoacidosis (from uncontrolled diabetes), with or without coma.",
+  "source": "https://en.wikipedia.org/wiki/Metformin",
+  "meta": {
+    "drug": "Metformin",
+    "section": "Contraindications"
+  }
+}

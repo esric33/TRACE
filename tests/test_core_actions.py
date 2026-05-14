@@ -37,24 +37,19 @@ class CoreActionTests(unittest.TestCase):
         self.assertEqual(cm.exception.data["phase"], "action")
         self.assertEqual(cm.exception.data["op"], "ADD")
 
-    def test_mul_money_by_fx_rate_changes_currency(self) -> None:
+    def test_mul_quantity_by_scalar_preserves_quantity_contract(self) -> None:
         ctx = make_action_ctx()
-        money = {"value": 10.0, "unit": "USD", "scale": 1.0, "type": "money"}
-        rate = {
-            "value": 0.8,
-            "unit": "fx_rate",
-            "scale": 1,
-            "type": "rate",
-            "from": {"currency": "USD"},
-            "to": {"currency": "GBP"},
-        }
+        money = {"value": 10.0, "unit": "USD", "scale": 1_000_000.0, "type": "money"}
+        scalar = {"value": 0.8, "unit": "", "scale": 1, "type": "scalar"}
 
-        result = _exec_mul(ctx, "n1", {"a": money, "b": rate})
+        result = _exec_mul(ctx, "n1", {"a": money, "b": scalar})
 
-        self.assertEqual(result["unit"], "GBP")
+        self.assertEqual(result["unit"], "USD")
+        self.assertEqual(result["scale"], 1_000_000.0)
+        self.assertEqual(result["type"], "money")
         self.assertAlmostEqual(result["value"], 8.0)
 
-    def test_mul_rejects_fx_rate_with_wrong_source_currency(self) -> None:
+    def test_mul_rejects_fx_rate_without_benchmark_override(self) -> None:
         ctx = make_action_ctx()
         money = {"value": 10.0, "unit": "USD", "scale": 1.0, "type": "money"}
         rate = {
@@ -69,7 +64,7 @@ class CoreActionTests(unittest.TestCase):
         with self.assertRaises(ExecError) as cm:
             _exec_mul(ctx, "n1", {"a": money, "b": rate})
 
-        self.assertEqual(cm.exception.code, "E_unit_mismatch")
+        self.assertEqual(cm.exception.code, "E_type_mismatch")
 
     def test_div_money_by_money_returns_scalar(self) -> None:
         ctx = make_action_ctx()

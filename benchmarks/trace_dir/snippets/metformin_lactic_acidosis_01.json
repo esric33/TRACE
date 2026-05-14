@@ -1,0 +1,9 @@
+{
+  "snippet_id": "metformin_lactic_acidosis_01",
+  "text": "Given severely impaired kidney function, clearance of metformin and lactate is reduced, increasing levels of both, and possibly causing lactic acid buildup. Because metformin decreases liver uptake of lactate, any condition that may precipitate lactic acidosis is a contraindication.",
+  "source": "https://en.wikipedia.org/wiki/Metformin",
+  "meta": {
+    "drug": "Metformin",
+    "section": "Adverse effects / Lactic acidosis"
+  }
+}

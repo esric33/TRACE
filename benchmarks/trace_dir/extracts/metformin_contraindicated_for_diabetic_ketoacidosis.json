@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_contraindicated_for_diabetic_ketoacidosis",
+  "snippet_id": "metformin_contraindications_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "diabetic ketoacidosis"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_contraindicated_for_condition_precipitating_lactic_acidosis",
+  "snippet_id": "metformin_lactic_acidosis_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "condition precipitating lactic acidosis"
+  }
+}

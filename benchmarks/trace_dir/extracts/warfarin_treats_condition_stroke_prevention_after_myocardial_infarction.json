@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_treats_condition_stroke_prevention_after_myocardial_infarction",
+  "snippet_id": "warfarin_medical_uses_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "stroke prevention after myocardial infarction"
+  }
+}

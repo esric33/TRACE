@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_treats_condition_polycystic_ovary_syndrome",
+  "snippet_id": "metformin_lead_use_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "polycystic ovary syndrome"
+  }
+}

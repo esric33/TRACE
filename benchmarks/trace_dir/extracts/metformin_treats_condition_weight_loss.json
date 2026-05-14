@@ -1,0 +1,13 @@
+{
+  "extraction_id": "metformin_treats_condition_weight_loss",
+  "snippet_id": "metformin_weight_change_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Metformin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "weight loss"
+  }
+}

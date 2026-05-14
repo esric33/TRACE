@@ -9,6 +9,9 @@ from statistics import fmean
 from typing import Any, Iterable
 
 
+PROFILE_SCHEMA_VERSION = 2
+
+
 def _iter_refs(value: Any) -> Iterable[str]:
     if isinstance(value, str) and value.startswith("ref:"):
         yield value.split("ref:", 1)[1]
@@ -102,20 +105,32 @@ def _capsule_metrics(capsule: dict[str, Any]) -> dict[str, Any]:
         if isinstance(node, dict) and isinstance(node.get("op"), str)
     ]
     dag_depth, dag_breadth = _dag_depth_and_breadth(dag)
-    lookup_map = gold.get("lookup_map", {}) or {}
+    fact_map = gold.get("fact_map", {}) or {}
     snippets = capsule.get("context", {}).get("snippets", []) or []
+    snippet_ids = [
+        snippet.get("snippet_id")
+        for snippet in snippets
+        if isinstance(snippet, dict) and isinstance(snippet.get("snippet_id"), str)
+    ] if isinstance(snippets, list) else []
+    fact_binding_ids = [
+        value
+        for value in fact_map.values()
+        if isinstance(value, str)
+    ] if isinstance(fact_map, dict) else []
 
     return {
         "qid": capsule.get("qid"),
         "family": _safe_str(meta.get("family"), "unknown"),
         "template_id": _safe_str(meta.get("template_id"), "unknown"),
-        "snippets": len(snippets) if isinstance(snippets, list) else 0,
-        "lookup_bindings": len(lookup_map) if isinstance(lookup_map, dict) else 0,
+        "snippet_count": len(snippet_ids),
+        "snippet_ids": snippet_ids,
+        "fact_bindings": len(fact_binding_ids),
+        "fact_binding_ids": fact_binding_ids,
         "dag_depth": dag_depth,
         "dag_breadth": dag_breadth,
         "action_count": len(ops),
         "action_diversity": len(set(ops)),
-        "lookup_count": len(lookup_map) if isinstance(lookup_map, dict) else 0,
+        "fact_count": len(fact_map) if isinstance(fact_map, dict) else 0,
         "ops": ops,
     }
 
@@ -137,20 +152,45 @@ def build_benchmark_profile(
         op_counts.update(row["ops"])
 
     def summarize(group_rows: list[dict[str, Any]]) -> dict[str, Any]:
+        snippet_counts = [row["snippet_count"] for row in group_rows]
+        fact_counts = [row["fact_count"] for row in group_rows]
+        snippet_occurrences = sum(snippet_counts)
+        fact_binding_occurrences = sum(fact_counts)
+        unique_snippets = {
+            snippet_id
+            for row in group_rows
+            for snippet_id in row["snippet_ids"]
+        }
+        unique_fact_bindings = {
+            binding_id
+            for row in group_rows
+            for binding_id in row["fact_binding_ids"]
+        }
         return {
             "queries": len(group_rows),
-            "snippets_total": sum(row["snippets"] for row in group_rows),
-            "lookup_bindings_total": sum(row["lookup_bindings"] for row in group_rows),
+            "snippet_occurrences": snippet_occurrences,
+            "fact_binding_occurrences": fact_binding_occurrences,
+            "unique_snippets": len(unique_snippets),
+            "unique_fact_bindings": len(unique_fact_bindings),
+            "avg_snippets_per_query": (
+                float(snippet_occurrences / len(group_rows)) if group_rows else 0.0
+            ),
+            "avg_fact_bindings_per_query": (
+                float(fact_binding_occurrences / len(group_rows)) if group_rows else 0.0
+            ),
             "dag_depth": _quantiles([row["dag_depth"] for row in group_rows]),
             "dag_breadth": _quantiles([row["dag_breadth"] for row in group_rows]),
             "action_count": _quantiles([row["action_count"] for row in group_rows]),
             "action_diversity": _quantiles(
                 [row["action_diversity"] for row in group_rows]
             ),
-            "lookup_count": _quantiles([row["lookup_count"] for row in group_rows]),
+            "snippet_count": _quantiles(snippet_counts),
+            "fact_count": _quantiles(fact_counts),
         }
 
+    overall_stats = summarize(rows)
     return {
+        "schema_version": PROFILE_SCHEMA_VERSION,
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "benchmark_id": benchmark_id,
         "corpus_id": corpus_id,
@@ -158,26 +198,32 @@ def build_benchmark_profile(
         "total_templates": len(by_template),
         "total_families": len(by_family),
         "totals": {
-            "snippets": sum(row["snippets"] for row in rows),
-            "lookup_bindings": sum(row["lookup_bindings"] for row in rows),
+            "snippet_occurrences": overall_stats["snippet_occurrences"],
+            "fact_binding_occurrences": overall_stats["fact_binding_occurrences"],
+            "unique_snippets": overall_stats["unique_snippets"],
+            "unique_fact_bindings": overall_stats["unique_fact_bindings"],
+            "avg_snippets_per_query": overall_stats["avg_snippets_per_query"],
+            "avg_fact_bindings_per_query": overall_stats["avg_fact_bindings_per_query"],
         },
         "histograms": {
+            "snippet_count": _histogram(row["snippet_count"] for row in rows),
             "dag_depth": _histogram(row["dag_depth"] for row in rows),
             "dag_breadth": _histogram(row["dag_breadth"] for row in rows),
             "action_count": _histogram(row["action_count"] for row in rows),
             "action_diversity": _histogram(
                 row["action_diversity"] for row in rows
             ),
-            "lookup_count": _histogram(row["lookup_count"] for row in rows),
+            "fact_count": _histogram(row["fact_count"] for row in rows),
         },
         "quantiles": {
+            "snippet_count": _quantiles([row["snippet_count"] for row in rows]),
             "dag_depth": _quantiles([row["dag_depth"] for row in rows]),
             "dag_breadth": _quantiles([row["dag_breadth"] for row in rows]),
             "action_count": _quantiles([row["action_count"] for row in rows]),
             "action_diversity": _quantiles(
                 [row["action_diversity"] for row in rows]
             ),
-            "lookup_count": _quantiles([row["lookup_count"] for row in rows]),
+            "fact_count": _quantiles([row["fact_count"] for row in rows]),
         },
         "operator_counts": {
             key: op_counts[key] for key in sorted(op_counts)
@@ -208,8 +254,12 @@ def render_benchmark_profile_markdown(profile: dict[str, Any]) -> str:
         f"- Queries: `{profile['total_queries']}`",
         f"- Templates: `{profile['total_templates']}`",
         f"- Families: `{profile['total_families']}`",
-        f"- Total snippets: `{profile['totals']['snippets']}`",
-        f"- Total lookup bindings: `{profile['totals']['lookup_bindings']}`",
+        f"- Unique snippets: `{profile['totals']['unique_snippets']}`",
+        f"- Unique fact bindings: `{profile['totals']['unique_fact_bindings']}`",
+        f"- Average snippets/query: `{profile['totals']['avg_snippets_per_query']:.2f}`",
+        f"- Average fact bindings/query: `{profile['totals']['avg_fact_bindings_per_query']:.2f}`",
+        f"- Snippet occurrences: `{profile['totals']['snippet_occurrences']}`",
+        f"- Fact binding occurrences: `{profile['totals']['fact_binding_occurrences']}`",
         "",
         "## Global Quantiles",
         "",
@@ -218,11 +268,12 @@ def render_benchmark_profile_markdown(profile: dict[str, Any]) -> str:
     ]
 
     for metric in (
+        "snippet_count",
         "dag_depth",
         "dag_breadth",
         "action_count",
         "action_diversity",
-        "lookup_count",
+        "fact_count",
     ):
         lines.append(
             f"| `{metric}` | {_fmt_quantile_cell(profile['quantiles'][metric])} |"
@@ -233,8 +284,8 @@ def render_benchmark_profile_markdown(profile: dict[str, Any]) -> str:
             "",
             "## Per Family",
             "",
-            "| Family | Queries | Action Count | DAG Depth | DAG Breadth | Lookup Count |",
-            "| --- | ---: | --- | --- | --- | --- |",
+            "| Family | Queries | Unique Snippets | Unique Facts | Avg Snippets/Query | Avg Facts/Query | Action Count | DAG Depth | DAG Breadth |",
+            "| --- | ---: | ---: | ---: | ---: | ---: | --- | --- | --- |",
         ]
     )
 
@@ -242,10 +293,13 @@ def render_benchmark_profile_markdown(profile: dict[str, Any]) -> str:
         lines.append(
             "| "
             f"`{family}` | {stats['queries']} | "
+            f"{stats['unique_snippets']} | "
+            f"{stats['unique_fact_bindings']} | "
+            f"{stats['avg_snippets_per_query']:.2f} | "
+            f"{stats['avg_fact_bindings_per_query']:.2f} | "
             f"{_fmt_quantile_cell(stats['action_count'])} | "
             f"{_fmt_quantile_cell(stats['dag_depth'])} | "
-            f"{_fmt_quantile_cell(stats['dag_breadth'])} | "
-            f"{_fmt_quantile_cell(stats['lookup_count'])} |"
+            f"{_fmt_quantile_cell(stats['dag_breadth'])} |"
         )
 
     lines.extend(
@@ -253,8 +307,8 @@ def render_benchmark_profile_markdown(profile: dict[str, Any]) -> str:
             "",
             "## Per Template",
             "",
-            "| Template | Queries | Action Count | DAG Depth | Lookup Count |",
-            "| --- | ---: | --- | --- | --- |",
+            "| Template | Queries | Unique Snippets | Unique Facts | Avg Snippets/Query | Avg Facts/Query | Action Count | DAG Depth |",
+            "| --- | ---: | ---: | ---: | ---: | ---: | --- | --- |",
         ]
     )
 
@@ -262,9 +316,12 @@ def render_benchmark_profile_markdown(profile: dict[str, Any]) -> str:
         lines.append(
             "| "
             f"`{template_id}` | {stats['queries']} | "
+            f"{stats['unique_snippets']} | "
+            f"{stats['unique_fact_bindings']} | "
+            f"{stats['avg_snippets_per_query']:.2f} | "
+            f"{stats['avg_fact_bindings_per_query']:.2f} | "
             f"{_fmt_quantile_cell(stats['action_count'])} | "
-            f"{_fmt_quantile_cell(stats['dag_depth'])} | "
-            f"{_fmt_quantile_cell(stats['lookup_count'])} |"
+            f"{_fmt_quantile_cell(stats['dag_depth'])} |"
         )
 
     lines.extend(

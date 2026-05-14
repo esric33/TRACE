@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_treats_condition_homozygous_familial_hypercholesterolemia",
+  "snippet_id": "atorvastatin_dyslipidemia_03",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "homozygous familial hypercholesterolemia"
+  }
+}

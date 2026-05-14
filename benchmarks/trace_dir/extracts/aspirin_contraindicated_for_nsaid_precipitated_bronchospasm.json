@@ -1,0 +1,13 @@
+{
+  "extraction_id": "aspirin_contraindicated_for_nsaid_precipitated_bronchospasm",
+  "snippet_id": "aspirin_contraindications_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Aspirin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "nsaid-precipitated bronchospasm"
+  }
+}

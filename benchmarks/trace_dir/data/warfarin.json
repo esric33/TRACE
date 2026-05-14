@@ -1,0 +1,384 @@
+{
+"snippets": [
+{
+"snippet_id": "warfarin_lead_use_01",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Lead",
+"text": "Warfarin, sold under the brand name Coumadin among others, is used as an anticoagulant medication. It is commonly used to prevent deep vein thrombosis and pulmonary embolism, and to protect against stroke in people who have atrial fibrillation, valvular heart disease, or artificial heart valves."
+},
+{
+"snippet_id": "warfarin_lead_adverse_warning_01",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Lead",
+"text": "The common side effect, a natural consequence of reduced clotting, is bleeding. Less common side effects may include areas of tissue damage, and purple toes syndrome. Use is not recommended during pregnancy."
+},
+{
+"snippet_id": "warfarin_lead_mechanism_01",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Lead",
+"text": "Warfarin decreases blood clotting by blocking vitamin K epoxide reductase, an enzyme that reactivates vitamin K1. Without sufficient active vitamin K1, the plasma concentrations of clotting factors II, VII, IX, and X are reduced and thus have decreased clotting ability."
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Medical uses",
+"text": "Warfarin is indicated for the prophylaxis and treatment of venous thrombosis and its extension, pulmonary embolism; prophylaxis and treatment of thromboembolic complications associated with atrial fibrillation and/or cardiac valve replacement; and reduction in the risk of death, recurrent myocardial infarction, and thromboembolic events such as stroke or systemic embolization after myocardial infarction."
+},
+{
+"snippet_id": "warfarin_medical_uses_02",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Medical uses",
+"text": "Warfarin is best suited for anticoagulation (clot formation inhibition) in areas of slowly running blood (such as in veins and the pooled blood behind artificial and natural valves), and in blood pooled in dysfunctional cardiac atria. Thus, common clinical indications for warfarin use are atrial fibrillation, the presence of artificial heart valves, deep venous thrombosis, and pulmonary embolism."
+},
+{
+"snippet_id": "warfarin_medical_uses_03",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Medical uses",
+"text": "Warfarin is also used in antiphospholipid syndrome. It has been used occasionally after heart attacks (myocardial infarctions), but is far less effective at preventing new thromboses in coronary arteries."
+},
+{
+"snippet_id": "warfarin_contraindications_01",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Contraindications",
+"text": "All anticoagulants are generally contraindicated in situations in which the reduction in clotting that they cause might lead to serious and potentially life-threatening bleeds. This includes people with active bleeding conditions (such as gastrointestinal ulcers), or disease states with increased risk of bleeding (e.g., low platelets, severe liver disease, uncontrolled hypertension). For patients undergoing surgery, treatment with anticoagulants is generally suspended."
+},
+{
+"snippet_id": "warfarin_contraindications_02",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Contraindications",
+"text": "Warfarin should not be given to people with heparin-induced thrombocytopenia until platelet count has improved or normalised. Warfarin is usually best avoided in people with protein C or protein S deficiency, as these thrombophilic conditions increase the risk of skin necrosis, which is a rare but serious side effect associated with warfarin."
+},
+{
+"snippet_id": "warfarin_pregnancy_01",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Contraindications / Pregnancy",
+"text": "Warfarin is contraindicated in pregnancy, as it passes through the placental barrier and may cause bleeding in the fetus; warfarin use during pregnancy is commonly associated with spontaneous abortion, stillbirth, neonatal death, and preterm birth."
+},
+{
+"snippet_id": "warfarin_necrosis_01",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Adverse effects / Warfarin necrosis",
+"text": "A rare but serious complication resulting from treatment with warfarin is warfarin necrosis, which occurs more frequently shortly after commencing treatment in patients with a deficiency of protein C."
+},
+{
+"snippet_id": "warfarin_purple_toe_01",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Adverse effects / Purple toe syndrome",
+"text": "Another rare complication that may occur early during warfarin treatment is purple toe syndrome. This condition is thought to result from small deposits of cholesterol breaking loose and causing embolisms in blood vessels in the skin of the feet, which causes a blueish-purple colour and may be painful."
+},
+{
+"snippet_id": "warfarin_interactions_01",
+"source": "[https://en.wikipedia.org/wiki/Warfarin](https://en.wikipedia.org/wiki/Warfarin)",
+"section": "Interactions",
+"text": "When taken with nonsteroidal anti-inflammatory drugs (NSAIDs), warfarin increases the risk for gastrointestinal bleeding. This increased risk is due to the antiplatelet effect of NSAIDs and possible damage to the gastrointestinal mucosa."
+}
+],
+"extractions": [
+{
+"snippet_id": "warfarin_lead_use_01",
+"label": "drug_class",
+"type": "drug_class",
+"text": "anticoagulant medication"
+},
+{
+"snippet_id": "warfarin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "deep vein thrombosis prevention"
+},
+{
+"snippet_id": "warfarin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "pulmonary embolism prevention"
+},
+{
+"snippet_id": "warfarin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "stroke prevention in atrial fibrillation"
+},
+{
+"snippet_id": "warfarin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "stroke prevention in valvular heart disease"
+},
+{
+"snippet_id": "warfarin_lead_use_01",
+"label": "medical_use",
+"type": "indication",
+"text": "stroke prevention with artificial heart valve"
+},
+{
+"snippet_id": "warfarin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "bleeding"
+},
+{
+"snippet_id": "warfarin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "tissue damage"
+},
+{
+"snippet_id": "warfarin_lead_adverse_warning_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "purple toe syndrome"
+},
+{
+"snippet_id": "warfarin_lead_adverse_warning_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "pregnancy"
+},
+{
+"snippet_id": "warfarin_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "decreases blood clotting"
+},
+{
+"snippet_id": "warfarin_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "blocks vitamin K epoxide reductase"
+},
+{
+"snippet_id": "warfarin_lead_mechanism_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "reduces clotting factor concentration"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "venous thrombosis prevention"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "venous thrombosis treatment"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "pulmonary embolism treatment"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "thromboembolic complication prevention in atrial fibrillation"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "thromboembolic complication treatment in atrial fibrillation"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "thromboembolic complication prevention after cardiac valve replacement"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "thromboembolic complication treatment after cardiac valve replacement"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "recurrent myocardial infarction risk reduction"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "stroke prevention after myocardial infarction"
+},
+{
+"snippet_id": "warfarin_medical_uses_01",
+"label": "medical_use",
+"type": "indication",
+"text": "systemic embolization prevention after myocardial infarction"
+},
+{
+"snippet_id": "warfarin_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "atrial fibrillation"
+},
+{
+"snippet_id": "warfarin_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "artificial heart valve"
+},
+{
+"snippet_id": "warfarin_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "deep venous thrombosis"
+},
+{
+"snippet_id": "warfarin_medical_uses_02",
+"label": "medical_use",
+"type": "indication",
+"text": "pulmonary embolism"
+},
+{
+"snippet_id": "warfarin_medical_uses_03",
+"label": "medical_use",
+"type": "indication",
+"text": "antiphospholipid syndrome"
+},
+{
+"snippet_id": "warfarin_medical_uses_03",
+"label": "medical_use",
+"type": "indication",
+"text": "myocardial infarction"
+},
+{
+"snippet_id": "warfarin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "active bleeding condition"
+},
+{
+"snippet_id": "warfarin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "gastrointestinal ulcer"
+},
+{
+"snippet_id": "warfarin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "low platelet"
+},
+{
+"snippet_id": "warfarin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "severe liver disease"
+},
+{
+"snippet_id": "warfarin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "uncontrolled hypertension"
+},
+{
+"snippet_id": "warfarin_contraindications_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "surgery"
+},
+{
+"snippet_id": "warfarin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "heparin-induced thrombocytopenia"
+},
+{
+"snippet_id": "warfarin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "protein C deficiency"
+},
+{
+"snippet_id": "warfarin_contraindications_02",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "protein S deficiency"
+},
+{
+"snippet_id": "warfarin_contraindications_02",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "skin necrosis"
+},
+{
+"snippet_id": "warfarin_pregnancy_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "pregnancy"
+},
+{
+"snippet_id": "warfarin_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "fetal bleeding"
+},
+{
+"snippet_id": "warfarin_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "spontaneous abortion"
+},
+{
+"snippet_id": "warfarin_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "stillbirth"
+},
+{
+"snippet_id": "warfarin_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "neonatal death"
+},
+{
+"snippet_id": "warfarin_pregnancy_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "preterm birth"
+},
+{
+"snippet_id": "warfarin_necrosis_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "warfarin necrosis"
+},
+{
+"snippet_id": "warfarin_purple_toe_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "purple toe syndrome"
+},
+{
+"snippet_id": "warfarin_purple_toe_01",
+"label": "mechanism",
+"type": "mechanism",
+"text": "cholesterol embolism in skin blood vessel"
+},
+{
+"snippet_id": "warfarin_purple_toe_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "painful blueish-purple foot discoloration"
+},
+{
+"snippet_id": "warfarin_interactions_01",
+"label": "contraindication_or_warning",
+"type": "warning",
+"text": "nonsteroidal anti-inflammatory drug use"
+},
+{
+"snippet_id": "warfarin_interactions_01",
+"label": "adverse_effect",
+"type": "adverse_effect",
+"text": "gastrointestinal bleeding"
+}
+]
+}

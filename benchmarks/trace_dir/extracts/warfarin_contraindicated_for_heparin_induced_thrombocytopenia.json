@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_contraindicated_for_heparin_induced_thrombocytopenia",
+  "snippet_id": "warfarin_contraindications_02",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "heparin-induced thrombocytopenia"
+  }
+}

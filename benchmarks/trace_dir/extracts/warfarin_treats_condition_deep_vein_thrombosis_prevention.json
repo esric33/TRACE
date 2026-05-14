@@ -1,0 +1,13 @@
+{
+  "extraction_id": "warfarin_treats_condition_deep_vein_thrombosis_prevention",
+  "snippet_id": "warfarin_lead_use_01",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Warfarin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "deep vein thrombosis prevention"
+  }
+}

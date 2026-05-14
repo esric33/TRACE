@@ -1,0 +1,13 @@
+{
+  "extraction_id": "insulin_causes_side_effect_hypoglycemia_2",
+  "snippet_id": "insulin_medication_potential_complications_02",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Insulin"
+  },
+  "object": {
+    "type": "effect",
+    "value": "hypoglycemia"
+  }
+}

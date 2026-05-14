@@ -1,0 +1,13 @@
+{
+  "extraction_id": "atorvastatin_treats_condition_combined_hyperlipidemia",
+  "snippet_id": "atorvastatin_dyslipidemia_06",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Atorvastatin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "combined hyperlipidemia"
+  }
+}

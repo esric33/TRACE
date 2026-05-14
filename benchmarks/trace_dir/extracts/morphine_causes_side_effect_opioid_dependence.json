@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_causes_side_effect_opioid_dependence",
+  "snippet_id": "morphine_adverse_effects_02",
+  "label": "causes_side_effect",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "effect",
+    "value": "opioid dependence"
+  }
+}

@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 from TRACE.core.benchmarks.loader import load_benchmark
+from TRACE.reporting.summary import write_run_summary_artifacts
 
 
 def _ensure_dir(p: Path) -> None:
@@ -55,6 +56,36 @@ def _iter_jsonl(path: Path) -> List[Dict[str, Any]]:
     return rows
 
 
+def _capsule_qids(cap_dir: Path) -> set[str]:
+    qids: set[str] = set()
+    for p in sorted(cap_dir.glob("*.json")):
+        with p.open("r", encoding="utf-8") as f:
+            capsule = json.load(f)
+        qid = capsule.get("qid")
+        if isinstance(qid, str) and qid:
+            qids.add(qid)
+    return qids
+
+
+def _completed_result_qids(results_path: Path) -> set[str]:
+    qids: set[str] = set()
+    for row in _iter_jsonl(results_path):
+        qid = row.get("qid")
+        if isinstance(qid, str) and qid:
+            qids.add(qid)
+    return qids
+
+
+def _job_is_complete(job: "Job") -> bool:
+    if not job.results_path.exists():
+        return False
+    expected = _capsule_qids(job.cap_dir)
+    if not expected:
+        return False
+    completed = _completed_result_qids(job.results_path)
+    return expected <= completed
+
+
 @dataclass(frozen=True)
 class Job:
     d: int
@@ -66,18 +97,6 @@ class Job:
     leaf_dir: Path
     traces_dir: Path
     results_path: Path
-    cache_use: Optional[Path]
-
-
-def _cache_for_job(cache_base: Path, *, provider: str, run_id: str, d: int) -> Path:
-    """
-    Zero contention: one cache per (provider, run_id, d).
-    Example: cache/lookups.openai.run_openai_5d.d5.json
-    """
-    stem = cache_base.stem
-    suffix = cache_base.suffix or ".json"
-    name = f"{stem}.{provider}.{run_id}.d{d}{suffix}"
-    return cache_base.with_name(name)
 
 
 def _build_jobs(
@@ -91,7 +110,6 @@ def _build_jobs(
     args,
 ) -> List[Job]:
     jobs: List[Job] = []
-    cache_base = Path(args.cache)
 
     for d, cap_dir in d_folders:
         for provider in providers:
@@ -128,13 +146,6 @@ def _build_jobs(
                     results_path = leaf_dir / "results.jsonl"
                     _ensure_dir(traces_dir)
 
-                    cache_use = None
-                    if mode in ("retrieval", "full"):
-                        cache_use = _cache_for_job(
-                            cache_base, provider=provider, run_id=run_id, d=d
-                        )
-                        _ensure_dir(cache_use.parent)
-
                     jobs.append(
                         Job(
                             d=d,
@@ -146,7 +157,6 @@ def _build_jobs(
                             leaf_dir=leaf_dir,
                             traces_dir=traces_dir,
                             results_path=results_path,
-                            cache_use=cache_use,
                         )
                     )
 
@@ -154,6 +164,13 @@ def _build_jobs(
 
 
 def _run_job(job: Job, args) -> Path:
+    if args.resume and _job_is_complete(job):
+        print(
+            f"[resume] complete d={job.d} provider={job.provider} "
+            f"mode={job.mode} model={job.model_tag}"
+        )
+        return job.results_path
+
     cmd = [
         sys.executable,
         "-m",
@@ -183,14 +200,10 @@ def _run_job(job: Job, args) -> Path:
     if args.verbose:
         cmd.append("--verbose")
 
-    if job.mode in ("retrieval", "full"):
+    if job.mode == "full":
         cmd += [
             "--model",
             job.model_use,  # type: ignore[arg-type]
-            "--schema",
-            args.schema,
-            "--cache",
-            str(job.cache_use),  # type: ignore[arg-type]
         ]
 
     print(
@@ -215,7 +228,7 @@ def main() -> None:
     )
 
     # single vs multi
-    ap.add_argument("--mode", choices=["oracle", "retrieval", "full"], default=None)
+    ap.add_argument("--mode", choices=["oracle", "full"], default=None)
     ap.add_argument("--modes", nargs="+", default=None)
 
     ap.add_argument("--model", default=None)
@@ -235,9 +248,6 @@ def main() -> None:
         help="Multiple providers (e.g., openai anthropic gemini)",
     )
 
-    ap.add_argument("--schema", default=None)
-    ap.add_argument("--cache", default="cache/lookups.json")
-
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--dump-trace-on-pass", action="store_true")
 
@@ -253,8 +263,6 @@ def main() -> None:
     benchmark_def = load_benchmark(args.benchmark)
     if args.extracts is None:
         args.extracts = str(benchmark_def.extracts_dir)
-    if args.schema is None:
-        args.schema = str(benchmark_def.schemas_dir / "model_fact.json")
 
     corpus_dir = Path(args.corpus_dir)
     out_dir = Path(args.out_dir)
@@ -269,10 +277,10 @@ def main() -> None:
         raise SystemExit("Provide --mode or --modes")
 
     models = args.models if args.models else ([args.model] if args.model else None)
-    if any(m in ("retrieval", "full") for m in modes) and (
+    if any(m == "full" for m in modes) and (
         not models or models == [None]
     ):
-        raise SystemExit("Provide --model/--models for retrieval/full")
+        raise SystemExit("Provide --model/--models for full")
 
     providers = (
         args.providers
@@ -291,9 +299,6 @@ def main() -> None:
         "modes": modes,
         "models": [m for m in (models or []) if m],
         "providers": providers,
-        "schema": str(Path(args.schema).resolve()),
-        "cache_base": str(Path(args.cache).resolve()),
-        "cache_policy": "per (provider, run_id, d): lookups.{provider}.{run_id}.d{d}.json",
         "distractors": [d for d, _ in d_folders],
         "max_jobs": int(args.max_jobs),
     }
@@ -344,9 +349,10 @@ def main() -> None:
             r["mode"] = j.mode
             r["model"] = j.model_use
             r["model_tag"] = j.model_tag
-            r["cache_path"] = str(j.cache_use) if j.cache_use else None
         _append_jsonl(results_all, rows)
+        write_run_summary_artifacts(rp, out_dir=j.leaf_dir)
 
+    write_run_summary_artifacts(results_all, out_dir=out_dir)
     print(f"Wrote {results_all}")
 
 

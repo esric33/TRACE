@@ -1,0 +1,13 @@
+{
+  "extraction_id": "insulin_contraindicated_for_zinc_preservative_allergy",
+  "snippet_id": "insulin_medication_side_effects_01",
+  "label": "contraindicated_for",
+  "subject": {
+    "type": "drug",
+    "value": "Insulin"
+  },
+  "object": {
+    "type": "condition",
+    "value": "zinc preservative allergy"
+  }
+}

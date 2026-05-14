@@ -2,14 +2,13 @@ from __future__ import annotations
 
 import sys
 
-from TRACE.cli import benchmark_tools, compare, generate, run, run_sweep
+from TRACE.cli import benchmark_tools, generate, run, run_sweep
 
 
 COMMANDS = {
     "generate": generate.main,
     "run": run.main,
     "run_sweep": run_sweep.main,
-    "compare": compare.main,
     "benchmark_tools": benchmark_tools.main,
 }
 

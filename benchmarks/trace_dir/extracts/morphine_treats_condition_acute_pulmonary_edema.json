@@ -1,0 +1,13 @@
+{
+  "extraction_id": "morphine_treats_condition_acute_pulmonary_edema",
+  "snippet_id": "morphine_medical_uses_pain_03",
+  "label": "treats_condition",
+  "subject": {
+    "type": "drug",
+    "value": "Morphine"
+  },
+  "object": {
+    "type": "condition",
+    "value": "acute pulmonary edema"
+  }
+}
